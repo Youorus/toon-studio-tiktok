@@ -1,0 +1,29 @@
+nom: Comprime
+type: organe
+echelle: 1.0
+couches:
+- id: corps
+  images:
+    defaut: corps.png
+  pivot:
+  - 377
+  - 823
+visage:
+  couche: corps
+  yeux:
+  - 294
+  - 345
+  rayon_oeil: 98
+  ecart: 1.95
+  bouche:
+  - 294
+  - 512
+  largeur_bouche: 147
+  peau: '#F3F3F1'
+  paupiere: 0.2
+  pupille: 0.8
+  forme_oeil: 1.2
+mouvement:
+  souplesse: 1.0
+poses:
+  defaut: {}

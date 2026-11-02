@@ -1,0 +1,29 @@
+nom: Seringue
+type: organe
+echelle: 1.0
+couches:
+- id: corps
+  images:
+    defaut: corps.png
+  pivot:
+  - 127
+  - 900
+visage:
+  couche: corps
+  yeux:
+  - 126
+  - 531
+  rayon_oeil: 33
+  ecart: 1.95
+  bouche:
+  - 126
+  - 587
+  largeur_bouche: 50
+  peau: '#90BBD2'
+  paupiere: 0.2
+  pupille: 0.8
+  forme_oeil: 1.2
+mouvement:
+  souplesse: 1.0
+poses:
+  defaut: {}

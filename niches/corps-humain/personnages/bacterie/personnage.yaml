@@ -1,0 +1,29 @@
+nom: Bacterie
+type: organe
+echelle: 1.0
+couches:
+- id: corps
+  images:
+    defaut: corps.png
+  pivot:
+  - 450
+  - 885
+visage:
+  couche: corps
+  yeux:
+  - 485
+  - 623
+  rayon_oeil: 45
+  ecart: 1.95
+  bouche:
+  - 485
+  - 700
+  largeur_bouche: 68
+  peau: '#6CE091'
+  paupiere: 0.2
+  pupille: 0.8
+  forme_oeil: 1.2
+mouvement:
+  souplesse: 1.0
+poses:
+  defaut: {}

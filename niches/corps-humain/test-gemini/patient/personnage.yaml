@@ -1,0 +1,18 @@
+# Patient (version de test Gemini). Ses bras sont dessinés dans l'image : pas de bras articulés.
+nom: Patient
+type: humain
+echelle: 1.2
+couches:
+  - id: corps
+    images: {defaut: corps.png}
+    pivot: [156, 1100]
+decoupe_tete: {y: 262, cou: [156, 262]}
+visage:
+  couche: tete
+  yeux: [156, 178]
+  rayon_oeil: 27
+  ecart: 2.1
+  bouche: [156, 230]
+  largeur_bouche: 52
+  peau: '#FFD2BD'
+mouvement: {souplesse: .15, respiration: .01}

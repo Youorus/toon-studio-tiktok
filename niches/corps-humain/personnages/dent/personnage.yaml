@@ -1,0 +1,29 @@
+nom: Dent
+type: organe
+echelle: 1.0
+couches:
+- id: corps
+  images:
+    defaut: corps.png
+  pivot:
+  - 377
+  - 818
+visage:
+  couche: corps
+  yeux:
+  - 300
+  - 247
+  rayon_oeil: 98
+  ecart: 1.95
+  bouche:
+  - 300
+  - 414
+  largeur_bouche: 147
+  peau: '#F1F1EE'
+  paupiere: 0.2
+  pupille: 0.8
+  forme_oeil: 1.2
+mouvement:
+  souplesse: 1.0
+poses:
+  defaut: {}

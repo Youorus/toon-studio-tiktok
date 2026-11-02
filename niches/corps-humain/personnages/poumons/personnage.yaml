@@ -1,0 +1,29 @@
+nom: Poumons
+type: organe
+echelle: 1.0
+couches:
+- id: corps
+  images:
+    defaut: corps.png
+  pivot:
+  - 406
+  - 670
+visage:
+  couche: corps
+  yeux:
+  - 600
+  - 400
+  rayon_oeil: 65
+  ecart: 1.95
+  bouche:
+  - 600
+  - 495
+  largeur_bouche: 97
+  peau: '#FB817D'
+  paupiere: 0.2
+  pupille: 0.8
+  forme_oeil: 1.2
+mouvement:
+  souplesse: 1.0
+poses:
+  defaut: {}

@@ -1,0 +1,29 @@
+nom: Vesicule
+type: organe
+echelle: 1.0
+couches:
+- id: corps
+  images:
+    defaut: corps.png
+  pivot:
+  - 450
+  - 855
+visage:
+  couche: corps
+  yeux:
+  - 329
+  - 492
+  rayon_oeil: 76
+  ecart: 1.95
+  bouche:
+  - 329
+  - 621
+  largeur_bouche: 114
+  peau: '#FD7675'
+  paupiere: 0.2
+  pupille: 0.8
+  forme_oeil: 1.2
+mouvement:
+  souplesse: 1.0
+poses:
+  defaut: {}

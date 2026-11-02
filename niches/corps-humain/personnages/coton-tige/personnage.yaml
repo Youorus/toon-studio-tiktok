@@ -1,0 +1,29 @@
+nom: Coton tige
+type: organe
+echelle: 1.0
+couches:
+- id: corps
+  images:
+    defaut: corps.png
+  pivot:
+  - 330
+  - 900
+visage:
+  couche: corps
+  yeux:
+  - 463
+  - 173
+  rayon_oeil: 24
+  ecart: 1.95
+  bouche:
+  - 463
+  - 214
+  largeur_bouche: 37
+  peau: '#F9F8F5'
+  paupiere: 0.2
+  pupille: 0.8
+  forme_oeil: 1.2
+mouvement:
+  souplesse: 1.0
+poses:
+  defaut: {}

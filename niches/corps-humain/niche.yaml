@@ -1,0 +1,33 @@
+# Niche « Ton corps, expliqué » : des organes qui vivent la galère en se chamaillant, puis la docteure explique.
+nom: Ton corps, expliqué
+public: 18-25 ans (et tous âges)
+langue: fr
+ton: >
+  Humour d'abord : les organes vivent le problème entre eux (dispute, panique, gêne, un peu crade assumé),
+  puis la docteure, attachante et rassurante, explique simplement le pourquoi au patient. Faits vérifiés, jamais
+  de conseil dangereux ; « consulte si… » quand c'est utile.
+format:
+  duree: 61-65 s (monétisation TikTok à partir d'une minute)
+  structure: [accroche dans le corps (0-3 s), dispute des organes (~25 s), cabinet - explication (~25 s), chute + question (~8 s)]
+filigrane: "@toncorps.explique"
+# Couleurs : voir docs/DIRECTION-ARTISTIQUE.md
+palette:                 # validée par Marc le 2/11/2026 (docs/DIRECTION-ARTISTIQUE.md)
+  accent: '#D45C58'        # rouge microbe : cartes, boutons
+  legende: '#FFD84D'       # jaune : mot en cours dans les sous-titres
+  tissus: ['#6D383B', '#B65F63', '#C77779', '#8F474B', '#FFF9ED', '#181313', '#91D3DF']
+  microbes: ['#5BDD79', '#31B958', '#D45C58']
+  cabinet: ['#B3C2CC', '#E5E6E6', '#6D5F5A']
+style_personnage: >
+  smooth retro 2D cel animation look like a classic animation studio, clean confident smooth dark ink outlines,
+  smooth flat cel paint with soft simple cel shading and glossy highlights, very subtle paper texture only, vivid saturated
+  colors, cute and appealing, no face, no eyes, no mouth, no text
+style_decor: >
+  background for a smooth retro 2D cel animation, clean dark ink outlines, smooth cel paint with glossy highlights, very subtle
+  paper texture, large calm empty area in the middle for characters, no people, no faces, no text, no logos, vertical 9:16
+recraft:
+  # Kit v3 (validé) : aucun style Recraft enregistré n'est utilisé ; le rendu vient de la consigne `style` de kit.yaml
+  # + la palette imposée (palettes.tissus / microbes). Les styles v2 ci-dessous (rendu crayon, écarté) restent pour mémoire.
+  modele: recraftv4_1
+  style_humains: c1a98435-a38b-4c80-9337-1374a2e09a1f   # v2 crayon, non utilisé
+  style_id: 9a26d75f-3662-4431-b403-d19a0f3c833d        # v2 crayon, non utilisé
+personnages_recurrents: [docteure, docteur, patient, patiente]

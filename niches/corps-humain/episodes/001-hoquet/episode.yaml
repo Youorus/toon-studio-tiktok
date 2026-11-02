@@ -1,0 +1,43 @@
+# Épisode test, sans voix. Faits : MSD Manuals (fr) « Hoquet » ; sante.fr « Hoquet » ; NHS « Hiccups » (vérifiés le 2/11/2026).
+titre: Pourquoi on a le hoquet ?
+niche: corps-humain
+duree_cible: 62
+plans:
+  - id: dans-le-thorax
+    decor: decors/gros-plan-thorax.png
+    zoom: [1.0, 1.05]
+    acteurs:
+      poumons:    {perso: personnages/poumons,    x: 330, y: 1060, echelle: 1.0}
+      estomac:    {perso: personnages/estomac,    x: 800, y: 1110, echelle: .85}
+      diaphragme: {perso: personnages/diaphragme, x: 540, y: 1540, echelle: 1.05}
+    repliques:
+      - {qui: diaphragme, dit: "HIC !", emotion: choque, effets: {diaphragme: hic}, reactions: {poumons: choque, estomac: choque},
+         carte: {type: choc, texte: "HIC !"}, duree: 1.4}
+      - {qui: poumons, dit: "Eh ! Arrête de sauter, j'étais en train d'inspirer !", emotion: fache}
+      - {qui: diaphragme, dit: "C'est pas moi… je bouge tout seul ! HIC !", emotion: gene, effets: {diaphragme: hic}, effet_delai: 1.6}
+      - {qui: estomac, dit: "Oups. C'est peut-être ma faute.", emotion: gene, effets: {estomac: gonfle}}
+      - {qui: estomac, dit: "Il a avalé son kebab en trois minutes. Avec un soda.", emotion: degoute, reactions: {poumons: degoute}}
+      - {qui: estomac, dit: "Je suis gonflé comme un ballon et j'appuie sur le diaphragme…", emotion: fatigue, effets: {estomac: gonfle}}
+      - {qui: diaphragme, dit: "HIC ! Voilà. Merci.", emotion: fache, effets: {diaphragme: hic}, reactions: {estomac: gene}}
+      - {qui: poumons, dit: "Et à chaque « hic », la porte de la gorge me claque au nez !", emotion: fache, effets: {poumons: tremble},
+         carte: {type: choc, texte: "CLAC !", fond: '#5B8DEF'}}
+  - id: au-cabinet
+    decor: decors/cabinet.png
+    zoom: [1.0, 1.03]
+    acteurs:
+      patient:  {perso: personnages/patient,  x: 800, y: 1690, echelle: .9}
+      docteure: {perso: personnages/docteure, x: 290, y: 1700, echelle: .92}
+    repliques:
+      - {qui: patient, dit: "Docteure, j'ai le hoquet depuis une heure. HIC !", emotion: inquiet, effets: {patient: hic}, effet_delai: 2.2}
+      - {qui: docteure, dit: "Ton diaphragme, le muscle sous tes poumons, se contracte tout seul, par à-coups.", emotion: content, pose: explique,
+         carte: {type: liste, titre: "LE HOQUET", lignes: [["Le diaphragme se contracte", ok], ["Tout seul, par à-coups", ok]]}}
+      - {qui: docteure, dit: "Juste après, ta glotte se ferme d'un coup. C'est elle qui fait « hic ».", emotion: malicieux, pose: doigt,
+         carte: {type: choc, texte: "HIC = CLAC", fond: '#5B8DEF'}}
+      - {qui: docteure, dit: "Manger trop vite, une boisson gazeuse, le stress ou un fou rire peuvent le déclencher.", emotion: neutre, pose: deux_mains,
+         carte: {type: liste, titre: "LES DÉCLENCHEURS", lignes: [["Manger trop vite", attention], ["Boisson gazeuse", attention], ["Stress, émotions", attention]]}}
+      - {qui: patient, dit: "Kebab, soda… et j'ai ri devant une vidéo.", emotion: gene, reactions: {docteure: rire}}
+      - {qui: docteure, dit: "Bonne nouvelle : en général, il part tout seul en quelques minutes.", emotion: content, pose: pouce}
+      - {qui: docteure, dit: "Mais s'il dure plus de 48 heures, va consulter.", emotion: inquiet, pose: doigt,
+         carte: {type: alerte, texte: "Plus de 48 heures ?\nConsulte un médecin."}}
+      - {qui: docteure, dit: "Et toi, ton record de hoquet, c'est combien de temps ?", emotion: malicieux, pose: salut,
+         carte: {type: vote, question: "TON RECORD ?", oui: "- 5 MIN", non: "+ 1 HEURE"}}

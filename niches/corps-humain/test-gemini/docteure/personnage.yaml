@@ -1,0 +1,30 @@
+# Docteure (version de test générée par Gemini ; la version définitive viendra de Recraft avec le style maison).
+nom: Docteure
+type: humain
+echelle: 1.25
+couches:
+  - id: corps
+    images: {defaut: corps.png}
+    pivot: [157, 1100]          # bas-centre (entre les pieds)
+decoupe_tete: {y: 340, cou: [157, 338]}   # la tête est découpée au cou pour pencher
+visage:
+  couche: tete
+  yeux: [157, 228]
+  rayon_oeil: 29
+  ecart: 2.05
+  bouche: [157, 288]
+  largeur_bouche: 56
+  peau: '#ECA078'
+bras:
+  - {id: bras_g, cote: -1, epaule: [72, 392], longueur: 330, epaisseur: 46, manche: '#F6F8FC', peau: '#ECA078', devant: true}
+  - {id: bras_d, cote: 1, epaule: [242, 392], longueur: 330, epaisseur: 46, manche: '#F6F8FC', peau: '#ECA078', devant: true}
+mouvement: {souplesse: .15, respiration: .01}
+poses:
+  defaut: {}
+  explique: {bras_d: {epaule: 40, coude: 75, main: ouvert}}
+  deux_mains: {bras_d: {epaule: 40, coude: 75, main: ouvert}, bras_g: {epaule: 40, coude: 75, main: ouvert}}
+  doigt: {bras_d: {epaule: 150, coude: 20, main: doigt}}
+  pouce: {bras_d: {epaule: 25, coude: 105, main: pouce}}
+  salut: {bras_d: {epaule: 145, coude: 25, main: salut}}
+  pense: {bras_g: {epaule: 18, coude: 150, main: poing}}
+  hanches: {bras_g: {epaule: 38, coude: -75, main: poing}, bras_d: {epaule: 38, coude: -75, main: poing}}

@@ -1,0 +1,29 @@
+nom: Uterus
+type: organe
+echelle: 1.0
+couches:
+- id: corps
+  images:
+    defaut: corps.png
+  pivot:
+  - 450
+  - 698
+visage:
+  couche: corps
+  yeux:
+  - 451
+  - 199
+  rayon_oeil: 58
+  ecart: 1.95
+  bouche:
+  - 451
+  - 298
+  largeur_bouche: 88
+  peau: '#F97D7E'
+  paupiere: 0.2
+  pupille: 0.8
+  forme_oeil: 1.2
+mouvement:
+  souplesse: 1.0
+poses:
+  defaut: {}

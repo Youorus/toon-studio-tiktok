@@ -1,0 +1,12 @@
+.env
+.venv/
+__pycache__/
+data/cache/
+**/out/
+*.pyc
+.DS_Store
+# essais écartés, gardés en local seulement
+niches/*/recraft-v1-rejete/
+niches/*/recraft/elements-v2-crayon/
+niches/*/recraft/references/
+niches/*/archives/

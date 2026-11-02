@@ -1,0 +1,34 @@
+nom: Docteur
+type: humain
+echelle: 1.0
+couches:
+- id: corps
+  images:
+    defaut: corps.png
+  pivot:
+  - 256
+  - 1100
+decoupe_tete:
+  y: 187
+  cou:
+  - 168
+  - 185
+visage:
+  couche: tete
+  yeux:
+  - 168
+  - 133
+  rayon_oeil: 16
+  ecart: 2.15
+  bouche:
+  - 168
+  - 162
+  largeur_bouche: 25
+  peau: '#F7C6A3'
+  forme_oeil: 1.15
+  pupille: 0.85
+mouvement:
+  souplesse: 0.15
+  respiration: 0.008
+poses:
+  defaut: {}

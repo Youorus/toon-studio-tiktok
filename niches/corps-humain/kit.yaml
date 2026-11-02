@@ -1,0 +1,251 @@
+style: smooth retro 2D cel animation look like a classic animation studio, clean confident smooth dark ink outlines, smooth flat cel paint with soft simple cel shading and glossy highlights, very subtle paper texture only,
+  no pencil texture, no hatching, no crosshatching, no sketchy lines, no watercolor bleeding, vivid saturated colors, cute and appealing, no text, no watermark
+sans_visage: no face, no eyes, no mouth, no eyebrows
+fond_blanc: centered, isolated on a plain off-white background, whole subject visible with margin
+palettes:
+  tissus:
+  - '#6D383B'
+  - '#B65F63'
+  - '#C77779'
+  - '#8F474B'
+  - '#FFF9ED'
+  - '#181313'
+  - '#91D3DF'
+  microbes:
+  - '#5BDD79'
+  - '#31B958'
+  - '#D45C58'
+  - '#181313'
+  - '#FFF9ED'
+references: []
+elements:
+- nom: docteure
+  type: humain
+  style: aucun
+  n: 1
+  ratio: '9:16'
+  prompt: full body front view of a mature white woman doctor in her mid 50s, kind and warm, standing, arms relaxed with hands in the pockets of her white coat, chestnut hair with a few grey strands in a low bun, navy blue
+    blouse, white coat, grey trousers, brown shoes, stethoscope, round head with blank skin face ({sans_visage}, no nose), fair skin, {fond_blanc}
+- nom: docteur
+  type: humain
+  style: aucun
+  n: 1
+  ratio: '9:16'
+  prompt: full body front view of a mature white man doctor in his mid 50s, kind and warm, standing, arms relaxed with hands in the pockets of his white coat, salt-and-pepper short hair and trimmed grey beard, light blue shirt
+    with a mustard bow tie, white coat, brown trousers, brown shoes, stethoscope, round head with blank skin face ({sans_visage}, no nose), fair skin, {fond_blanc}
+- nom: patient
+  type: humain
+  style: aucun
+  n: 1
+  ratio: '9:16'
+  prompt: full body front view of a white man around 35 years old, standing, arms relaxed along the body, short brown hair, light stubble, green sweater, beige chinos, brown sneakers, round head with blank skin face ({sans_visage},
+    no nose), fair skin, {fond_blanc}
+- nom: patiente
+  type: humain
+  style: aucun
+  n: 1
+  ratio: '9:16'
+  prompt: full body front view of a white woman around 30 years old, standing, arms relaxed along the body, wavy auburn shoulder-length hair, mustard cardigan over a white t-shirt, blue jeans, white sneakers, round head with
+    blank skin face ({sans_visage}, no nose), fair skin, {fond_blanc}
+- nom: estomac
+  type: organe
+  style: aucun
+  n: 1
+  ratio: '1:1'
+  prompt: a human stomach in vivid reddish-pink with darker wine-red shading and cream glossy highlights, {sans_visage}, {fond_blanc}
+  couleurs: tissus
+- nom: intestin
+  type: organe
+  style: aucun
+  n: 1
+  ratio: '1:1'
+  prompt: a coiled human small intestine in vivid reddish-pink with darker wine-red shading and cream glossy highlights, {sans_visage}, {fond_blanc}
+  couleurs: tissus
+- nom: colon
+  type: organe
+  style: aucun
+  n: 1
+  ratio: '1:1'
+  prompt: a human large intestine (colon) frame shape in vivid reddish-pink with darker wine-red shading and cream glossy highlights, {sans_visage}, {fond_blanc}
+  couleurs: tissus
+- nom: foie
+  type: organe
+  style: aucun
+  n: 1
+  ratio: '1:1'
+  prompt: a human liver in vivid reddish-pink with darker wine-red shading and cream glossy highlights, {sans_visage}, {fond_blanc}
+  couleurs: tissus
+- nom: coeur
+  type: organe
+  style: aucun
+  n: 1
+  ratio: '1:1'
+  prompt: an anatomical human heart, simplified and cute in vivid reddish-pink with darker wine-red shading and cream glossy highlights, {sans_visage}, {fond_blanc}
+  couleurs: tissus
+- nom: poumons
+  type: organe
+  style: aucun
+  n: 1
+  ratio: '1:1'
+  prompt: a pair of human lungs as one shape in vivid reddish-pink with darker wine-red shading and cream glossy highlights, {sans_visage}, {fond_blanc}
+  couleurs: tissus
+- nom: reins
+  type: organe
+  style: aucun
+  n: 1
+  ratio: '1:1'
+  prompt: a pair of human kidneys side by side in vivid reddish-pink with darker wine-red shading and cream glossy highlights, {sans_visage}, {fond_blanc}
+  couleurs: tissus
+- nom: vessie
+  type: organe
+  style: aucun
+  n: 1
+  ratio: '1:1'
+  prompt: a human bladder, slightly full in vivid reddish-pink with darker wine-red shading and cream glossy highlights, {sans_visage}, {fond_blanc}
+  couleurs: tissus
+- nom: diaphragme
+  type: organe
+  style: aucun
+  n: 1
+  ratio: '1:1'
+  prompt: a human diaphragm muscle drawn as a wide smooth arched dome shape, like an upside-down bowl seen from the front, wider than tall, with light muscle fiber stripes radiating from the top, in vivid reddish-pink with
+    darker wine-red shading and cream glossy highlights, {sans_visage}, {fond_blanc}
+  couleurs: tissus
+- nom: langue
+  type: organe
+  style: aucun
+  n: 1
+  ratio: '1:1'
+  prompt: a human tongue seen from above, long and rounded in vivid reddish-pink with darker wine-red shading and cream glossy highlights, {sans_visage}, {fond_blanc}
+  couleurs: tissus
+- nom: peau
+  type: organe
+  style: aucun
+  n: 1
+  ratio: '1:1'
+  prompt: a small square patch of human skin seen from above with a few pores in vivid reddish-pink with darker wine-red shading and cream glossy highlights, {sans_visage}, {fond_blanc}
+  couleurs: tissus
+- nom: vesicule
+  type: organe
+  style: aucun
+  n: 1
+  ratio: '1:1'
+  prompt: a human gallbladder in vivid reddish-pink with darker wine-red shading and cream glossy highlights, {sans_visage}, {fond_blanc}
+  couleurs: tissus
+- nom: uterus
+  type: organe
+  style: aucun
+  n: 1
+  ratio: '1:1'
+  prompt: a human uterus with ovaries in vivid reddish-pink with darker wine-red shading and cream glossy highlights, {sans_visage}, {fond_blanc}
+  couleurs: tissus
+- nom: cerveau
+  type: organe
+  style: aucun
+  n: 1
+  ratio: '1:1'
+  prompt: a human brain, side view, soft pink, {sans_visage}, {fond_blanc}
+- nom: dent
+  type: organe
+  style: aucun
+  n: 1
+  ratio: '1:1'
+  prompt: a big human molar tooth, ivory white enamel with light grey shading, {sans_visage}, {fond_blanc}
+- nom: oeil
+  type: organe
+  style: aucun
+  n: 1
+  ratio: '1:1'
+  prompt: a human eyeball seen from the side with the optic nerve, white eyeball, brown iris, {sans_visage}, {fond_blanc}
+- nom: comprime
+  type: organe
+  style: aucun
+  n: 1
+  ratio: '1:1'
+  prompt: a white round pill tablet with a center line, {sans_visage}, {fond_blanc}
+- nom: seringue
+  type: organe
+  style: aucun
+  n: 1
+  ratio: '1:1'
+  prompt: a medical syringe, pale blue barrel, white plunger, silver needle, {sans_visage}, {fond_blanc}
+- nom: thermometre
+  type: organe
+  style: aucun
+  n: 1
+  ratio: '1:1'
+  prompt: a digital medical thermometer, white body, pale blue button, silver tip, {sans_visage}, {fond_blanc}
+- nom: coton-tige
+  type: organe
+  style: aucun
+  n: 1
+  ratio: '1:1'
+  prompt: a cotton swab, white cotton tips, pale blue stick, {sans_visage}, {fond_blanc}
+- nom: pince
+  type: organe
+  style: aucun
+  n: 1
+  ratio: '1:1'
+  prompt: medical forceps, steel grey metal, {sans_visage}, {fond_blanc}
+- nom: crotte
+  type: organe
+  style: aucun
+  n: 1
+  ratio: '1:1'
+  prompt: a cartoon poop, brown swirl, comedic, {sans_visage}, {fond_blanc}
+- nom: bacterie
+  type: organe
+  style: aucun
+  n: 1
+  ratio: '1:1'
+  prompt: a cute vivid green rod-shaped bacterium with little flagella, {sans_visage}, {fond_blanc}
+  couleurs: microbes
+- nom: virus
+  type: organe
+  style: aucun
+  n: 1
+  ratio: '1:1'
+  prompt: a cute vivid red round virus with short spikes, {sans_visage}, {fond_blanc}
+  couleurs: microbes
+- nom: gros-plan-estomac
+  type: decor
+  style: aucun
+  n: 1
+  ratio: '9:16'
+  prompt: extreme close-up of the inside of a human stomach, vivid reddish-pink folds, dark wine-red depths, cream glossy highlights, a few food bits, light blue gastric juice drops, filling the whole frame, {sans_visage}
+  couleurs: tissus
+- nom: gros-plan-intestin
+  type: decor
+  style: aucun
+  n: 1
+  ratio: '9:16'
+  prompt: extreme close-up of the inside of a human intestine tunnel, vivid reddish-pink walls, wine-red depths, glossy highlights, filling the whole frame, {sans_visage}
+  couleurs: tissus
+- nom: gros-plan-oreille
+  type: decor
+  style: aucun
+  n: 1
+  ratio: '9:16'
+  prompt: extreme close-up of the inside of a human ear canal, reddish-pink skin, a little yellow earwax, filling the whole frame, {sans_visage}
+  couleurs: tissus
+- nom: gros-plan-bouche
+  type: decor
+  style: aucun
+  n: 1
+  ratio: '9:16'
+  prompt: extreme close-up of the inside of a human mouth, cream white teeth, reddish-pink tongue, pink gums, dark wine-red mouth cavity, light blue saliva drops, filling the whole frame, {sans_visage}
+  couleurs: tissus
+- nom: gros-plan-thorax
+  type: decor
+  style: aucun
+  n: 1
+  ratio: '9:16'
+  prompt: simple uncluttered background of the inside of a human chest cavity, a few soft cream ribs arching only at the top edge, smooth soft wine-red and pink tissue walls on the sides, a large calm empty pink space in the
+    middle and bottom, a few small light blue bubbles, filling the whole frame, {sans_visage}
+  couleurs: tissus
+- nom: cabinet
+  type: decor
+  style: aucun
+  n: 1
+  ratio: '9:16'
+  prompt: a doctor's consultation room seen from the front, muted cool grey-blue walls, light grey floor, pale blue examination chair, small desk, empty floor in the middle, no people

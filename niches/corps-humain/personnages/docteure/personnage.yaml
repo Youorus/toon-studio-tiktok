@@ -1,0 +1,34 @@
+nom: Docteure
+type: humain
+echelle: 1.0
+couches:
+- id: corps
+  images:
+    defaut: corps.png
+  pivot:
+  - 309
+  - 1100
+decoupe_tete:
+  y: 259
+  cou:
+  - 287
+  - 257
+visage:
+  couche: tete
+  yeux:
+  - 287
+  - 177
+  rayon_oeil: 19
+  ecart: 2.15
+  bouche:
+  - 287
+  - 222
+  largeur_bouche: 31
+  peau: '#FBD1AA'
+  forme_oeil: 1.15
+  pupille: 0.85
+mouvement:
+  souplesse: 0.15
+  respiration: 0.008
+poses:
+  defaut: {}

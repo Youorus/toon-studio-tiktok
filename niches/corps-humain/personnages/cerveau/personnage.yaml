@@ -1,0 +1,29 @@
+nom: Cerveau
+type: organe
+echelle: 1.0
+couches:
+- id: corps
+  images:
+    defaut: corps.png
+  pivot:
+  - 435
+  - 660
+visage:
+  couche: corps
+  yeux:
+  - 406
+  - 282
+  rayon_oeil: 86
+  ecart: 1.95
+  bouche:
+  - 406
+  - 428
+  largeur_bouche: 129
+  peau: '#F990B9'
+  paupiere: 0.2
+  pupille: 0.8
+  forme_oeil: 1.2
+mouvement:
+  souplesse: 1.0
+poses:
+  defaut: {}

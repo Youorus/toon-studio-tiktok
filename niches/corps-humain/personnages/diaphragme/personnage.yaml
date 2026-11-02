@@ -1,0 +1,29 @@
+nom: Diaphragme
+type: organe
+echelle: 1.0
+couches:
+- id: corps
+  images:
+    defaut: corps.png
+  pivot:
+  - 450
+  - 683
+visage:
+  couche: corps
+  yeux:
+  - 453
+  - 261
+  rayon_oeil: 89
+  ecart: 1.95
+  bouche:
+  - 453
+  - 412
+  largeur_bouche: 133
+  peau: '#DA6F73'
+  paupiere: 0.2
+  pupille: 0.8
+  forme_oeil: 1.2
+mouvement:
+  souplesse: 1.0
+poses:
+  defaut: {}

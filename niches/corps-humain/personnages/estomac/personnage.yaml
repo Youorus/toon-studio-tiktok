@@ -1,0 +1,29 @@
+nom: Estomac
+type: organe
+echelle: 1.0
+couches:
+- id: corps
+  images:
+    defaut: corps.png
+  pivot:
+  - 450
+  - 889
+visage:
+  couche: corps
+  yeux:
+  - 613
+  - 413
+  rayon_oeil: 66
+  ecart: 1.95
+  bouche:
+  - 613
+  - 526
+  largeur_bouche: 99
+  peau: '#FBAEAE'
+  paupiere: 0.2
+  pupille: 0.8
+  forme_oeil: 1.2
+mouvement:
+  souplesse: 1.0
+poses:
+  defaut: {}

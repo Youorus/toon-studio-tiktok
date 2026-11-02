@@ -1,0 +1,29 @@
+nom: Pince
+type: organe
+echelle: 1.0
+couches:
+- id: corps
+  images:
+    defaut: corps.png
+  pivot:
+  - 276
+  - 900
+visage:
+  couche: corps
+  yeux:
+  - 138
+  - 168
+  rayon_oeil: 41
+  ecart: 1.95
+  bouche:
+  - 138
+  - 237
+  largeur_bouche: 61
+  peau: '#F8F7F3'
+  paupiere: 0.2
+  pupille: 0.8
+  forme_oeil: 1.2
+mouvement:
+  souplesse: 1.0
+poses:
+  defaut: {}
