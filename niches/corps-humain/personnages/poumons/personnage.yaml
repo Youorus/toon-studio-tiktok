@@ -11,12 +11,12 @@ couches:
 visage:
   couche: corps
   yeux:
-  - 600
+  - 225
   - 400
   rayon_oeil: 65
   ecart: 1.95
   bouche:
-  - 600
+  - 225
   - 495
   largeur_bouche: 97
   peau: '#FB817D'

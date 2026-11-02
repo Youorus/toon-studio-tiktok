@@ -7,8 +7,8 @@ plans:
     decor: decors/gros-plan-thorax.png
     zoom: [1.0, 1.05]
     acteurs:
-      poumons:    {perso: personnages/poumons,    x: 330, y: 1060, echelle: 1.0}
-      estomac:    {perso: personnages/estomac,    x: 800, y: 1110, echelle: .85}
+      poumons:    {perso: personnages/poumons,    x: 370, y: 1060, echelle: 1.0}
+      estomac:    {perso: personnages/estomac,    x: 850, y: 1110, echelle: .8}
       diaphragme: {perso: personnages/diaphragme, x: 540, y: 1540, echelle: 1.05}
     repliques:
       - {qui: diaphragme, dit: "HIC !", emotion: choque, effets: {diaphragme: hic}, reactions: {poumons: choque, estomac: choque},

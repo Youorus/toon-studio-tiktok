@@ -211,7 +211,7 @@ class Episode:
         group = words[g0:g0 + 3]
         d = ImageDraw.Draw(frame)
         f = font('LuckiestGuy', 84)
-        texts = [w.upper() for w in group]
+        texts = [w.upper().replace('«', '"').replace('»', '"') for w in group]   # la police n'a pas les guillemets français
         total = sum(d.textlength(x + ' ', font=f) for x in texts)
         while total > W - 80:
             f = font('LuckiestGuy', f.size - 6); total = sum(d.textlength(x + ' ', font=f) for x in texts)
