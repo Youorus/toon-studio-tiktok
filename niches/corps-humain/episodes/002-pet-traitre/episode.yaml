@@ -1,0 +1,38 @@
+# Épisode test « Le pet qui t'a trahi » — même sujet que Dr Healthcare (7550665065238662422), mais scénario, gag et
+# personnages à nous. Faits : réflexe recto-anal inhibiteur / réflexe d'échantillonnage (le haut du canal anal distingue
+# gaz et matières). À REVÉRIFIER avant publication : la baisse de fiabilité quand les selles sont liquides (formulée prudemment).
+titre: Le pet qui t'a trahi
+niche: corps-humain
+plans:
+  - id: controle-sortie
+    decor: decors/gros-plan-intestin.png
+    zoom: [1.0, 1.06]
+    acteurs:
+      colon:  {perso: personnages/colon,  x: 330, y: 1000, echelle: .62}
+      crotte: {perso: personnages/crotte, x: 870, y: 1420, echelle: .42, entre: 3}
+      pet:    {perso: personnages/pet,    x: 600, y: 1360, echelle: .62}
+    repliques:
+      - {qui: colon, dit: "Contrôle à la sortie ! Gaz ou pas gaz ?", emotion: fache, effets: {colon: saut}, reactions: {pet: choque},
+         carte: {type: choc, texte: "CONTRÔLE !"}}
+      - {qui: pet, dit: "Gaz ! Cent pour cent gaz, promis !", emotion: content}
+      - {qui: colon, dit: "Hmm… tu m'as l'air bien lourd, pour un gaz.", emotion: malicieux, reactions: {pet: gene}}
+      - {qui: crotte, dit: "Chut… je suis avec lui.", emotion: malicieux, effets: {crotte: apparait}, reactions: {pet: gene}}
+      - {qui: colon, dit: "Avec cette diarrhée, j'y vois rien… Allez, passez !", emotion: fatigue, reactions: {pet: content, crotte: malicieux}}
+      - {qui: pet, dit: "PROUT !", emotion: rire, effets: {pet: saut, crotte: saut}, carte: {type: choc, texte: "PROUT !", fond: '#5BDD79'}, duree: 1.4}
+      - {qui: colon, dit: "Oups.", emotion: choque, effets: {colon: tremble}, duree: 1.3}
+  - id: au-cabinet
+    decor: decors/cabinet.png
+    zoom: [1.0, 1.03]
+    acteurs:
+      docteure: {perso: personnages/docteure, x: 290, y: 1760, echelle: .85}
+      patient:  {perso: personnages/patient,  x: 800, y: 1750, echelle: .85}
+    repliques:
+      - {qui: patient, dit: "Docteure… j'ai cru que c'était un pet. Ce n'était pas un pet.", emotion: gene, reactions: {docteure: inquiet}}
+      - {qui: docteure, dit: "Avant de laisser sortir quoi que ce soit, ton rectum fait un petit test.", emotion: content,
+         carte: {type: liste, titre: "LE TEST DU RECTUM", lignes: [["Gaz ?", ok], ["Liquide ?", attention], ["Solide ?", non]]}}
+      - {qui: docteure, dit: "C'est le réflexe d'échantillonnage : d'habitude, il fait très bien la différence.", emotion: malicieux, reactions: {patient: choque}}
+      - {qui: docteure, dit: "Mais quand les selles sont très liquides, le test est beaucoup moins fiable.", emotion: inquiet, reactions: {patient: gene},
+         carte: {type: alerte, texte: "Selles liquides :\ntest moins fiable"}}
+      - {qui: docteure, dit: "Mon conseil : pendant une gastro, ne fais jamais confiance à un pet.", emotion: malicieux, reactions: {patient: rire},
+         carte: {type: choc, texte: "JAMAIS !"}}
+      - {qui: docteure, dit: "Et toi, ça t'est déjà arrivé ?", emotion: content, carte: {type: vote, question: "DÉJÀ ARRIVÉ ?", oui: "OUI…", non: "JAMAIS"}}

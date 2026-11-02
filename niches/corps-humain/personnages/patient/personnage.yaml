@@ -1,34 +1,16 @@
+# Patient — Recraft v3 de trois-quarts, tourné vers la gauche (validé le 2/11/2026). Yeux et bouche animés.
 nom: Patient
 type: humain
 echelle: 1.0
 couches:
-- id: corps
-  images:
-    defaut: corps.png
-  pivot:
-  - 266
-  - 1100
-decoupe_tete:
-  y: 193
-  cou:
-  - 284
-  - 191
+  - id: corps
+    images: {defaut: corps.png}
+    pivot: [283, 1100]
+decoupe_tete: {y: 200, cou: [282, 198]}
 visage:
+  mode: dessine
   couche: tete
-  yeux:
-  - 284
-  - 119
-  rayon_oeil: 19
-  ecart: 2.15
-  bouche:
-  - 284
-  - 159
-  largeur_bouche: 32
-  peau: '#F9C29F'
-  forme_oeil: 1.15
-  pupille: 0.85
-mouvement:
-  souplesse: 0.15
-  respiration: 0.008
-poses:
-  defaut: {}
+  yeux: [[202, 73, 213, 96], [237, 77, 253, 104]]
+  bouche: {zone: [198, 139, 241, 153], centre: [219, 146], largeur: 34}
+mouvement: {souplesse: .12, respiration: .008}
+poses: {defaut: {}}

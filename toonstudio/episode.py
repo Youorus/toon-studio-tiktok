@@ -140,22 +140,8 @@ class Episode:
             li = next((i for i, l in enumerate(lines) if l['t0'] <= t < l['t1']), len(lines) - 1)
             line = lines[li]
             frame = decors[shot['id']].copy()
-            # acteurs, du fond vers l'avant (y croissant)
-            for name, spec in sorted(shot['acteurs'].items(), key=lambda kv: kv[1]['y']):
-                if spec.get('entre') is not None and li < spec['entre']:
-                    continue
-                st = self.actor_state(shot, name, spec, t, line, lines[:li])
-                ch = chars[(shot['id'], name)]
-                dx, dy, squash, tilt, k = st['fx']
-                img, anchor = ch.render(st['pose'], st['emo'], st['gaze'], st['blink'], st['mouth'], t, st['talk'], squash, tilt,
-                                        phase=_h(name) % 7)
-                sc = spec.get('echelle', 1.0) * ch.scale * k
-                if sc <= .01:
-                    continue
-                if spec.get('miroir'):
-                    img = img.transpose(Image.FLIP_LEFT_RIGHT); anchor = (img.width - anchor[0], anchor[1])
-                img = img.resize((max(1, int(img.width * sc)), max(1, int(img.height * sc))), Image.LANCZOS)
-                frame.alpha_composite(img, (int(spec['x'] + dx - anchor[0] * sc), int(spec['y'] + dy - anchor[1] * sc)))
+            for a in self._place_actors(shot, lines, li, line, t, chars):
+                frame.alpha_composite(a['img'], a['pos'])
             # caméra : léger travelling avant sur le plan
             z0, z1 = shot.get('zoom', (1.0, 1.04))
             z = z0 + (z1 - z0) * ease_in_out((t - shot['t0']) / max(.1, shot['t1'] - shot['t0']))
@@ -195,6 +181,101 @@ class Episode:
         finally:
             shutil.rmtree(tmp, ignore_errors=True)
         return out
+
+    def _place_actors(self, shot, lines, li, line, t, chars):
+        """Acteurs visibles à l'instant t, du fond vers l'avant (y croissant) : image, position, repère du visage à l'écran."""
+        out = []
+        for name, spec in sorted(shot['acteurs'].items(), key=lambda kv: kv[1]['y']):
+            if spec.get('entre') is not None and li < spec['entre']:
+                continue
+            st = self.actor_state(shot, name, spec, t, line, lines[:li])
+            ch = chars[(shot['id'], name)]
+            dx, dy, squash, tilt, k = st['fx']
+            if spec.get('miroir'):           # image retournée : le regard aussi
+                st['gaze'] = (-st['gaze'][0], st['gaze'][1])
+            img, anchor = ch.render(st['pose'], st['emo'], st['gaze'], st['blink'], st['mouth'], t, st['talk'], squash, tilt,
+                                    phase=_h(name) % 7)
+            sc = spec.get('echelle', 1.0) * ch.scale * k
+            if sc <= .01:
+                continue
+            fx_, fy_, fr = ch.face_point()
+            px = ch.layers[0]['pivot']
+            face = (fx_ - px[0], fy_ - px[1])
+            if spec.get('miroir'):
+                img = img.transpose(Image.FLIP_LEFT_RIGHT); anchor = (img.width - anchor[0], anchor[1]); face = (-face[0], face[1])
+            img = img.resize((max(1, int(img.width * sc)), max(1, int(img.height * sc))), Image.LANCZOS)
+            pos = (int(spec['x'] + dx - anchor[0] * sc), int(spec['y'] + dy - anchor[1] * sc))
+            out.append(dict(name=name, img=img, pos=pos, face=(spec['x'] + dx + face[0] * sc, spec['y'] + dy + face[1] * sc), face_r=fr * sc))
+        return out
+
+    def controle(self, out_dir: Path | None = None):
+        """Contrôle de mise en scène, une image au milieu de chaque réplique : visages dans l'écran, pas cachés
+        (ni par un autre acteur, ni par une carte, ni par les sous-titres), celui qui parle bien visible.
+        Écrit une planche (une image par réplique) et renvoie la liste des problèmes."""
+        import numpy as np
+        out_dir = Path(out_dir or self.folder / 'out')
+        out_dir.mkdir(parents=True, exist_ok=True)
+        decors = {s['id']: cover(Image.open(self.path(s['decor'])).convert('RGBA')) for s in self.shots}
+        chars = {(s['id'], n): rig.load(self.path(a['perso'])) for s in self.shots for n, a in s['acteurs'].items()}
+        problems, thumbs = [], []
+        for n, line in enumerate(self.lines, 1):
+            t = (line['t0'] + line['t1']) / 2
+            shot = next(s for s in self.shots if s['id'] == line['shot'])
+            lines = [l for l in self.lines if l['shot'] == shot['id']]
+            li = lines.index(line)
+            actors = self._place_actors(shot, lines, li, line, t, chars)
+            frame = decors[shot['id']].copy()
+            masks = []
+            for a in actors:
+                frame.alpha_composite(a['img'], a['pos'])
+                m = np.zeros((H, W), bool)
+                al = np.array(a['img'].getchannel('A')) > 128
+                x, y = a['pos']
+                x0, y0, x1, y1 = max(0, x), max(0, y), min(W, x + al.shape[1]), min(H, y + al.shape[0])
+                if x1 > x0 and y1 > y0:
+                    m[y0:y1, x0:x1] = al[y0 - y:y1 - y, x0 - x:x1 - x]
+                masks.append(m)
+            card_box = None
+            card_line = next((l for l in reversed(lines[:li + 1]) if l.get('carte') and (l is line or l['carte'].get('garde'))), None)
+            if card_line:
+                img = cards.draw(card_line['carte'], t - card_line['t0'], card_line['t1'] - card_line['t0'], self.palette)
+                cy = {'haut': 430, 'centre': 860, 'bas': 1250}[card_line['carte'].get('position', 'haut')]
+                bb = img.getbbox() or (0, 0, 0, 0)
+                card_box = (W / 2 - img.width / 2 + bb[0], cy - img.height / 2 + bb[1], W / 2 - img.width / 2 + bb[2], cy - img.height / 2 + bb[3])
+                frame.alpha_composite(img, (int(W / 2 - img.width / 2), int(cy - img.height / 2)))
+            d = ImageDraw.Draw(frame)
+            cap_top = self.cfg.get('legendes_y', 1580) - 70
+            for i, a in enumerate(actors):
+                fx, fy, r = a['face'][0], a['face'][1], max(12, a['face_r'] * 1.6)
+                tag = f"réplique {n} ({line.get('qui')}) — {a['name']}"
+                if fx - r < 0 or fx + r > W or fy - r < 0:
+                    problems.append(f'{tag} : visage coupé par le bord de l\'écran')
+                if fy + r > cap_top:
+                    problems.append(f'{tag} : visage dans la zone des sous-titres')
+                if card_box and fx + r > card_box[0] and fx - r < card_box[2] and fy + r > card_box[1] and fy - r < card_box[3]:
+                    problems.append(f'{tag} : visage caché par la carte')
+                yy, xx = np.ogrid[:H, :W]
+                disk = (xx - fx) ** 2 + (yy - fy) ** 2 < r * r
+                over = np.zeros((H, W), bool)
+                for m in masks[i + 1:]:
+                    over |= m
+                if disk.sum() and (disk & over).sum() / disk.sum() > .2:
+                    problems.append(f'{tag} : visage caché par un autre personnage ({int(100 * (disk & over).sum() / disk.sum())} %)')
+                if a['name'] == line.get('qui'):
+                    vis = masks[i] & ~over
+                    if masks[i].sum() and vis.sum() / masks[i].sum() < .6:
+                        problems.append(f'{tag} : celui qui parle n\'est visible qu\'à {int(100 * vis.sum() / masks[i].sum())} %')
+                d.ellipse((fx - r, fy - r, fx + r, fy + r), outline=(255, 0, 0, 255) if any(tag in p for p in problems) else (0, 220, 0, 255), width=5)
+            d.text((20, 20), f'{n}. {line.get("qui", "")} : {line.get("dit", "")[:40]}', fill='white', font=font('Fredoka', 36),
+                   stroke_width=3, stroke_fill='black')
+            thumbs.append(frame.convert('RGB').resize((W // 3, H // 3)))
+        cols = 6
+        sheet = Image.new('RGB', (cols * (W // 3), ((len(thumbs) + cols - 1) // cols) * (H // 3)), 'black')
+        for i, th in enumerate(thumbs):
+            sheet.paste(th, ((i % cols) * (W // 3), (i // cols) * (H // 3)))
+        sheet.save(out_dir / 'controle.jpg', quality=85)
+        (out_dir / 'controle.txt').write_text('\n'.join(problems) or 'Aucun problème détecté.')
+        return problems
 
     def _caption(self, frame, line, t):
         words = []

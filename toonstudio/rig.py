@@ -51,6 +51,11 @@ class Character:
         self.arms = cfg.get('bras', []) or []
         f = cfg.get('visage')
         self.face_layer = f['couche'] if f else None
+        self.drawn = None
+        if f and f.get('mode') == 'dessine':        # visage dessiné par Recraft : on l'anime tel quel
+            from .drawn_face import DrawnFace
+            self.drawn = DrawnFace(self.by_id[f['couche']]['images']['defaut'], f)
+            f = None
         self.face_key = register(str(self.folder), FaceSpec(
             eyes=tuple(f['yeux']), eye_r=f['rayon_oeil'], gap=f.get('ecart', 1.9),
             mouth=tuple(f['bouche']) if f.get('bouche') else None, mouth_w=f.get('largeur_bouche'),
@@ -63,11 +68,23 @@ class Character:
         self.softness = m.get('souplesse', 1.0 if self.kind == 'organe' else .3)
         self.breath = m.get('respiration', .012)
 
+    def face_point(self):
+        """Centre du visage (pixels de l'image d'origine) et son rayon approximatif, pour le contrôle de mise en scène."""
+        f = self.cfg.get('visage')
+        if not f:
+            L = self.layers[0]['images']['defaut']; return L.width / 2, L.height / 3, min(L.size) / 6
+        if f.get('mode') == 'dessine':
+            bx = f['yeux']; xs = [b[0] for b in bx] + [b[2] for b in bx]; ys = [b[1] for b in bx] + [b[3] for b in bx]
+            return (min(xs) + max(xs)) / 2, (min(ys) + max(ys)) / 2 + 10, (max(xs) - min(xs)) / 2 + 10
+        return f['yeux'][0], f['yeux'][1] + f['rayon_oeil'] * .6, f['rayon_oeil'] * 2
+
     # --------------------------------------------------------------------------------------------------
     def layer_image(self, L, variant, emo, gaze, blink, mouth):
         img = L['images'].get(variant) or L['images'].get('defaut') or next(iter(L['images'].values()))
         if L['id'] != self.face_layer:
             return img
+        if self.drawn:
+            return self.drawn.apply(img, emo, gaze, blink, mouth)
         return _with_face(id(img), img, self.face_key, emo, gaze, blink, mouth)
 
     def render(self, pose='defaut', emo='neutre', gaze=(0, 0), blink=False, mouth=None, t=0.0, talk=0.0,

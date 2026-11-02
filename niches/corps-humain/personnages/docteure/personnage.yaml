@@ -1,34 +1,16 @@
+# Docteure — Recraft v3 de trois-quarts, tournée vers la droite, masque chirurgical (validé le 2/11/2026).
+# Visage dessiné par Recraft : seuls les yeux sont animés (regard, paupières, clignement). `miroir: true` dans un épisode = tournée vers la gauche.
 nom: Docteure
 type: humain
 echelle: 1.0
 couches:
-- id: corps
-  images:
-    defaut: corps.png
-  pivot:
-  - 309
-  - 1100
-decoupe_tete:
-  y: 259
-  cou:
-  - 287
-  - 257
+  - id: corps
+    images: {defaut: corps.png}
+    pivot: [310, 1100]
+decoupe_tete: {y: 250, cou: [314, 248]}
 visage:
+  mode: dessine
   couche: tete
-  yeux:
-  - 287
-  - 177
-  rayon_oeil: 19
-  ecart: 2.15
-  bouche:
-  - 287
-  - 222
-  largeur_bouche: 31
-  peau: '#FBD1AA'
-  forme_oeil: 1.15
-  pupille: 0.85
-mouvement:
-  souplesse: 0.15
-  respiration: 0.008
-poses:
-  defaut: {}
+  yeux: [[346, 107, 372, 146], [397, 99, 412, 131]]
+mouvement: {souplesse: .12, respiration: .008}
+poses: {defaut: {}}
