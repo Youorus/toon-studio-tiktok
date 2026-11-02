@@ -1,4 +1,4 @@
-# Pet (nuage de gaz) — dessiné par le moteur (gratuit), couleurs « microbes » de la palette.
+# Pet : nuage de gaz jaune-vert translucide avec lignes d'odeur — dessiné par le moteur (gratuit).
 nom: Pet
 type: organe
 echelle: 1.0
@@ -7,20 +7,20 @@ couches:
   images:
     defaut: corps.png
   pivot:
-  - 374
-  - 632
+  - 339
+  - 794
 visage:
   couche: corps
   yeux:
-  - 375
-  - 267
-  rayon_oeil: 82
+  - 340
+  - 472
+  rayon_oeil: 88
   ecart: 1.95
   bouche:
-  - 375
-  - 406
-  largeur_bouche: 123
-  peau: '#5BDD79'
+  - 340
+  - 622
+  largeur_bouche: 132
+  peau: '#C4D65C'
   paupiere: 0.2
   pupille: 0.8
   forme_oeil: 1.2

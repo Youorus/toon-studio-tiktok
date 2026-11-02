@@ -7,7 +7,7 @@ from PIL import Image, ImageFont
 
 from .config import FONTS, W, H
 
-INK = (28, 22, 30, 255)          # trait : presque noir, légèrement violet (moins dur qu'un noir pur)
+INK = (24, 19, 19, 255)          # trait : l'encre de la palette (#181313)
 WHITE = (255, 255, 255, 255)
 
 

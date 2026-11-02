@@ -3,23 +3,42 @@
 # gaz et matières). À REVÉRIFIER avant publication : la baisse de fiabilité quand les selles sont liquides (formulée prudemment).
 titre: Le pet qui t'a trahi
 niche: corps-humain
+# Voix (archétypes du studio Dr Mia, config/voices.json) — jeu entre crochets dans `jeu`, retiré des sous-titres
+voix:
+  colon: {voix: chef, stabilite: .2}
+  pet: {voix: lascar, stabilite: .15}
+  crotte: {voix: blase, stabilite: .3}
+  patient: {voix: boloss, stabilite: .15}
+  docteure: {voix: mere, stabilite: .45}
+# Bruitages générés par ElevenLabs (mis en cache)
+bruitages:
+  sifflet: {texte: "police whistle, two short sharp blows, cartoon", duree: 1.2, volume: .7}
+  pfft: {texte: "short squeaky cartoon fart, funny", duree: .8, volume: .9}
+  squelch: {texte: "wet squishy cartoon squelch, comedic", duree: .8, volume: .8}
+  pas-feutres: {texte: "cartoon sneaky tiptoe pizzicato strings", duree: 1.6, volume: .6}
+  gros-prout: {texte: "enormous long comedic cartoon fart, trumpet-like brassy PFFFRRROOOAAAH with a wet squeaky ending, very funny", duree: 2.6, volume: 1.0}
+  rires: {texte: "small studio audience bursting into laughter", duree: 2.5, volume: .55}
+  trombone: {texte: "sad trombone wah wah wah waaah, comedic", duree: 2.2, volume: .7}
+  dun: {texte: "comedic dramatic orchestra sting dun dun duuun", duree: 1.8, volume: .7}
 plans:
   - id: controle-sortie
     decor: decors/gros-plan-intestin.png
     zoom: [1.0, 1.06]
     acteurs:
-      colon:  {perso: personnages/colon,  x: 330, y: 1000, echelle: .62}
-      crotte: {perso: personnages/crotte, x: 870, y: 1420, echelle: .42, entre: 3}
-      pet:    {perso: personnages/pet,    x: 600, y: 1360, echelle: .62}
+      colon:  {perso: personnages/colon,  x: 400, y: 1330, echelle: .7}
+      crotte: {perso: personnages/crotte, x: 860, y: 1440, echelle: .42, entre: 3, arrivee: droite, sort: 6, depart: droite, sort_delai: .2}
+      pet:    {perso: personnages/pet,    x: 560, y: 1400, echelle: .55, entre: 1, arrivee: bas, sort: 6, depart: haut, sort_delai: .5}
     repliques:
-      - {qui: colon, dit: "Contrôle à la sortie ! Gaz ou pas gaz ?", emotion: fache, effets: {colon: saut}, reactions: {pet: choque},
-         carte: {type: choc, texte: "CONTRÔLE !"}}
-      - {qui: pet, dit: "Gaz ! Cent pour cent gaz, promis !", emotion: content}
-      - {qui: colon, dit: "Hmm… tu m'as l'air bien lourd, pour un gaz.", emotion: malicieux, reactions: {pet: gene}}
-      - {qui: crotte, dit: "Chut… je suis avec lui.", emotion: malicieux, effets: {crotte: apparait}, reactions: {pet: gene}}
-      - {qui: colon, dit: "Avec cette diarrhée, j'y vois rien… Allez, passez !", emotion: fatigue, reactions: {pet: content, crotte: malicieux}}
-      - {qui: pet, dit: "PROUT !", emotion: rire, effets: {pet: saut, crotte: saut}, carte: {type: choc, texte: "PROUT !", fond: '#5BDD79'}, duree: 1.4}
-      - {qui: colon, dit: "Oups.", emotion: choque, effets: {colon: tremble}, duree: 1.3}
+      - {qui: colon, dit: "Contrôle à la sortie ! Gaz ou pas gaz ?", jeu: "[shouting, authoritative] Contrôle à la sortie ! Gaz ou pas gaz ?",
+         emotion: fache, effets: {colon: saut}, sfx: [sifflet], carte: {type: choc, texte: "CONTRÔLE !"}}
+      - {qui: pet, dit: "Gaz ! Cent pour cent gaz, promis !", jeu: "[cheeky, excited] Gaz ! Cent pour cent gaz, promis !", emotion: content, sfx: [pfft]}
+      - {qui: colon, dit: "Hmm… tu m'as l'air bien lourd, pour un gaz.", jeu: "[suspicious] Hmmm… tu m'as l'air bien lourd, pour un gaz.", emotion: malicieux, reactions: {pet: gene}}
+      - {qui: crotte, dit: "Chut… je suis avec lui.", jeu: "[whispers] Chuuut… je suis avec lui.", emotion: malicieux, reactions: {pet: gene}, sfx: [pas-feutres, squelch@0.4]}
+      - {qui: colon, dit: "Avec cette diarrhée, j'y vois rien… Allez, passez !", jeu: "[sighs, tired] Avec cette diarrhée, j'y vois rien… [annoyed] Allez, passez !",
+         emotion: fatigue, reactions: {pet: content, crotte: malicieux}}
+      - {qui: pet, dit: "PROUT !", jeu: "[laughing] Prouuuut !", emotion: rire, effets: {pet: saut, crotte: saut}, sfx: ["gros-prout@0.05", "rires@2.2"],
+         carte: {type: choc, texte: "PROUT !", fond: '#5BDD79'}, duree: 4.2}
+      - {qui: colon, dit: "Oups.", jeu: "[horrified] Oups.", emotion: choque, effets: {colon: tremble}, sfx: ["trombone@0.4"], duree: 2.6}
   - id: au-cabinet
     decor: decors/cabinet.png
     zoom: [1.0, 1.03]
@@ -27,12 +46,20 @@ plans:
       docteure: {perso: personnages/docteure, x: 290, y: 1760, echelle: .85}
       patient:  {perso: personnages/patient,  x: 800, y: 1750, echelle: .85}
     repliques:
-      - {qui: patient, dit: "Docteure… j'ai cru que c'était un pet. Ce n'était pas un pet.", emotion: gene, reactions: {docteure: inquiet}}
-      - {qui: docteure, dit: "Avant de laisser sortir quoi que ce soit, ton rectum fait un petit test.", emotion: content,
-         carte: {type: liste, titre: "LE TEST DU RECTUM", lignes: [["Gaz ?", ok], ["Liquide ?", attention], ["Solide ?", non]]}}
-      - {qui: docteure, dit: "C'est le réflexe d'échantillonnage : d'habitude, il fait très bien la différence.", emotion: malicieux, reactions: {patient: choque}}
-      - {qui: docteure, dit: "Mais quand les selles sont très liquides, le test est beaucoup moins fiable.", emotion: inquiet, reactions: {patient: gene},
-         carte: {type: alerte, texte: "Selles liquides :\ntest moins fiable"}}
-      - {qui: docteure, dit: "Mon conseil : pendant une gastro, ne fais jamais confiance à un pet.", emotion: malicieux, reactions: {patient: rire},
-         carte: {type: choc, texte: "JAMAIS !"}}
-      - {qui: docteure, dit: "Et toi, ça t'est déjà arrivé ?", emotion: content, carte: {type: vote, question: "DÉJÀ ARRIVÉ ?", oui: "OUI…", non: "JAMAIS"}}
+      - {qui: patient, dit: "Docteure… j'ai cru que c'était un pet. Ce n'était PAS un pet !", jeu: "[panicked, voice cracking] Docteure… j'ai cru que c'était un pet. [sobbing] Ce n'était PAS un pet !",
+         emotion: inquiet, reactions: {docteure: inquiet}, sfx: [dun]}
+      - {qui: docteure, dit: "Respire, c'est très courant. Avant de laisser sortir quoi que ce soit, ton rectum fait un petit test.",
+         jeu: "[warm, reassuring] Respire, c'est très courant. Avant de laisser sortir quoi que ce soit, ton rectum fait un petit test.", emotion: content,
+         reactions: {patient: gene}, carte: {type: liste, titre: "LE TEST DU RECTUM", lignes: [["Gaz ?", ok], ["Liquide ?", attention], ["Solide ?", non]]}}
+      - {qui: docteure, dit: "C'est le réflexe d'échantillonnage : d'habitude, il fait très bien la différence.", jeu: "[gently] C'est le réflexe d'échantillonnage : d'habitude, il fait très bien la différence.",
+         emotion: content, reactions: {patient: choque}}
+      - {qui: patient, dit: "Mon rectum… fait des tests ?", jeu: "[confused, dumb] Mon rectum… fait des tests ?", emotion: choque, reactions: {docteure: rire}}
+      - {qui: docteure, dit: "Oui ! Mais quand les selles sont très liquides, le test est beaucoup moins fiable.", jeu: "[laughs softly] Oui ! [reassuring] Mais quand les selles sont très liquides, le test est beaucoup moins fiable.",
+         emotion: inquiet, reactions: {patient: gene}, carte: {type: alerte, texte: "Selles liquides :\ntest moins fiable"}}
+      - {qui: docteure, dit: "Mon conseil : pendant une gastro, ne fais jamais confiance à un pet.", jeu: "[playful] Mon conseil : pendant une gastro, ne fais jamais confiance à un pet.",
+         emotion: malicieux, reactions: {patient: rire}, carte: {type: choc, texte: "JAMAIS !"}}
+      - {qui: patient, dit: "Promis. Plus jamais.", jeu: "[relieved, nervous laugh] Promis. Plus jamais.", emotion: content}
+      - {qui: docteure, dit: "Et toi, ça t'est déjà arrivé ? Raconte ta pire trahison en commentaire !", jeu: "[playful, teasing] Et toi, ça t'est déjà arrivé ? Raconte ta pire trahison en commentaire !",
+         emotion: malicieux, carte: {type: vote, question: "DÉJÀ ARRIVÉ ?", oui: "OUI…", non: "JAMAIS"}}
+      - {qui: docteure, dit: "Abonne-toi : la prochaine fois, ton corps te réserve encore une surprise.", jeu: "[warm, smiling] Abonne-toi : la prochaine fois, ton corps te réserve encore une surprise.",
+         emotion: content, sfx: [ding], carte: {type: bouton, texte: "ABONNE-TOI"}}

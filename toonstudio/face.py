@@ -12,6 +12,8 @@ from PIL import Image, ImageChops, ImageDraw
 
 from .drawing import INK, WHITE, rgb, shade
 
+CREAM = (255, 249, 237, 255)     # blanc des yeux : crème de la palette (pas de blanc pur)
+
 SS = 3
 
 # Émotion -> paupière haute (0 ouverte, 1 fermée), inclinaison (+ = coin intérieur bas : colère), paupière basse,
@@ -44,7 +46,7 @@ class FaceSpec:
     mouth: tuple = None         # centre de la bouche ; par défaut sous les yeux
     mouth_w: float = None       # largeur de la bouche ; par défaut 1.6 rayon
     skin: str = '#F2A7A0'       # couleur des paupières (celle de la surface du visage)
-    line: float = .07           # épaisseur du trait, en rayon d'œil
+    line: float = .1            # épaisseur du trait, en rayon d'œil (encre du rendu cellulo)
     eye_shape: float = 1.12     # hauteur / largeur de l'œil (1 = rond)
     brows: bool = True
     lid_base: float = 0.0       # paupière toujours un peu tombante (regard « blasé » des organes) : 0 à .4
@@ -80,13 +82,15 @@ def _eye(r, emo, gaze, blink, skin, lw, shape, side, lid_base=0.0, pupil=1.0, la
         up = e.get('arc')
         d.arc((cx - r * .8, cy - r * (.2 if up else .5), cx + r * .8, cy + r * (.8 if up else .5)), 200 if up else 20, 340 if up else 160, fill=INK, width=int(lw * 1.3))
         return im
-    d.ellipse(box, fill=WHITE)
+    d.ellipse(box, fill=CREAM)
     # pupille + reflet
     pr = r * .34 * e['pupil'] * pupil
     px, py = cx + gaze[0] * (r - pr) * .62, cy + gaze[1] * (h / 2 - pr) * .55
     d.ellipse((px - pr, py - pr, px + pr, py + pr), fill=INK)
-    hr = pr * .32
-    d.ellipse((px - pr * .35 - hr, py - pr * .4 - hr, px - pr * .35 + hr, py - pr * .4 + hr), fill=WHITE)
+    hr = pr * .3
+    d.ellipse((px - pr * .38 - hr, py - pr * .42 - hr, px - pr * .38 + hr, py - pr * .42 + hr), fill=WHITE)
+    hr2 = pr * .14
+    d.ellipse((px + pr * .3 - hr2, py + pr * .3 - hr2, px + pr * .3 + hr2, py + pr * .3 + hr2), fill=WHITE)
     # paupières (couleur peau) : haute inclinée selon l'émotion, basse pour le sourire des yeux
     lid = Image.new('RGBA', im.size, (0, 0, 0, 0)); ld = ImageDraw.Draw(lid)
     sk = rgb(skin)

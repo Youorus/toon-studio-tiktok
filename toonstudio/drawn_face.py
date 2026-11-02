@@ -19,6 +19,10 @@ from .face import EMOTIONS, _mouth
 SS = 3
 
 
+def emo_is_neutral(e):
+    return e['lid'] <= .15 and e['low'] == 0 and abs(e['pupil'] - 1) < .05
+
+
 class DrawnFace:
     def __init__(self, img: Image.Image, cfg: dict):
         a = np.array(img.convert('RGBA')).astype(int)
@@ -61,8 +65,9 @@ class DrawnFace:
         if key in self.cache:
             return self.cache[key]
         e = EMOTIONS.get(emo, EMOTIONS['neutre'])
+        untouched = not blink and not e.get('arc') and not e.get('squeeze') and emo_is_neutral(e) and gaze == (0, 0)
         arr = np.array(img).copy()
-        for i, eye in enumerate(self.eyes):
+        for i, eye in enumerate([] if untouched else self.eyes):
             x0, y0 = eye['box']
             h, w = eye['inner'].shape
             region = arr[y0:y0 + h, x0:x0 + w]
@@ -72,7 +77,7 @@ class DrawnFace:
             else:
                 region[eye['inner']] = eye['white']
         out = Image.fromarray(arr)
-        for i, eye in enumerate(self.eyes):
+        for i, eye in enumerate([] if untouched else self.eyes):
             out = self._eye(out, eye, e, gaze, blink, side=-1 if i == 0 else 1)
         if self.mouth and mouth and mouth not in ('repos', 'M', 'ferme'):
             arr = np.array(out)
@@ -123,15 +128,15 @@ class DrawnFace:
         d.ellipse((*P(px - pr * .35 - hr, py - pr * .4 - hr), *P(px - pr * .35 + hr, py - pr * .4 + hr)), fill=(255, 255, 255, 255))
         # paupières selon l'émotion
         lid = Image.new('RGBA', lay.size, (0, 0, 0, 0)); ld = ImageDraw.Draw(lid)
-        if e['lid'] > .05:
-            y = by0 + (by1 - by0) * e['lid']
+        lid_k = max(0.0, e['lid'] - .12) / .88          # au repos (neutre) : dessin d'origine intact
+        if lid_k > .08:
+            y = by0 + (by1 - by0) * (lid_k * .75)
             t = e['tilt'] * rh * .8 * (1 if side < 0 else -1)
             ld.polygon([P(ox, oy), P(ox + W_ / SS, oy), P(ox + W_ / SS, y - t), P(ox, y + t)], fill=eye['skin'])
             ld.line([P(bx0 - 1, y + t * (1 if True else 0)), P(bx1 + 1, y - t)], fill=INK, width=lw)
-        if e['low'] > 0:
-            y = by1 - (by1 - by0) * e['low']
+        if e['low'] > .2:                                # sourire des yeux : la joue remonte, sans trait
+            y = by1 - (by1 - by0) * e['low'] * .6
             ld.ellipse((*P(bx0 - rw * .3, y), *P(bx1 + rw * .3, y + rh * 2)), fill=eye['skin'])
-            ld.arc((*P(bx0 - rw * .3, y), *P(bx1 + rw * .3, y + rh * 2)), 200, 340, fill=INK, width=max(1, lw - 1))
         mask = Image.new('L', lay.size, 0)
         m = Image.fromarray((eye['outline'] * 255).astype(np.uint8)).resize(
             (eye['outline'].shape[1] * SS, eye['outline'].shape[0] * SS), Image.NEAREST)

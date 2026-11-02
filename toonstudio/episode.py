@@ -48,7 +48,7 @@ DEFAULT_SFX = {'hic': 'boing', 'saut': 'swoosh', 'tremble': 'buzzer', 'apparait'
 
 
 class Episode:
-    def __init__(self, folder: Path):
+    def __init__(self, folder: Path, with_voice: bool | None = None):
         self.folder = Path(folder)
         self.cfg = yaml.safe_load((self.folder / 'episode.yaml').read_text())
         self.niche_dir = NICHES / self.cfg['niche']
@@ -56,6 +56,7 @@ class Episode:
         self.palette = {**self.niche.get('palette', {}), **self.cfg.get('palette', {})}
         self.palette.setdefault('accent', '#FF5A5F')
         self.palette.setdefault('legende', '#FFD84D')
+        self.with_voice = bool(self.cfg.get('voix')) if with_voice is None else with_voice
         self._timeline()
 
     def path(self, rel):
@@ -70,13 +71,27 @@ class Episode:
         for shot in self.cfg['plans']:
             s0 = t
             for ln in shot['repliques']:
+                ln = dict(ln)
                 words = len(ln.get('dit', '').split())
                 d = ln.get('duree') or max(1.5, words / READ_RATE + .45)
+                cast = self.cfg.get('voix') or {}
+                if self.with_voice and ln.get('qui') in cast:      # la voix fixe la durée, les mots et les bouches
+                    from . import voice
+                    v = cast[ln['qui']]
+                    v = v if isinstance(v, dict) else {'voix': v}
+                    take = voice.tts(v['voix'], ln.get('jeu') or ln['dit'], v.get('stabilite'))
+                    words_t, vis = voice.words_and_visemes(take['alignment'])
+                    ln['audio'] = take['audio']
+                    ln['mots'] = words_t
+                    ln['visemes'] = vis
+                    speak = words_t[-1][2] if words_t else voice.duration(take['audio'])
+                    ln['parole'] = speak
+                    d = max(ln.get('duree') or 0, voice.duration(take['audio']) + ln.get('pause', .35))
                 self.lines.append({**ln, 'shot': shot['id'], 't0': t, 't1': t + d})
                 t += d
             self.shots.append({**shot, 't0': s0, 't1': t})
         target = self.cfg.get('duree_cible')
-        if target:                         # étirer ou resserrer pour coller à la durée voulue
+        if target and not self.with_voice:                         # étirer ou resserrer pour coller à la durée voulue
             k = target / t
             for x in self.lines + self.shots:
                 x['t0'] *= k; x['t1'] *= k
@@ -98,9 +113,15 @@ class Episode:
         mouth, talk = None, 0.0
         if speaking:
             talk = 1.0
-            vis = visemes_for(line.get('dit', ''), line['t0'] + .05, line['t1'] - .25)
+            if line.get('visemes') is not None:
+                vis = [(line['t0'] + tt, v) for tt, v in line['visemes']]
+                end = line['t0'] + line.get('parole', 0) + .05
+            else:
+                vis = visemes_for(line.get('dit', ''), line['t0'] + .05, line['t1'] - .25)
+                end = line['t1'] - .25
             cur = [v for tt, v in vis if tt <= t]
-            mouth = cur[-1] if cur and t < line['t1'] - .25 else None
+            mouth = cur[-1] if cur and t < end else None
+            talk = 1.0 if t < end else 0.0
             if mouth == 'repos':
                 mouth = 'M'
         # regard : vers celui qui parle, sinon droit devant ou cible donnée
@@ -188,6 +209,11 @@ class Episode:
         for name, spec in sorted(shot['acteurs'].items(), key=lambda kv: kv[1]['y']):
             if spec.get('entre') is not None and li < spec['entre']:
                 continue
+            # entrée / sortie en glissant, déplacements demandés par les répliques
+            ex, ey = self._motion(name, spec, lines, li, t)
+            if ex is None:
+                continue
+            spec = {**spec, 'x': ex, 'y': ey}
             st = self.actor_state(shot, name, spec, t, line, lines[:li])
             ch = chars[(shot['id'], name)]
             dx, dy, squash, tilt, k = st['fx']
@@ -205,8 +231,38 @@ class Episode:
                 img = img.transpose(Image.FLIP_LEFT_RIGHT); anchor = (img.width - anchor[0], anchor[1]); face = (-face[0], face[1])
             img = img.resize((max(1, int(img.width * sc)), max(1, int(img.height * sc))), Image.LANCZOS)
             pos = (int(spec['x'] + dx - anchor[0] * sc), int(spec['y'] + dy - anchor[1] * sc))
-            out.append(dict(name=name, img=img, pos=pos, face=(spec['x'] + dx + face[0] * sc, spec['y'] + dy + face[1] * sc), face_r=fr * sc))
+            leaving = spec.get('sort') is not None and li >= spec['sort']
+            out.append(dict(name=name, img=img, pos=pos, face=(spec['x'] + dx + face[0] * sc, spec['y'] + dy + face[1] * sc), face_r=fr * sc,
+                            sortant=leaving))
         return out
+
+    def _motion(self, name, spec, lines, li, t):
+        """Position (x, y) de l'acteur à l'instant t, ou (None, None) s'il est déjà sorti.
+
+        entre: n + arrivee: gauche|droite|bas|haut|pop ; sort: n + depart: … ; deplace: {acteur: [x, y]} dans une réplique."""
+        x, y = spec['x'], spec['y']
+        hop = 0.0
+        for j, ln in enumerate(lines[:li + 1]):
+            tgt = (ln.get('deplace') or {}).get(name)
+            if tgt:
+                q = clamp((t - ln['t0']) / .7) if j == li else 1.0
+                e = ease_in_out(q)
+                if 0 < q < 1:
+                    hop = -abs(math.sin(q * math.pi * 3)) * 25
+                x, y = x + (tgt[0] - x) * e, y + (tgt[1] - y) * e
+        dirs = {'gauche': (-900, 0), 'droite': (900, 0), 'bas': (0, 900), 'haut': (0, -1100)}
+        if spec.get('entre') is not None and spec.get('arrivee', 'pop') in dirs and li >= spec['entre']:
+            q = ease_out(clamp((t - lines[spec['entre']]['t0']) / .5))
+            ox, oy = dirs[spec['arrivee']]
+            x, y = x + ox * (1 - q), y + oy * (1 - q)
+        if spec.get('sort') is not None and li >= spec['sort']:
+            q = clamp((t - lines[spec['sort']]['t0'] - spec.get('sort_delai', .3)) / .5)
+            if q >= 1:
+                return None, None
+            ox, oy = dirs.get(spec.get('depart', 'droite'), (900, 0))
+            e = q * q
+            x, y = x + ox * e, y + oy * e
+        return x, y + hop
 
     def controle(self, out_dir: Path | None = None):
         """Contrôle de mise en scène, une image au milieu de chaque réplique : visages dans l'écran, pas cachés
@@ -248,6 +304,8 @@ class Episode:
             for i, a in enumerate(actors):
                 fx, fy, r = a['face'][0], a['face'][1], max(12, a['face_r'] * 1.6)
                 tag = f"réplique {n} ({line.get('qui')}) — {a['name']}"
+                if a.get('sortant'):          # en train de sortir de l'écran : normal qu'il soit coupé
+                    continue
                 if fx - r < 0 or fx + r > W or fy - r < 0:
                     problems.append(f'{tag} : visage coupé par le bord de l\'écran')
                 if fy + r > cap_top:
@@ -287,7 +345,12 @@ class Episode:
         if not words or line.get('sans_legende'):
             return
         span = (line['t1'] - line['t0']) * .9
-        i = min(len(words) - 1, int((t - line['t0']) / span * len(words)))
+        if line.get('mots') and len(line['mots']) == len(words):      # minutage réel de la voix
+            starts = [line['t0'] + w[1] for w in line['mots']]
+            i = max(0, sum(1 for s0 in starts if s0 <= t) - 1)
+            span = max(.01, line['t1'] - line['t0'])
+        else:
+            i = min(len(words) - 1, int((t - line['t0']) / span * len(words)))
         g0 = (i // 3) * 3
         group = words[g0:g0 + 3]
         d = ImageDraw.Draw(frame)
@@ -319,25 +382,36 @@ class Episode:
 
     def _encode(self, tmp, out):
         video = tmp / 'v.mp4'
-        sounds = []
-        for i, l in enumerate(self.lines):
-            for name in l.get('sfx', []) or []:
-                sounds.append((name, l['t0']))
+        sounds = []                                  # (fichier, instant, volume)
+        lib = self.cfg.get('bruitages') or {}
+
+        def snd(name):
+            if name in lib:
+                from . import voice
+                return voice.sfx(lib[name]['texte'], lib[name].get('duree', 1.5)), lib[name].get('volume', .8)
+            return SFX / f'{name}.mp3', .5
+        for l in self.lines:
+            if l.get('audio'):
+                sounds.append((l['audio'], l['t0'], 1.0))
+            for item in l.get('sfx', []) or []:
+                name, _, delay = str(item).partition('@')
+                f, vol = snd(name)
+                sounds.append((f, l['t0'] + float(delay or 0), vol))
             for e in (l.get('effets') or {}).values():
                 if e in DEFAULT_SFX and not l.get('sfx'):
-                    sounds.append((DEFAULT_SFX[e], l['t0'] + l.get('effet_delai', 0)))
+                    sounds.append((SFX / f'{DEFAULT_SFX[e]}.mp3', l['t0'] + l.get('effet_delai', 0), .5))
             if l.get('carte') and not l.get('sfx'):
-                sounds.append(('pop', l['t0']))
-        for s in self.shots[1:]:
-            sounds.append(('whoosh', s['t0']))
+                sounds.append((SFX / 'pop.mp3', l['t0'], .5))
+        for s_ in self.shots[1:]:
+            sounds.append((SFX / 'whoosh.mp3', s_['t0'], .5))
         inputs, parts = [], []
-        for i, (name, at) in enumerate(sounds):
-            inputs += ['-i', str(SFX / f'{name}.mp3')]
+        for i, (f, at, vol) in enumerate(sounds):
+            inputs += ['-i', str(f)]
             ms = int(at * 1000)
-            parts.append(f'[{i + 1}:a]adelay={ms}|{ms},volume=.5[s{i}]')
+            parts.append(f'[{i + 1}:a]aresample=48000,adelay={ms}|{ms},volume={vol}[s{i}]')
         if sounds:
             mix = ''.join(f'[s{i}]' for i in range(len(sounds)))
-            fc = f'{";".join(parts)};{mix}amix=inputs={len(sounds)}:normalize=0,apad,atrim=0:{self.duration},loudnorm=I=-16:TP=-1.5[a]'
+            fc = f'{";".join(parts)};{mix}amix=inputs={len(sounds)}:normalize=0,apad,atrim=0:{self.duration},loudnorm=I=-14:TP=-1.5[a]'
             cmd = ['ffmpeg', '-v', 'error', '-y', '-i', str(video), *inputs, '-filter_complex', fc, '-map', '0:v', '-map', '[a]']
         else:
             cmd = ['ffmpeg', '-v', 'error', '-y', '-i', str(video), '-f', 'lavfi', '-i', f'anullsrc=r=48000:cl=stereo', '-t', str(self.duration),
