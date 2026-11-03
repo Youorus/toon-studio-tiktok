@@ -1,0 +1,106 @@
+titre: À remplacer par le titre de l’épisode
+niche: corps-humain
+degrade_bas: false
+voix:
+  estomac: {voix: blase, stabilite: 0.38}
+  gelule: {voix: ado_garcon, stabilite: 0.32}
+  peau: {voix: diva, stabilite: 0.44}
+  violette: {voix: lascar, stabilite: 0.36}
+  globule: {voix: chef, stabilite: 0.44}
+  lea: {voix: patiente, stabilite: 0.45}
+  docteure: {voix: mere, stabilite: 0.48}
+bruitages:
+  ploc: {fichier: episodes/006-antibioresistance/sons/ploc.wav, volume: 0.38}
+  passage: {fichier: episodes/006-antibioresistance/sons/passage.wav, volume: 0.25}
+plans:
+  - id: ouverture
+    organe: Estomac
+    decor: decors/estomac-corail.png
+    transition: coupe
+    zoom: [1, 1.02]
+    acteurs: &estomac
+      estomac: {perso: episodes/006-antibioresistance/personnages/estomac, x: 821, y: 811, regard: [-0.85, 0.1]}
+      gelule:
+        perso: episodes/006-antibioresistance/personnages/gelule
+        x: 681
+        y: 1014
+        echelle: 1.08
+        mouvement:
+          - {t: 0, dx: -200, dy: -740, angle: 14, echelle: 0.55}
+          - {t: 0.85, dx: -105, dy: -225, angle: -8, echelle: 0.85}
+          - {t: 1.25, dx: 0, dy: 0, angle: 0, echelle: 1}
+    mini_badges:
+      - {acteur: gelule, texte: Antibiotique, fond: '#1E4352', point: '#91D3DF', delai: 0.16, duree: 1.8, decalage: [-230, -12]}
+    repliques:
+      - qui: estomac
+        dit: Remplacer par la réaction qui ouvre le sketch.
+        emotion: choque
+        sfx: [ploc@1.25]
+      - {qui: gelule, dit: Remplacer par la réplique courte qui lance le conflit., emotion: fache}
+
+  - id: conflit
+    organe: Peau
+    decor: decors/peau-corail.png
+    transition: coupe
+    zoom: [1, 1]
+    acteurs:
+      peau: {perso: episodes/006-antibioresistance/personnages/peau, x: 226, y: 657}
+      violette:
+        perso: episodes/006-antibioresistance/personnages/resistante
+        x: 570
+        y: 817
+        entre: 1
+        arrivee: haut
+    mini_badges:
+      - {acteur: violette, texte: Bactérie, replique: 1, delai: 0.42, duree: 1.55}
+    repliques:
+      - {qui: peau, dit: Remplacer par une alerte courte., emotion: choque}
+      - {qui: violette, dit: Remplacer par une réponse avec du culot., emotion: malicieux}
+
+  - id: relance
+    organe: Estomac
+    decor: decors/estomac-corail.png
+    transition: coupe
+    zoom: [1, 1]
+    acteurs: *estomac
+    repliques:
+      - {qui: estomac, dit: Remplacer par le rappel qui fait avancer le gag., emotion: inquiet}
+      - {qui: gelule, dit: Remplacer par le nouvel élément qui change la situation., emotion: content}
+
+  - id: consequence
+    organe: Peau
+    decor: decors/peau-corail.png
+    transition: coupe
+    zoom: [1, 1]
+    acteurs:
+      globule: {perso: episodes/006-antibioresistance/personnages/globule, x: 270, y: 858}
+      violette: {perso: episodes/006-antibioresistance/personnages/resistante, x: 665, y: 797}
+    mini_badges:
+      - {acteur: globule, texte: Globule blanc, fond: '#285259', point: '#E9F9EB', delai: 0.2, duree: 1.65}
+      - acteur: violette
+        texte: |-
+          Bactérie
+          résistante
+        replique: 1
+        delai: 0.15
+        duree: 1.8
+    repliques:
+      - {qui: globule, dit: Remplacer par le constat visible à l’image., emotion: content, sfx: [passage]}
+      - {qui: violette, dit: Remplacer par la chute de la scène., emotion: malicieux}
+
+  - id: cabinet
+    decor: decors/cabinet-abonne-toi.png
+    transition: coupe
+    zoom: [1, 1.018]
+    acteurs:
+      lea: {perso: personnages/lea-aplats, x: 713, y: 1645, echelle: 1.04, regard: [-0.85, -0.5]}
+      docteure: {perso: personnages/docteure-aplats, x: 328, y: 1645, echelle: 1.08, regard: [0.8, 0.5]}
+    repliques:
+      - {qui: lea, dit: Remplacer par la question du public., emotion: inquiet}
+      - {qui: docteure, dit: Remplacer par une explication vérifiée et la suite si nécessaire., emotion: neutre}
+      - qui: docteure
+        dit: Abonne-toi pour comprendre ton corps en t’amusant.
+        emotion: content
+        regards: {docteure: [0, 0]}
+        carte: {type: bouton, texte: ABONNE-TOI, couleur: '#24666D', largeur: 610}
+        sfx: [ding@0.13]

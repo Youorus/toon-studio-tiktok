@@ -5,6 +5,7 @@ Quand une voix existera (audio + minutage mot à mot), il suffira de fournir `mi
 les durées et les bouches suivront alors l'audio (voir docs/EPISODES.md).
 """
 import math, random, shutil, subprocess, tempfile
+from bisect import bisect_right
 from pathlib import Path
 
 import yaml
@@ -46,6 +47,49 @@ def effect(name, s):
 
 DEFAULT_SFX = {'hic': 'boing', 'saut': 'swoosh', 'tremble': 'buzzer', 'apparait': 'pop', 'rot': 'pop'}
 
+ACTION_DEFAULTS = {'dx': 0.0, 'dy': 0.0, 'angle': 0.0, 'echelle': 1.0}
+
+
+def action_track(keys, label):
+    """Compile les poses d'une piste en secondes locales au plan."""
+    times, poses, curves = [0.0], [ACTION_DEFAULTS], ['douce']
+    last = -1.0
+    for key in keys:
+        at = key.get('t')
+        curve = key.get('courbe', 'douce')
+        fields = {name: value for name, value in key.items() if name not in ('t', 'courbe')}
+        if not isinstance(at, (int, float)) or not math.isfinite(at) or at < 0 or at <= last:
+            raise ValueError(f'{label} : les temps de mouvement doivent être positifs ou nuls et strictement croissants')
+        if curve not in ('douce', 'lineaire', 'maintien'):
+            raise ValueError(f'{label} : courbe de mouvement inconnue : {curve}')
+        for name, value in fields.items():
+            if name not in ACTION_DEFAULTS or not isinstance(value, (int, float)) or not math.isfinite(value):
+                raise ValueError(f'{label} : valeur de mouvement invalide : {name}')
+        pose = {**poses[-1], **fields}
+        if pose['echelle'] <= 0:
+            raise ValueError(f'{label} : l’échelle du mouvement doit être supérieure à zéro')
+        if at == 0:
+            poses[0] = pose
+        else:
+            times.append(at)
+            poses.append(pose)
+            curves.append(curve)
+        last = at
+    return times, poses, curves
+
+
+def sample_action(track, t):
+    times, poses, curves = track
+    t = max(t, 0)
+    right = bisect_right(times, t)
+    left = right - 1
+    if right == len(times) or curves[right] == 'maintien':
+        return poses[left]
+    q = (t - times[left]) / (times[right] - times[left])
+    if curves[right] == 'douce':
+        q = ease_in_out(q)
+    return {name: value + (poses[right][name] - value) * q for name, value in poses[left].items()}
+
 
 class Episode:
     def __init__(self, folder: Path, with_voice: bool | None = None):
@@ -57,7 +101,18 @@ class Episode:
         self.palette.setdefault('accent', '#FF5A5F')
         self.palette.setdefault('legende', '#FFD84D')
         self.with_voice = bool(self.cfg.get('voix')) if with_voice is None else with_voice
+        self.actions = {
+            (shot['id'], name): action_track(actor['mouvement'], f"{shot['id']}/{name}")
+            for shot in self.cfg['plans']
+            for name, actor in shot['acteurs'].items()
+            if actor.get('mouvement')
+        }
         self._timeline()
+        for shot in self.shots:
+            for name in shot['acteurs']:
+                track = self.actions.get((shot['id'], name))
+                if track and track[0][-1] > shot['t1'] - shot['t0'] + 1e-6:
+                    raise ValueError(f"{shot['id']}/{name} : la dernière pose de mouvement dépasse la fin du plan")
 
     def path(self, rel):
         """Chemins relatifs : d'abord le dossier de l'épisode, puis celui de la niche."""
@@ -131,6 +186,7 @@ class Episode:
             dx, dy = other['x'] - spec['x'], other['y'] - spec['y']
             n = math.hypot(dx, dy) or 1
             gaze = (dx / n * .9, dy / n * .6)
+        gaze = tuple((line.get('regards') or {}).get(name, gaze))
         rnd = random.Random(_h(name))
         period = 2.6 + rnd.random() * 1.8
         blink = (t + rnd.random() * period) % period < .1 and emo not in ('douleur', 'rire')
@@ -148,7 +204,7 @@ class Episode:
         decors = {s['id']: cover(Image.open(self.path(s['decor'])).convert('RGBA')) for s in self.shots}
         chars = {(s['id'], n): rig.load(self.path(a['perso'])) for s in self.shots for n, a in s['acteurs'].items()}
         self._chars = {n: c for (_, n), c in chars.items()}
-        shade = _bottom_shade()
+        shade = _bottom_shade() if self.cfg.get('degrade_bas', True) else None
         tmp = Path(tempfile.mkdtemp())
         n_frames = int(self.duration * FPS)
         # les images partent directement dans ffmpeg (rien d'écrit sur le disque)
@@ -162,23 +218,19 @@ class Episode:
             li = next((i for i, l in enumerate(lines) if l['t0'] <= t < l['t1']), len(lines) - 1)
             line = lines[li]
             frame = decors[shot['id']].copy()
-            for a in self._place_actors(shot, lines, li, line, t, chars):
+            placed = self._place_actors(shot, lines, li, line, t, chars)
+            for a in placed:
                 frame.alpha_composite(a['img'], a['pos'])
-            # caméra : léger travelling avant sur le plan
-            z0, z1 = shot.get('zoom', (1.0, 1.04))
-            z = z0 + (z1 - z0) * ease_in_out((t - shot['t0']) / max(.1, shot['t1'] - shot['t0']))
-            if abs(z - 1) > 1e-3:
-                cx, cy = shot.get('centre', (W / 2, H / 2))
-                w, h = W / z, H / z
-                x0, y0 = clamp(cx - w / 2, 0, W - w), clamp(cy - h / 2, 0, H - h)
-                frame = frame.crop((int(x0), int(y0), int(x0 + w), int(y0 + h))).resize((W, H), Image.LANCZOS)
+            frame, view = self._camera_frame(frame, shot, t)
+            self._actor_labels(frame, shot, t, placed, view)
             # transition entre plans : le nouveau plan glisse depuis la droite
-            if si > 0 and t - shot['t0'] < .3:
+            if si > 0 and shot.get('transition') != 'coupe' and t - shot['t0'] < .3:
                 q = ease_out((t - shot['t0']) / .3)
                 prev = decors[self.shots[si - 1]['id']].copy()
                 prev.alpha_composite(frame.crop((0, 0, int(W * q) or 1, H)), (int(W * (1 - q)), 0))
                 frame = prev
-            frame.alpha_composite(shade)
+            if shade is not None:
+                frame.alpha_composite(shade)
             # carte de la réplique (ou gardée depuis une réplique précédente)
             card_line = next((l for l in reversed(lines[:li + 1]) if l.get('carte') and (l is line or l['carte'].get('garde'))), None)
             if card_line:
@@ -204,6 +256,20 @@ class Episode:
             shutil.rmtree(tmp, ignore_errors=True)
         return out
 
+    def _camera_frame(self, frame, shot, t):
+        z0, z1 = shot.get('zoom', (1.0, 1.04))
+        z = z0 + (z1 - z0) * ease_in_out((t - shot['t0']) / max(.1, shot['t1'] - shot['t0']))
+        if abs(z - 1) <= 1e-3:
+            return frame, (0, 0, W, H)
+        cx, cy = shot.get('centre', (W / 2, H / 2))
+        w, h = W / z, H / z
+        x, y = clamp(cx - w / 2, 0, W - w), clamp(cy - h / 2, 0, H - h)
+        view = (int(x), int(y), int(x + w), int(y + h))
+        return frame.crop(view).resize((W, H), Image.LANCZOS), view
+
+    def _actor_labels(self, frame, shot, t, placed, view):
+        """Les épisodes sous-titrés peuvent annoter les acteurs après le cadrage."""
+
     def _place_actors(self, shot, lines, li, line, t, chars):
         """Acteurs visibles à l'instant t, du fond vers l'avant (y croissant) : image, position, repère du visage à l'écran."""
         out = []
@@ -220,10 +286,18 @@ class Episode:
             st = self.actor_state(shot, name, spec, t, line, lines[:li])
             ch = chars[(shot['id'], name)]
             dx, dy, squash, tilt, k = st['fx']
+            track = self.actions.get((shot['id'], name))
+            if track:
+                action = sample_action(track, t - shot['t0'])
+                dx += action['dx']
+                dy += action['dy']
+                tilt += action['angle']
+                k *= action['echelle']
             if spec.get('miroir'):           # image retournée : le regard aussi
                 st['gaze'] = (-st['gaze'][0], st['gaze'][1])
             img, anchor = ch.render(st['pose'], st['emo'], st['gaze'], st['blink'], st['mouth'], t, st['talk'], squash, tilt,
-                                    phase=_h(name) % 7, walk=walking, facing=-1 if spec.get('miroir') else 1)
+                                    phase=_h(name) % 7, walk=walking, facing=-1 if spec.get('miroir') else 1,
+                                    layer_angles=st.get('layer_angles'))
             sc = spec.get('echelle', 1.0) * ch.scale * k
             if sc <= .01:
                 continue
@@ -372,6 +446,15 @@ class Episode:
             span = max(.01, line['t1'] - line['t0'])
         else:
             i = min(len(words) - 1, int((t - line['t0']) / span * len(words)))
+        if self.cfg.get('legendes_mode') == 'mot_blanc':
+            d = ImageDraw.Draw(frame)
+            word = words[i].upper()
+            f = font('LuckiestGuy', 60)
+            while d.textlength(word, font=f) > W - 80 and f.size > 18:
+                f = font('LuckiestGuy', f.size - 6)
+            d.text((W // 2, self.cfg.get('legendes_y', 1460)), word, font=f, fill='white',
+                   stroke_width=5, stroke_fill=(20, 14, 18), anchor='mm')
+            return
         g0 = (i // 3) * 3
         group = words[g0:g0 + 3]
         d = ImageDraw.Draw(frame)
@@ -392,8 +475,49 @@ class Episode:
             x += d.textlength(wtxt + ' ', font=f)
 
     def _watermark(self, frame, t):
-        txt = self.niche.get('filigrane')
+        txt = self.cfg.get('filigrane', self.niche.get('filigrane'))
         if not txt:
+            return
+        signature = self.niche.get('direction_artistique', {}).get('signature')
+        if signature:
+            if spots := signature.get('positions'):
+                duration = signature['intervalle_s']
+                step, elapsed = divmod(t, duration)
+                i = int(step) % len(spots)
+                q = ease_in_out(clamp((elapsed - duration + signature['trajet_s']) / signature['trajet_s']))
+                x, y = spots[i]
+                nx, ny = spots[(i + 1) % len(spots)]
+                x = round(x + (nx - x) * q)
+                y = round(y + (ny - y) * q)
+                face = font('Fredoka', signature['taille'])
+                width = math.ceil(face.getlength(txt))
+                layer = Image.new('RGBA', (width + 8, face.size * 2))
+                ImageDraw.Draw(layer).text((4, face.size), txt, font=face,
+                                           fill=(255, 255, 255, signature['opacite']), anchor='lm')
+                frame.alpha_composite(layer, (min(x, W - width - 108), y - face.size))
+                return
+            x, y = signature['position']
+            face = font('Fredoka', 36)
+            width = math.ceil(face.getlength(txt))
+            moving = signature.get('periode_s')
+            layer = Image.new('RGBA', frame.size)
+            draw = ImageDraw.Draw(layer)
+            if moving:
+                travel = max(0, signature['bord_droit'] - width - x)
+                x += round(travel * (.5 - .5 * math.cos(2 * math.pi * t / moving)))
+                draw.rounded_rectangle((x - 12, y - 23, x + width + 12, y + 23),
+                                       radius=18, fill=(24, 19, 19, 108))
+                tone = (255, 249, 237)
+            else:
+                r, g, b = frame.getpixel((min(W - 1, x + width // 2), y))[:3]
+                light_wall = .2126 * r + .7152 * g + .0722 * b > 165
+                tone = (49, 47, 45) if light_wall else (255, 249, 237)
+            # Composer le texte séparément pour conserver le fond sous l’encre semi-transparente.
+            text_layer = Image.new('RGBA', (width + 4, 46))
+            ImageDraw.Draw(text_layer).text((2, 23), txt, font=face,
+                                            fill=(*tone, signature['opacite']), anchor='lm')
+            layer.alpha_composite(text_layer, (x - 2, y - 23))
+            frame.alpha_composite(layer)
             return
         spots = [(140, 260), (760, 300), (180, 1250), (800, 1180)]
         x, y = spots[int(t // 6) % len(spots)]
@@ -408,6 +532,8 @@ class Episode:
 
         def snd(name):
             if name in lib:
+                if lib[name].get('fichier'):
+                    return self.path(lib[name]['fichier']), lib[name].get('volume', .8)
                 from . import voice
                 return voice.sfx(lib[name]['texte'], lib[name].get('duree', 1.5)), lib[name].get('volume', .8)
             return SFX / f'{name}.mp3', .5
@@ -424,7 +550,8 @@ class Episode:
             if l.get('carte') and not l.get('sfx'):
                 sounds.append((SFX / 'pop.mp3', l['t0'], .5))
         for s_ in self.shots[1:]:
-            sounds.append((SFX / 'whoosh.mp3', s_['t0'], .5))
+            if s_.get('transition') != 'coupe':
+                sounds.append((SFX / 'whoosh.mp3', s_['t0'], .5))
         inputs, parts = [], []
         for i, (f, at, vol) in enumerate(sounds):
             inputs += ['-i', str(f)]
@@ -433,11 +560,12 @@ class Episode:
         if sounds:
             mix = ''.join(f'[s{i}]' for i in range(len(sounds)))
             fc = f'{";".join(parts)};{mix}amix=inputs={len(sounds)}:normalize=0,apad,atrim=0:{self.duration},loudnorm=I=-14:TP=-1.5[a]'
-            cmd = ['ffmpeg', '-v', 'error', '-y', '-i', str(video), *inputs, '-filter_complex', fc, '-map', '0:v', '-map', '[a]']
+            cmd = ['ffmpeg', '-nostdin', '-v', 'error', '-y', '-i', str(video), *inputs, '-filter_complex', fc, '-map', '0:v', '-map', '[a]']
         else:
-            cmd = ['ffmpeg', '-v', 'error', '-y', '-i', str(video), '-f', 'lavfi', '-i', f'anullsrc=r=48000:cl=stereo', '-t', str(self.duration),
+            cmd = ['ffmpeg', '-nostdin', '-v', 'error', '-y', '-i', str(video), '-f', 'lavfi', '-i', f'anullsrc=r=48000:cl=stereo',
                    '-map', '0:v', '-map', '1:a']
-        subprocess.run(cmd + ['-c:v', 'copy', '-c:a', 'aac', '-b:a', '192k', '-movflags', '+faststart', str(out)], check=True)
+        subprocess.run(cmd + ['-t', str(self.duration), '-c:v', 'copy', '-c:a', 'aac', '-b:a', '192k',
+                              '-movflags', '+faststart', str(out)], check=True)
 
 
 def _bottom_shade():

@@ -1,0 +1,173 @@
+titre: Le colis surprise du placenta
+niche: corps-humain
+degrade_bas: false
+voix:
+  uterus:
+    voix: diva
+    stabilite: 0.38
+  placenta:
+    voix: blase
+    stabilite: 0.35
+  foetus:
+    voix: ado_garcon
+    stabilite: 0.32
+  lea:
+    voix: patiente
+    stabilite: 0.45
+  docteure:
+    voix: mere
+    stabilite: 0.48
+bruitages:
+  glisse:
+    fichier: episodes/006-antibioresistance-v3/sons/glisse.wav
+    volume: 0.28
+  pop:
+    fichier: episodes/006-antibioresistance/sons/ploc.wav
+    volume: 0.43
+plans:
+- id: passage
+  decor: art/uterus-interieur.png
+  organe: Utérus
+  zoom:
+  - 1
+  - 1
+  transition: coupe
+  acteurs:
+    uterus:
+      perso: personnages/uterus
+      x: 519
+      y: 545
+      echelle: 1.1
+      regard:
+      - 0
+      - 0.8
+    placenta:
+      perso: personnages/placenta
+      x: 322
+      y: 1088
+      echelle: 0.99
+      regard:
+      - 0.73
+      - 0.1
+    foetus:
+      perso: personnages/foetus
+      x: 701
+      y: 1287
+      echelle: 0.99
+      regard:
+      - -0.8
+      - 0
+  repliques:
+  - qui: uterus
+    dit: Euh… Placenta ? Pourquoi ça sent l’apéro ici ?
+    sous_titres: Euh… Placenta ? | Pourquoi ça sent l’apéro ici ?
+    jeu: '[startled, then dry disbelief] Euh… Placenta ? Pourquoi ça sent l’apéro
+      ici ?'
+    emotion: choque
+    pause: 0.13
+  - qui: placenta
+    dit: De l’alcool. Il est passé du sang de Léa jusqu’ici.
+    sous_titres: De l’alcool. | Il est passé du sang de Léa | jusqu’ici.
+    jeu: '[deadpan, clipped and clear] De l’alcool. Il est passé du sang de Léa jusqu’ici.'
+    emotion: fatigue
+    pause: 0.16
+  - qui: foetus
+    dit: Un colis pour moi ? J’ai rien commandé, hein !
+    sous_titres: Un colis pour moi ? | J’ai rien commandé, hein !
+    jeu: '[snappy, offended, humorous] Un colis pour moi ? J’ai rien commandé, hein
+      !'
+    emotion: choque
+    pause: 0.13
+  - qui: uterus
+    dit: Bah refuse le colis !
+    sous_titres: Bah refuse le colis !
+    jeu: '[impatient and punchy] Bah refuse le colis !'
+    emotion: fache
+    pause: 0.11
+  - qui: placenta
+    dit: Je suis un placenta, pas un videur de boîte.
+    sous_titres: Je suis un placenta, | pas un videur de boîte.
+    jeu: '[deadpan, punch the last phrase] Je suis un placenta, pas un videur de boîte.'
+    emotion: fatigue
+    pause: 0.55
+  mini_badges:
+  - acteur: placenta
+    texte: Placenta
+    delai: 0.65
+    duree: 1.65
+    decalage:
+    - -25
+    - -108
+  - acteur: foetus
+    texte: Fœtus
+    replique: 2
+    delai: 0.1
+    duree: 1.65
+    decalage:
+    - 42
+    - -137
+- id: cabinet
+  decor: art/cabinet-007.png
+  zoom:
+  - 1
+  - 1.015
+  transition: coupe
+  acteurs:
+    lea:
+      perso: personnages/lea-aplats
+      x: 703
+      y: 1612
+      echelle: 1.06
+      regard:
+      - -0.85
+      - -0.5
+    docteure:
+      perso: personnages/docteure-aplats
+      x: 309
+      y: 1612
+      echelle: 1.08
+      regard:
+      - 0.8
+      - 0.5
+  repliques:
+  - qui: lea
+    dit: J’ai bu avant de savoir que j’étais enceinte. Qu’est-ce que je fais ?
+    sous_titres: J’ai bu avant de savoir | que j’étais enceinte. | Qu’est-ce que je
+      fais ?
+    jeu: '[natural, quietly worried] J’ai bu avant de savoir que j’étais enceinte.
+      Qu’est-ce que je fais ?'
+    emotion: inquiet
+    pause: 0.19
+  - qui: docteure
+    dit: Parles-en à ta sage-femme ou à ton médecin. Vous pourrez faire le point ensemble.
+    sous_titres: Parles-en à ta sage-femme | ou à ton médecin. | Vous pourrez faire
+      le point ensemble.
+    jeu: '[warm, calm, conversational] Parles-en à ta sage-femme ou à ton médecin.
+      Vous pourrez faire le point ensemble.'
+    emotion: neutre
+    pause: 0.19
+  - qui: docteure
+    dit: L’alcool traverse le placenta. On ne connaît pas de dose sans risque. Pendant
+      la grossesse, c’est zéro alcool.
+    sous_titres: L’alcool traverse le placenta. | On ne connaît pas de dose sans risque.
+      | Pendant la grossesse, | c’est zéro alcool.
+    jeu: '[clear and reassuring, emphasize zero] L’alcool traverse le placenta. On
+      ne connaît pas de dose sans risque. Pendant la grossesse, c’est zéro alcool.'
+    emotion: neutre
+    pause: 0.23
+  - qui: docteure
+    dit: Abonne-toi, ton corps a encore des trucs à te dire.
+    sous_titres: Abonne-toi, | ton corps a encore des trucs à te dire.
+    jeu: '[smiling and brisk, direct to camera] Abonne-toi, ton corps a encore des
+      trucs à te dire.'
+    emotion: content
+    pause: 0.45
+    carte:
+      type: bouton
+      texte: ABONNE-TOI
+      couleur: '#24666D'
+      largeur: 610
+    regards:
+      docteure:
+      - 0
+      - 0

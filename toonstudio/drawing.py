@@ -77,6 +77,17 @@ def remove_flat_background(img: Image.Image, tol=18) -> Image.Image:
 
 def affine_paste(canvas: Image.Image, img: Image.Image, pivot, to, angle=0.0, sx=1.0, sy=1.0):
     """Colle img sur canvas : le point pivot (pixels de img) arrive en `to`, après rotation (degrés) et échelle autour du pivot."""
+    bounds = img.getbbox()
+    if bounds is None:
+        return
+    left, top, right, bottom = bounds
+    corners = [transform_point((x, y), pivot, to, angle, sx, sy)
+               for x in (left - 2, right + 2) for y in (top - 2, bottom + 2)]
+    xs, ys = zip(*corners)
+    x0, y0 = max(0, math.floor(min(xs))), max(0, math.floor(min(ys)))
+    x1, y1 = min(canvas.width, math.ceil(max(xs))), min(canvas.height, math.ceil(max(ys)))
+    if x0 >= x1 or y0 >= y1:
+        return
     a = math.radians(angle)
     ca, sa = math.cos(a), math.sin(a)
     # matrice directe : p' = to + R*S*(p - pivot) ; PIL attend l'inverse
@@ -84,10 +95,10 @@ def affine_paste(canvas: Image.Image, img: Image.Image, pivot, to, angle=0.0, sx
     det = m00 * m11 - m01 * m10
     i00, i01, i10, i11 = m11 / det, -m01 / det, -m10 / det, m00 / det
     tx, ty = to
-    c = i00 * -tx + i01 * -ty + pivot[0]
-    f = i10 * -tx + i11 * -ty + pivot[1]
-    layer = img.transform(canvas.size, Image.AFFINE, (i00, i01, c, i10, i11, f), resample=Image.BICUBIC)
-    canvas.alpha_composite(layer)
+    c = i00 * (x0 - tx) + i01 * (y0 - ty) + pivot[0]
+    f = i10 * (x0 - tx) + i11 * (y0 - ty) + pivot[1]
+    layer = img.transform((x1 - x0, y1 - y0), Image.AFFINE, (i00, i01, c, i10, i11, f), resample=Image.BICUBIC)
+    canvas.alpha_composite(layer, (x0, y0))
 
 
 def transform_point(p, pivot, to, angle=0.0, sx=1.0, sy=1.0):

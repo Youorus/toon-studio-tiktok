@@ -2,26 +2,27 @@
 
 Studio de production de vidéos TikTok en **animation 2D à couches** : des personnages et des organes attachants qui
 vivent une situation drôle, puis un personnage expert qui explique. Une **niche** = un univers (personnages, décors,
-couleurs, ton). Première niche : **« Ton corps, expliqué »** (`niches/corps-humain`).
+couleurs, ton). Première niche **Le Corps Parle.fr** (`niches/corps-humain`).
 
 | Brique | Rôle |
 |---|---|
 | **Recraft** (API) | Dessine les personnages, organes, objets et décors dans un **style maison** constant (budget plafonné) |
 | **Gemini Image** | Décors et images de test (marquage IA SynthID) |
 | **Moteur maison** (`toonstudio/`) | Anime : visages (13 émotions, regard, clignements, bouche qui parle), bras articulés dessinés, tête qui penche, squash & stretch, effets, caméra, cartes de motion design, sous-titres, bruitages |
-| **Claude** | Écrit les épisodes (`episode.yaml`) et vérifie les faits |
-| ElevenLabs (plus tard) | Voix ; le moteur synchronisera les bouches sur l'audio |
+| **Écriture** | Scripts, sources, intentions des répliques et plans de montage versionnés par épisode |
+| **ElevenLabs** | Prises récurrentes et alignements pour les visèmes et sous-titres |
 
 ## Démarrer
 
 ```bash
-cd ~/Documents/ChatGPT/postly/toon-studio
+git clone https://github.com/Youorus/toon-studio-tiktok.git
+cd toon-studio-tiktok
 uv venv .venv --python 3.12 && uv pip install --python .venv/bin/python -r requirements.txt
 cp .env.example .env            # puis y mettre RECRAFT_API_TOKEN=...
 .venv/bin/python -m toonstudio rendu niches/corps-humain/episodes/001-hoquet
 ```
 
-La vidéo sort dans `niches/corps-humain/episodes/001-hoquet/out/`.
+La vidéo sort dans `niches/corps-humain/episodes/001-hoquet/out/`. Les rendus utilisent FFmpeg et FFprobe. Pour de nouvelles prises, fournir la clé ElevenLabs et le registre des voix. Pour rejouer un épisode archivé, fournir `TOON_PRISES_INDEX` depuis son ZIP privé.
 
 ## Commandes
 
@@ -63,6 +64,7 @@ data/                journal des dépenses ; cache/ (non versionné)
 
 ## Guides
 
+- [Produire, verrouiller et archiver un épisode](docs/PRODUCTION.md)
 - [Architecture et rendu](docs/ARCHITECTURE.md)
 - [Direction artistique et couleurs](docs/DIRECTION-ARTISTIQUE.md)
 - [Recraft : budget et procédure](docs/RECRAFT.md)
@@ -70,9 +72,10 @@ data/                journal des dépenses ; cache/ (non versionné)
 - [Épisodes : format episode.yaml](docs/EPISODES.md)
 - [Ajouter une nouvelle niche](docs/NOUVELLE-NICHE.md)
 
-## État au 2 novembre 2026
+## Le Corps Parle.fr
 
-- **Kit visuel v3 validé par Marc** (rendu rétro « cellulo » lissé, palette vive) : 4 humains, 24 organes / objets /
-  microbes, 6 décors, installés et animables. Coût Recraft total : 7,59 $ (journal `data/recraft-depenses.jsonl`).
-- Épisode test `001-hoquet` (62 s, sans voix) rendu avec ce kit.
-- Voix : pas encore branchée (aucun crédit ElevenLabs dépensé).
+- [Profil visuel et sonore lcp-1.0.0](niches/corps-humain/profil-verrou.json)
+- [Épisode étalon 006 · La bactérie qui n’a pas bougé](niches/corps-humain/episodes/006-antibioresistance-v3/)
+- [Épisode 007 · Le colis surprise du placenta](niches/corps-humain/episodes/007-alcool-grossesse/)
+
+Le code et les actifs studio sont versionnés. Les masters, les prises enregistrées et les archives de production sont conservés à part, avec leurs empreintes. Une nouvelle niche peut partir du même moteur avec son propre casting, ses décors et ses réglages.

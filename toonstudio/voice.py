@@ -4,6 +4,8 @@ tts() renvoie le fichier audio et le minutage de chaque caractère : il sert aux
 Les indications de jeu entre crochets ([chuchote], [rit], [paniqué]…) sont dites par la voix mais retirées des sous-titres.
 """
 import base64, hashlib, json, re, subprocess
+import os
+from functools import lru_cache
 from pathlib import Path
 
 import requests
@@ -15,14 +17,31 @@ VOICES = Path(__file__).resolve().parents[2] / 'dr-mia' / 'studio' / 'config' / 
 
 
 def voice_ids() -> dict:
-    return json.loads(VOICES.read_text())['archetypes']
+    path=Path(key('TOON_VOICES_CONFIG',required=False) or VOICES)
+    return json.loads(path.read_text())['archetypes']
 
 
 def _h(obj) -> str:
     return hashlib.sha256(json.dumps(obj, sort_keys=True, ensure_ascii=False).encode()).hexdigest()[:24]
 
 
+def take_key(archetype, text, stability, seed):
+    return _h([archetype, text, stability, seed])
+
+
+@lru_cache(maxsize=4)
+def _recorded_takes(index):
+    return json.loads(index.read_text())
+
+
 def tts(archetype: str, text: str, stability: float | None = None, seed: int = 7) -> dict:
+    if manifest := os.environ.get('TOON_PRISES_INDEX'):
+        index=Path(manifest).resolve()
+        take=_recorded_takes(index).get(take_key(archetype,text,stability,seed))
+        if take is None:
+            raise ValueError(f'Prise absente de l’archive pour {archetype}.')
+        return {'audio':index.parent/take['audio'],
+                'alignment':json.loads((index.parent/take['alignement']).read_text())}
     v = voice_ids()[archetype]
     body = {'text': text, 'model_id': MODEL, 'language_code': 'fr', 'seed': seed,
             'voice_settings': {'stability': v['stability'] if stability is None else stability, 'similarity_boost': v['similarity']}}

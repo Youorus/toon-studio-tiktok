@@ -163,13 +163,19 @@ def cmd_controle(a):
 
 
 def cmd_rendu(a):
-    from .episode import Episode
-    ep = Episode(Path(a.episode))
+    if a.captionne:
+        from .sous_titres import CaptionedEpisode
+        ep = CaptionedEpisode(Path(a.episode))
+    else:
+        from .episode import Episode
+        ep = Episode(Path(a.episode))
     print(f'« {ep.cfg["titre"]} » : {ep.duration:.1f} s, {len(ep.lines)} répliques')
     probs = ep.controle()
     if probs and not a.forcer:
         print('Contrôle de mise en scène : ' + str(len(probs)) + ' problème(s), rendu annulé (voir out/controle.jpg, ou --forcer) :')
         print('\n'.join('  - ' + p for p in probs)); return
+    if a.captionne:
+        ep.save_subtitles(ep.folder / 'out')
     print('Vidéo :', ep.render(preview_every=150))
 
 
@@ -187,7 +193,7 @@ def main(argv=None):
     st.add_argument('--humains', action='store_true', help='style des personnages humains'); st.set_defaults(fn=cmd_style)
     c = sub.add_parser('choisir', help='installer un candidat Recraft'); c.add_argument('niche'); c.add_argument('candidat'); c.add_argument('nom')
     c.add_argument('--type', choices=['organe', 'humain', 'decor'], default='organe'); c.set_defaults(fn=cmd_choisir)
-    r = sub.add_parser('rendu', help='rendre un épisode'); r.add_argument('episode'); r.add_argument('--forcer', action='store_true'); r.set_defaults(fn=cmd_rendu)
+    r = sub.add_parser('rendu', help='rendre un épisode'); r.add_argument('episode'); r.add_argument('--forcer', action='store_true'); r.add_argument('--captionne', action='store_true', help='sous-titres synchronisés et badges des acteurs'); r.set_defaults(fn=cmd_rendu)
     ct = sub.add_parser('controle', help='contrôle de mise en scène (planche + problèmes)'); ct.add_argument('episode'); ct.set_defaults(fn=cmd_controle)
     a = p.parse_args(argv)
     a.fn(a)

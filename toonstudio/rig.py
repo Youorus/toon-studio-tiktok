@@ -14,12 +14,37 @@ from pathlib import Path
 
 import numpy as np
 import yaml
-from PIL import Image
+from PIL import Image, ImageDraw
 
 from .arms import draw_arm
 from .limbs import GESTES, draw_leg, draw_noodle_arm, walk_cycle
-from .drawing import affine_paste, transform_point
+from .drawing import affine_paste, rgb, transform_point
 from .face import FaceSpec, face_overlay, register
+
+
+def draw_flagellum(canvas, spec, pivot, root, t):
+    """Dessine un flagelle attaché à la cellule, avec une onde qui part du cou."""
+    x, y = spec['attache']
+    length = spec['longueur']
+    amplitude = spec.get('amplitude', 24)
+    frequency = spec.get('frequence', 3)
+    angle = math.radians(spec.get('angle', 180))
+    width = spec.get('epaisseur', 12)
+    color = rgb(spec.get('couleur', '#91D3DF'))
+    points = []
+    for i in range(33):
+        u = i / 32
+        wave = amplitude * u * math.sin(2 * math.pi * (frequency * t - 1.3 * u))
+        px = x + length * u * math.cos(angle) - wave * math.sin(angle)
+        py = y + length * u * math.sin(angle) + wave * math.cos(angle)
+        points.append(transform_point((px, py), pivot, root['to'], root['angle'], root['sx'], root['sy']))
+    draw = ImageDraw.Draw(canvas)
+    for fill, extra in ((rgb('#181313'), 4), (color, 0)):
+        for i, (a, b) in enumerate(zip(points, points[1:])):
+            w = max(1, round(width * (1 - i / len(points)) + extra))
+            draw.line((a, b), fill=fill, width=w)
+            radius = w / 2
+            draw.ellipse((a[0]-radius, a[1]-radius, a[0]+radius, a[1]+radius), fill=fill)
 
 
 class Character:
@@ -51,6 +76,7 @@ class Character:
         self.by_id = {L['id']: L for L in self.layers}
         self.arms = cfg.get('bras', []) or []
         self.limbs = cfg.get('membres') or {}          # bras/jambes « tuyau » dessinés par le moteur (organes, objets)
+        self.flagellum = cfg.get('flagelle')
         f = cfg.get('visage')
         self.face_layer = f['couche'] if f else None
         self.drawn = None
@@ -90,7 +116,7 @@ class Character:
         return _with_face(id(img), img, self.face_key, emo, gaze, blink, mouth)
 
     def render(self, pose='defaut', emo='neutre', gaze=(0, 0), blink=False, mouth=None, t=0.0, talk=0.0,
-               squash=0.0, tilt=0.0, phase=0.0, walk=0.0, facing=1):
+               squash=0.0, tilt=0.0, phase=0.0, walk=0.0, facing=1, layer_angles=None):
         """Image du personnage et position de son point d'ancrage (bas-centre) dans cette image.
 
         talk : 0..1, intensité de la parole (rebond) ; squash : écrasement ponctuel (-1..1) ; tilt : penché (degrés).
@@ -99,6 +125,8 @@ class Character:
         root = self.layers[0]
         w0, h0 = root['images']['defaut' if 'defaut' in root['images'] else next(iter(root['images']))].size
         pad = int(max(w0, h0) * .9)
+        if self.flagellum:
+            pad = max(pad, math.ceil(self.flagellum['longueur'] + self.flagellum.get('amplitude', 24) + 20))
         canvas = Image.new('RGBA', (w0 + 2 * pad, h0 + 2 * pad), (0, 0, 0, 0))
         anchor = (pad + root['pivot'][0], pad + root['pivot'][1])
         # mouvement vivant : respiration, rebond de parole, écrasement (squash & stretch) des organes
@@ -120,7 +148,7 @@ class Character:
                 par = placed[L['parent']]
                 pl = self.by_id[L['parent']]
                 to = transform_point(L['attach'], pl['pivot'], par['to'], par['angle'], par['sx'], par['sy'])
-                own = spec.get('angle', 0)
+                own = spec.get('angle', 0) + (layer_angles or {}).get(L['id'], 0)
                 if L['id'] == self.face_layer or L['id'].startswith('tete'):
                     own += 2.5 * math.sin(t * 1.3 + phase) + 3 * talk * math.sin(t * 7)
                 elif L['id'].startswith('bras'):
@@ -155,6 +183,8 @@ class Character:
                 if k != root['id']:
                     placed[k]['to'] = (placed[k]['to'][0], placed[k]['to'][1] - bob)
         arms(False)
+        if self.flagellum:
+            draw_flagellum(canvas, self.flagellum, root['pivot'], root_p, t)
         for L in order:
             p = placed[L['id']]
             img = self.layer_image(L, p['variant'], emo, gaze, blink, mouth)

@@ -1,0 +1,38 @@
+nom: nino
+type: organe
+couches:
+- id: corps
+  images:
+    defaut: corps.png
+  pivot:
+  - 186
+  - 99
+visage:
+  couche: corps
+  yeux:
+  - 201
+  - 89
+  rayon_oeil: 18
+  ecart: 2.04
+  bouche:
+  - 207
+  - 122
+  largeur_bouche: 37
+  peau: '#F8EDDA'
+  forme_oeil: 1.16
+  pupille: 0.69
+  trait: 0.095
+  paupiere: 0.08
+flagelle:
+  attache:
+  - 40
+  - 146
+  longueur: 228
+  amplitude: 47
+  angle: 164
+  frequence: 3.3
+  couleur: '#89D3D0'
+  epaisseur: 17
+mouvement:
+  souplesse: 0.24
+  respiration: 0.004

@@ -1,0 +1,224 @@
+titre: Il bouge… mais il n’avance pas
+niche: corps-humain
+degrade_bas: false
+legendes_mode: mot_blanc
+legendes_y: 1215
+palette: {accent: '#24666D'}
+bruitages:
+  bulle: {fichier: sons/bulle.wav, volume: 0.40}
+  glisse: {fichier: sons/glisse.wav, volume: 0.42}
+  loupe: {fichier: sons/loupe.wav, volume: 0.35}
+voix:
+  nino: {voix: ado_garcon, stabilite: 0.32}
+  malo: {voix: blase, stabilite: 0.38}
+  lea: {voix: patiente, stabilite: 0.45}
+  docteure: {voix: mere, stabilite: 0.48}
+plans:
+  - id: la-nage
+    decor: decors/trompe.png
+    zoom: [1, 1]
+    acteurs:
+      nino:
+        perso: personnages/nino
+        x: 485
+        y: 875
+        echelle: 1.08
+        regard: [0.78, -0.25]
+        mouvement:
+          - {t: 0.25, dx: -26, dy: 15, angle: 3}
+          - {t: 1.04, dx: 18, dy: -24, angle: -9}
+          - {t: 2.03, dx: -13, dy: 13, angle: 4}
+          - {t: 3.30, dx: 0, dy: 0, angle: 0}
+          - {t: 5.10, dx: -24, dy: 13, angle: 5}
+          - {t: 7.85, dx: -12, dy: 0, angle: -2}
+          - {t: 9.25, dx: 28, dy: -19, angle: -9}
+          - {t: 11.65, dx: 5, dy: -3, angle: 1}
+          - {t: 14.80, dx: -19, dy: 18, angle: 10}
+          - {t: 15.47, dx: -6, dy: 0, angle: 1}
+      malo:
+        perso: personnages/malo
+        x: 454
+        y: 1040
+        echelle: 0.83
+        regard: [-0.7, -0.3]
+        mouvement:
+          - {t: 0, dx: -68, dy: 44}
+          - {t: 3.80, dx: 12, dy: -10, courbe: lineaire}
+          - {t: 7.80, dx: 150, dy: -116, courbe: lineaire}
+          - {t: 10.05, dx: 265, dy: -235, courbe: lineaire}
+          - {t: 12.65, dx: 306, dy: -325}
+          - {t: 15.90, dx: 480, dy: -574, angle: -10}
+    repliques:
+      - qui: nino
+        dit: "Attends… ma queue bouge. Pourquoi j’avance pas ?"
+        sous_titres: "Attends… ma queue bouge. | Pourquoi j’avance pas ?"
+        jeu: "[confused] Attends… ma queue bouge. Pourquoi j’avance pas ?"
+        emotion: inquiet
+        pause: 0.52
+        sfx: ["bulle@0.24"]
+      - qui: malo
+        dit: "Regarde le pli derrière toi. Ça fait dix secondes que t’es au même endroit."
+        sous_titres: "Regarde le pli derrière toi. | Ça fait dix secondes | que t’es au même endroit."
+        jeu: "[dryly] Regarde le pli derrière toi. Ça fait dix secondes que t’es au même endroit."
+        emotion: malicieux
+        reactions: {nino: gene}
+        regards: {malo: [-0.7, -0.25], nino: [0.55, 0.35]}
+      - qui: nino
+        dit: "Toi, t’as la tête de travers. Comment tu fais pour avancer ?"
+        sous_titres: "Toi, t’as la tête de travers. | Comment tu fais pour avancer ?"
+        jeu: "[surprised] Toi, t’as la tête de travers. Comment tu fais pour avancer ?"
+        emotion: choque
+        reactions: {malo: malicieux}
+        regards: {nino: [0.93, -0.25], malo: [-0.75, 0.24]}
+      - qui: malo
+        dit: "Ma tête ? Regarde plutôt derrière."
+        sous_titres: "Ma tête ? | Regarde plutôt derrière."
+        jeu: "[amused] Ma tête ? Regarde plutôt derrière."
+        emotion: content
+        reactions: {nino: choque}
+        pause: 0.72
+        regards: {nino: [0.93, -0.30], malo: [-0.86, 0.45]}
+        sfx: ["glisse@2.77"]
+  - id: ou-ca-se-passe
+    decor: decors/uterus.png
+    transition: coupe
+    zoom: [1, 1]
+    acteurs:
+      ovocyte: {perso: personnages/ovocyte, x: 992, y: 627, echelle: 0.145}
+      malo:
+        perso: personnages/malo
+        x: 544
+        y: 793
+        echelle: 0.22
+        regard: [0.8, 0]
+        mouvement:
+          - {t: 0, angle: -62}
+          - {t: 0.70, dx: 1, dy: -108, angle: -57, courbe: lineaire}
+          - {t: 1.33, dx: 36, dy: -173, angle: -17, courbe: lineaire}
+          - {t: 2.09, dx: 188, dy: -239, angle: -11, courbe: lineaire}
+          - {t: 2.85, dx: 285, dy: -249, angle: -14, courbe: lineaire}
+          - {t: 3.53, dx: 397, dy: -294, angle: 5, courbe: lineaire}
+          - {t: 4.15, dx: 445, dy: -259, angle: 52}
+    repliques:
+      - qui: docteure
+        dit: "Pour rencontrer l’ovule, les spermatozoïdes remontent vers les trompes."
+        sous_titres: "Pour rencontrer l’ovule, | les spermatozoïdes remontent | vers les trompes."
+        jeu: "[gently] Pour rencontrer l’ovule, les spermatozoïdes remontent vers les trompes."
+        pause: 0.38
+  - id: la-question
+    decor: decors/cabinet.png
+    transition: coupe
+    zoom: [1, 1]
+    acteurs:
+      lea: {perso: personnages/lea, x: 713, y: 1645, echelle: 1.04, regard: [-0.85, 0], miroir: true}
+      docteure: {perso: personnages/soignante, x: 328, y: 1645, echelle: 1.08, regard: [0.8, 0]}
+    repliques:
+      - qui: lea
+        dit: "Sur le spermogramme, on nous parle de forme et de mobilité. C’est pareil ?"
+        sous_titres: "Sur le spermogramme, | on nous parle | de forme et de mobilité. | C’est pareil ?"
+        jeu: "[curious] Sur le spermogramme, on nous parle de forme et de mobilité. C’est pareil ?"
+        emotion: inquiet
+        reactions: {docteure: neutre}
+        regards: {lea: [-0.85, 0.05]}
+      - qui: docteure
+        dit: "Ce sont deux mesures différentes. La morphologie, c’est la forme. La mobilité, c’est la façon dont ils se déplacent."
+        sous_titres: "Ce sont deux mesures différentes. | La morphologie, c’est la forme. | La mobilité, | c’est la façon dont ils se déplacent."
+        jeu: "[explaining] Ce sont deux mesures différentes. La morphologie, c’est la forme. La mobilité, c’est la façon dont ils se déplacent."
+        emotion: content
+        reactions: {lea: neutre}
+        regards: {docteure: [0.7, 0.06]}
+  - id: sous-la-loupe
+    decor: decors/microscope.png
+    transition: coupe
+    zoom: [1, 1]
+    acteurs:
+      nino:
+        perso: personnages/nino
+        x: 363
+        y: 630
+        echelle: 0.67
+        mouvement:
+          - {t: 0.6, dx: 14, angle: -5}
+          - {t: 1.42, dx: -9, dy: 9, angle: 4}
+          - {t: 2.35, dx: 21, dy: 0, angle: -3}
+          - {t: 4.03, dx: 8, angle: 2}
+          - {t: 5.16, dx: 25, dy: 4, angle: -3}
+          - {t: 6.38, dx: 16, dy: 0, angle: 0}
+      malo:
+        perso: personnages/malo
+        x: 330
+        y: 900
+        echelle: 0.67
+        mouvement:
+          - {t: 0.85, dx: 45, dy: 1}
+          - {t: 2.10, dx: 155, dy: -8, courbe: lineaire}
+          - {t: 4.10, dx: 355, dy: -10, courbe: lineaire}
+          - {t: 6.50, dx: 485, dy: -15}
+    repliques:
+      - qui: docteure
+        dit: "Regarde. Les deux bougent. Celui du bas avance. L’autre agite sa queue et reste presque sur place."
+        sous_titres: "Regarde. Les deux bougent. | Celui du bas avance. | L’autre agite sa queue | et reste presque sur place."
+        jeu: "[explaining] Regarde. Les deux bougent. Celui du bas avance. L’autre agite sa queue et reste presque sur place."
+        reactions: {nino: inquiet, malo: content}
+        pause: 0.65
+        sfx: ["loupe@0.10", "glisse@2.45"]
+  - id: la-reponse
+    decor: decors/cabinet.png
+    transition: coupe
+    zoom: [1, 1.018]
+    acteurs:
+      lea:
+        perso: personnages/lea
+        x: 713
+        y: 1645
+        echelle: 1.04
+        regard: [-0.85, 0]
+        miroir: true
+        mouvement:
+          - {t: 1.5, angle: 2}
+          - {t: 3.7, angle: 0}
+          - {t: 13.4, angle: -2}
+          - {t: 14.05, angle: 0}
+      docteure:
+        perso: personnages/soignante
+        x: 328
+        y: 1645
+        echelle: 1.08
+        regard: [0.8, 0]
+        mouvement:
+          - {t: 4.5, angle: 1.3}
+          - {t: 7.1, angle: 0}
+          - {t: 17.8, angle: -1.5}
+          - {t: 19.1, angle: 0}
+    repliques:
+      - qui: lea
+        dit: "Si la mobilité est faible, ça veut dire qu’on n’a aucune chance ?"
+        sous_titres: "Si la mobilité est faible, | ça veut dire | qu’on n’a aucune chance ?"
+        jeu: "[worried] Si la mobilité est faible, ça veut dire qu’on n’a aucune chance ?"
+        emotion: inquiet
+        reactions: {docteure: inquiet}
+        regards: {lea: [-0.85, 0]}
+      - qui: docteure
+        dit: "Ça peut réduire les chances. Un résultat seul ne permet pas de conclure. Si le premier examen est anormal, on fait un deuxième spermogramme pour vérifier."
+        sous_titres: "Ça peut réduire les chances. | Un résultat seul | ne permet pas de conclure. | Si le premier examen est anormal, | on fait un deuxième spermogramme | pour vérifier."
+        jeu: "[calm, reassuring] Ça peut réduire les chances. Un résultat seul ne permet pas de conclure. Si le premier examen est anormal, on fait un deuxième spermogramme pour vérifier."
+        emotion: content
+        reactions: {lea: neutre}
+        regards: {docteure: [0.72, 0]}
+      - qui: lea
+        dit: "D’accord. C’est une piste, pas un verdict."
+        sous_titres: "D’accord. | C’est une piste, pas un verdict."
+        jeu: "[relieved] D’accord. C’est une piste, pas un verdict."
+        emotion: content
+        reactions: {docteure: content}
+        regards: {lea: [-0.75, 0]}
+      - qui: docteure
+        dit: "Abonne-toi pour d’autres histoires de ton corps vues de l’intérieur."
+        sous_titres: "Abonne-toi pour d’autres histoires | de ton corps vues de l’intérieur."
+        jeu: "[warm] Abonne-toi pour d’autres histoires de ton corps vues de l’intérieur."
+        emotion: content
+        reactions: {lea: content}
+        regards: {docteure: [0.0, 0], lea: [0, 0]}
+        sfx: ["ding@0.1"]
+        carte: {type: bouton, texte: "ABONNE-TOI", couleur: '#24666D'}
+        pause: 0.62

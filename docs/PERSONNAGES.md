@@ -38,3 +38,11 @@ poses: {defaut: {}}
 
 neutre, content, rire, choque, triste, inquiet, fache, fatigue, gene, degoute, douleur, malicieux, amoureux.
 Bouches de parole (visèmes) : A, E, O, M, F, repos — choisies automatiquement depuis le texte.
+
+## Flagelle animé
+
+Un personnage à flagelle peut déclarer un point d’attache en pixels sur son calque racine. Le moteur l’anime derrière le corps et suit la rotation du personnage. La longueur et l’amplitude sont en pixels, la fréquence en cycles par seconde et l’angle en degrés dans le repère image.
+
+```yaml
+flagelle: {attache: [25, 80], longueur: 220, amplitude: 40, angle: 160, frequence: 3, couleur: '#91D3DF', epaisseur: 14}
+```

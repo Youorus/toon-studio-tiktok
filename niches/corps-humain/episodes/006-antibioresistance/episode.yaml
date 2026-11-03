@@ -1,0 +1,451 @@
+titre: La bactérie qui n’a pas bougé
+niche: corps-humain
+degrade_bas: false
+legendes_y: 1170
+palette:
+  accent: '#24666D'
+voix:
+  estomac:
+    voix: blase
+    stabilite: 0.38
+  gelule:
+    voix: ado_garcon
+    stabilite: 0.32
+  peau:
+    voix: diva
+    stabilite: 0.44
+  resistante:
+    voix: lascar
+    stabilite: 0.36
+  globule:
+    voix: chef
+    stabilite: 0.44
+  lea:
+    voix: patiente
+    stabilite: 0.45
+  docteure:
+    voix: mere
+    stabilite: 0.48
+bruitages:
+  ploc:
+    fichier: sons/ploc.wav
+    volume: 0.38
+  alerte:
+    fichier: sons/alerte.wav
+    volume: 0.37
+  passage:
+    fichier: sons/passage.wav
+    volume: 0.34
+plans:
+- id: la-vieille-boite
+  decor: decors/estomac.png
+  transition: coupe
+  zoom:
+  - 1
+  - 1
+  acteurs:
+    estomac:
+      perso: personnages/estomac
+      x: 821
+      y: 811
+      echelle: 1
+      regard:
+      - -0.85
+      - 0.12
+    gelule:
+      perso: personnages/gelule
+      x: 681
+      y: 1014
+      echelle: 1.08
+      regard:
+      - 0.8
+      - -0.25
+  repliques:
+  - qui: estomac
+    dit: Oh, la gélule qui revient ! Léa a encore pioché dans son vieux traitement.
+    sous_titres: Oh, la gélule qui revient ! | Léa a encore pioché | dans son vieux traitement.
+    jeu: '[weary] Oh, la gélule qui revient ! Léa a encore pioché dans son vieux traitement.'
+    emotion: inquiet
+    sfx:
+    - ploc@0.61
+    pause: 0.22
+  - qui: gelule
+    dit: J’ai une tête d’antidouleur ? Je sers à traiter certaines infections bactériennes.
+    sous_titres: J’ai une tête d’antidouleur ? | Je sers à traiter | certaines infections bactériennes.
+    jeu: '[baffled] J’ai une tête d’antidouleur ? Je sers à traiter certaines infections bactériennes.'
+    emotion: fache
+    reactions:
+      estomac: gene
+    pause: 0.22
+  - qui: estomac
+    dit: Elle a juste mal au crâne. Et toi, t’as une ordonnance pour aujourd’hui ?
+    sous_titres: Elle a juste mal au crâne. | Et toi, t’as une ordonnance pour aujourd’hui ?
+    jeu: '[dryly] Elle a juste mal au crâne. Et toi, t’as une ordonnance pour aujourd’hui ?'
+    emotion: malicieux
+    pause: 0.22
+  - qui: gelule
+    dit: Non. Apparemment, son placard fait des consultations.
+    sous_titres: Non. Apparemment, | son placard fait des consultations.
+    jeu: '[deadpan] Non. Apparemment, son placard fait des consultations.'
+    emotion: fatigue
+    pause: 0.65
+  organe: estomac
+- id: la-breche
+  decor: decors/plaie.png
+  transition: coupe
+  zoom:
+  - 1
+  - 1
+  acteurs:
+    peau:
+      perso: personnages/peau
+      x: 226
+      y: 657
+      echelle: 1
+      regard:
+      - 0.85
+      - 0.22
+    resistante:
+      perso: personnages/resistante
+      x: 570
+      y: 817
+      echelle: 1.01
+      regard:
+      - -0.8
+      - 0
+    sensible1:
+      perso: personnages/bacterie
+      x: 750
+      y: 799
+      echelle: 0.8
+    sensible2:
+      perso: personnages/bacterie
+      x: 838
+      y: 957
+      echelle: 0.71
+    sensible3:
+      perso: personnages/bacterie
+      x: 491
+      y: 1027
+      echelle: 0.7
+    globule:
+      perso: personnages/globule
+      x: 288
+      y: 961
+      echelle: 1.04
+      regard:
+      - 0.85
+      - 0
+  repliques:
+  - qui: peau
+    dit: Quelques jours plus tard… Aïe ! Léa s’est râpé le genou. J’ai une brèche !
+    sous_titres: Quelques jours plus tard… | Aïe ! Léa s’est râpé le genou. | J’ai une brèche !
+    jeu: '[startled] Quelques jours plus tard… Aïe ! Léa s’est râpé le genou. J’ai une brèche !'
+    emotion: choque
+    sfx:
+    - alerte@1.68
+    pause: 0.22
+  - qui: resistante
+    dit: J’ai vu de la lumière. Je me suis permis.
+    sous_titres: J’ai vu de la lumière. | Je me suis permis.
+    jeu: '[cheeky] J’ai vu de la lumière. Je me suis permis.'
+    emotion: malicieux
+    reactions:
+      peau: fache
+    pause: 0.22
+  - qui: peau
+    dit: Tu ressors. Et tu dis à tes copines que c’est complet.
+    sous_titres: Tu ressors. | Et tu dis à tes copines | que c’est complet.
+    jeu: '[irritated] Tu ressors. Et tu dis à tes copines que c’est complet.'
+    emotion: fache
+    pause: 0.22
+  - qui: resistante
+    dit: Trop tard, on a déjà lancé les invitations.
+    sous_titres: Trop tard, | on a déjà lancé les invitations.
+    jeu: '[amused] Trop tard, on a déjà lancé les invitations.'
+    emotion: content
+    sfx:
+    - ploc@0.88
+    pause: 0.22
+  - qui: globule
+    dit: Globule blanc à l’entrée ! J’essaie de les contenir.
+    sous_titres: Globule blanc à l’entrée ! | J’essaie de les contenir.
+    jeu: '[brisk] Globule blanc à l’entrée ! J’essaie de les contenir.'
+    emotion: fache
+    reactions:
+      peau: inquiet
+    pause: 0.22
+  - qui: peau
+    dit: Le problème, c’est qu’elles sont déjà plus nombreuses.
+    sous_titres: Le problème, | c’est qu’elles sont déjà plus nombreuses.
+    jeu: '[worried] Le problème, c’est qu’elles sont déjà plus nombreuses.'
+    emotion: inquiet
+    pause: 0.55
+  organe: peau
+- id: cette-fois
+  decor: decors/estomac.png
+  transition: coupe
+  zoom:
+  - 1
+  - 1
+  acteurs:
+    estomac:
+      perso: personnages/estomac
+      x: 821
+      y: 811
+      echelle: 1
+      regard:
+      - -0.85
+      - 0.12
+    gelule:
+      perso: personnages/gelule
+      x: 681
+      y: 1014
+      echelle: 1.08
+      regard:
+      - 0.8
+      - -0.25
+  repliques:
+  - qui: estomac
+    dit: Encore toi ?
+    sous_titres: Encore toi ?
+    jeu: '[confused] Encore toi ?'
+    emotion: choque
+    sfx:
+    - ploc@0.45
+    pause: 0.22
+  - qui: gelule
+    dit: Cette fois, j’ai une ordonnance. C’est pour son infection, pas pour son mal de tête.
+    sous_titres: Cette fois, j’ai une ordonnance. | C’est pour son infection, | pas pour son mal de tête.
+    jeu: '[assured] Cette fois, j’ai une ordonnance. C’est pour son infection, pas pour son mal de tête.'
+    emotion: content
+    pause: 0.52
+  organe: estomac
+- id: celles-qui-restent
+  decor: decors/plaie.png
+  transition: coupe
+  zoom:
+  - 1
+  - 1
+  acteurs:
+    globule:
+      perso: personnages/globule
+      x: 270
+      y: 858
+      echelle: 1.03
+      regard:
+      - 0.85
+      - 0
+    resistante:
+      perso: personnages/resistante
+      x: 665
+      y: 797
+      echelle: 1.08
+      regard:
+      - -0.8
+      - 0
+    sensible1:
+      perso: personnages/bacterie
+      x: 510
+      y: 617
+      echelle: 0.78
+    sensible2:
+      perso: personnages/bacterie
+      x: 833
+      y: 666
+      echelle: 0.72
+    sensible3:
+      perso: personnages/bacterie
+      x: 467
+      y: 993
+      echelle: 0.72
+    clone1:
+      perso: personnages/resistante
+      x: 812
+      y: 599
+      echelle: 0.69
+    clone2:
+      perso: personnages/resistante
+      x: 870
+      y: 944
+      echelle: 0.65
+    clone3:
+      perso: personnages/resistante
+      x: 558
+      y: 1034
+      echelle: 0.6
+  repliques:
+  - qui: globule
+    dit: Tiens, les vertes disparaissent. On a enfin un peu de calme.
+    sous_titres: Tiens, les vertes disparaissent. | On a enfin | un peu de calme.
+    jeu: '[relieved] Tiens, les vertes disparaissent. On a enfin un peu de calme.'
+    emotion: content
+    sfx:
+    - passage@0.55
+    pause: 0.22
+  - qui: resistante
+    dit: Elles, peut-être. Moi, je résiste à cet antibiotique.
+    sous_titres: Elles, peut-être. | Moi, je résiste | à cet antibiotique.
+    jeu: '[smug] Elles, peut-être. Moi, je résiste à cet antibiotique.'
+    emotion: malicieux
+    reactions:
+      globule: choque
+    pause: 0.22
+  - qui: globule
+    dit: T’étais déjà là, toi ?
+    sous_titres: T’étais déjà là, toi ?
+    jeu: '[surprised] T’étais déjà là, toi ?'
+    emotion: choque
+    pause: 0.22
+  - qui: resistante
+    dit: Depuis le début. Et maintenant, j’ai de la place pour ma famille.
+    sous_titres: Depuis le début. | Et maintenant, j’ai de la place pour ma famille.
+    jeu: '[amused] Depuis le début. Et maintenant, j’ai de la place pour ma famille.'
+    emotion: content
+    sfx:
+    - ploc@1.55
+    - ploc@2.1
+    pause: 0.22
+  - qui: globule
+    dit: Super. J’aurais dû poser mon vendredi.
+    sous_titres: Super. | J’aurais dû poser mon vendredi.
+    jeu: '[deadpan] Super. J’aurais dû poser mon vendredi.'
+    emotion: fatigue
+    pause: 0.62
+  organe: peau
+- id: au-cabinet
+  decor: decors/cabinet-abonne-toi.png
+  transition: coupe
+  zoom:
+  - 1
+  - 1.018
+  acteurs:
+    lea:
+      perso: personnages/lea-aplats
+      x: 713
+      y: 1645
+      echelle: 1.04
+      regard:
+      - -0.85
+      - -0.5
+    docteure:
+      perso: personnages/docteure-aplats
+      x: 328
+      y: 1645
+      echelle: 1.08
+      regard:
+      - 0.8
+      - 0.5
+  repliques:
+  - qui: lea
+    dit: Docteure, ma plaie s’aggrave. C’est moi qui suis devenue résistante ?
+    sous_titres: Docteure, ma plaie s’aggrave. | C’est moi qui suis devenue résistante ?
+    jeu: '[worried] Docteure, ma plaie s’aggrave. C’est moi qui suis devenue résistante ?'
+    emotion: inquiet
+    reactions:
+      docteure: inquiet
+    pause: 0.22
+    regards:
+      lea:
+      - -0.85
+      - -0.5
+      docteure:
+      - 0.8
+      - 0.5
+  - qui: docteure
+    dit: Ce sont les bactéries. Certaines résistent à cet antibiotique, survivent et peuvent se multiplier.
+    sous_titres: Ce sont les bactéries. | Certaines résistent | à cet antibiotique, | survivent et peuvent se
+      multiplier.
+    jeu: '[warm explaining] Ce sont les bactéries. Certaines résistent à cet antibiotique, survivent et peuvent
+      se multiplier.'
+    emotion: content
+    reactions:
+      lea: neutre
+    pause: 0.22
+    regards:
+      lea:
+      - -0.85
+      - -0.5
+      docteure:
+      - 0.8
+      - 0.5
+  - qui: docteure
+    dit: Prendre des antibiotiques quand ils sont inutiles favorise les bactéries résistantes.
+    sous_titres: Prendre des antibiotiques | quand ils sont inutiles | favorise les bactéries résistantes.
+    jeu: '[calm explaining] Prendre des antibiotiques quand ils sont inutiles favorise les bactéries résistantes.'
+    emotion: neutre
+    reactions:
+      lea: inquiet
+    pause: 0.22
+    regards:
+      lea:
+      - -0.85
+      - -0.5
+      docteure:
+      - 0.8
+      - 0.5
+  - qui: lea
+    dit: Et mon ancienne boîte, je la garde au cas où ?
+    sous_titres: Et mon ancienne boîte, | je la garde au cas où ?
+    jeu: '[curious] Et mon ancienne boîte, je la garde au cas où ?'
+    emotion: inquiet
+    pause: 0.22
+    regards:
+      lea:
+      - -0.85
+      - -0.5
+      docteure:
+      - 0.8
+      - 0.5
+  - qui: docteure
+    dit: Rapporte-la à la pharmacie. Si on te prescrit un antibiotique, suis la dose et la durée prévues.
+    sous_titres: Rapporte-la à la pharmacie. | Si on te prescrit un antibiotique, | suis la dose | et la durée
+      prévues.
+    jeu: '[reassuring] Rapporte-la à la pharmacie. Si on te prescrit un antibiotique, suis la dose et la durée
+      prévues.'
+    emotion: content
+    reactions:
+      lea: neutre
+    pause: 0.22
+    regards:
+      lea:
+      - -0.85
+      - -0.5
+      docteure:
+      - 0.8
+      - 0.5
+  - qui: docteure
+    dit: Pour ta plaie, on réévalue. Un prélèvement peut nous aider à choisir un traitement qui agit.
+    sous_titres: Pour ta plaie, on réévalue. | Un prélèvement peut | nous aider à choisir | un traitement qui
+      agit.
+    jeu: '[matter-of-fact] Pour ta plaie, on réévalue. Un prélèvement peut nous aider à choisir un traitement
+      qui agit.'
+    emotion: content
+    pause: 0.22
+    regards:
+      lea:
+      - -0.85
+      - -0.5
+      docteure:
+      - 0.8
+      - 0.5
+  - qui: docteure
+    dit: Abonne-toi. Ici, même les bactéries doivent rendre des comptes.
+    sous_titres: Abonne-toi. | Ici, même les bactéries | doivent rendre des comptes.
+    jeu: '[dry smile] Abonne-toi. Ici, même les bactéries doivent rendre des comptes.'
+    emotion: malicieux
+    regards:
+      lea:
+      - -0.85
+      - -0.5
+      docteure:
+      - 0
+      - 0
+    sfx:
+    - ding@.13
+    pause: 0.55
+    carte:
+      type: bouton
+      texte: ABONNE-TOI
+      couleur: '#24666D'
+      largeur: 610

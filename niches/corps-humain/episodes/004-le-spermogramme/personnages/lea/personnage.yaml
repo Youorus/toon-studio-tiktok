@@ -1,0 +1,33 @@
+nom: lea
+type: humain
+couches:
+- id: corps
+  images:
+    defaut: corps.png
+  pivot:
+  - 168
+  - 909
+decoupe_tete:
+  y: 177
+  cou:
+  - 165
+  - 177
+visage:
+  couche: tete
+  yeux:
+  - 191
+  - 96
+  rayon_oeil: 17
+  ecart: 2.27
+  bouche:
+  - 195
+  - 128
+  largeur_bouche: 34
+  peau: '#C19C7D'
+  forme_oeil: 1.12
+  pupille: 0.71
+  paupiere: 0.1
+  trait: 0.09
+mouvement:
+  souplesse: 0.18
+  respiration: 0.005

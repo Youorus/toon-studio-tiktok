@@ -1,0 +1,33 @@
+nom: soignante
+type: humain
+couches:
+- id: corps
+  images:
+    defaut: corps.png
+  pivot:
+  - 154
+  - 909
+decoupe_tete:
+  y: 148
+  cou:
+  - 144
+  - 148
+visage:
+  couche: tete
+  yeux:
+  - 158
+  - 72
+  rayon_oeil: 17
+  ecart: 2.27
+  bouche:
+  - 161
+  - 105
+  largeur_bouche: 34
+  peau: '#B78266'
+  forme_oeil: 1.12
+  pupille: 0.71
+  paupiere: 0.1
+  trait: 0.09
+mouvement:
+  souplesse: 0.18
+  respiration: 0.005

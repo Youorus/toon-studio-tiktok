@@ -1,0 +1,402 @@
+titre: La bactérie qui n’a pas bougé
+niche: corps-humain
+degrade_bas: false
+voix:
+  estomac:
+    voix: blase
+    stabilite: 0.38
+  gelule:
+    voix: ado_garcon
+    stabilite: 0.32
+  peau:
+    voix: diva
+    stabilite: 0.44
+  violette:
+    voix: lascar
+    stabilite: 0.36
+  globule:
+    voix: chef
+    stabilite: 0.44
+  lea:
+    voix: patiente
+    stabilite: 0.45
+  docteure:
+    voix: mere
+    stabilite: 0.48
+bruitages:
+  ploc:
+    fichier: episodes/006-antibioresistance/sons/ploc.wav
+    volume: 0.38
+  passage:
+    fichier: episodes/006-antibioresistance/sons/passage.wav
+    volume: 0.25
+  plouf:
+    fichier: sons/plouf.wav
+    volume: 0.67
+  alerte:
+    fichier: episodes/006-antibioresistance/sons/alerte.wav
+    volume: 0.27
+plans:
+- id: ouverture
+  decor: decors/estomac-corail.png
+  transition: coupe
+  zoom:
+  - 1
+  - 1.015
+  acteurs:
+    estomac:
+      perso: episodes/006-antibioresistance/personnages/estomac
+      x: 821
+      y: 811
+      echelle: 1
+      regard:
+      - -0.85
+      - 0.12
+    gelule:
+      perso: episodes/006-antibioresistance/personnages/gelule
+      x: 681
+      y: 1014
+      echelle: 1.08
+      regard:
+      - 0.8
+      - -0.25
+  repliques:
+  - qui: estomac
+    dit: Oh non, pas elle ! Léa a ressorti ses vieux antibios !
+    sous_titres: Oh non, pas elle ! | Léa a ressorti | ses vieux antibios !
+    jeu: '[startled, quick, exasperated] Oh non, pas elle ! Léa a ressorti ses vieux antibios !'
+    emotion: choque
+    pause: 0.21
+    reactions:
+      gelule: inquiet
+  - qui: gelule
+    dit: Calme-toi ! J’ai une tête d’antidouleur ?
+    sous_titres: Calme-toi ! | J’ai une tête d’antidouleur ?
+    jeu: '[snappy, annoyed, incredulous] Calme-toi ! J’ai une tête d’antidouleur ?'
+    emotion: fache
+    pause: 0.16
+    reactions:
+      estomac: gene
+  - qui: estomac
+    dit: Elle a mal au crâne. T’as une ordonnance ?
+    sous_titres: Elle a mal au crâne. | T’as une ordonnance ?
+    jeu: '[dry, pointed] Elle a mal au crâne. T’as une ordonnance ?'
+    emotion: malicieux
+    pause: 0.28
+    reactions:
+      gelule: gene
+  - qui: gelule
+    dit: Non… Hé hé hé !
+    sous_titres: Non… | Hé hé hé !
+    jeu: '[embarrassed, sheepish] Non… Hé hé hé !'
+    emotion: gene
+    pause: 0.61
+    reactions:
+      estomac: fatigue
+  organe: Estomac
+- id: breche
+  decor: decors/peau-corail.png
+  transition: coupe
+  zoom:
+  - 1
+  - 1
+  acteurs:
+    peau:
+      perso: episodes/006-antibioresistance/personnages/peau
+      x: 226
+      y: 657
+      echelle: 1
+      regard:
+      - 0.85
+      - 0.22
+    violette:
+      perso: episodes/006-antibioresistance/personnages/resistante
+      x: 570
+      y: 817
+      echelle: 1.01
+      regard:
+      - -0.8
+      - 0
+    verte1:
+      perso: episodes/006-antibioresistance/personnages/bacterie
+      x: 738
+      y: 799
+      echelle: 0.8
+    verte2:
+      perso: episodes/006-antibioresistance/personnages/bacterie
+      x: 811
+      y: 957
+      echelle: 0.71
+    verte3:
+      perso: episodes/006-antibioresistance/personnages/bacterie
+      x: 491
+      y: 1027
+      echelle: 0.7
+  repliques:
+  - qui: peau
+    dit: Aïe ! Léa s’est râpé le genou ! J’ai une brèche !
+    sous_titres: Aïe ! | Léa s’est râpé le genou ! | J’ai une brèche !
+    jeu: '[startled, urgent] Aïe ! Léa s’est râpé le genou ! J’ai une brèche !'
+    emotion: choque
+    pause: 0.18
+    reactions:
+      violette: content
+  - qui: violette
+    dit: J’ai vu de la lumière. Je me suis permis !
+    sous_titres: J’ai vu de la lumière. | Je me suis permis !
+    jeu: '[casual, playful] J’ai vu de la lumière. Je me suis permis !'
+    emotion: content
+    pause: 0.21
+    reactions:
+      peau: fache
+  - qui: peau
+    dit: Tu ressors ! Y a plus de place !
+    sous_titres: Tu ressors ! | Y a plus de place !
+    jeu: '[irritated, clipped] Tu ressors ! Y a plus de place !'
+    emotion: fache
+    pause: 0.17
+    reactions:
+      violette: malicieux
+  - qui: violette
+    dit: Trop tard, ma belle ! On va faire la fête !
+    sous_titres: Trop tard, ma belle ! | On va faire la fête !
+    jeu: '[teasing, excited] Trop tard, ma belle ! On va faire la fête !'
+    emotion: malicieux
+    pause: 0.59
+    reactions:
+      peau: choque
+  organe: Peau
+- id: ordonnance
+  decor: decors/estomac-corail.png
+  transition: coupe
+  zoom:
+  - 1
+  - 1.02
+  acteurs:
+    estomac:
+      perso: episodes/006-antibioresistance/personnages/estomac
+      x: 821
+      y: 811
+      echelle: 1
+      regard:
+      - -0.85
+      - 0.12
+    gelule:
+      perso: episodes/006-antibioresistance/personnages/gelule
+      x: 681
+      y: 1014
+      echelle: 1.08
+      regard:
+      - 0.8
+      - -0.25
+  repliques:
+  - qui: estomac
+    dit: Encore toi ?!
+    sous_titres: Encore toi ?!
+    jeu: '[incredulous, deadpan] Encore toi ?!'
+    emotion: fatigue
+    pause: 0.28
+  - qui: gelule
+    dit: Eh ouais ! Cette fois, j’ai une ordonnance. C’est pour son infection !
+    sous_titres: Eh ouais ! | Cette fois, j’ai une ordonnance. | C’est pour son infection !
+    jeu: '[confident, quick, cheeky] Eh ouais ! Cette fois, j’ai une ordonnance. C’est pour son infection
+      !'
+    emotion: content
+    pause: 0.53
+    reactions:
+      estomac: malicieux
+  organe: Estomac
+- id: survivante
+  decor: decors/peau-corail.png
+  transition: coupe
+  zoom:
+  - 1
+  - 1
+  acteurs:
+    globule:
+      perso: episodes/006-antibioresistance/personnages/globule
+      x: 270
+      y: 858
+      echelle: 1.03
+      regard:
+      - 0.85
+      - 0
+    violette:
+      perso: episodes/006-antibioresistance/personnages/resistante
+      x: 665
+      y: 797
+      echelle: 1.08
+      regard:
+      - -0.8
+      - 0
+    verte1:
+      perso: episodes/006-antibioresistance/personnages/bacterie
+      x: 510
+      y: 617
+      echelle: 0.78
+    verte2:
+      perso: episodes/006-antibioresistance/personnages/bacterie
+      x: 833
+      y: 666
+      echelle: 0.72
+    verte3:
+      perso: episodes/006-antibioresistance/personnages/bacterie
+      x: 467
+      y: 993
+      echelle: 0.72
+    clone1:
+      perso: episodes/006-antibioresistance/personnages/resistante
+      x: 812
+      y: 599
+      echelle: 0.65
+    clone2:
+      perso: episodes/006-antibioresistance/personnages/resistante
+      x: 830
+      y: 944
+      echelle: 0.64
+    clone3:
+      perso: episodes/006-antibioresistance/personnages/resistante
+      x: 549
+      y: 1034
+      echelle: 0.57
+  repliques:
+  - qui: globule
+    dit: Ah ! Les vertes disparaissent ! On va enfin souffler !
+    sous_titres: Ah ! Les vertes disparaissent ! | On va enfin souffler !
+    jeu: '[relieved, bright] Ah ! Les vertes disparaissent ! On va enfin souffler !'
+    emotion: content
+    pause: 0.23
+    reactions:
+      violette: malicieux
+  - qui: violette
+    dit: Moi, cet antibiotique me fait rien ! Ha ha !
+    sous_titres: Moi, cet antibiotique | me fait rien ! Ha ha !
+    jeu: '[smug, amused] Moi, cet antibiotique me fait rien ! Ha ha !'
+    emotion: malicieux
+    pause: 0.27
+    reactions:
+      globule: choque
+  - qui: globule
+    dit: Attends… T’étais déjà là ?!
+    sous_titres: Attends… | T’étais déjà là ?!
+    jeu: '[startled, confused] Attends… T’étais déjà là ?!'
+    emotion: choque
+    pause: 0.2
+    reactions:
+      violette: malicieux
+  - qui: violette
+    dit: Depuis le début, mon pote ! Et maintenant… J’appelle toute la famille !
+    sous_titres: Depuis le début, mon pote ! | Et maintenant… | J’appelle toute la famille !
+    jeu: '[playful, building excitement] Depuis le début, mon pote ! Et maintenant… J’appelle toute la famille
+      !'
+    emotion: content
+    pause: 1.05
+    reactions:
+      globule: inquiet
+  organe: Peau
+- id: cabinet
+  decor: decors/cabinet-abonne-toi.png
+  transition: coupe
+  zoom:
+  - 1
+  - 1.018
+  acteurs:
+    lea:
+      perso: personnages/lea-aplats
+      x: 713
+      y: 1645
+      echelle: 1.04
+      regard:
+      - -0.85
+      - -0.5
+    docteure:
+      perso: personnages/docteure-aplats
+      x: 328
+      y: 1645
+      echelle: 1.08
+      regard:
+      - 0.8
+      - 0.5
+  repliques:
+  - qui: lea
+    dit: Docteure, j’ai pris mes antibiotiques. Pourquoi j’ai toujours mon infection ?
+    sous_titres: Docteure, j’ai pris mes antibiotiques. | Pourquoi j’ai toujours | mon infection ?
+    jeu: '[worried, conversational] Docteure, j’ai pris mes antibiotiques. Pourquoi j’ai toujours mon infection
+      ?'
+    emotion: inquiet
+    pause: 0.26
+    reactions:
+      docteure: inquiet
+    regards:
+      lea:
+      - -0.85
+      - -0.5
+      docteure:
+      - 0.8
+      - 0.5
+  - qui: docteure
+    dit: Des bactéries peuvent résister à cet antibiotique. Elles peuvent survivre et se multiplier. On va
+      vérifier ce qui cause ton infection et adapter le traitement si besoin.
+    sous_titres: Des bactéries peuvent résister | à cet antibiotique. | Elles peuvent survivre | et se multiplier.
+      | On va vérifier | ce qui cause ton infection | et adapter le traitement | si besoin.
+    jeu: '[warm, clear, conversational] Des bactéries peuvent résister à cet antibiotique. Elles peuvent survivre
+      et se multiplier. On va vérifier ce qui cause ton infection et adapter le traitement si besoin.'
+    emotion: neutre
+    pause: 0.27
+    reactions:
+      lea: neutre
+    regards:
+      lea:
+      - -0.85
+      - -0.5
+      docteure:
+      - 0.8
+      - 0.5
+  - qui: lea
+    dit: Et en prendre pour rien, ça aggrave le problème ?
+    sous_titres: Et en prendre pour rien, | ça aggrave le problème ?
+    jeu: '[curious, natural] Et en prendre pour rien, ça aggrave le problème ?'
+    emotion: inquiet
+    pause: 0.24
+    regards:
+      lea:
+      - -0.85
+      - -0.5
+      docteure:
+      - 0.8
+      - 0.5
+  - qui: docteure
+    dit: Oui, ça favorise les bactéries résistantes. Et un antibiotique, ça soigne pas un mal de tête !
+    sous_titres: Oui, ça favorise | les bactéries résistantes. | Et un antibiotique, | ça soigne pas | un
+      mal de tête !
+    jeu: '[warm, emphatic, lightly amused] Oui, ça favorise les bactéries résistantes. Et un antibiotique,
+      ça soigne pas un mal de tête !'
+    emotion: content
+    pause: 0.31
+    reactions:
+      lea: gene
+    regards:
+      lea:
+      - -0.85
+      - -0.5
+      docteure:
+      - 0.8
+      - 0.5
+  - qui: docteure
+    dit: Abonne-toi pour comprendre ton corps en t’amusant.
+    sous_titres: Abonne-toi pour comprendre | ton corps en t’amusant.
+    jeu: '[friendly, smiling] Abonne-toi pour comprendre ton corps en t’amusant.'
+    emotion: content
+    pause: 0.62
+    regards:
+      lea:
+      - -0.85
+      - -0.5
+      docteure:
+      - 0
+      - 0
+    carte:
+      type: bouton
+      texte: ABONNE-TOI
+      couleur: '#24666D'
+      largeur: 610

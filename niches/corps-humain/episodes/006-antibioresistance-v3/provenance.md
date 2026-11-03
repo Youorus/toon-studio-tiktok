@@ -1,0 +1,6 @@
+# Provenance · La bactérie qui n’a pas bougé
+
+- **Référence éditoriale.** La vidéo Dr Healthcare a servi à analyser les étapes, les intentions et les actions. Le montage français est une adaptation rapprochée de cette structure. Le relevé figure dans `analyse-reference.md`. [Vidéo de référence](https://www.tiktok.com/@dr..healthcare1/video/7561844938804186390)
+- **Images.** Le casting du cabinet et les décors sont ceux de Toon Studio. Le garde, la brèche et les actifs propres à l’épisode proviennent de générations Recraft à partir de descriptions et de palettes. Les yeux, la moustache, les accessoires, la blessure et les effets sont des calques animés ou rendus dans le moteur du studio.
+- **Son.** Les 27 prises françaises et leurs alignements sont issus des profils ElevenLabs du studio. Les effets et la musique du montage Cartoon sont assemblés localement. La musique « Petites combines » est synthétisée par `toonstudio/musique_cartoon.py` à partir de ses propres notes et instruments.
+- **Export.** Le montage Cartoon reprend l’image exacte du montage Policier approuvé. Le mix est refait depuis les voix et bruitages séparés et la nouvelle musique. Le manifeste identifie ce MP4 et ses sources.

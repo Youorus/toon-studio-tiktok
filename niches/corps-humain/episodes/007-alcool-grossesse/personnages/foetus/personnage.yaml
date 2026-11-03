@@ -1,0 +1,26 @@
+nom: foetus
+type: organe
+couches:
+- id: corps
+  images:
+    defaut: corps.png
+  pivot:
+  - 129
+  - 363
+visage:
+  couche: corps
+  yeux:
+  - 108
+  - 124
+  rayon_oeil: 24
+  ecart: 2.22
+  trait: 0.13
+  bouche:
+  - 108
+  - 170
+  peau: '#FF8D8B'
+  paupiere: 0.13
+  pupille: 0.8
+mouvement:
+  souplesse: 0.34
+  respiration: 0.006

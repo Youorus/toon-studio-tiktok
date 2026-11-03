@@ -1,0 +1,35 @@
+nom: Lea
+type: humain
+couches:
+- id: corps
+  images:
+    defaut: corps.png
+  pivot:
+  - 138
+  - 740
+visage:
+  mode: dessine
+  couche: corps
+  yeux:
+  - - 94
+    - 79
+    - 120
+    - 104
+  - - 136
+    - 79
+    - 164
+    - 107
+  yeux_precis: true
+  bouche:
+    zone:
+    - 115
+    - 139
+    - 143
+    - 153
+    centre:
+    - 129
+    - 146
+    largeur: 29
+mouvement:
+  souplesse: 0.08
+  respiration: 0.003

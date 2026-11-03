@@ -1,0 +1,28 @@
+nom: resistante
+type: organe
+couches:
+- id: corps
+  images:
+    defaut: corps.png
+  pivot:
+  - 104
+  - 101
+visage:
+  couche: corps
+  yeux:
+  - 104
+  - 101
+  rayon_oeil: 21
+  ecart: 2.18
+  bouche:
+  - 104
+  - 142
+  largeur_bouche: 39
+  peau: '#B58BCE'
+  forme_oeil: 1.13
+  pupille: 0.69
+  paupiere: 0.09
+  trait: 0.085
+mouvement:
+  souplesse: 0.3
+  respiration: 0.005

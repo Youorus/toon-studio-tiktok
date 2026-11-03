@@ -133,7 +133,7 @@ def bouton(a, p, dur, pal):
     """Bouton d'appel à l'action qui pulse (« Envoie à un pote »)."""
     im, d, cx, cy = _canvas()
     k = 1 + .05 * math.sin(p * 2 * math.pi * 1.5)
-    w, h = 800 * SS * k, 170 * SS * k
+    w, h = a.get('largeur', 800) * SS * k, 170 * SS * k
     col = rgb(a.get('couleur', pal['accent']))
     d.rounded_rectangle((cx - w / 2, cy - h / 2 + 14 * SS, cx + w / 2, cy + h / 2 + 14 * SS), radius=int(h / 2), fill=shade(col, .6))
     d.rounded_rectangle((cx - w / 2, cy - h / 2, cx + w / 2, cy + h / 2), radius=int(h / 2), fill=col, outline=INK, width=6 * SS)
@@ -164,3 +164,48 @@ TYPES = {'choc': choc, 'chiffre': chiffre, 'liste': liste, 'alerte': alerte, 'im
 def draw(card: dict, p: float, dur: float, palette: dict) -> Image.Image:
     im = TYPES[card['type']](card, p, dur, palette)
     return im.resize((CW, CH), Image.LANCZOS)
+
+
+def organ_badge(organ: str) -> Image.Image:
+    """Cartouche de lieu anatomique pour les plans à l’intérieur du corps."""
+    label = organ.upper()
+    f = font('LuckiestGuy', 38 * SS)
+    w, h = math.ceil(f.getlength(label) / SS) + 96, 74
+    im = Image.new('RGBA', (w * SS, h * SS))
+    d = ImageDraw.Draw(im)
+    d.rounded_rectangle((2, 2, w * SS - 3, h * SS - 4), radius=29 * SS,
+                        fill='#6D383B', outline='#FFF9ED', width=3 * SS)
+    d.ellipse((12 * SS, 12 * SS, 60 * SS, 60 * SS), fill='#F3C5C5')
+    if organ.casefold() == 'estomac':
+        points = [(34,20),(33,29),(37,32),(42,28),(48,30),(51,35),(50,42),
+                  (45,48),(40,50),(32,48),(28,49),(26,54),(22,53),(23,47),
+                  (26,43),(35,42),(38,37),(34,37),(29,33),(29,25),(30,19)]
+        d.polygon([(x * SS, y * SS) for x, y in points], fill='#B65F63', outline='#6D383B', width=2 * SS)
+    elif organ.casefold() == 'peau':
+        for y, color in ((24, '#B65F63'), (34, '#8F474B'), (44, '#B65F63')):
+            d.line([(x * SS, (y + dy) * SS) for x, dy in ((21, 2), (29, 0), (39, 2), (51, 0))],
+                   fill=color, width=4 * SS, joint='curve')
+    else:
+        d.ellipse((24 * SS, 24 * SS, 48 * SS, 48 * SS), outline='#8F474B', width=3 * SS)
+        d.ellipse((32 * SS, 32 * SS, 40 * SS, 40 * SS), fill='#8F474B')
+    _t(d, (73 * SS, 38 * SS), label, f, '#FFF9ED', anchor='lm')
+    return im.resize((w, h), Image.Resampling.LANCZOS)
+
+
+def actor_badge(text: str, color: str, dot: str) -> Image.Image:
+    """Mini-badge d’identification, avec un point coloré en plus du nom."""
+    rows = text.upper().splitlines()
+    f = font('Fredoka', 41 * SS)
+    f.set_variation_by_name('SemiBold')
+    w = math.ceil(max(f.getlength(row) for row in rows) / SS) + 64
+    h = 64 + 43 * (len(rows) - 1)
+    im = Image.new('RGBA', (w * SS, h * SS))
+    d = ImageDraw.Draw(im)
+    d.rounded_rectangle((2, 2, w * SS - 3, h * SS - 3), radius=24 * SS,
+                        fill=color, outline='#FFF9ED', width=3 * SS)
+    middle = h * SS / 2
+    d.ellipse((14 * SS, middle - 10 * SS, 34 * SS, middle + 10 * SS), fill=dot)
+    for i, row in enumerate(rows):
+        d.text((45 * SS, middle + (i - (len(rows) - 1) / 2) * 43 * SS),
+               row, font=f, fill='#FFF9ED', anchor='lm')
+    return im.resize((w, h), Image.Resampling.LANCZOS)

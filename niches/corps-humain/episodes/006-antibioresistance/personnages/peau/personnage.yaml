@@ -1,0 +1,28 @@
+nom: peau
+type: organe
+couches:
+- id: corps
+  images:
+    defaut: corps.png
+  pivot:
+  - 98
+  - 72
+visage:
+  couche: corps
+  yeux:
+  - 98
+  - 72
+  rayon_oeil: 25
+  ecart: 2.18
+  bouche:
+  - 98
+  - 121
+  largeur_bouche: 46
+  peau: '#EE9A8E'
+  forme_oeil: 1.13
+  pupille: 0.69
+  paupiere: 0.09
+  trait: 0.085
+mouvement:
+  souplesse: 0
+  respiration: 0.005

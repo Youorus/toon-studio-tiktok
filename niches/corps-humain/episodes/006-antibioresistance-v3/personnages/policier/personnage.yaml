@@ -1,0 +1,57 @@
+nom: Le policier de la peau
+type: humain
+couches:
+- id: corps
+  images:
+    defaut: corps.png
+  pivot:
+  - 134
+  - 454
+- id: panneau
+  parent: corps
+  attache:
+  - 241
+  - 298
+  pivot:
+  - 75
+  - 192
+  z: -1
+  images:
+    defaut: stop.png
+    cache: vide.png
+- id: radio
+  parent: corps
+  attache:
+  - 115
+  - 122
+  pivot:
+  - 44
+  - 49
+  z: 1
+  images:
+    defaut: vide.png
+    appel: radio.png
+visage:
+  couche: corps
+  yeux:
+  - 158
+  - 95
+  rayon_oeil: 17
+  ecart: 2.2
+  bouche:
+  - 159
+  - 127
+  largeur_bouche: 40
+  peau: '#D58E68'
+  pupille: 0.77
+  paupiere: 0.08
+poses:
+  appel:
+    radio:
+      image: appel
+  chute:
+    radio:
+      image: defaut
+mouvement:
+  souplesse: 0.1
+  respiration: 0.002

@@ -1,5 +1,5 @@
-style: smooth retro 2D cel animation look like a classic animation studio, clean confident smooth dark ink outlines, smooth flat cel paint with soft simple cel shading and glossy highlights, very subtle paper texture only,
-  no pencil texture, no hatching, no crosshatching, no sketchy lines, no watercolor bleeding, vivid saturated colors, cute and appealing, no text, no watermark
+style: smooth retro 2D cel animation, clear recognizable subject-specific silhouettes and proportions, clean thin dark ink outlines, vivid separated flat color areas, one simple shadow per surface, small highlights only where the material catches light,
+  quiet lower-contrast surroundings, original character design with its own proportions and details, no generic mascot shapes, no hatching, no pencil texture, no glossy plastic finish, no text, no watermark
 sans_visage: no face, no eyes, no mouth, no eyebrows
 fond_blanc: centered, isolated on a plain off-white background, whole subject visible with margin
 palettes:
@@ -8,6 +8,14 @@ palettes:
   - '#B65F63'
   - '#C77779'
   - '#8F474B'
+  - '#FFF9ED'
+  - '#181313'
+  - '#91D3DF'
+  fonds_anatomiques:
+  - '#E75261'
+  - '#6D383B'
+  - '#C77779'
+  - '#E8AABA'
   - '#FFF9ED'
   - '#181313'
   - '#91D3DF'
@@ -52,7 +60,7 @@ elements:
   style: aucun
   n: 1
   ratio: '1:1'
-  prompt: a human stomach in vivid reddish-pink with darker wine-red shading and cream glossy highlights, {sans_visage}, {fond_blanc}
+  prompt: a human stomach with a broad asymmetric curved chamber, a narrower esophagus clearly joining its upper edge and a distinct narrowed outlet, recognizable by those landmarks alone, vivid reddish-pink tissue and simple wine-red shadow, {sans_visage}, {fond_blanc}
   couleurs: tissus
 - nom: intestin
   type: organe
@@ -108,8 +116,7 @@ elements:
   style: aucun
   n: 1
   ratio: '1:1'
-  prompt: a human diaphragm muscle drawn as a wide smooth arched dome shape, like an upside-down bowl seen from the front, wider than tall, with light muscle fiber stripes radiating from the top, in vivid reddish-pink with
-    darker wine-red shading and cream glossy highlights, {sans_visage}, {fond_blanc}
+  prompt: a human diaphragm muscle drawn from the front as a wide shallow domed sheet with a visibly raised center and lower side edges, a continuous thin muscular form with a few directional fibers, vivid reddish-pink tissue and simple wine-red shadow, {sans_visage}, {fond_blanc}
   couleurs: tissus
 - nom: langue
   type: organe
@@ -137,7 +144,7 @@ elements:
   style: aucun
   n: 1
   ratio: '1:1'
-  prompt: a human uterus with ovaries in vivid reddish-pink with darker wine-red shading and cream glossy highlights, {sans_visage}, {fond_blanc}
+  prompt: a human uterus in frontal view, a rounded inverted pear-shaped body narrowing into a distinct cervix, slender fallopian tubes curving outward toward separate small ovaries, readable dark rose silhouette and clean pink tissue planes, {sans_visage}, {fond_blanc}
   couleurs: tissus
 - nom: cerveau
   type: organe
@@ -212,37 +219,37 @@ elements:
   style: aucun
   n: 1
   ratio: '9:16'
-  prompt: extreme close-up of the inside of a human stomach, vivid reddish-pink folds, dark wine-red depths, cream glossy highlights, a few food bits, light blue gastric juice drops, filling the whole frame, {sans_visage}
-  couleurs: tissus
+  prompt: vertical close-up cross-section of a human stomach, dominant vivid coral-red background (#E75261), esophagus entering from above and opening into the broad curved cavity, distinct dark rim, few simple tissue folds, one readable liquid surface, wine-red depths, {sans_visage}
+  couleurs: fonds_anatomiques
 - nom: gros-plan-intestin
   type: decor
   style: aucun
   n: 1
   ratio: '9:16'
-  prompt: extreme close-up of the inside of a human intestine tunnel, vivid reddish-pink walls, wine-red depths, glossy highlights, filling the whole frame, {sans_visage}
-  couleurs: tissus
+  prompt: extreme close-up of the inside of a human intestine tunnel, dominant vivid coral-red background (#E75261), foreground folds with lighter pink highlights, wine-red depths, filling the whole frame, {sans_visage}
+  couleurs: fonds_anatomiques
 - nom: gros-plan-oreille
   type: decor
   style: aucun
   n: 1
   ratio: '9:16'
-  prompt: extreme close-up of the inside of a human ear canal, reddish-pink skin, a little yellow earwax, filling the whole frame, {sans_visage}
-  couleurs: tissus
+  prompt: extreme close-up of the inside of a human ear canal, dominant vivid coral-red background (#E75261), distinct lighter pink skin folds, a little yellow earwax, filling the whole frame, {sans_visage}
+  couleurs: fonds_anatomiques
 - nom: gros-plan-bouche
   type: decor
   style: aucun
   n: 1
   ratio: '9:16'
-  prompt: extreme close-up of the inside of a human mouth, cream white teeth, reddish-pink tongue, pink gums, dark wine-red mouth cavity, light blue saliva drops, filling the whole frame, {sans_visage}
-  couleurs: tissus
+  prompt: close-up anatomical cutaway of a human mouth in side profile, dominant vivid coral-red background (#E75261), upper and lower jaws visibly separated, cream teeth rooted in soft pink gums, broad reddish-pink tongue resting inside the lower jaw, wine-red recesses toward the throat, small light blue saliva accents, {sans_visage}
+  couleurs: fonds_anatomiques
 - nom: gros-plan-thorax
   type: decor
   style: aucun
   n: 1
   ratio: '9:16'
-  prompt: simple uncluttered background of the inside of a human chest cavity, a few soft cream ribs arching only at the top edge, smooth soft wine-red and pink tissue walls on the sides, a large calm empty pink space in the
-    middle and bottom, a few small light blue bubbles, filling the whole frame, {sans_visage}
-  couleurs: tissus
+  prompt: simple uncluttered background of the inside of a human chest cavity, a few soft cream ribs arching only at the top edge, wine-red tissue folds on the sides, a large open vivid coral-red area (#E75261) in the middle and bottom,
+    a few small light blue bubbles, filling the whole frame, {sans_visage}
+  couleurs: fonds_anatomiques
 - nom: cabinet
   type: decor
   style: aucun

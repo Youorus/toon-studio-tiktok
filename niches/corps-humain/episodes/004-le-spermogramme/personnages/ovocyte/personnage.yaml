@@ -1,0 +1,12 @@
+nom: Ovocyte
+type: organe
+couches:
+- id: corps
+  images:
+    defaut: corps.png
+  pivot:
+  - 117
+  - 122
+mouvement:
+  souplesse: 0
+  respiration: 0

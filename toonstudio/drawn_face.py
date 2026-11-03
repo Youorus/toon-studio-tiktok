@@ -10,7 +10,7 @@ Repères dans personnage.yaml (pixels de l'image) :
   visage: {mode: dessine, couche: tete, yeux: [[x0, y0, x1, y1], …], bouche: {zone: [x0, y0, x1, y1], centre: [x, y], largeur: 30}}
 """
 import numpy as np
-from PIL import Image, ImageChops, ImageDraw
+from PIL import Image, ImageChops, ImageDraw, ImageFilter
 from scipy import ndimage
 
 from .drawing import INK
@@ -27,13 +27,22 @@ class DrawnFace:
     def __init__(self, img: Image.Image, cfg: dict):
         a = np.array(img.convert('RGBA')).astype(int)
         self.eyes = []
+        self.clean_eyes = cfg.get('yeux_precis', False)
         for x0, y0, x1, y1 in cfg['yeux']:
+            eye_box = (x0, y0, x1, y1)
             x0, y0, x1, y1 = x0 - 7, y0 - 7, x1 + 8, y1 + 8
             sub = a[y0:y1, x0:x1]
             white = (sub[:, :, :3].min(axis=2) > 205) & (sub[:, :, 3] > 200)
             lab, n = ndimage.label(white)
             big = lab == (int(np.argmax(ndimage.sum(white, lab, range(1, n + 1)))) + 1)
             inner = ndimage.binary_fill_holes(big)
+            if self.clean_eyes:
+                # La pupille du dessin peut toucher l’encre : son empreinte fait alors
+                # partie du bord de la composante blanche, et non d’un trou.
+                mask = Image.new('1', (sub.shape[1], sub.shape[0]))
+                left, top, right, bottom = eye_box
+                ImageDraw.Draw(mask).ellipse((left - x0, top - y0, right - x0, bottom - y0), fill=1)
+                inner |= np.asarray(mask)
             dark = inner & (sub[:, :, :3].max(axis=2) < 110)
             ys, xs = np.nonzero(inner)
             if dark.any():
@@ -47,9 +56,17 @@ class DrawnFace:
             rp = rp[(rp.max(axis=1) > 120) & (rp.min(axis=1) < 235)]
             skin = tuple(int(v) for v in np.median(rp, axis=0)) + (255,) if len(rp) else (240, 200, 170, 255)
             white_col = tuple(int(v) for v in np.median(sub[big][:, :3], axis=0)) + (255,)
-            self.eyes.append(dict(box=(x0, y0), inner=inner, outline=ndimage.binary_dilation(inner, iterations=2), cover=ndimage.binary_dilation(inner, iterations=4),
-                                  bbox=(x0 + xs.min(), y0 + ys.min(), x0 + xs.max() + 1, y0 + ys.max() + 1),
-                                  pc=pc, pr=pr, skin=skin, white=white_col))
+            cover = ndimage.binary_dilation(inner, iterations=4)
+            eye = dict(box=(x0, y0), inner=inner, outline=ndimage.binary_dilation(inner, iterations=2), cover=cover,
+                       bbox=(x0 + xs.min(), y0 + ys.min(), x0 + xs.max() + 1, y0 + ys.max() + 1),
+                       pc=pc, pr=pr, skin=skin, white=white_col)
+            if self.clean_eyes:
+                # Le contour de la joue peut se confondre avec celui de l’œil.
+                inside_face = ndimage.binary_erosion(sub[:, :, 3] >= 180, iterations=2, border_value=1)
+                for name, mask in (('open_alpha', inner), ('closed_alpha', cover)):
+                    soft = Image.fromarray(mask.astype(np.uint8) * 255).filter(ImageFilter.GaussianBlur(.55))
+                    eye[name] = (np.asarray(soft) * inside_face / 255)[..., None]
+            self.eyes.append(eye)
         self.mouth = cfg.get('bouche')
         if self.mouth:
             x0, y0, x1, y1 = self.mouth['zone']
@@ -65,13 +82,18 @@ class DrawnFace:
         if key in self.cache:
             return self.cache[key]
         e = EMOTIONS.get(emo, EMOTIONS['neutre'])
-        untouched = not blink and not e.get('arc') and not e.get('squeeze') and emo_is_neutral(e) and gaze == (0, 0)
+        untouched = not self.clean_eyes and not blink and not e.get('arc') and not e.get('squeeze') and emo_is_neutral(e) and gaze == (0, 0)
         arr = np.array(img).copy()
         for i, eye in enumerate([] if untouched else self.eyes):
             x0, y0 = eye['box']
             h, w = eye['inner'].shape
             region = arr[y0:y0 + h, x0:x0 + w]
-            if blink or e.get('arc') or e.get('squeeze'):
+            closed = blink or e.get('arc') or e.get('squeeze')
+            if self.clean_eyes:
+                color = eye['skin'] if closed else eye['white']
+                alpha = eye['closed_alpha'] if closed else eye['open_alpha']
+                region[:, :, :3] = np.rint(region[:, :, :3] * (1 - alpha) + np.array(color[:3]) * alpha)
+            elif closed:
                 cov = eye['cover'][:region.shape[0], :region.shape[1]]
                 region[cov] = eye['skin']
             else:
@@ -118,11 +140,14 @@ class DrawnFace:
             d.line(pts, fill=INK, width=lw, joint='curve')
             out.alpha_composite(lay.resize((W_ // SS, H_ // SS), Image.LANCZOS), (ox, oy))
             return out
-        # pupille : position dessinée d'origine + petit décalage du regard
-        px, py = eye['pc']
-        px += gaze[0] * rw * .35
-        py += gaze[1] * rh * .25
-        pr = eye['pr'] * e['pupil']
+        if self.clean_eyes:
+            px, py = cx + gaze[0] * rw * .49, cy + gaze[1] * rh * .31
+            pr = min(rw, rh) * .28 * e['pupil']
+        else:
+            px, py = eye['pc']
+            px += gaze[0] * rw * .35
+            py += gaze[1] * rh * .25
+            pr = eye['pr'] * e['pupil']
         d.ellipse((*P(px - pr, py - pr), *P(px + pr, py + pr)), fill=INK)
         hr = max(.6, pr * .3)
         d.ellipse((*P(px - pr * .35 - hr, py - pr * .4 - hr), *P(px - pr * .35 + hr, py - pr * .4 + hr)), fill=(255, 255, 255, 255))

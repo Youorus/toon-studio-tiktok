@@ -10,3 +10,10 @@ niches/*/recraft-v1-rejete/
 niches/*/recraft/elements-v2-crayon/
 niches/*/recraft/references/
 niches/*/archives/
+
+# Corpus de tiers, exports et dossiers de preuve privés
+audits/
+archives-production/
+:memory:.ses
+*.mp4
+*.zip

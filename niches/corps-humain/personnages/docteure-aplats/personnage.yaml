@@ -1,0 +1,35 @@
+nom: Docteure
+type: humain
+couches:
+- id: corps
+  images:
+    defaut: corps.png
+  pivot:
+  - 130
+  - 909
+visage:
+  mode: dessine
+  couche: corps
+  yeux:
+  - - 128
+    - 90
+    - 166
+    - 128
+  - - 185
+    - 90
+    - 217
+    - 125
+  yeux_precis: true
+  bouche:
+    zone:
+    - 154
+    - 167
+    - 198
+    - 190
+    centre:
+    - 177
+    - 177
+    largeur: 38
+mouvement:
+  souplesse: 0.08
+  respiration: 0.003

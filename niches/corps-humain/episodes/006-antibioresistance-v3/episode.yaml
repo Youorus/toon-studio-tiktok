@@ -1,0 +1,480 @@
+titre: La bactérie qui n’a pas bougé
+niche: corps-humain
+degrade_bas: false
+legendes_mode: mot_capitales
+legendes_y: 1472
+voix:
+  estomac:
+    voix: blase
+    stabilite: 0.38
+  gelule:
+    voix: ado_garcon
+    stabilite: 0.32
+  peau:
+    voix: diva
+    stabilite: 0.44
+  violette:
+    voix: lascar
+    stabilite: 0.36
+  globule:
+    voix: chef
+    stabilite: 0.44
+  lea:
+    voix: patiente
+    stabilite: 0.45
+  docteure:
+    voix: mere
+    stabilite: 0.48
+  policier:
+    voix: pere
+    stabilite: 0.33
+  intestin:
+    voix: boloss
+    stabilite: 0.34
+bruitages:
+  stop:
+    fichier: sons/stop.wav
+    volume: 0.49
+  coup:
+    fichier: sons/coup.wav
+    volume: 0.72
+  tombe:
+    fichier: sons/tombe.wav
+    volume: 0.66
+  radio:
+    fichier: sons/radio.wav
+    volume: 0.34
+  choc:
+    fichier: sons/choc.wav
+    volume: 0.5
+  glisse:
+    fichier: sons/glisse.wav
+    volume: 0.37
+  pare:
+    fichier: sons/pare.wav
+    volume: 0.65
+  clac:
+    fichier: sons/clac.wav
+    volume: 0.5
+  plouf:
+    fichier: episodes/006-antibioresistance-v2/sons/plouf.wav
+    volume: 0.66
+  ploc:
+    fichier: episodes/006-antibioresistance/sons/ploc.wav
+    volume: 0.39
+  passage:
+    fichier: episodes/006-antibioresistance/sons/passage.wav
+    volume: 0.29
+plans:
+- id: estomac
+  decor: decors/estomac-corail.png
+  transition: coupe
+  zoom:
+  - 1.16
+  - 1.16
+  centre:
+  - 626
+  - 901
+  acteurs:
+    estomac: &id001
+      perso: episodes/006-antibioresistance/personnages/estomac
+      x: 815
+      y: 810
+      echelle: 1.3
+      regard:
+      - -0.77
+      - 0.15
+    gelule: &id002
+      perso: episodes/006-antibioresistance/personnages/gelule
+      x: 690
+      y: 1018
+      echelle: 1.11
+      regard:
+      - 0.77
+      - -0.22
+    intestin:
+      perso: episodes/006-antibioresistance/personnages/estomac
+      x: 502
+      y: 1270
+      echelle: 0.75
+      regard:
+      - 0.73
+      - -0.4
+      entre: 3
+  repliques:
+  - qui: estomac
+    dit: Hein ? C’est quoi, ça, encore ?
+    jeu: '[startled, suspicious, sharp] Hein ? C’est quoi, ça, encore ?'
+    sous_titres: Hein ? | C’est quoi, ça, encore ?
+    emotion: choque
+    pause: 0.13
+  - qui: gelule
+    dit: Un antibiotique.
+    jeu: '[matter-of-fact, quick] Un antibiotique.'
+    sous_titres: Un antibiotique.
+    emotion: neutre
+    pause: 0.14
+  - qui: estomac
+    dit: Un antibiotique ? Pour quoi faire ? Léa a juste un petit mal de tête. Qui prend un antibio pour
+      un mal de crâne ?
+    jeu: '[incredulous, annoyed, rising emphasis] Un antibiotique ? Pour quoi faire ? Léa a juste un petit
+      mal de tête. Qui prend un antibio pour un mal de crâne ?'
+    sous_titres: Un antibiotique ? Pour quoi faire ? | Léa a juste un petit mal de tête. | Qui prend un antibio
+      | pour un mal de crâne ?
+    emotion: fache
+    pause: 0.16
+  - qui: intestin
+    dit: Elle doit savoir ce qu’elle fait.
+    jeu: '[relaxed, deadpan] Elle doit savoir ce qu’elle fait.'
+    sous_titres: Elle doit savoir | ce qu’elle fait.
+    emotion: neutre
+    pause: 0.09
+  - qui: estomac
+    dit: Ah bah non.
+    jeu: '[dry, instant reply] Ah bah non.'
+    sous_titres: Ah bah non.
+    emotion: fatigue
+    pause: 0.2
+  - qui: intestin
+    dit: Bon, arrête de discuter. On le fait passer, ce médicament ?
+    jeu: '[impatient, snappy, playful] Bon, arrête de discuter. On le fait passer, ce médicament ?'
+    sous_titres: Bon, arrête de discuter. | On le fait passer, | ce médicament ?
+    emotion: fache
+    pause: 0.1
+  - qui: estomac
+    dit: Ouais, ouais. Direction l’intestin grêle. Allez, circule !
+    jeu: '[resigned, brisk, dismissive] Ouais, ouais. Direction l’intestin grêle. Allez, circule !'
+    sous_titres: Ouais, ouais. | Direction l’intestin grêle. | Allez, circule !
+    emotion: malicieux
+    pause: 0.45
+  organe: Estomac
+- id: intrusion
+  decor: decors/breche-corail.png
+  transition: coupe
+  zoom:
+  - 1
+  - 1
+  centre:
+  - 540
+  - 960
+  acteurs:
+    policier:
+      perso: personnages/policier-comique
+      x: 267
+      y: 1245
+      echelle: 0.99
+      regard:
+      - 0.78
+      - 0.18
+    violette:
+      perso: episodes/006-antibioresistance/personnages/resistante
+      x: 618
+      y: 1241
+      echelle: 1.53
+      regard:
+      - -0.84
+      - 0.1
+    verte1:
+      perso: episodes/006-antibioresistance/personnages/bacterie
+      x: 822
+      y: 1260
+      echelle: 1.27
+      regard:
+      - -0.7
+      - 0.15
+    verte2:
+      perso: episodes/006-antibioresistance/personnages/bacterie
+      x: 927
+      y: 1183
+      echelle: 0.85
+  repliques:
+  - qui: policier
+    dit: Hé, stop ! Qui t’a laissée entrer ?
+    jeu: '[sharply, commanding, then incredulous] Hé, stop ! Qui t’a laissée entrer ?'
+    sous_titres: Hé, stop ! | Qui t’a laissée entrer ?
+    emotion: fache
+    pause: 0.16
+  - qui: violette
+    dit: Du calme, mon gars. La brèche était ouverte. Tu voulais que je sonne ?
+    jeu: '[casual, teasing, amused] Du calme, mon gars. La brèche était ouverte. Tu voulais que je sonne
+      ?'
+    sous_titres: Du calme, mon gars. | La brèche était ouverte. | Tu voulais que je sonne ?
+    emotion: malicieux
+    pause: 0.14
+  - qui: violette
+    dit: Et t’es qui pour me dire ce que je dois faire ? Pousse-toi !
+    jeu: '[dismissive, suddenly forceful] Et t’es qui pour me dire ce que je dois faire ? Pousse-toi !'
+    sous_titres: Et t’es qui pour me dire | ce que je dois faire ? | Pousse-toi !
+    emotion: fache
+    pause: 0.44
+  - qui: policier
+    dit: Allô ? On est mal. Y a une brèche dans la peau du pied.
+    jeu: '[breathless, shaken, speaking into radio] Allô ? On est mal. Y a une brèche dans la peau du pied.'
+    sous_titres: Allô ? On est mal. | Y a une brèche | dans la peau du pied.
+    emotion: inquiet
+    pause: 0.2
+    pose: appel
+  - qui: policier
+    dit: Les bactéries sont déjà là. Envoyez un globule blanc. Et vite !
+    jeu: '[urgent, clipped, raising voice at the end] Les bactéries sont déjà là. Envoyez un globule blanc.
+      Et vite !'
+    sous_titres: Les bactéries sont déjà là. | Envoyez un globule blanc. | Et vite !
+    emotion: choque
+    pause: 0.51
+  organe: Peau
+- id: duel
+  decor: decors/breche-corail.png
+  transition: coupe
+  zoom:
+  - 1.04
+  - 1.04
+  centre:
+  - 569
+  - 1080
+  acteurs:
+    violette:
+      perso: episodes/006-antibioresistance/personnages/resistante
+      x: 452
+      y: 1251
+      echelle: 1.52
+      regard:
+      - 0.88
+      - -0.1
+    globule:
+      perso: episodes/006-antibioresistance/personnages/globule
+      x: 805
+      y: 1219
+      echelle: 1.46
+      regard:
+      - -0.77
+      - 0
+  repliques:
+  - qui: globule
+    dit: Hé ! Comment t’as fait pour entrer et mettre autant de bazar ?
+    jeu: '[aggressive, energetic, pointed] Hé ! Comment t’as fait pour entrer et mettre autant de bazar ?'
+    sous_titres: Hé ! Comment t’as fait | pour entrer et mettre | autant de bazar ?
+    emotion: fache
+    pause: 0.17
+  - qui: violette
+    dit: Du bazar ? Ah ouais ? Attends, j’vais te montrer ce que c’est.
+    jeu: '[cocky, taunting, building] Du bazar ? Ah ouais ? Attends, j’vais te montrer ce que c’est.'
+    sous_titres: Du bazar ? Ah ouais ? | Attends, j’vais te montrer | ce que c’est.
+    emotion: malicieux
+    pause: 0.18
+  - qui: globule
+    dit: Vas-y, viens !
+    jeu: '[defiant, sharp] Vas-y, viens !'
+    sous_titres: Vas-y, viens !
+    emotion: fache
+    pause: 0.78
+  organe: Peau
+- id: renfort
+  decor: decors/breche-corail.png
+  transition: coupe
+  zoom:
+  - 1
+  - 1
+  centre:
+  - 540
+  - 960
+  acteurs:
+    policier:
+      perso: personnages/policier-comique
+      x: 267
+      y: 1245
+      echelle: 0.99
+      regard:
+      - 0.78
+      - 0.18
+    violette:
+      perso: episodes/006-antibioresistance/personnages/resistante
+      x: 618
+      y: 1241
+      echelle: 1.53
+      regard:
+      - -0.84
+      - 0.1
+    verte1:
+      perso: episodes/006-antibioresistance/personnages/bacterie
+      x: 822
+      y: 1260
+      echelle: 1.27
+      regard:
+      - -0.7
+      - 0.15
+    verte2:
+      perso: episodes/006-antibioresistance/personnages/bacterie
+      x: 927
+      y: 1183
+      echelle: 0.85
+  repliques:
+  - qui: policier
+    dit: Allô ? Ça empire. Elles se multiplient à toute vitesse !
+    jeu: '[urgent, breathless, over the radio] Allô ? Ça empire. Elles se multiplient à toute vitesse !'
+    sous_titres: Allô ? Ça empire. | Elles se multiplient à toute vitesse !
+    emotion: choque
+    pause: 0.13
+    pose: appel
+  - qui: policier
+    dit: Le globule n’arrive plus à les contenir. Il nous faut du renfort !
+    jeu: '[strained, emphatic] Le globule n’arrive plus à les contenir. Il nous faut du renfort !'
+    sous_titres: Le globule n’arrive plus | à les contenir. | Il nous faut du renfort !
+    emotion: inquiet
+    pause: 0.48
+  organe: Peau
+- id: prescription
+  decor: decors/estomac-corail.png
+  transition: coupe
+  zoom:
+  - 1.16
+  - 1.16
+  centre:
+  - 626
+  - 901
+  acteurs:
+    estomac: *id001
+    gelule: *id002
+  repliques:
+  - qui: estomac
+    dit: Hein ? Encore une ?
+    jeu: '[incredulous, quick] Hein ? Encore une ?'
+    sous_titres: Hein ? Encore une ?
+    emotion: choque
+    pause: 0.13
+  - qui: gelule
+    dit: Cette fois, j’ai une ordonnance.
+    jeu: '[confident, clipped] Cette fois, j’ai une ordonnance.'
+    sous_titres: Cette fois, | j’ai une ordonnance.
+    emotion: content
+    pause: 0.43
+  organe: Estomac
+- id: resistance
+  decor: decors/breche-corail.png
+  transition: coupe
+  zoom:
+  - 1
+  - 1
+  centre:
+  - 540
+  - 960
+  acteurs:
+    violette:
+      perso: episodes/006-antibioresistance/personnages/resistante
+      x: 435
+      y: 1255
+      echelle: 1.52
+      regard:
+      - 0.86
+      - -0.15
+    gelule:
+      perso: episodes/006-antibioresistance/personnages/gelule
+      x: 806
+      y: 1232
+      echelle: 1.63
+      regard:
+      - -0.83
+      - 0.1
+    verte1:
+      perso: episodes/006-antibioresistance/personnages/bacterie
+      x: 578
+      y: 1286
+      echelle: 0.71
+    verte2:
+      perso: episodes/006-antibioresistance/personnages/bacterie
+      x: 673
+      y: 1168
+      echelle: 0.62
+  repliques:
+  - qui: gelule
+    dit: Toi, l’intruse ! T’es tombée sur la mauvaise gélule !
+    jeu: '[bold, theatrical, threatening] Toi, l’intruse ! T’es tombée sur la mauvaise gélule !'
+    sous_titres: Toi, l’intruse ! | T’es tombée sur la mauvaise gélule !
+    emotion: fache
+    pause: 0.34
+  - qui: violette
+    dit: Hein ? Tu crois vraiment que ça marche encore sur moi ?
+    jeu: '[mocking, unhurried, skeptical] Hein ? Tu crois vraiment que ça marche encore sur moi ?'
+    sous_titres: Hein ? Tu crois vraiment | que ça marche encore sur moi ?
+    emotion: malicieux
+    pause: 0.18
+  - qui: violette
+    dit: Les vertes ont disparu. Moi, je résiste à cet antibiotique. Tu peux toujours essayer.
+    jeu: '[smug, confident, lightly amused] Les vertes ont disparu. Moi, je résiste à cet antibiotique. Tu
+      peux toujours essayer.'
+    sous_titres: Les vertes ont disparu. | Moi, je résiste à cet antibiotique. | Tu peux toujours essayer.
+    emotion: content
+    pause: 0.48
+  organe: Peau
+- id: cabinet
+  decor: decors/cabinet-006.png
+  transition: coupe
+  zoom:
+  - 1
+  - 1.015
+  centre:
+  - 540
+  - 960
+  acteurs:
+    lea:
+      perso: personnages/lea-blessee
+      x: 703
+      y: 1612
+      echelle: 1.06
+      regard:
+      - -0.85
+      - -0.5
+    docteure:
+      perso: personnages/docteure-aplats
+      x: 309
+      y: 1612
+      echelle: 1.08
+      regard:
+      - 0.8
+      - 0.5
+  repliques:
+  - qui: lea
+    dit: Docteure, y a un autre moyen de soigner ça ? Mon pied empire de jour en jour.
+    jeu: '[worried, conversational, quietly frustrated] Docteure, y a un autre moyen de soigner ça ? Mon
+      pied empire de jour en jour.'
+    sous_titres: Docteure, y a un autre moyen | de soigner ça ? | Mon pied empire de jour en jour.
+    emotion: inquiet
+    pause: 0.17
+  - qui: docteure
+    dit: Une piste, c’est la résistance aux antibiotiques. Certaines bactéries survivent à cet antibiotique.
+    jeu: '[calm, direct, warm] Une piste, c’est la résistance aux antibiotiques. Certaines bactéries survivent
+      à cet antibiotique.'
+    sous_titres: Une piste, c’est la résistance | aux antibiotiques. | Certaines bactéries survivent | à
+      cet antibiotique.
+    emotion: neutre
+    pause: 0.22
+  - qui: docteure
+    dit: En prendre pour rien favorise les bactéries résistantes. Et un antibiotique, ça ne soigne pas un
+      simple mal de tête.
+    jeu: '[clear, gently emphatic] En prendre pour rien favorise les bactéries résistantes. Et un antibiotique,
+      ça ne soigne pas un simple mal de tête.'
+    sous_titres: En prendre pour rien | favorise les bactéries résistantes. | Et un antibiotique, | ça ne
+      soigne pas | un simple mal de tête.
+    emotion: content
+    pause: 0.22
+  - qui: docteure
+    dit: On va vérifier ce qui cause ton infection et choisir le traitement adapté.
+    jeu: '[reassuring, matter-of-fact] On va vérifier ce qui cause ton infection et choisir le traitement
+      adapté.'
+    sous_titres: On va vérifier | ce qui cause ton infection | et choisir le traitement adapté.
+    emotion: neutre
+    pause: 0.32
+  - qui: docteure
+    dit: Abonne-toi pour comprendre ton corps en t’amusant.
+    jeu: '[warm smile, direct to camera] Abonne-toi pour comprendre ton corps en t’amusant.'
+    sous_titres: Abonne-toi pour comprendre | ton corps en t’amusant.
+    emotion: content
+    pause: 0.55
+    carte:
+      type: bouton
+      texte: ABONNE-TOI
+      couleur: '#24666D'
+      largeur: 610
+    regards:
+      docteure:
+      - 0
+      - 0

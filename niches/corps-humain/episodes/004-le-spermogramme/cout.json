@@ -1,0 +1,70 @@
+{
+  "recraft_usd": 0.315,
+  "recraft_images": 9,
+  "elevenlabs_modele": "eleven_v4",
+  "elevenlabs_credits": 457,
+  "prises": [
+    {
+      "prise": 1,
+      "credits": 26,
+      "audio_identique_au_cache": false
+    },
+    {
+      "prise": 2,
+      "credits": 37,
+      "audio_identique_au_cache": false
+    },
+    {
+      "prise": 3,
+      "credits": 32,
+      "audio_identique_au_cache": false
+    },
+    {
+      "prise": 4,
+      "credits": 19,
+      "audio_identique_au_cache": false
+    },
+    {
+      "prise": 5,
+      "credits": 35,
+      "audio_identique_au_cache": false
+    },
+    {
+      "prise": 6,
+      "credits": 37,
+      "audio_identique_au_cache": false
+    },
+    {
+      "prise": 7,
+      "credits": 57,
+      "audio_identique_au_cache": false
+    },
+    {
+      "prise": 8,
+      "credits": 49,
+      "audio_identique_au_cache": false
+    },
+    {
+      "prise": 9,
+      "credits": 33,
+      "audio_identique_au_cache": false
+    },
+    {
+      "prise": 10,
+      "credits": 76,
+      "audio_identique_au_cache": false
+    },
+    {
+      "prise": 11,
+      "credits": 23,
+      "audio_identique_au_cache": false
+    },
+    {
+      "prise": 12,
+      "credits": 33,
+      "audio_identique_au_cache": false
+    }
+  ],
+  "rapprochement": "Douze résultats distincts du modèle eleven_v4, un par fragment recherché dans l’historique. La somme provient des écarts de compteur renvoyés par ElevenLabs. Identité binaire des MP3 du cache non confirmée par le point de lecture de l’historique.",
+  "forfait_au_releve": "Creator, dépassement désactivé"
+}

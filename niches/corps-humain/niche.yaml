@@ -1,15 +1,38 @@
-# Niche « Ton corps, expliqué » : des organes qui vivent la galère en se chamaillant, puis la docteure explique.
-nom: Ton corps, expliqué
+# Des organes qui vivent la galère en se chamaillant, puis la docteure explique.
+nom: Le Corps Parle.fr
 public: 18-25 ans (et tous âges)
 langue: fr
 ton: >
-  Humour d'abord : les organes vivent le problème entre eux (dispute, panique, gêne, un peu crade assumé),
-  puis la docteure, attachante et rassurante, explique simplement le pourquoi au patient. Faits vérifiés, jamais
-  de conseil dangereux ; « consulte si… » quand c'est utile.
+  Humour français et familier. Les organes râlent, se chambrent et commentent les habitudes de Léa quand
+  la situation dégénère. La douleur donne le signal du sketch. Les vannes visent la situation et les
+  réactions des organes. La docteure prend le relais avec une explication claire, vivante et vérifiée.
 format:
-  duree: 61-65 s (monétisation TikTok à partir d'une minute)
-  structure: [accroche dans le corps (0-3 s), dispute des organes (~25 s), cabinet - explication (~25 s), chute + question (~8 s)]
-filigrane: "@toncorps.explique"
+  duree: 65 à 72 s au MP4 final, objectif 70 s, abonnement compris
+  structure:
+    - dans le corps dès la première image, réaction ou vanne dans les trois premières secondes
+    - deux ou trois temps comiques courts, avec une conséquence visible dans le corps
+    - retour au cabinet vers 45 s, une idée médicale principale et la chute avec l’abonnement
+  voix: Timbres récurrents, répliques courtes, intentions contrastées, changements de débit et silences comiques.
+  bruitages: Sons courts calés sur l’action, transitions discrètes, dialogue prioritaire dans le mix.
+filigrane: Le Corps Parle.fr
+direction_artistique:
+  statut: definitive
+  version: lcp-1.0.0
+  episode_reference: episodes/006-antibioresistance-v3
+  cabinet: decors/cabinet-abonne-toi.png
+  casting:
+    docteure: {rig: docteure-aplats, voix: mere}
+    lea: {rig: lea-aplats, voix: patiente}
+  badge_organe_xy: [132, 305]
+  signature:
+    positions: [[70, 799], [505, 739], [156, 449], [484, 772], [88, 876], [370, 533]]
+    intervalle_s: 6.5
+    trajet_s: 1.25
+    taille: 40
+    opacite: 112
+  legendes_mode: mot_capitales
+  legendes_y: 1472
+  abonnement_final: {type: bouton, texte: ABONNE-TOI, couleur: '#24666D', largeur: 610}
 # Couleurs : voir docs/DIRECTION-ARTISTIQUE.md
 palette:                 # validée par Marc le 2/11/2026 (docs/DIRECTION-ARTISTIQUE.md)
   accent: '#D45C58'        # rouge microbe : cartes, boutons
@@ -23,11 +46,13 @@ style_personnage: >
   colors, cute and appealing, no face, no eyes, no mouth, no text
 style_decor: >
   background for a smooth retro 2D cel animation, clean dark ink outlines, smooth cel paint with glossy highlights, very subtle
-  paper texture, large calm empty area in the middle for characters, no people, no faces, no text, no logos, vertical 9:16
+  paper texture, large calm empty area in the middle for characters, no people, no faces, no text, no logos, vertical 9:16.
+  For inside-body scenes, use vivid coral red (#E75261) as the dominant background,
+  with darker wine-red recesses and lighter tissue highlights to separate the subject.
 recraft:
   # Kit v3 (validé) : aucun style Recraft enregistré n'est utilisé ; le rendu vient de la consigne `style` de kit.yaml
   # + la palette imposée (palettes.tissus / microbes). Les styles v2 ci-dessous (rendu crayon, écarté) restent pour mémoire.
   modele: recraftv4_1
   style_humains: c1a98435-a38b-4c80-9337-1374a2e09a1f   # v2 crayon, non utilisé
   style_id: 9a26d75f-3662-4431-b403-d19a0f3c833d        # v2 crayon, non utilisé
-personnages_recurrents: [docteure, docteur, patient, patiente]
+personnages_recurrents: [docteure-aplats, lea-aplats]
