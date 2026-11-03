@@ -1,0 +1,41 @@
+nom: Agent Sphincter
+type: organe
+echelle: 1.0
+couches:
+- id: corps
+  images:
+    defaut: corps.png
+  pivot:
+  - 314
+  - 900
+visage:
+  couche: corps
+  yeux:
+  - 314
+  - 324
+  rayon_oeil: 53
+  ecart: 2.0
+  bouche:
+  - 314
+  - 450
+  largeur_bouche: 100
+  peau: '#F98286'
+  paupiere: 0.25
+  pupille: 0.8
+  forme_oeil: 1.2
+mouvement:
+  souplesse: 0.6
+poses:
+  defaut: {}
+membres:
+  bras:
+    epaule_g:
+    - 125
+    - 450
+    epaule_d:
+    - 502
+    - 450
+    longueur: 251
+    epaisseur: 28
+    couleur: '#181313'
+    gant: '#FFF9ED'

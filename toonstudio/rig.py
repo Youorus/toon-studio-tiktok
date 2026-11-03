@@ -17,6 +17,7 @@ import yaml
 from PIL import Image
 
 from .arms import draw_arm
+from .limbs import GESTES, draw_leg, draw_noodle_arm, walk_cycle
 from .drawing import affine_paste, transform_point
 from .face import FaceSpec, face_overlay, register
 
@@ -49,6 +50,7 @@ class Character:
                                     images={'defaut': Image.fromarray(head)}, z=root['z'] + 1))
         self.by_id = {L['id']: L for L in self.layers}
         self.arms = cfg.get('bras', []) or []
+        self.limbs = cfg.get('membres') or {}          # bras/jambes « tuyau » dessinés par le moteur (organes, objets)
         f = cfg.get('visage')
         self.face_layer = f['couche'] if f else None
         self.drawn = None
@@ -88,7 +90,7 @@ class Character:
         return _with_face(id(img), img, self.face_key, emo, gaze, blink, mouth)
 
     def render(self, pose='defaut', emo='neutre', gaze=(0, 0), blink=False, mouth=None, t=0.0, talk=0.0,
-               squash=0.0, tilt=0.0, phase=0.0):
+               squash=0.0, tilt=0.0, phase=0.0, walk=0.0, facing=1):
         """Image du personnage et position de son point d'ancrage (bas-centre) dans cette image.
 
         talk : 0..1, intensité de la parole (rebond) ; squash : écrasement ponctuel (-1..1) ; tilt : penché (degrés).
@@ -136,12 +138,39 @@ class Character:
                 draw_arm(canvas, sh, arm['cote'], arm, spec['epaule'] + swing, spec['coude'] + talk * 5 * math.sin(t * 6),
                          spec['main'], 1.0, root_p['angle'])
 
+        # membres tuyau : jambes derrière le corps, bras devant
+        lg = self.limbs.get('jambes')
+        ar = self.limbs.get('bras')
+        ha, ka, hb, kb, bob, arm_swing = walk_cycle(t + phase) if walk > 0 else (0, 0, 0, 0, 0, 0)
+        if lg:
+            for i, key in enumerate(('hanche_g', 'hanche_d')):
+                hip = transform_point(lg[key], root['pivot'], root_p['to'], root_p['angle'], root_p['sx'], root_p['sy'])
+                hip = (hip[0], hip[1] - bob * walk)
+                a_hip, a_knee = ((ha, ka) if i == 0 else (hb, kb)) if walk > 0 else (0, 0)
+                idle = 1.2 * math.sin(t * 1.5 + phase + i) if walk == 0 else 0
+                draw_leg(canvas, hip, 1 if i else -1, {**lg, 'sens': facing}, a_hip * facing + idle, a_knee * facing)
+        if walk > 0:                                   # le corps rebondit sur ses pas
+            root_p['to'] = (root_p['to'][0], root_p['to'][1] - bob)
+            for k in placed:
+                if k != root['id']:
+                    placed[k]['to'] = (placed[k]['to'][0], placed[k]['to'][1] - bob)
         arms(False)
         for L in order:
             p = placed[L['id']]
             img = self.layer_image(L, p['variant'], emo, gaze, blink, mouth)
             affine_paste(canvas, img, L['pivot'], p['to'], p['angle'], p['sx'], p['sy'])
         arms(True)
+        if ar:
+            g = GESTES.get(pose, GESTES['repos']) if pose in GESTES else GESTES['repos']
+            for i, key in enumerate(('epaule_g', 'epaule_d')):
+                side = -1 if i == 0 else 1
+                sh = transform_point(ar[key], root['pivot'], root_p['to'], root_p['angle'], root_p['sx'], root_p['sy'])
+                a_sh, a_el, hand = g[i * 3:i * 3 + 3]
+                if facing < 0:                         # retourné : les rôles des bras s'échangent
+                    a_sh, a_el, hand = g[(1 - i) * 3:(1 - i) * 3 + 3]
+                live = 3 * math.sin(t * 1.8 + phase + i * 2) + talk * 10 * math.sin(t * 6 + i)
+                live += arm_swing * walk * side * (1 if facing > 0 else -1) * .8
+                draw_noodle_arm(canvas, sh, side, ar, a_sh, a_el + talk * 8 * math.sin(t * 5 + i), hand, 1.0, root_p['angle'], live)
         bb = canvas.getbbox() or (0, 0, 1, 1)
         return canvas.crop(bb), (anchor[0] - bb[0], anchor[1] - bb[1])
 

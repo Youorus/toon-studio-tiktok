@@ -7,7 +7,7 @@ couches:
     defaut: corps.png
   pivot:
   - 412
-  - 807
+  - 969
 visage:
   couche: corps
   yeux:
@@ -27,3 +27,26 @@ mouvement:
   souplesse: 1.0
 poses:
   defaut: {}
+membres:
+  bras:
+    epaule_g:
+    - 181
+    - 500
+    epaule_d:
+    - 643
+    - 500
+    longueur: 297
+    epaisseur: 26
+    couleur: '#181313'
+    gant: '#FFF9ED'
+  jambes:
+    hanche_g:
+    - 297
+    - 750
+    hanche_d:
+    - 528
+    - 750
+    longueur: 177
+    epaisseur: 28
+    couleur: '#181313'
+    chaussure: '#181313'

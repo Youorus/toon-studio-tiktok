@@ -147,6 +147,7 @@ class Episode:
         out.parent.mkdir(parents=True, exist_ok=True)
         decors = {s['id']: cover(Image.open(self.path(s['decor'])).convert('RGBA')) for s in self.shots}
         chars = {(s['id'], n): rig.load(self.path(a['perso'])) for s in self.shots for n, a in s['acteurs'].items()}
+        self._chars = {n: c for (_, n), c in chars.items()}
         shade = _bottom_shade()
         tmp = Path(tempfile.mkdtemp())
         n_frames = int(self.duration * FPS)
@@ -210,24 +211,26 @@ class Episode:
             if spec.get('entre') is not None and li < spec['entre']:
                 continue
             # entrée / sortie en glissant, déplacements demandés par les répliques
-            ex, ey = self._motion(name, spec, lines, li, t)
+            ex, ey, walking, facing = self._motion(name, spec, lines, li, t)
             if ex is None:
                 continue
             spec = {**spec, 'x': ex, 'y': ey}
+            if facing and chars[(shot['id'], name)].limbs:
+                spec['miroir'] = facing < 0
             st = self.actor_state(shot, name, spec, t, line, lines[:li])
             ch = chars[(shot['id'], name)]
             dx, dy, squash, tilt, k = st['fx']
             if spec.get('miroir'):           # image retournée : le regard aussi
                 st['gaze'] = (-st['gaze'][0], st['gaze'][1])
             img, anchor = ch.render(st['pose'], st['emo'], st['gaze'], st['blink'], st['mouth'], t, st['talk'], squash, tilt,
-                                    phase=_h(name) % 7)
+                                    phase=_h(name) % 7, walk=walking, facing=-1 if spec.get('miroir') else 1)
             sc = spec.get('echelle', 1.0) * ch.scale * k
             if sc <= .01:
                 continue
             fx_, fy_, fr = ch.face_point()
             px = ch.layers[0]['pivot']
             face = (fx_ - px[0], fy_ - px[1])
-            if spec.get('miroir'):
+            if spec.get('miroir') and not ch.limbs:    # avec membres, le rig gère lui-même l'orientation (corps symétrique)
                 img = img.transpose(Image.FLIP_LEFT_RIGHT); anchor = (img.width - anchor[0], anchor[1]); face = (-face[0], face[1])
             img = img.resize((max(1, int(img.width * sc)), max(1, int(img.height * sc))), Image.LANCZOS)
             pos = (int(spec['x'] + dx - anchor[0] * sc), int(spec['y'] + dy - anchor[1] * sc))
@@ -241,28 +244,45 @@ class Episode:
 
         entre: n + arrivee: gauche|droite|bas|haut|pop ; sort: n + depart: … ; deplace: {acteur: [x, y]} dans une réplique."""
         x, y = spec['x'], spec['y']
-        hop = 0.0
+        hop, moving, facing = 0.0, 0.0, 0
         for j, ln in enumerate(lines[:li + 1]):
             tgt = (ln.get('deplace') or {}).get(name)
             if tgt:
-                q = clamp((t - ln['t0']) / .7) if j == li else 1.0
-                e = ease_in_out(q)
+                dur = max(.4, abs(tgt[0] - x) / 520)          # ~420 px/s de marche
+                q = clamp((t - ln['t0']) / dur) if j == li else 1.0
+                e = ease_in_out(q) if not self._walks(name) else q
                 if 0 < q < 1:
-                    hop = -abs(math.sin(q * math.pi * 3)) * 25
+                    moving = 1.0
+                    facing = 1 if tgt[0] >= x else -1
+                    if not self._walks(name):
+                        hop = -abs(math.sin(q * math.pi * 3)) * 25
                 x, y = x + (tgt[0] - x) * e, y + (tgt[1] - y) * e
         dirs = {'gauche': (-900, 0), 'droite': (900, 0), 'bas': (0, 900), 'haut': (0, -1100)}
         if spec.get('entre') is not None and spec.get('arrivee', 'pop') in dirs and li >= spec['entre']:
-            q = ease_out(clamp((t - lines[spec['entre']]['t0']) / .5))
             ox, oy = dirs[spec['arrivee']]
+            walks = self._walks(name) and spec['arrivee'] in ('gauche', 'droite')
+            dur = abs(ox) / 520 if walks else .5
+            q = clamp((t - lines[spec['entre']]['t0']) / dur)
+            q = q if walks else ease_out(q)
+            if q < 1:
+                moving, facing = (1.0, -1 if ox > 0 else 1) if walks else (moving, facing)
             x, y = x + ox * (1 - q), y + oy * (1 - q)
         if spec.get('sort') is not None and li >= spec['sort']:
-            q = clamp((t - lines[spec['sort']]['t0'] - spec.get('sort_delai', .3)) / .5)
-            if q >= 1:
-                return None, None
             ox, oy = dirs.get(spec.get('depart', 'droite'), (900, 0))
-            e = q * q
+            walks = self._walks(name) and spec.get('depart', 'droite') in ('gauche', 'droite')
+            dur = abs(ox) / 520 if walks else .5
+            q = clamp((t - lines[spec['sort']]['t0'] - spec.get('sort_delai', .3)) / dur)
+            if q >= 1:
+                return None, None, 0.0, 0
+            if q > 0:
+                moving, facing = (1.0, 1 if ox > 0 else -1) if walks else (moving, facing)
+            e = q if walks else q * q
             x, y = x + ox * e, y + oy * e
-        return x, y + hop
+        return x, y + hop, moving, facing
+
+    def _walks(self, name):
+        ch = self._chars.get(name)
+        return bool(ch and ch.limbs.get('jambes'))
 
     def controle(self, out_dir: Path | None = None):
         """Contrôle de mise en scène, une image au milieu de chaque réplique : visages dans l'écran, pas cachés
@@ -273,6 +293,7 @@ class Episode:
         out_dir.mkdir(parents=True, exist_ok=True)
         decors = {s['id']: cover(Image.open(self.path(s['decor'])).convert('RGBA')) for s in self.shots}
         chars = {(s['id'], n): rig.load(self.path(a['perso'])) for s in self.shots for n, a in s['acteurs'].items()}
+        self._chars = {n: c for (_, n), c in chars.items()}
         problems, thumbs = [], []
         for n, line in enumerate(self.lines, 1):
             t = (line['t0'] + line['t1']) / 2

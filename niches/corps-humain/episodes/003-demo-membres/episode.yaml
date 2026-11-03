@@ -1,0 +1,19 @@
+# Démo de quelques secondes (sans voix) : organes vivants — bras et jambes tuyau, marche, gestes, porte « SORTIE ».
+titre: Démo membres — contrôle à la sortie
+niche: corps-humain
+legendes_y: 1650
+bruitages:
+  sifflet: {texte: "police whistle, two short sharp blows, cartoon", duree: 1.2, volume: .7}
+  trombone: {texte: "sad trombone wah wah wah waaah, comedic", duree: 2.2, volume: .7}
+plans:
+  - id: porte
+    decor: decors/couloir-sortie.png
+    zoom: [1.0, 1.03]
+    acteurs:
+      agent:  {perso: personnages/agent-sphincter, x: 300, y: 1790, echelle: .82, regard: [.6, 0]}
+      crotte: {perso: personnages/crotte, x: 800, y: 1700, echelle: .5, entre: 0, arrivee: droite, sort: 3, depart: droite, sort_delai: .6}
+    repliques:
+      - {qui: agent, dit: "Halte ! Contrôle à la sortie !", emotion: fache, pose: siffle, sfx: ["sifflet@0.8"], carte: {type: choc, texte: "HALTE !"}, duree: 3.4}
+      - {qui: crotte, dit: "Euh… moi ? Je suis un pet.", emotion: gene, pose: hausse, poses: {agent: stop}}
+      - {qui: agent, dit: "Un pet ? Avec des chaussures ?", emotion: malicieux, pose: pointe_bas, reactions: {crotte: inquiet}, poses: {crotte: tete}}
+      - {qui: crotte, dit: "Bon… OK, je fais demi-tour.", emotion: triste, pose: repos, poses: {agent: hanches}, sfx: [trombone], duree: 3.2}
