@@ -4,7 +4,7 @@
 
 - [Script et direction des voix](dialogues.py)
 - [Provenance et relevé de la référence](provenance.md)
-- [Livraison](out/Le-colis-surprise-du-placenta-Le-Corps-Parle.mp4)
+- [Livraison révisée](out/Le-colis-surprise-du-placenta-Le-Corps-Parle-V2.mp4)
 
 ## Reproduire depuis les sources
 
@@ -17,5 +17,5 @@ PYTHONPATH=. python "$p/preparer.py"
 PYTHONPATH=. python "$p/produire.py"
 PYTHONPATH=. python -m toonstudio.musique_cartoon --image "$o/image-et-voix.mp4" \
   --son "$o/image-et-voix.mp4" --sous-titres "$o/sous-titres.json" \
-  --montage "$o/montage.json" --sortie "$o/Le-colis-surprise-du-placenta-Le-Corps-Parle.mp4"
+  --montage "$o/montage.json" --sortie "$o/Le-colis-surprise-du-placenta-Le-Corps-Parle-V2.mp4"
 ```

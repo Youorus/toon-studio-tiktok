@@ -11,9 +11,9 @@ from scipy.io import wavfile
 from scipy.signal import butter, sosfilt
 
 RATE=48000
-BPM=146
+BPM=125
 BEAT=60/BPM
-SWING=.59
+SWING=.55
 CHORDS=[(45,57,60,64),(38,53,57,60),(43,55,59,62),(36,55,59,64),
         (41,53,57,60),(42,54,57,60),(47,57,59,62),(40,56,62,65)]
 THEME=[
@@ -50,9 +50,12 @@ def compose(duration):
         else:
             phase=2*np.pi*440*2**((note-69)/12)*t
             if kind=='bass':
-                signal=(np.sin(phase)+.38*np.sin(2*phase)+.15*np.sin(3*phase))*np.exp(-5.6*t)
+                signal=(np.sin(phase)+.48*np.sin(2*phase)+.17*np.sin(3*phase))*np.exp(-6.8*t)
             elif kind=='pizz':
                 signal=(np.sin(phase)+.53*np.sin(2*phase)+.21*np.sin(3*phase))*np.exp(-15*t)
+            elif kind=='reed':
+                vibrato=phase+.10*np.sin(2*np.pi*6.0*t)
+                signal=(np.sin(vibrato)+.30*np.sin(3*vibrato)+.11*np.sin(5*vibrato))*np.exp(-5*t)
             else:
                 signal=(np.sin(phase)+.34*np.sin(3.98*phase)+.16*np.sin(8.14*phase))*np.exp(-8.8*t)
         envelope=np.minimum(1,t*320)*np.minimum(1,(count/RATE-t)*100)
@@ -63,7 +66,7 @@ def compose(duration):
         root,*voicing=CHORDS[index%len(CHORDS)]
         next_root=CHORDS[(index+1)%len(CHORDS)][0]
         for beat,note in enumerate((root,root+7,root+12,next_root-2 if next_root>root else next_root+2)):
-            event(base+beat,.96,.30,0,note,'bass')
+            event(base+beat,.86,.35,0,note,'bass')
             if beat in (0,2):
                 event(base+beat,.62,.125,.05,kind='kick')
             else:
@@ -76,12 +79,12 @@ def compose(duration):
         if index%8 in (2,5,7):
             melody=melody[:-1]
         for beat,note in melody:
-            event(base+beat,.73,.135,.36,note)
+            event(base+beat,.60,.139,.30,note,'reed' if index%4 in (0,1) else 'mallet')
         if index%8==7:
             for beat,note in ((2.75,64),(3.25,67),(3.5,68)):
                 event(base+beat,.42,.087,.15,note,'pizz')
     peak=np.sqrt(np.mean(track**2))
-    track*=.069/max(peak,.0001)
+    track*=.078/max(peak,.0001)
     size=len(track)
     fade_in=min(size,round(.18*RATE))
     fade_out=min(size,round(.55*RATE))

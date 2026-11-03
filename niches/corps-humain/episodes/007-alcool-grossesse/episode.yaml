@@ -26,7 +26,7 @@ bruitages:
     volume: 0.43
 plans:
 - id: passage
-  decor: art/uterus-interieur.png
+  decor: art/uterus-corail.png
   organe: Utérus
   zoom:
   - 1
@@ -35,24 +35,24 @@ plans:
   acteurs:
     uterus:
       perso: personnages/uterus
-      x: 519
-      y: 545
+      x: 537
+      y: 485
       echelle: 1.1
       regard:
       - 0
       - 0.8
     placenta:
       perso: personnages/placenta
-      x: 322
-      y: 1088
-      echelle: 0.99
+      x: 231
+      y: 1079
+      echelle: 1.02
       regard:
       - 0.73
       - 0.1
     foetus:
       perso: personnages/foetus
-      x: 701
-      y: 1287
+      x: 703
+      y: 1305
       echelle: 0.99
       regard:
       - -0.8

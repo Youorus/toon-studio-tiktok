@@ -9,9 +9,11 @@ from tempfile import TemporaryDirectory
 from unittest.mock import patch
 from zipfile import ZIP_DEFLATED, ZipFile
 
+import numpy as np
+from PIL import Image
 import yaml
 
-from . import voice
+from . import preuves, voice
 from .config import ROOT
 from .episode import Episode
 
@@ -94,6 +96,27 @@ def mux_audio(source,target):
                     '-c','copy',str(target)],check=True)
 
 
+def check_anatomy_backgrounds(folder):
+    episode=yaml.safe_load((folder/'episode.yaml').read_text())
+    niche=ROOT/'niches'/episode['niche']
+    for plan in episode['plans']:
+        if not plan.get('organe'):
+            continue
+        rel=plan['decor']
+        path=folder/rel if (folder/rel).is_file() else niche/rel
+        with Image.open(path) as source:
+            pixels=np.asarray(source.convert('RGBA').resize((270,480)))
+        dark=(pixels[:,:,:3].max(axis=2)<36)|(pixels[:,:,3]<245)
+        blocks=dark.reshape(20,24,15,18).mean(axis=(1,3))
+        borders=(dark[:4,:].mean(),dark[-4:,:].mean(),dark[:,:4].mean(),dark[:,-4:].mean())
+        if blocks.max()>.82 or max(borders)>.70:
+            raise ValueError(f"{plan['id']} : fond noir, bande noire ou transparence dans {rel}.")
+
+
+def proof_path(folder,checksum):
+    return ROOT/'archives-production'/folder.parents[1].name/f'{folder.name}-{checksum[:12]}-contestation'
+
+
 def archive(folder,master,dry,dependencies):
     folder=folder.resolve()
     niche_dir=folder.parents[1]
@@ -101,10 +124,14 @@ def archive(folder,master,dry,dependencies):
         raise ValueError('Épisode attendu dans niches/<niche>/episodes/.')
     if not (folder/'provenance.md').is_file():
         raise ValueError('Renseigner provenance.md avant l’archivage.')
+    if not (folder/'preuves.yaml').is_file():
+        raise ValueError('Renseigner preuves.yaml avant l’archivage.')
     profile=freeze(niche_dir.name)
+    check_anatomy_backgrounds(folder)
     destination=ROOT/'archives-production'/niche_dir.name
     destination.mkdir(parents=True,exist_ok=True)
-    out=destination/f'{folder.name}-{digest(master)[:12]}.zip'
+    checksum=digest(master)
+    out=destination/f'{folder.name}-{checksum[:12]}.zip'
     with TemporaryDirectory(dir=destination) as tmp:
         root=Path(tmp)/'projet'
         root.mkdir()
@@ -133,6 +160,7 @@ def archive(folder,master,dry,dependencies):
         copy2(master,deliver/master.name)
         mux_audio(master,deliver/'mix-final.m4a')
         mux_audio(dry,deliver/'voix-et-bruitages.m4a')
+        preuves.generate(folder,master,checksum,root/'contestation')
         (root/'LIRE-MOI.md').write_text(
             '# Sources de production\n\n'
             f'Voir les instructions dans `{folder.relative_to(ROOT)}/README.md`. '
@@ -141,7 +169,7 @@ def archive(folder,master,dry,dependencies):
             'Les fichiers audio et les alignements d’origine sont inclus. '
             'La reproduction de l’image et le remix sont possibles sans compte externe.\n')
         manifest={'episode':folder.name,'profil':profile['version'],'repliques':lines,'prises_uniques':takes,
-                  'master':master.name,'sha256_master':digest(master),
+                  'master':master.name,'sha256_master':checksum,
                   'fichiers':{p.relative_to(root).as_posix():digest(p) for p in sorted(root.rglob('*')) if p.is_file()}}
         write_json(root/'MANIFESTE.json',manifest)
         temporary=Path(tmp)/out.name
@@ -150,6 +178,7 @@ def archive(folder,master,dry,dependencies):
                 if file.is_file():
                     zipped.write(file,file.relative_to(root))
         verify(temporary)
+        copytree(root/'contestation',proof_path(folder,checksum),dirs_exist_ok=True)
         temporary.replace(out)
     write_receipt(folder,out,manifest)
     return out
@@ -187,12 +216,21 @@ def main():
     pack.add_argument('--dependance',action='append',default=[])
     check=sub.add_parser('verifier')
     check.add_argument('zip',type=Path)
+    quick=sub.add_parser('preuves')
+    quick.add_argument('episode',type=Path)
+    quick.add_argument('--master',type=Path,required=True)
     args=parser.parse_args()
     if args.command=='style':
         result=freeze(args.niche,args.figer)
         print(f"{result['version']} · {len(result['files'])} fichiers contrôlés.")
     elif args.command=='archiver':
         print(archive(args.episode,args.master,args.sec,args.dependance))
+    elif args.command=='preuves':
+        folder=args.episode.resolve()
+        checksum=digest(args.master)
+        out=proof_path(folder,checksum)
+        preuves.generate(folder,args.master,checksum,out)
+        print(out)
     else:
         result=verify(args.zip)
         print(f"{result['episode']} · {len(result['fichiers'])} empreintes · {result['prises_uniques']} prises.")

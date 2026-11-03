@@ -74,7 +74,7 @@ data/                journal des dépenses ; cache/ (non versionné)
 
 ## Le Corps Parle.fr
 
-- [Profil visuel et sonore lcp-1.0.0](niches/corps-humain/profil-verrou.json)
+- [Profil visuel et sonore lcp-1.1.0](niches/corps-humain/profil-verrou.json)
 - [Épisode étalon 006 · La bactérie qui n’a pas bougé](niches/corps-humain/episodes/006-antibioresistance-v3/)
 - [Épisode 007 · Le colis surprise du placenta](niches/corps-humain/episodes/007-alcool-grossesse/)
 

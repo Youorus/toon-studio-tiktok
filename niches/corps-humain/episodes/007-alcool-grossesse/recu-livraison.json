@@ -1,10 +1,10 @@
 {
-  "archive": "007-alcool-grossesse-0b5ad3f8d692.zip",
+  "archive": "007-alcool-grossesse-917f732fd019.zip",
   "episode": "007-alcool-grossesse",
-  "fichiers_verifies": 229,
-  "master": "Le-colis-surprise-du-placenta-Le-Corps-Parle.mp4",
+  "fichiers_verifies": 239,
+  "master": "Le-colis-surprise-du-placenta-Le-Corps-Parle-V2.mp4",
   "prises_uniques": 9,
-  "profil": "lcp-1.0.0",
-  "sha256_archive": "35046a0755a75a4807d879299cddc30cc28dd4ceb958d7b7db5c40d16723ca64",
-  "sha256_master": "0b5ad3f8d692d91696361b645cff389c0eb6988d941158afca759eb3def42f04"
+  "profil": "lcp-1.1.0",
+  "sha256_archive": "b5f4980d4e25cb3d0a1618edf2c7cc3733a9f4f50cf1fd99a04f098f2c825527",
+  "sha256_master": "917f732fd019aa87973706a66a6fc3d59d5a30dae7f98645c349ee54b05a7b11"
 }

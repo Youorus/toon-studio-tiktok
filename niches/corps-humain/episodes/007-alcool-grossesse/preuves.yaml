@@ -1,0 +1,12 @@
+titre: Le colis surprise du placenta
+calques:
+  - {nom: Décor corail, fichier: art/uterus-corail.png}
+  - {nom: Calque du fœtus, fichier: personnages/foetus/corps.png}
+  - {nom: Verre animé, fichier: art/verre.png}
+captures:
+  - {seconde: 0.33, nom: Geste d’ouverture}
+  - {seconde: 7.00, nom: Réaction du fœtus}
+  - {seconde: 23.00, nom: Consultation}
+fabrication: >
+  Toon Studio a produit les dessins et leurs calques, l’animation, les prises françaises et le mix.
+  Une vidéo de Dr Healthcare a servi de référence de mise en scène. Nos images, nos répliques et la composition musicale ont été créées pour cette production.

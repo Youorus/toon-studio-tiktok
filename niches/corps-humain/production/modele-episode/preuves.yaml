@@ -1,0 +1,13 @@
+# Choisir trois vrais calques du projet et trois instants du MP4 final.
+titre: Titre de l’épisode
+calques:
+  - {nom: Décor de la scène, fichier: chemin/du/decor.png}
+  - {nom: Personnage animé, fichier: personnages/nom/corps.png}
+  - {nom: Accessoire du projet, fichier: chemin/de/l-accessoire.png}
+captures:
+  - {seconde: 1.00, nom: Ouverture}
+  - {seconde: 9.00, nom: Action}
+  - {seconde: 25.00, nom: Consultation}
+fabrication: >
+  Décrire les éléments effectivement fabriqués dans le studio et le rôle de la référence.
+  Ce texte est repris dans le message de contestation. Adapter les temps à la durée finale.

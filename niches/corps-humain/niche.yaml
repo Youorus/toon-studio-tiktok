@@ -17,7 +17,7 @@ format:
 filigrane: Le Corps Parle.fr
 direction_artistique:
   statut: definitive
-  version: lcp-1.0.0
+  version: lcp-1.1.0
   episode_reference: episodes/006-antibioresistance-v3
   cabinet: decors/cabinet-abonne-toi.png
   casting:

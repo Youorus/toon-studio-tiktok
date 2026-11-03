@@ -1,0 +1,12 @@
+titre: La bactérie qui n’a pas bougé
+calques:
+  - {nom: Décor de la brèche, fichier: decors/breche-corail.png}
+  - {nom: Calque du policier, fichier: personnages/policier-comique/corps.png}
+  - {nom: Panneau animé, fichier: personnages/policier-comique/stop.png}
+captures:
+  - {seconde: 25.25, nom: Entrée du garde}
+  - {seconde: 31.43, nom: Chute du garde}
+  - {seconde: 88.00, nom: Consultation}
+fabrication: >
+  Toon Studio a produit les dessins et leurs calques, l’animation, les prises françaises et le mix.
+  L’épisode adapte de près la structure et les intentions d’une vidéo de Dr Healthcare avec nos actifs, nos voix et notre musique.

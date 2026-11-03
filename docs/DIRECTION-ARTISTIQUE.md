@@ -4,7 +4,7 @@
 
 **Le Corps Parle.fr** · **@lecorps.parle.fr**
 
-L’[épisode 006 révisé](../niches/corps-humain/episodes/006-antibioresistance-v3/) fixe le casting, l’action et l’habillage de la série. Le [comparatif de l’estomac](../niches/corps-humain/identite/comparatif-fond-corail.jpg) fixe la couleur de fond des scènes dans le corps. Le [fichier de niche](../niches/corps-humain/niche.yaml) fixe les modèles, les voix, le décor du cabinet, les coordonnées des badges et des sous-titres ainsi que le bouton de fin. Le profil `lcp-1.0.0` est vérifié avant livraison. Toute évolution de ce socle requiert une nouvelle validation de Marc et une nouvelle version.
+L’[épisode 006 révisé](../niches/corps-humain/episodes/006-antibioresistance-v3/) fixe le casting, l’action et l’habillage de la série. Le [comparatif de l’estomac](../niches/corps-humain/identite/comparatif-fond-corail.jpg) fixe la couleur de fond des scènes dans le corps. Le [fichier de niche](../niches/corps-humain/niche.yaml) fixe les modèles, les voix, le décor du cabinet, les coordonnées des badges et des sous-titres ainsi que le bouton de fin. Le profil `lcp-1.1.0` est vérifié avant livraison. Toute évolution de ce socle requiert une nouvelle validation de Marc et une nouvelle version.
 
 Les sujets, les organes, les gags, les cadrages et les poses utiles au récit varient d’un épisode à l’autre. Le fond corail des plans anatomiques, le duo, le traitement des yeux, le cabinet, l’habillage et la structure ouverture dans le corps puis consultation font partie de la signature de la série.
 
@@ -21,7 +21,7 @@ La référence donne le niveau de finition, de lisibilité et de contraste. Les 
 
 - **Forme avant visage.** À largeur téléphone, masquer les yeux et l’étiquette. L’estomac doit se lire grâce à l’arrivée du conduit, à la courbe de sa poche et à sa sortie. Dans une coupe, vérifier aussi l’emplacement de l’organe et le trajet que l’action doit montrer.
 - **Couleur par rôle.** Garder de grands aplats distincts, des ombres courtes et des reflets ponctuels. Vérifier les teintes sur l’image composée à la taille finale. Le test du hoquet montre comment des hachures et de grands reflets clairs peuvent brouiller les volumes même si la palette est proche.
-- **Fonds anatomiques.** Utiliser le corail vif `#E75261` comme fond dominant sur tous les plans dans le corps. Distinguer le premier plan par sa valeur, ses contours et ses ombres.
+- **Fonds anatomiques.** Poser le corail vif `#E75261` en plein cadre, jusque dans les coins et pendant les coupes. Les creux utilisent les couleurs de tissus. Le noir sert au trait. Vérifier les coins, les bords et les grands aplats dans le décor source puis dans le MP4 pour écarter tout fond noir, zone transparente ou bande noire.
 - **Création avec Recraft.** Réutiliser le casting existant quand il passe ces contrôles. Pour une forme ou une pose à reprendre, générer un modèle avec Recraft en décrivant deux ou trois repères anatomiques et les traits propres au personnage, puis préparer son animation dans Toon Studio.
 
 ## Le rendu : dessin animé rétro, lissé
@@ -80,7 +80,7 @@ Le corail vif `#E75261` occupe l’arrière-plan. Le bordeaux `#6D383B` sert aux
 6. **Sous-titres.** Le mode `mot_capitales` affiche un mot à la fois, sur les repères de la prise, en Luckiest Guy blanc cassé avec une ombre noire courte. Le texte est centré bas dans l’image. Garder un SRT en phrases pour la relecture et l’accessibilité.
 7. **Clin d’œil du cabinet.** Le premier cadre mural porte le petit « Abonne-toi ». Mettre dans le deuxième cadre un conseil manuscrit court, exact et lié au sujet, avec le ton de la chaîne. Le placer dans une copie du décor propre à l’épisode et vérifier sa lecture à taille téléphone.
 8. **Travail à partir d’une référence.** Relever la fonction de chaque réplique, l’ordre des actions, les réactions, les accélérations et les respirations. Recréer ces fonctions dans notre univers, avec des dialogues français et des gags écrits pour l’épisode, nos calques et nos pistes sonores. Conserver les repères et la provenance des éléments utilisés.
-9. **Musique.** Utiliser « Petites combines », composée dans le studio, ou une piste originale de même esprit validée pour la série. Le swing de cartoon accompagne l’action, avec des creux audibles sur les répliques et les impacts. Archiver la composition et le mix.
+9. **Musique.** Utiliser la version à 125 BPM de « Petites combines » comme signature musicale de la série. La même composition originale accompagne chaque épisode, avec des creux sur les répliques et les impacts. Archiver la composition et le mix.
 
 ## Modèle des scripts
 

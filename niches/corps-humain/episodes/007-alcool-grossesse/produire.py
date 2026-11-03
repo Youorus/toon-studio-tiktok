@@ -6,6 +6,7 @@ from pathlib import Path
 
 from PIL import Image, ImageDraw
 
+from accessoires import pantomime
 from toonstudio.episode import action_track
 from toonstudio.sous_titres import CaptionedEpisode
 
@@ -20,6 +21,9 @@ class Episode007(CaptionedEpisode):
         self.envoi=self.passages[1]['t0']+.32
         self.arrivee=self.passages[2]['t0']+.12
         self.refus=self.passages[3]['t0']+.32
+        self.verre=Image.open(ROOT/'art'/'verre.png').convert('RGBA')
+        self.bouteille=Image.open(ROOT/'art'/'bouteille.png').convert('RGBA')
+        self.passages[0]['sfx']=['glisse@0.10']
         self.passages[1]['sfx']=['glisse@0.32']
         self.passages[2]['sfx']=['pop@0.12']
         self.passages[3]['sfx']=['pop@0.32']
@@ -38,6 +42,12 @@ class Episode007(CaptionedEpisode):
         self.actions[('passage',actor)]=action_track(
             (dict(t=t,dx=x,dy=y,angle=angle,echelle=scale) for t,x,y,angle,scale in poses),actor)
 
+    def actor_state(self,shot,name,spec,t,line,prev_lines):
+        state=super().actor_state(shot,name,spec,t,line,prev_lines)
+        if name=='foetus' and t<self.arrivee-.16:
+            state.update(emo='fatigue',blink=True)
+        return state
+
     def _actor_labels(self,frame,shot,t,placed,view):
         if shot['id']=='passage':
             actors={a['name']:a for a in placed}
@@ -50,6 +60,7 @@ class Episode007(CaptionedEpisode):
                         start[1]+(end[1]-start[1])*u+65*math.sin(math.pi*u))
             overlay=Image.new('RGBA',frame.size)
             draw=ImageDraw.Draw(overlay)
+            pantomime(overlay,t,actors['uterus']['face'],self.verre,self.bouteille)
             points=[cord(i/36) for i in range(37)]
             for color,width in (('#6D383B',22),('#F4A29C',14),('#F7B7A7',5)):
                 draw.line(points,fill=color,width=width,joint='curve')
@@ -78,14 +89,14 @@ def main():
     episode=Episode007()
     OUT.mkdir(exist_ok=True)
     episode.save_subtitles(OUT)
-    markers={'passage':{'alcool':episode.envoi,'réaction':episode.arrivee,'refus':episode.refus},
+    markers={'passage':{'gorgée':.35,'alcool':episode.envoi,'réaction':episode.arrivee,'refus':episode.refus},
              'cabinet':{'cta':episode.lines[-1]['t0']}}
     (OUT/'montage.json').write_text(json.dumps({'duree':episode.duration,'moments':markers,
         'repliques':[{k:l[k] for k in ('qui','dit','t0','t1')} for l in episode.lines]},
         indent=2,ensure_ascii=False)+'\n')
     print(f'{episode.duration:.2f} s, {len(episode.lines)} prises',flush=True)
     if args.apercu:
-        episode.preview(OUT,[.85,episode.envoi+1.1,episode.arrivee+.14,episode.refus,
+        episode.preview(OUT,[.30,1.18,episode.envoi+1.1,episode.arrivee+.14,episode.refus,
                              episode.shots[-1]['t0']+.8,episode.lines[-1]['t0']+.8])
         return
     issues=episode.controle(OUT)
