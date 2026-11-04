@@ -11,7 +11,8 @@ personnages:
   docteure: personnages/docteure-aplats
   lea: personnages/lea-aplats
   lea_corpulence_008: episodes/008-estomac-sature/personnages/lea-corpulence
-  cerveau: episodes/008-estomac-sature/personnages/cerveau
+  cerveau: personnages/cerveau
+  cerveau_simplifie_008: episodes/008-estomac-sature/personnages/cerveau
   estomac: episodes/006-antibioresistance/personnages/estomac
   peau: episodes/006-antibioresistance/personnages/peau
   bacterie_verte: episodes/006-antibioresistance/personnages/bacterie
@@ -41,7 +42,10 @@ ajouts_009:
   bacterie_verte_palette_vive: episodes/009-buffet-de-la-langue/personnages/verte
   microbe_rouge: episodes/009-buffet-de-la-langue/personnages/rouge
   ami: episodes/009-buffet-de-la-langue/personnages/ami
-  bouche: episodes/009-buffet-de-la-langue/art/bouche-corail.png
+  bouche: episodes/009-buffet-de-la-langue/art/bouche-corail-v2.png
+  assiette_petit_dejeuner: episodes/009-buffet-de-la-langue/art/assiette.png
+  lea_table: episodes/009-buffet-de-la-langue/personnages/lea-table
+  bras_lea_table: episodes/009-buffet-de-la-langue/personnages/lea-bras
 couleurs:
   fond_corail_plein_cadre: '#E75261'
   repere_tissu_estomac: '#ED7981'

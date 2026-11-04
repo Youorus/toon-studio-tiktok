@@ -7,9 +7,11 @@ import random
 
 from PIL import Image, ImageDraw
 
+from costumes import arm_angles
+from toonstudio import rig
 from toonstudio.arms import draw_arm
-from toonstudio.drawing import clamp,ease_in_out
-from toonstudio.episode import action_track
+from toonstudio.drawing import affine_paste,clamp,ease_in_out
+from toonstudio.episode import _h,action_track
 from toonstudio.sous_titres import CaptionedEpisode
 
 ROOT=Path(__file__).resolve().parent
@@ -26,6 +28,12 @@ class Episode009(CaptionedEpisode):
         self.buffet=next(s['t0'] for s in self.shots if s['id']=='buffet')
         self.breakfast=next(s['t0'] for s in self.shots if s['id']=='petit-dejeuner')
         self.office=next(s['t0'] for s in self.shots if s['id']=='cabinet')
+        self.foreground={'lea':rig.load(ROOT/'personnages'/'lea-bras'),
+                         'ami':rig.load(ROOT/'personnages'/'ami-mains')}
+        self.plate=Image.open(ROOT/'art'/'assiette.png').convert('RGBA')
+        self.mug=Image.open(ROOT/'art'/'tasse.png').convert('RGBA')
+        breakfast=next(s for s in self.shots if s['id']=='petit-dejeuner')
+        self.table_actors=breakfast['acteurs']
         buffet=[line for line in self.lines if line['shot']=='buffet']
         self.bite=self.buffet+.82
         self.share=buffet[1]['t1']+.10
@@ -119,27 +127,43 @@ class Episode009(CaptionedEpisode):
 
     def breakfast_gesture(self,layer,t,faces):
         d=ImageDraw.Draw(layer)
-        phase=qtime(t,self.breakfast+.36,self.breakfast+.91)
-        x,y=faces['lea']
-        draw_arm(layer,(x+50,y+175),1,
-                 {'longueur':132,'epaisseur':22,'peau':'#BE936F','manche':'#B56E55','trait':.12},
-                 -15-143*phase,-6*phase,'poing')
         fx,fy=faces['ami']
         for i in range(3):
             q=(t-self.breakfast-i*.36)/1.45
             if 0<q<1:
                 self.puff(layer,fx+26,fy+47,q,1.20)
-        # La table masque les mains de repos et laisse les gestes au niveau des visages.
-        d.rounded_rectangle((42,1411,1038,1492),radius=13,fill='#CDA57D',outline='#6D383B',width=6)
-        d.rectangle((74,1484,98,1920),fill='#6D5F5A',outline='#6D383B',width=4)
-        d.rectangle((984,1484,1008,1920),fill='#6D5F5A',outline='#6D383B',width=4)
-        for x in (296,790):
-            d.ellipse((x-111,1419,x+111,1470),fill='#FFF9ED',outline='#6D383B',width=4)
-            d.ellipse((x-87,1428,x+87,1460),outline='#B3C2CC',width=3)
-            d.polygon([(x-38,1444),(x+9,1429),(x+48,1450)],fill='#E6BE76',outline='#6D383B',width=2)
-            d.line((x-131,1436,x-131,1499),fill='#6D383B',width=5)
-            for dx in (-7,0,7):
-                d.line((x-131+dx,1417,x-131+dx,1441),fill='#6D383B',width=3)
+        # Plateau en perspective, épaisseur visible, pieds et repas clairement posés dessus.
+        d.polygon([(-70,1328),(1144,1328),(1230,1518),(-156,1518)],fill='#CDA57D',outline='#6D383B',width=6)
+        d.polygon([(-156,1518),(1230,1518),(1230,1552),(-156,1552)],fill='#A47659',outline='#6D383B',width=5)
+        for x in (83,967):
+            d.polygon([(x,1550),(x+35,1550),(x+29,1920),(x-8,1920)],fill='#8B654F',outline='#6D383B',width=5)
+        d.line((15,1344,1068,1344),fill='#E6C4A1',width=5)
+        for x in (314,790):
+            d.ellipse((x-160,1392,x+164,1488),fill=(105,65,42,45))
+            affine_paste(layer,self.plate,(self.plate.width/2,self.plate.height/2),(x,1416))
+            for dx in (-186,177):
+                d.line((x+dx,1374,x+dx,1470),fill='#6D383B',width=9)
+                d.line((x+dx,1376,x+dx,1468),fill='#FFF9ED',width=4)
+            for dx in (-8,0,8):
+                d.line((x-186+dx,1358,x-186+dx,1391),fill='#6D383B',width=4)
+        for x in (482,623):
+            d.ellipse((x-53,1365,x+51,1393),fill=(105,65,42,45))
+            affine_paste(layer,self.mug,(70,133),(x,1371),sx=.69,sy=.69)
+        self.table_foreground(layer,t)
+
+    def table_foreground(self,layer,t):
+        line=next(l for l in self.lines if l['t0']<=t<l['t1'])
+        progress=qtime(t,self.breakfast+.18,self.breakfast+1.15)
+        for name in ('ami','lea'):
+            spec=self.table_actors[name]
+            ch=self.foreground[name]
+            talking=float(line['qui']==name and t<line['t0']+line.get('parole',0))
+            pose='pince' if name=='lea' and progress>.93 else 'defaut'
+            angles=arm_angles(progress) if name=='lea' else None
+            image,anchor=ch.render(pose=pose,t=t,talk=talking,phase=_h(name)%7,layer_angles=angles)
+            scale=spec['echelle']
+            image=image.resize((max(1,round(image.width*scale)),max(1,round(image.height*scale))),Image.Resampling.LANCZOS)
+            layer.alpha_composite(image,(round(spec['x']-anchor[0]*scale),round(spec['y']-anchor[1]*scale)))
 
     def _actor_labels(self,frame,shot,t,placed,view):
         faces={a['name']:a['face'] for a in placed}

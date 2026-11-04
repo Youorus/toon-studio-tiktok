@@ -3,11 +3,13 @@ from copy import deepcopy
 from pathlib import Path
 
 import numpy as np
-from PIL import Image, ImageDraw
+from PIL import Image,ImageChops,ImageDraw,ImageFilter
 import yaml
 
 from dialogues import VOICES, lines
-from toonstudio.drawing import font, remove_flat_background
+from costumes import flat_skin,prepare_friend_hands,prepare_lea
+from toonstudio.drawing import cover,font,remove_flat_background
+from scipy.ndimage import label
 
 ROOT=Path(__file__).resolve().parent
 NICHE=ROOT.parents[1]
@@ -62,56 +64,92 @@ def characters():
     data[white,3]=0
     image=Image.fromarray(data)
     image=image.resize((round(image.width*674/image.height),674),Image.Resampling.LANCZOS)
+    image=flat_skin(image)
     x,y=round(image.width*.40),round(image.height*.185)
     skin='#%02X%02X%02X'%image.getpixel((x,y))[:3]
     save_rig('ami',image,[x,y],19,skin,[x-1,y+43])
+    prepare_friend_hands(ROOT,image,{'souplesse':.10,'respiration':.004})
+    prepare_lea(NICHE,ROOT)
 
 
 def mouth():
-    image=Image.new('RGB',(2160,3840),'#E75261')
+    image=cover(Image.open(ART/'bouche-reprise-source.png').convert('RGB'))
+    data=np.asarray(image).copy()
+    rgb=data.astype(int)
+    corners=np.array([rgb[2,2],rgb[2,-3],rgb[-3,2],rgb[-3,-3]])
+    base=np.median(corners,axis=0)
+    close=np.linalg.norm(rgb-base,axis=2)<37
+    components,_=label(close)
+    border=np.unique(np.r_[components[0,:],components[-1,:],components[:,0],components[:,-1]])
+    outer=np.isin(components,border[border!=0])
+    data[outer]=[231,82,97]
+    dark=rgb.max(axis=2)<82
+    data[dark]=[109,56,59]
+    blue=(rgb[:,:,2]>rgb[:,:,0]+18)&(rgb[:,:,1]>rgb[:,:,0]+17)
+    data[blue]=[182,95,99]
+    image=Image.fromarray(data).convert('RGBA')
+    dirty_mouth(image)
+    image.convert('RGB').save(ART/'bouche-corail-v2.png')
+
+
+def dirty_mouth(image):
+    # Dépôt de langue stylisé, limité à la surface où les microbes mangent.
+    mask=Image.new('L',image.size)
+    ImageDraw.Draw(mask).polygon(
+        [(100,1132),(175,1040),(351,1024),(537,1082),(682,1021),(875,1042),(966,1151),
+         (918,1517),(817,1711),(539,1816),(271,1722),(133,1505)],fill=255)
+    layer=Image.new('RGBA',image.size)
+    coating=Image.new('L',image.size)
+    coating_draw=ImageDraw.Draw(coating)
+    rng=np.random.default_rng(4909)
+    patches=((267,1106,107,44),(535,1119,115,38),(805,1110,108,49),
+             (293,1399,97,58),(644,1458,158,68),(477,1623,143,57))
+    for x,y,rx,ry in patches:
+        for _ in range(8):
+            dx,dy=rng.uniform(-rx*.64,rx*.64),rng.uniform(-ry*.55,ry*.55)
+            r=rng.uniform(.47,.82)
+            coating_draw.ellipse((x+dx-rx*r,y+dy-ry*r,x+dx+rx*r,y+dy+ry*r),fill=255)
+    coating=ImageChops.multiply(coating,mask)
+    rim=ImageChops.subtract(coating.filter(ImageFilter.MaxFilter(5)),coating)
+    border=Image.new('RGBA',image.size,(164,136,88))
+    border.putalpha(rim.point(lambda value:round(value*.23)))
+    layer.alpha_composite(border)
+    film=Image.new('RGBA',image.size,(218,203,162))
+    film.putalpha(coating.point(lambda value:round(value*.43)))
+    layer.alpha_composite(film)
+    draw=ImageDraw.Draw(layer)
+    for _ in range(68):
+        x,y=rng.integers(171,910),rng.integers(1055,1680)
+        r=rng.integers(3,8)
+        draw.ellipse((x-r,y-r*.58,x+r,y+r*.58),fill=(145,111,69,103))
+    alpha=ImageChops.multiply(layer.getchannel('A'),mask).filter(ImageFilter.GaussianBlur(.45))
+    layer.putalpha(alpha)
+    image.alpha_composite(layer)
+    # Petits débris et plaque visibles sur les contacts dents-gencives.
     draw=ImageDraw.Draw(image)
+    for x,y,side in ((300,270,-1),(460,218,-1),(653,266,1),(791,348,1),
+                     (890,475,1),(925,627,1),(206,420,-1),(155,568,-1)):
+        draw.polygon([(x,y),(x+side*12,y+8),(x+side*7,y+30),(x-side*4,y+25)],
+                     fill='#D5BC75',outline='#9C7455',width=2)
+    for x,y in ((203,842),(838,911),(365,1026),(777,1092),(607,1570)):
+        draw.polygon([(x-10,y-7),(x+10,y-11),(x+13,y+6),(x-5,y+12)],
+                     fill='#89AA65',outline='#6D7351',width=2)
 
-    def shape(start,*curves,fill,outline='#6D383B',width=5):
-        points=[start]
-        for segment in curves:
-            if len(segment)==2:
-                points.append(segment)
-                continue
-            ax,ay,bx,by,ex,ey=segment
-            x,y=points[-1]
-            points.extend(((1-t)**3*x+3*(1-t)**2*t*ax+3*(1-t)*t*t*bx+t**3*ex,
-                           (1-t)**3*y+3*(1-t)**2*t*ay+3*(1-t)*t*t*by+t**3*ey)
-                          for t in np.linspace(1/32,1,32))
-        pts=[(round(x*2),round(y*2)) for x,y in points]
-        draw.polygon(pts,fill=fill)
-        draw.line(pts+[pts[0]],fill=outline,width=width*2,joint='curve')
 
-    shape((106,366),(223,299,859,296,972,370),(1050,594,1061,1325,893,1517),
-          (688,1693,282,1614,133,1416),(31,1246,16,655,106,366),fill='#C65060')
-    shape((158,401),(307,351,810,351,925,407),(963,628,958,1112,882,1349),
-          (707,1516,301,1527,175,1345),(74,1118,76,601,158,401),fill='#B94656',width=4)
-    for i in range(8):
-        x=148+i*98
-        top=354+round(abs(i-3.5)*5)
-        points=[(x,top),(x+88,top-3),(x+88,top+133),(x+75,top+149),
-                (x+45,top+140),(x+13,top+151),(x+3,top+132)]
-        pts=[(a*2,b*2) for a,b in points]
-        draw.polygon(pts,fill='#FFF9ED')
-        draw.line(pts+[pts[0]],fill=INK,width=7,joint='curve')
-    shape((539,847),(411,769,238,804,152,1002),(69,1192,202,1439,476,1501),
-          (712,1551,981,1434,989,1190),(994,955,775,766,539,847),fill='#EE6576',width=7)
-    shape((535,886),(398,805,247,901,208,1064),(164,1228,282,1408,490,1452),
-          (667,1500,863,1416,902,1237),(963,1031,767,841,535,886),fill='#EF7D86',outline='#EF7D86',width=1)
-    groove=[(538+10*np.sin(q*3),849+361*q) for q in np.linspace(0,1,60)]
-    draw.line([(round(x*2),round(y*2)) for x,y in groove],fill='#B65F63',width=8,joint='curve')
-    rng=np.random.default_rng(933)
-    for i in range(25):
-        x,y=rng.uniform(230,907),rng.uniform(929,1381)
-        if abs(x-540)<26:
-            continue
-        r=rng.uniform(4,8)
-        draw.ellipse(((x-r)*2,(y-r*.5)*2,(x+r)*2,(y+r*.5)*2),fill='#E77C87')
-    image.resize((1080,1920),Image.Resampling.LANCZOS).save(ART/'bouche-corail.png')
+def meal():
+    plate=remove_flat_background(Image.open(ART/'assiette-source.png').convert('RGBA'),tol=17)
+    plate.thumbnail((322,190),Image.Resampling.LANCZOS)
+    plate.save(ART/'assiette.png')
+    mug=Image.new('RGBA',(140*3,149*3))
+    draw=ImageDraw.Draw(mug)
+    ink='#6D383B'
+    draw.ellipse((83*3,37*3,137*3,106*3),fill='#FFF9ED',outline=ink,width=9)
+    draw.ellipse((96*3,51*3,124*3,90*3),fill=(0,0,0,0),outline=ink,width=7)
+    draw.rounded_rectangle((10*3,31*3,108*3,123*3),radius=20*3,fill='#FFF9ED',outline=ink,width=9)
+    draw.ellipse((10*3,14*3,108*3,51*3),fill='#E9D4BD',outline=ink,width=9)
+    draw.ellipse((19*3,23*3,99*3,43*3),fill='#704739')
+    draw.arc((21*3,54*3,54*3,106*3),100,210,fill='#C9BBA5',width=8)
+    mug.resize((140,149),Image.Resampling.LANCZOS).save(ART/'tasse.png')
 
 
 def rooms():
@@ -148,16 +186,16 @@ def build():
         },
         'plans':[
             {'id':'reveil','organe':'Cerveau','decor':'art/cerveau-corail.png','transition':'coupe','zoom':[1,1],
-             'acteurs':{'cerveau':person('episodes/008-estomac-sature/personnages/cerveau',540,1114,1.15,[0,0])},
+             'acteurs':{'cerveau':person('personnages/cerveau',540,1114,.65,[0,0])},
              'repliques':lines('reveil')},
-            {'id':'buffet','organe':'Bouche','decor':'art/bouche-corail.png','transition':'coupe','zoom':[1,1],
+            {'id':'buffet','organe':'Bouche','decor':'art/bouche-corail-v2.png','transition':'coupe','zoom':[1,1],
              'acteurs':{'verte':person('personnages/verte',363,1199,1.46,[.7,0]),
                         'rouge':person('personnages/rouge',747,1333,1.06,[-.7,0])},
              'mini_badges':[{'acteur':'verte','texte':'Bactéries','delai':.13,'duree':1.8,'decalage':[4,-170]}],
              'repliques':lines('buffet')},
-            {'id':'petit-dejeuner','decor':'art/petit-dejeuner.png','transition':'coupe','zoom':[1.4,1.4],'centre':[540,1270],
+            {'id':'petit-dejeuner','decor':'art/petit-dejeuner.png','transition':'coupe','zoom':[1.3,1.3],'centre':[540,1270],
              'acteurs':{'ami':person('personnages/ami',299,1665,1.03,[.8,0]),
-                        'lea':person('personnages/lea-aplats',793,1665,.86,[-.8,-.1])},
+                        'lea':person('personnages/lea-table',793,1665,.86,[-.8,-.1])},
              'repliques':lines('petit-dejeuner')},
             {'id':'cabinet','decor':'art/cabinet-009.png','transition':'coupe','zoom':[1,1],
              'acteurs':clinic,'repliques':office},
@@ -168,6 +206,7 @@ def build():
 if __name__=='__main__':
     characters()
     mouth()
+    meal()
     rooms()
     Image.new('RGB',(1080,1920),'#E75261').save(ART/'cerveau-corail.png')
     (ROOT/'episode.yaml').write_text(yaml.safe_dump(build(),allow_unicode=True,sort_keys=False))

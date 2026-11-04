@@ -1,0 +1,23 @@
+nom: Mains de l’ami au premier plan
+type: humain
+couches:
+- id: corps
+  images:
+    defaut: vide.png
+  pivot:
+  - 147
+  - 673
+- id: mains
+  parent: corps
+  attache:
+  - 0
+  - 0
+  pivot:
+  - 0
+  - 0
+  images:
+    defaut: mains.png
+  z: 1
+mouvement:
+  souplesse: 0.1
+  respiration: 0.004

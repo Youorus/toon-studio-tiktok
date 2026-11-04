@@ -18,7 +18,7 @@ visage:
   bouche:
   - 117
   - 168
-  peau: '#F9EBDB'
+  peau: '#C9946C'
   paupiere: 0.09
   pupille: 0.76
 mouvement:

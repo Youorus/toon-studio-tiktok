@@ -1,0 +1,61 @@
+nom: Bras de Léa au premier plan
+type: humain
+couches:
+- id: corps
+  images:
+    defaut: vide.png
+  pivot:
+  - 138
+  - 740
+- id: avant-bras-gauche
+  parent: corps
+  attache:
+  - 0
+  - 0
+  pivot:
+  - 0
+  - 0
+  images:
+    defaut: avant-bras-gauche.png
+  z: 1
+- id: bras-droit
+  parent: corps
+  attache:
+  - 222
+  - 249
+  pivot:
+  - 30
+  - 20
+  images:
+    defaut: bras-droit.png
+  z: 2
+- id: avant-bras-droit
+  parent: bras-droit
+  attache:
+  - 30
+  - 130
+  pivot:
+  - 30
+  - 13
+  images:
+    defaut: avant-bras-droit.png
+  z: 3
+- id: main-droite
+  parent: avant-bras-droit
+  attache:
+  - 30
+  - 123
+  pivot:
+  - 27
+  - 8
+  images:
+    defaut: main-repos.png
+    pince: main-pince.png
+  z: 4
+poses:
+  pince:
+    main-droite:
+      image: pince
+mouvement:
+  souplesse: 0.08
+  respiration: 0.003
