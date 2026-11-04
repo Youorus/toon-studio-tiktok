@@ -117,6 +117,15 @@ def proof_path(folder,checksum):
     return ROOT/'archives-production'/folder.parents[1].name/f'{folder.name}-{checksum[:12]}-contestation'
 
 
+def check_publication(folder):
+    """Le texte livré doit être prêt à copier, avec une question sur l'épisode."""
+    path=folder/'publication-tiktok.txt'
+    text=path.read_text().strip() if path.is_file() else ''
+    description=' '.join(line for line in text.splitlines() if not line.startswith('#'))
+    if not description or '?' not in description or '[' in text or ']' in text:
+        raise ValueError('Renseigner publication-tiktok.txt : accroche et question prêtes à publier, sans champs de modèle.')
+
+
 def archive(folder,master,dry,dependencies):
     folder=folder.resolve()
     niche_dir=folder.parents[1]
@@ -126,6 +135,8 @@ def archive(folder,master,dry,dependencies):
         raise ValueError('Renseigner provenance.md avant l’archivage.')
     if not (folder/'preuves.yaml').is_file():
         raise ValueError('Renseigner preuves.yaml avant l’archivage.')
+    if niche_dir.name=='corps-humain':
+        check_publication(folder)
     profile=freeze(niche_dir.name)
     check_anatomy_backgrounds(folder)
     destination=ROOT/'archives-production'/niche_dir.name
@@ -138,7 +149,7 @@ def archive(folder,master,dry,dependencies):
         for path in (*[ROOT/item for item in SOURCES],folder,niche_dir/'niche.yaml',niche_dir/'kit.yaml',
                      niche_dir/PROFILE,niche_dir/'personnages',niche_dir/'decors',ROOT/'docs'/'DIRECTION-ARTISTIQUE.md'):
             copy_project_path(path,root)
-        for name in ('README.md','README-PASSATION.md','AGENTS.md','CLAUDE.md','GEMINI.md','docs/PRODUCTION.md'):
+        for name in ('README.md','README-PASSATION.md','AGENTS.md','CLAUDE.md','GEMINI.md','docs/PRODUCTION.md','docs/PUBLICATION-TIKTOK.md'):
             if (ROOT/name).is_file():
                 copy_project_path(ROOT/name,root)
         if (niche_dir/'BIBLIOTHEQUE.yaml').is_file():

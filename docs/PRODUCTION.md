@@ -17,7 +17,8 @@ Une modification approuvée du socle doit recevoir un nouvel identifiant de vers
 1. Relever les actions, les réactions, les rôles des répliques et les transitions de la référence. Consigner le lien et les choix de réécriture dans `provenance.md`. Renseigner ensuite `preuves.yaml` avec les calques du projet, trois temps du master et le résumé de fabrication.
 2. Écrire le texte français, vérifier l’idée médicale et le conseil mural. Réutiliser les voix, les calques récurrents et le décor du cabinet. Créer les actifs propres au sujet.
 3. Enregistrer les prises, caler les gestes et les sons sur leurs attaques, puis rendre. Contrôler la version verticale à taille téléphone, l’intelligibilité, la présence des badges, les deux cadres et le filigrane. Exporter le MP4, le SRT, le plan de montage et les contrôles.
-4. Archiver les sources, le MP4 exact et les pistes audio. Utiliser le nom du dossier de l’épisode et les chemins de sa livraison.
+4. Écrire `publication-tiktok.txt` dans le dossier de l’épisode : description courte prête à copier, avec une question et des hashtags pertinents. Voir [les consignes de publication](PUBLICATION-TIKTOK.md). Le contrôle d’archivage exige ce fichier pour Le Corps Parle.fr.
+5. Archiver les sources, le MP4 exact, le texte de publication et les pistes audio. Utiliser le nom du dossier de l’épisode et les chemins de sa livraison.
 
 ```sh
 .venv/bin/python -m toonstudio.production archiver niches/corps-humain/episodes/<id> \

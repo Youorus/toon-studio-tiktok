@@ -45,7 +45,7 @@ ajouts_009:
   bouche: episodes/009-buffet-de-la-langue/art/bouche-corail-v2.png
   assiette_petit_dejeuner: episodes/009-buffet-de-la-langue/art/assiette.png
   lea_table: episodes/009-buffet-de-la-langue/personnages/lea-table
-  bras_lea_table: episodes/009-buffet-de-la-langue/personnages/lea-bras
+  bras_lea_table: episodes/009-buffet-de-la-langue/geste_lea.py
 couleurs:
   fond_corail_plein_cadre: '#E75261'
   repere_tissu_estomac: '#ED7981'

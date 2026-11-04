@@ -5,7 +5,7 @@ calques:
   - {nom: Repas en calque, fichier: art/assiette.png}
 captures:
   - {seconde: 5.02, nom: Repas des bactéries}
-  - {seconde: 15.31, nom: Réaction au petit-déjeuner}
+  - {seconde: 16.20, nom: Réaction au petit-déjeuner}
   - {seconde: 26.00, nom: Explication au cabinet}
 fabrication: >
   Toon Studio a produit le décor et les calques, animé les gestes et le partage des morceaux, enregistré les prises françaises et composé la musique.

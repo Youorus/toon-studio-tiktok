@@ -7,11 +7,10 @@ import random
 
 from PIL import Image, ImageDraw
 
-from costumes import arm_angles
-from toonstudio import rig
+from geste_lea import draw as draw_lea_arm
 from toonstudio.arms import draw_arm
 from toonstudio.drawing import affine_paste,clamp,ease_in_out
-from toonstudio.episode import _h,action_track
+from toonstudio.episode import action_track
 from toonstudio.sous_titres import CaptionedEpisode
 
 ROOT=Path(__file__).resolve().parent
@@ -28,8 +27,6 @@ class Episode009(CaptionedEpisode):
         self.buffet=next(s['t0'] for s in self.shots if s['id']=='buffet')
         self.breakfast=next(s['t0'] for s in self.shots if s['id']=='petit-dejeuner')
         self.office=next(s['t0'] for s in self.shots if s['id']=='cabinet')
-        self.foreground={'lea':rig.load(ROOT/'personnages'/'lea-bras'),
-                         'ami':rig.load(ROOT/'personnages'/'ami-mains')}
         self.plate=Image.open(ROOT/'art'/'assiette.png').convert('RGBA')
         self.mug=Image.open(ROOT/'art'/'tasse.png').convert('RGBA')
         breakfast=next(s for s in self.shots if s['id']=='petit-dejeuner')
@@ -127,6 +124,11 @@ class Episode009(CaptionedEpisode):
 
     def breakfast_gesture(self,layer,t,faces):
         d=ImageDraw.Draw(layer)
+        # Le bras actif est derrière le plateau : la main apparaît seulement en montant.
+        line=next(l for l in self.lines if l['t0']<=t<l['t1'])
+        progress=clamp((t-self.breakfast-.40)/1.05)
+        talking=float(line['qui']=='lea' and t<line['t0']+line.get('parole',0))
+        draw_lea_arm(layer,self.table_actors['lea'],t,progress,talking)
         fx,fy=faces['ami']
         for i in range(3):
             q=(t-self.breakfast-i*.36)/1.45
@@ -149,21 +151,6 @@ class Episode009(CaptionedEpisode):
         for x in (482,623):
             d.ellipse((x-53,1365,x+51,1393),fill=(105,65,42,45))
             affine_paste(layer,self.mug,(70,133),(x,1371),sx=.69,sy=.69)
-        self.table_foreground(layer,t)
-
-    def table_foreground(self,layer,t):
-        line=next(l for l in self.lines if l['t0']<=t<l['t1'])
-        progress=qtime(t,self.breakfast+.18,self.breakfast+1.15)
-        for name in ('ami','lea'):
-            spec=self.table_actors[name]
-            ch=self.foreground[name]
-            talking=float(line['qui']==name and t<line['t0']+line.get('parole',0))
-            pose='pince' if name=='lea' and progress>.93 else 'defaut'
-            angles=arm_angles(progress) if name=='lea' else None
-            image,anchor=ch.render(pose=pose,t=t,talk=talking,phase=_h(name)%7,layer_angles=angles)
-            scale=spec['echelle']
-            image=image.resize((max(1,round(image.width*scale)),max(1,round(image.height*scale))),Image.Resampling.LANCZOS)
-            layer.alpha_composite(image,(round(spec['x']-anchor[0]*scale),round(spec['y']-anchor[1]*scale)))
 
     def _actor_labels(self,frame,shot,t,placed,view):
         faces={a['name']:a['face'] for a in placed}

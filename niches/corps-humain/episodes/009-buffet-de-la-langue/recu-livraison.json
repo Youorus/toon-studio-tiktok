@@ -1,10 +1,10 @@
 {
-  "archive": "009-buffet-de-la-langue-15eab95d4b08.zip",
+  "archive": "009-buffet-de-la-langue-089cc21d7c22.zip",
   "episode": "009-buffet-de-la-langue",
-  "fichiers_verifies": 266,
-  "master": "Le-buffet-de-la-langue-Le-Corps-Parle-V2.mp4",
+  "fichiers_verifies": 270,
+  "master": "Le-buffet-de-la-langue-Le-Corps-Parle-V3.mp4",
   "prises_uniques": 10,
   "profil": "lcp-1.1.0",
-  "sha256_archive": "0ffea6827a7b1d291e01e63468954e8d39160f8aa822d9e9c3f78e9a75073b91",
-  "sha256_master": "15eab95d4b08f769327cfb40a73a440d96b43432a7256f4a1ab275ddc2eef04c"
+  "sha256_archive": "6ab0c2bdf9b4105868e8d622944df02fc453ac6fb5eaa106708ff28d9ed85ab1",
+  "sha256_master": "089cc21d7c22450c175b1fb948214e44a818ab65cc8be36cf8dd944e6037dc8a"
 }

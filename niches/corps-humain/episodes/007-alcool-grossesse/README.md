@@ -5,6 +5,7 @@
 - [Script et direction des voix](dialogues.py)
 - [Provenance et relevé de la référence](provenance.md)
 - [Livraison révisée](out/Le-colis-surprise-du-placenta-Le-Corps-Parle-V2.mp4)
+- [Description et hashtags prêts à publier](publication-tiktok.txt)
 
 ## Reproduire depuis les sources
 

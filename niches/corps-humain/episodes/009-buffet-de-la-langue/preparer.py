@@ -7,7 +7,7 @@ from PIL import Image,ImageChops,ImageDraw,ImageFilter
 import yaml
 
 from dialogues import VOICES, lines
-from costumes import flat_skin,prepare_friend_hands,prepare_lea
+from costumes import flat_skin,prepare_lea
 from toonstudio.drawing import cover,font,remove_flat_background
 from scipy.ndimage import label
 
@@ -68,7 +68,6 @@ def characters():
     x,y=round(image.width*.40),round(image.height*.185)
     skin='#%02X%02X%02X'%image.getpixel((x,y))[:3]
     save_rig('ami',image,[x,y],19,skin,[x-1,y+43])
-    prepare_friend_hands(ROOT,image,{'souplesse':.10,'respiration':.004})
     prepare_lea(NICHE,ROOT)
 
 
@@ -161,6 +160,12 @@ def rooms():
     d.rectangle((138,232,415,574),fill='#91D3DF',outline=INK,width=4)
     d.line((277,232,277,574),fill='#D7AF89',width=14)
     d.line((138,399,415,399),fill='#D7AF89',width=13)
+    d.rounded_rectangle((465,661,936,871),radius=9,fill='#D7AF89',outline=INK,width=5)
+    d.rounded_rectangle((478,674,923,858),radius=4,fill='#345C62',outline=INK,width=3)
+    d.text((700,705),'PENSÉE DU MATIN',font=font('Fredoka',23),fill='#FFF9ED',anchor='mm')
+    d.line((516,728,886,728),fill='#91D3DF',width=2)
+    for y,text in ((765,'Le café réveille.'),(817,'Ton haleine aussi.')):
+        d.text((700,y),text,font=font('Caveat',44),fill='#FFF9ED',anchor='mm')
     image.save(ART/'petit-dejeuner.png')
     image=Image.open(NICHE/STYLE['cabinet']).convert('RGBA')
     d=ImageDraw.Draw(image)

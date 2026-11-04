@@ -5,6 +5,7 @@
 - [Répliques françaises et direction des voix](dialogues.py)
 - [Provenance et relevé des scènes](provenance.md)
 - [MP4 livré](out/Estomac-en-surcharge-Le-Corps-Parle.mp4)
+- [Description et hashtags prêts à publier](publication-tiktok.txt)
 
 ## Refaire le rendu
 

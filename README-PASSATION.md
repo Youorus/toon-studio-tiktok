@@ -47,7 +47,8 @@ Pour un sujet médical, vérifier les faits avec une source primaire ou institut
 1. **Préparer.** Garder les dessins d’origine, les calques, les accessoires, le script français, `episode.yaml`, les commandes de rendu, `provenance.md` et `preuves.yaml`. Dans ce dernier, nommer trois calques réellement utilisés, trois instants du master et résumer honnêtement la fabrication.
 2. **Animer et sonoriser.** Faire un aperçu aux temps importants. Examiner les plans aux dimensions d’un téléphone. Rendre une version image, voix et bruitages, puis mixer la signature musicale. Le [007](niches/corps-humain/episodes/007-alcool-grossesse/README.md) donne les commandes complètes.
 3. **Contrôler.** Lire le MP4 de bout en bout ou vérifier les plans et les passages d’action au plus près, avec un décodage intégral. Vérifier le format, le cadrage TikTok, les aplats corail, les badges, la synchro, la lisibilité des deux cadres, le bouton final et l’intelligibilité des voix. Refaire le rendu si nécessaire.
-4. **Archiver.** Livrer le MP4, le SRT, le ZIP vérifié et le dossier court de contestation. Garder le MP4 exact dans l’archive. Pour des calques d’un autre épisode, ajouter un `--dependance <dossier>` par dossier utilisé.
+4. **Préparer la publication.** Ajouter `publication-tiktok.txt` à la racine de chaque épisode terminé : une accroche courte liée au gag, une question naturelle et quelques hashtags pertinents. Le fichier doit être prêt à copier. Lire [les consignes de description](docs/PUBLICATION-TIKTOK.md). L’archivage contrôle sa présence et son contenu.
+5. **Archiver.** Livrer le MP4, le SRT, le texte de publication, le ZIP vérifié et le dossier court de contestation. Garder le MP4 exact dans l’archive. Pour des calques d’un autre épisode, ajouter un `--dependance <dossier>` par dossier utilisé.
 
 ```sh
 .venv/bin/python -m toonstudio.production archiver niches/corps-humain/episodes/<dossier> \
