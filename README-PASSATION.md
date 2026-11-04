@@ -7,7 +7,7 @@ Ce fichier est le point d’entrée pour Codex, Claude, Gemini ou un autre assis
 - **Sur le Mac** `/Users/marc./Documents/ChatGPT/postly/toon-studio`
 - **Dépôt** [Youorus/toon-studio-tiktok](https://github.com/Youorus/toon-studio-tiktok)
 - **Réglages et empreintes** [niche.yaml](niches/corps-humain/niche.yaml) et [profil-verrou.json](niches/corps-humain/profil-verrou.json)
-- **Épisodes étalons** [006 pour les actions et le montage](niches/corps-humain/episodes/006-antibioresistance-v3/) et [007 révisé pour le corail en plein cadre et le jeu d’accessoires](niches/corps-humain/episodes/007-alcool-grossesse/)
+- **Épisodes étalons** [006 pour les actions et le montage](niches/corps-humain/episodes/006-antibioresistance-v3/), [007 révisé pour le corail en plein cadre et le jeu d’accessoires](niches/corps-humain/episodes/007-alcool-grossesse/) et [008 pour l’appel en écran partagé et une variante de corpulence](niches/corps-humain/episodes/008-estomac-sature/)
 
 ## Au démarrage
 

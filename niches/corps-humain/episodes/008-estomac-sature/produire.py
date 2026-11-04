@@ -65,7 +65,7 @@ class Episode008(CaptionedEpisode):
         self.office=next(s['t0'] for s in self.shots if s['id']=='cabinet')
         positions=self.niche['direction_artistique']['signature']['positions']
         self.anatomy_positions=positions
-        self.clinic_positions=[[x,min(y,735)] for x,y in positions]
+        self.clinic_positions=[[x,180+round(y*.18)] for x,y in positions]
         self.fries=arr[1]['t0']+.60
         self.chicken=arr[2]['t0']+.23
         self.soda=arr[3]['t0']+.18
