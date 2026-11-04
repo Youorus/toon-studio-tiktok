@@ -25,6 +25,8 @@ Sur un autre poste, utiliser Python 3.12, FFmpeg et FFprobe, puis installer `req
 
 ## Les deux façons de partir
 
+Avant d’écrire, appliquer le [master prompt de Marc](docs/MASTER-PROMPT-TIKTOK.md) et sa [déclinaison scénario et rétention](docs/SCENARIOS-RETENTION.md). Le premier objectif est 10 000 abonnés authentiques. Ces documents encadrent l’écriture et les mesures sans changer l’identité artistique approuvée.
+
 | Entrée donnée par Marc | Travail à faire |
 |---|---|
 | **Vidéo de référence** | Regarder le début, les pivots et la fin. Relever les plans et les temps, l’intention des répliques, les expressions, les gestes, les accessoires, le contact, la réaction et le bruitage. Utiliser si nécessaire les images extraites du fichier local dans `audits/dr-healthcare/corpus/`. Produire un équivalent français avec nos visuels, nos répliques et notre musique. Documenter ce qui vient de la référence et ce qui a été créé dans le studio. |
@@ -49,6 +51,7 @@ Pour un sujet médical, vérifier les faits avec une source primaire ou institut
 3. **Contrôler.** Lire le MP4 de bout en bout ou vérifier les plans et les passages d’action au plus près, avec un décodage intégral. Vérifier le format, le cadrage TikTok, les aplats corail, les badges, la synchro, la lisibilité des deux cadres, le bouton final et l’intelligibilité des voix. Refaire le rendu si nécessaire.
 4. **Préparer la publication.** Ajouter `publication-tiktok.txt` à la racine de chaque épisode terminé : une accroche courte liée au gag, une question naturelle et quelques hashtags pertinents. Le fichier doit être prêt à copier. Lire [les consignes de description](docs/PUBLICATION-TIKTOK.md). L’archivage contrôle sa présence et son contenu.
 5. **Archiver.** Livrer le MP4, le SRT, le texte de publication, le ZIP vérifié et le dossier court de contestation. Garder le MP4 exact dans l’archive. Pour des calques d’un autre épisode, ajouter un `--dependance <dossier>` par dossier utilisé.
+6. **Sauvegarder dans CAlabs Studio.** Envoyer avec `python -m toonstudio.postly <dossier-épisode> --envoyer`, vérifier `recu-postly.json` et ses téléchargements. GitHub garde le code ; Postly garde les productions et les preuves. Voir [la procédure du bucket](integrations/postly/README.md). Aucun envoi Buffer dans cette étape.
 
 ```sh
 .venv/bin/python -m toonstudio.production archiver niches/corps-humain/episodes/<dossier> \

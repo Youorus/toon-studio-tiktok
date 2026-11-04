@@ -1,0 +1,9 @@
+{
+  "account": {"name":"Le Corps Parle.fr","slug":"le-corps-parle-fr","handle":"@lecorps.parle.fr"},
+  "studio_url":"https://studio.seyalabs.com",
+  "source_repository":"https://github.com/Youorus/toon-studio-tiktok",
+  "ssh_host":"root@178.105.120.237",
+  "ssh_key":"~/.ssh/karria_prod",
+  "container":"api-skiz0c-60whlv-api-1",
+  "staging_root":"/data/storage/reviews/le-corps-parle/incoming"
+}

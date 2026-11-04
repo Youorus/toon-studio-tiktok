@@ -1,0 +1,51 @@
+{
+  "studio_url": "https://studio.seyalabs.com",
+  "account_id": "4ba32772-1af6-585a-8bc3-62accfd1aee3",
+  "authenticated": true,
+  "private_access": true,
+  "episodes": [
+    {
+      "id": "01339fee-eb42-579a-a1c9-b6825d77c403",
+      "title": "La bactérie qui n’a pas bougé",
+      "files": 10,
+      "master_sha256": "e3d0731b391148edc1c03e5bfb24e32b200ccd5bf6266f6baa21d5c998ada233",
+      "ready": true,
+      "retained": true,
+      "url": "https://studio.seyalabs.com/videos/01339fee-eb42-579a-a1c9-b6825d77c403"
+    },
+    {
+      "id": "23d4d40e-cdcf-5bae-af2c-e1c49b6d5a9d",
+      "title": "Le colis surprise du placenta",
+      "files": 10,
+      "master_sha256": "917f732fd019aa87973706a66a6fc3d59d5a30dae7f98645c349ee54b05a7b11",
+      "ready": true,
+      "retained": true,
+      "url": "https://studio.seyalabs.com/videos/23d4d40e-cdcf-5bae-af2c-e1c49b6d5a9d"
+    },
+    {
+      "id": "b875dc11-4a09-5682-8264-05fde3f00167",
+      "title": "Estomac en surcharge",
+      "files": 12,
+      "master_sha256": "36ba8402bb366daecb9d20473dc641f2810926652dc15acb212a7c713ef8cac5",
+      "ready": true,
+      "retained": true,
+      "url": "https://studio.seyalabs.com/videos/b875dc11-4a09-5682-8264-05fde3f00167"
+    },
+    {
+      "id": "98cda5e5-473e-5eec-bb5b-ad099cd5c362",
+      "title": "Le buffet de la langue",
+      "files": 11,
+      "master_sha256": "089cc21d7c22450c175b1fb948214e44a818ab65cc8be36cf8dd944e6037dc8a",
+      "ready": true,
+      "retained": true,
+      "url": "https://studio.seyalabs.com/videos/98cda5e5-473e-5eec-bb5b-ad099cd5c362"
+    }
+  ],
+  "files_checked": 43,
+  "frontend_bundle_checked": true,
+  "verified_at_utc": "2026-11-04T11:53:37.324377+00:00",
+  "uploaded_files": 51,
+  "buffer_sent": false,
+  "backend_commit": "9830f29",
+  "frontend_commit": "6db2aff"
+}

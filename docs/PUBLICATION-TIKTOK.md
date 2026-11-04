@@ -4,7 +4,7 @@ Pour Le Corps Parle.fr, chaque épisode terminé contient `publication-tiktok.tx
 
 Écrire une ou deux phrases courtes dans le français familier de la série. Partir d’un gag ou d’une situation réellement présente, puis poser une question précise à laquelle le public peut répondre naturellement. Éviter de raconter toute la chute, les promesses médicales, la culpabilisation et les demandes artificielles de likes ou de commentaires. Relire le texte contre le montage livré.
 
-Choix éditorial de départ : quatre hashtags, comprenant `#LeCorpsParle`, deux thèmes du sujet et `#Animation2D`. Adapter si le sujet le justifie. Ce nombre est une convention du studio, pas une règle de classement de TikTok. Ne pas ajouter de tags génériques sans rapport avec l’épisode. La description doit rester compréhensible sans les hashtags.
+Choix éditorial de départ : cinq hashtags, comprenant `#LeCorpsParle`, `#Santé`, deux thèmes du sujet et `#Animation2D`. Adapter si le sujet le justifie. Ce nombre est une convention du studio, pas une règle de classement de TikTok. Ne pas ajouter de tags génériques sans rapport avec l’épisode. La description doit rester compréhensible sans les hashtags.
 
 Vérification des ressources TikTok le 4 novembre 2026 : les hashtags figurent parmi les informations prises en compte pour les recommandations. TikTok conseille des descriptions contextualisées et des hashtags pertinents ; la plateforme précise que `#FYP` ou `#ForYou` n’assurent pas une meilleure distribution. Aucune promesse de portée n’est associée à nos choix.
 
