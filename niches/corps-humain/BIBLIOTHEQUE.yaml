@@ -1,7 +1,7 @@
 # Lire cet index avant chaque création de dessin.
 # Les chemins sont relatifs au dossier niches/corps-humain.
 # Ouvrir le dessin et son personnage.yaml pour confirmer qu'il convient au plan.
-profil: lcp-1.1.0
+profil: lcp-1.2.0
 fonds:
   estomac: decors/estomac-corail.png
   peau: decors/peau-corail.png

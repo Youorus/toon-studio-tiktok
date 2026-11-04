@@ -2,6 +2,8 @@
 
 **Signature** — `@lecorps.parle.fr`
 
+Si Marc donne un dossier daté, commencer par [le parcours de référence commun aux IA](../../../docs/REFERENCES.md). Le catalogue de la niche et sa copie privée dans le studio permettent de retrouver l’original avant de l’analyser avec son audio.
+
 Ce kit est conçu pour le studio local Toon Studio. Il réunit la charte, le modèle de script, les réglages de la niche, les calques des personnages, les décors, les badges, la photo de profil et les sons courts. Les prises de voix s’enregistrent avec les profils récurrents configurés sur le Mac.
 
 ## D’un sujet au MP4
@@ -26,5 +28,5 @@ Chaque entrée de `mini_badges` se rattache à un `acteur` présent dans le plan
 
 - Le fond des plans anatomiques est corail `#E75261`.
 - Le badge d’organe identifie le lieu. Le mini-badge identifie un acteur à son entrée ou à sa révélation.
-- le filigrane blanc glisse entre les zones dégagées. Le petit mot dans le cabinet et le bouton final gardent leur place.
+- Le filigrane blanc **@lecorps.parle.fr** glisse entre les zones dégagées. Le petit mot dans le cabinet et le bouton final gardent leur place.
 - Les décors Estomac et Peau fournis vont avec leurs calques de visages dédiés. Pour un nouveau sujet, choisir un rig de la bibliothèque ou préparer un nouveau modèle Recraft dans la même charte.

@@ -1,0 +1,17 @@
+{
+  "verified": true,
+  "checked_at": "2026-11-04T12:26:21.176Z",
+  "studio_url": "https://studio.seyalabs.com/references?account=4ba32772-1af6-585a-8bc3-62accfd1aee3",
+  "account_id": "4ba32772-1af6-585a-8bc3-62accfd1aee3",
+  "private_access": true,
+  "references": 361,
+  "folders": 357,
+  "video_links_checked": 361,
+  "original_downloads_sha256_checked": 4,
+  "thumbnail_downloads_sha256_checked": 4,
+  "shared_date_checked": "2025-10-14",
+  "catalogue_inventory_sha256": "e4d1aa797e2141fe023243e32763a1bf53ee77b7dc6c80da813e0482743f3cd7",
+  "frontend_bundle_checked": true,
+  "publication_created": false,
+  "catalogue_matches_local": true
+}

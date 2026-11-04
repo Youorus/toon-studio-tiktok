@@ -8,7 +8,7 @@ from pathlib import Path
 import re
 import subprocess
 import tarfile
-from uuid import NAMESPACE_URL, uuid5
+from uuid import NAMESPACE_URL, uuid4, uuid5
 from zipfile import ZIP_DEFLATED, ZipFile, ZipInfo
 
 import yaml
@@ -97,9 +97,10 @@ def prepare(folders=None):
     return config,manifest_path,mapping
 
 
-def send(config, manifest, mapping):
+def send(config, manifest, mapping, *, remote_module='scripts.import_local_studio', episode_receipts=True):
     ssh=['ssh','-i',str(Path(config['ssh_key']).expanduser()),'-o','BatchMode=yes','-o','ConnectTimeout=20',config['ssh_host']]
-    stage=config['staging_root']+'/'+manifest.parent.name
+    stage=config['staging_root']+'/'+manifest.parent.name+'-'+uuid4().hex[:10]
+    (manifest.parent/'transfert.json').write_text(json.dumps({'stage':stage,'module':remote_module,'files':len(mapping)},indent=2)+'\n')
     # Les paramètres de destination sont des constantes contrôlées, jamais du texte utilisateur.
     for val in (config['container'],stage):
         if not re.fullmatch(r'[A-Za-z0-9_./-]+',val) or '..' in val.split('/'):
@@ -115,7 +116,9 @@ def send(config, manifest, mapping):
         if process.returncode:raise RuntimeError('Le transfert SSH a échoué ; le lot local est conservé.')
     except Exception:
         process.kill();process.wait();raise
-    command=f"docker exec {config['container']} python -m scripts.import_local_studio {stage}/manifest.json --apply"
+    if not re.fullmatch(r'scripts\.[a-z_]+',remote_module):
+        raise ValueError('Module de réception invalide')
+    command=f"docker exec {config['container']} python -m {remote_module} {stage}/manifest.json --apply"
     result=subprocess.run(ssh+[command],capture_output=True,text=True)
     if result.returncode:
         (manifest.parent/'import-error.log').write_text(result.stderr)
@@ -123,7 +126,7 @@ def send(config, manifest, mapping):
     receipt=json.loads(result.stdout.strip().splitlines()[-1])
     receipt['studio_url']=config['studio_url']
     (manifest.parent/'recu-postly.json').write_text(json.dumps(receipt,ensure_ascii=False,indent=2)+'\n')
-    for episode in receipt['episodes']:
+    for episode in receipt.get('episodes',[]) if episode_receipts else []:
         folder=ROOT/'niches/corps-humain/episodes'/episode['episode']
         (folder/'recu-postly.json').write_text(json.dumps({**episode,'account_id':receipt['account_id'],
             'url':config['studio_url']+episode['path'],'buffer_sent':False},ensure_ascii=False,indent=2)+'\n')
@@ -132,6 +135,7 @@ def send(config, manifest, mapping):
     cleanup=f"docker exec {config['container']} rm -rf {stage}"
     done=subprocess.run(ssh+[cleanup],capture_output=True,text=True)
     if done.returncode:print('Import vérifié ; le dossier de transit reste à nettoyer sur le serveur.')
+    return receipt
 
 
 def main():

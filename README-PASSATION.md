@@ -1,6 +1,6 @@
 # Passation de production · Le Corps Parle.fr
 
-**Compte** `@lecorps.parle.fr` · **Profil de série** `lcp-1.1.0` · **Studio** Toon Studio
+**Compte** `@lecorps.parle.fr` · **Profil de série** `lcp-1.2.0` · **Studio** Toon Studio
 
 Ce fichier est le point d’entrée pour Codex, Claude, Gemini ou un autre assistant. Ouvrir le dossier **toon-studio** comme espace de travail. Lire ce document, puis la [charte](docs/DIRECTION-ARTISTIQUE.md) et le [guide de production](docs/PRODUCTION.md). Les instructions récentes de Marc priment. Toute évolution du socle approuvé demande une validation et une nouvelle version du profil.
 
@@ -25,11 +25,13 @@ Sur un autre poste, utiliser Python 3.12, FFmpeg et FFprobe, puis installer `req
 
 ## Les deux façons de partir
 
+Marc peut donner seulement le nom d’un dossier daté, par exemple **2026-11-01**. Le retrouver dans `niches/corps-humain/references/catalogue.json`, puis suivre [le parcours de référence image par image](docs/REFERENCES.md). Restaurer le fichier depuis le studio s’il manque sur le poste. La date peut contenir deux vidéos : préciser alors l’ID indiqué par le catalogue, sans sélection arbitraire. Après un ajout au corpus, indexer et sauvegarder les références sur le serveur.
+
 Avant d’écrire, appliquer le [master prompt de Marc](docs/MASTER-PROMPT-TIKTOK.md) et sa [déclinaison scénario et rétention](docs/SCENARIOS-RETENTION.md). Le premier objectif est 10 000 abonnés authentiques. Ces documents encadrent l’écriture et les mesures sans changer l’identité artistique approuvée.
 
 | Entrée donnée par Marc | Travail à faire |
 |---|---|
-| **Vidéo de référence** | Regarder le début, les pivots et la fin. Relever les plans et les temps, l’intention des répliques, les expressions, les gestes, les accessoires, le contact, la réaction et le bruitage. Utiliser si nécessaire les images extraites du fichier local dans `audits/dr-healthcare/corpus/`. Produire un équivalent français avec nos visuels, nos répliques et notre musique. Documenter ce qui vient de la référence et ce qui a été créé dans le studio. |
+| **Vidéo de référence** | Suivre [docs/REFERENCES.md](docs/REFERENCES.md) : examiner toute la chronologie, ses images successives et son audio. Relever les plans et les temps, les répliques, les expressions, les gestes, les accessoires, le contact, la réaction et le bruitage. Produire un équivalent français avec nos visuels, nos voix et notre musique. Documenter les passages réellement examinés, ce qui vient de la référence et ce qui a été créé dans le studio. |
 | **Script ou scénario de Marc** | Respecter ses répliques, ses vannes et l’ordre prévu. Corriger les fautes et vérifier les faits. Signaler une correction médicale ou une modification de fond qui changerait le sens. Ajouter les indications de jeu et les mouvements autour du texte. Si Marc demande une validation du script ou une ébauche, livrer d’abord cette étape. |
 
 Pour un sujet médical, vérifier les faits avec une source primaire ou institutionnelle pertinente. Conserver le lien dans `provenance.md`. Réserver les exagérations aux gags visuels et faire formuler le conseil de façon claire et exacte par la docteure.
@@ -41,7 +43,7 @@ Pour un sujet médical, vérifier les faits avec une source primaire ou institut
 - **Casting.** Réutiliser exactement les rigs `docteure-aplats` et `lea-aplats` et les alias vocaux `mere` et `patiente`. Si Marc demande une corpulence ou un costume particulier, créer une variante dans le dossier de l’épisode, en conservant la tête, la coiffure, les couleurs et la voix du personnage. Pour un nouveau personnage, créer une silhouette simple et immédiatement lisible, avec aplats, contour net et expressions distinctes. Partir des éléments existants quand ils conviennent. Sinon utiliser Recraft avec la palette du studio ou créer un accessoire en calques dans le moteur.
 - **Animation.** Donner du jeu aux yeux, aux mains et aux accessoires. Pour changer le geste d’un personnage, retirer son bras dessiné du corps et le remplacer par un rig articulé. Vérifier les positions au repos, au milieu du mouvement et au contact. Composer la table et les mains avec des profondeurs cohérentes. Sur une action rapide, animer l’anticipation, le contact, la réaction et le retour au calme. Faire suivre la main et l’objet sur une trajectoire commune. Mettre le bruitage sur le contact et garder une respiration pour la chute comique.
 - **Son.** Français familier, débit naturel et personnages immédiatement reconnaissables. Réutiliser les alias validés et garder les alignements originaux pour les lèvres et les mots. Utiliser **« Petites combines » à 125 BPM**, avec la voix au premier plan et une baisse musicale sur les impacts et les répliques.
-- **Habillage.** Vertical `1080×1920`, 30 images/s. Badge d’organe en haut à gauche. Mini-badges accrochés aux nouveaux personnages, au plus deux à la fois. Sous-titres blancs en capitales, un mot à la fois, avec ombre sombre et SRT en phrases à côté. Filigrane blanc translucide **Le Corps Parle.fr** qui glisse entre ses positions, dans une zone libre.
+- **Habillage.** Vertical `1080×1920`, 30 images/s. Badge d’organe en haut à gauche. Mini-badges accrochés aux nouveaux personnages, au plus deux à la fois. Sous-titres blancs en capitales, un mot à la fois, avec ombre sombre et SRT en phrases à côté. Filigrane blanc translucide **@lecorps.parle.fr** qui glisse entre ses positions, dans une zone libre.
 - **Cabinet.** Garder le premier cadre manuscrit « Abonne-toi ». Ajouter dans le second un conseil différent à chaque épisode, court, juste et écrit dans le ton de la chaîne. Adapter une copie du décor dans le dossier de l’épisode. Garder le bouton final « ABONNE-TOI ».
 
 ## De la fabrication à la livraison

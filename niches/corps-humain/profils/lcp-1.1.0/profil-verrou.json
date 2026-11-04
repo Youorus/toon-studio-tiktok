@@ -1,0 +1,33 @@
+{
+  "files": {
+    "docs/DIRECTION-ARTISTIQUE.md": "e8d453abcb760f287cdbf58103ee68dec5b2375782f12be901f66e3218796a77",
+    "niches/corps-humain/decors/cabinet-abonne-toi.png": "d0dfc7ac5fddc01369aedfbd9923c5adcaf5257020e7a88597dc6c483425e28d",
+    "niches/corps-humain/decors/estomac-corail.png": "69198879572b80524c96b3b56a0f9e337921688ece3c794f2f9ddede20b40e9c",
+    "niches/corps-humain/decors/peau-corail.png": "911046f95efe3037a1fc1b53935e169b7c0667bf707c9fd0077924221b4ac4b3",
+    "niches/corps-humain/episodes/006-antibioresistance-v3/personnages/policier-comique/bottes.png": "8bd6db574ef8a0cd65b2cb3b65fed1ba3b3f3f4da2946c0faa51ef9486570d1b",
+    "niches/corps-humain/episodes/006-antibioresistance-v3/personnages/policier-comique/corps.png": "39aefe8017e56e56f7d3b7c2ff563e5ff9b0975395ed225b02a0a6041f67e450",
+    "niches/corps-humain/episodes/006-antibioresistance-v3/personnages/policier-comique/personnage.yaml": "183b66fb4c70f07301b949f4f5e59698870521ebaa31798b98a153ee200c7611",
+    "niches/corps-humain/episodes/006-antibioresistance-v3/personnages/policier-comique/radio.png": "797f87b140b882e123f3948e8665e7047186bdc07c493a6858f78dd740ae5b76",
+    "niches/corps-humain/episodes/006-antibioresistance-v3/personnages/policier-comique/stop.png": "73692dadc5ed3513828f49d6201ffce03dcb163d833dcd8076ba03af293a095d",
+    "niches/corps-humain/episodes/006-antibioresistance-v3/personnages/policier-comique/vide.png": "c2153f77e11087fcb078ae38527fa83bef29791e3700e30cc87fec4405a66d0f",
+    "niches/corps-humain/episodes/006-antibioresistance-v3/preparer.py": "4168581023a19f6c134f18d3ad22c84428feb7df10b348dce69d3906d0613869",
+    "niches/corps-humain/episodes/006-antibioresistance-v3/produire.py": "21105c97e56ed1b83634799797152324ef152a001d4df24e11ba9e8adc99ad30",
+    "niches/corps-humain/kit.yaml": "c10f16f82baeeb73a4e63c9846a265be5b122dfd210259ec884c8dc4f3316dd9",
+    "niches/corps-humain/niche.yaml": "d012633f9ea8f19251545da4b3305fe9883e41807dfa983d5b21e320b0481bb5",
+    "niches/corps-humain/personnages/docteure-aplats/corps.png": "ffa7c9cc366b48e40683b566e1677dc97a17505c916b1e65eb5e840d9da3d888",
+    "niches/corps-humain/personnages/docteure-aplats/personnage.yaml": "70e535cf07ed23e9bdf648a4ca7b2b948c619be66a649e046c19155c4a62a084",
+    "niches/corps-humain/personnages/lea-aplats/corps.png": "9e269154b231c40ce20ce90c6ae0c06b18178a75f21c97600930555d64e13186",
+    "niches/corps-humain/personnages/lea-aplats/personnage.yaml": "2178bef7a27c9d371125819711864efccf2be0b229b55fedd18e820635de3cdf",
+    "shared/fonts/Caveat.ttf": "0bdb6b660482d31531b3945849fba5916b3ef8695da7024a9e6b9ee3c4157988",
+    "shared/fonts/Fredoka.ttf": "2ba02e68b152868aef9ba28e24b3648c7d457fe6f25c761f2c2c53fb61a73fc8",
+    "shared/fonts/LuckiestGuy.ttf": "cfbdd68a039f92df51cf3721506af6242e64594c6325fe0bedbeff3fe385d980",
+    "toonstudio/cards.py": "d62e4f1154683bb21e0e4da8fbc9e16ba09c35efdd0303b2b8d1a5e62ebcf076",
+    "toonstudio/drawing.py": "a4c0035300fcb7d550a616ea35609c71d1f08c76201b3a7b46c241b4f176ec1e",
+    "toonstudio/episode.py": "dba2000c27004433fd57f586c201285d44dfff61cd121c9bdc258b4fb54e0b02",
+    "toonstudio/face.py": "b44e8a83703b3d254b361db6d2c299626e6231c149f666c70b437ca5feb4e089",
+    "toonstudio/musique_cartoon.py": "132a47b56f321237b1d5c176d991b3c38f75edd7d253f1196307f2b4f7798ccb",
+    "toonstudio/rig.py": "8eb6180d482cbd91c217eccdabac4bca5167c5de1bf5f333ece7f123b72c3c73",
+    "toonstudio/sous_titres.py": "3461bc910a6577179061354290d21e445b9e7421be017aafefe30f7e3b52e9ba"
+  },
+  "version": "lcp-1.1.0"
+}

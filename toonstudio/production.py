@@ -149,11 +149,16 @@ def archive(folder,master,dry,dependencies):
         for path in (*[ROOT/item for item in SOURCES],folder,niche_dir/'niche.yaml',niche_dir/'kit.yaml',
                      niche_dir/PROFILE,niche_dir/'personnages',niche_dir/'decors',ROOT/'docs'/'DIRECTION-ARTISTIQUE.md'):
             copy_project_path(path,root)
-        for name in ('README.md','README-PASSATION.md','AGENTS.md','CLAUDE.md','GEMINI.md','docs/PRODUCTION.md','docs/PUBLICATION-TIKTOK.md'):
+        for name in ('README.md','README-PASSATION.md','AGENTS.md','CLAUDE.md','GEMINI.md','docs/PRODUCTION.md','docs/PUBLICATION-TIKTOK.md',
+                     'docs/REFERENCES.md','docs/MASTER-PROMPT-TIKTOK.md','docs/SCENARIOS-RETENTION.md',
+                     'integrations/postly/config.json','integrations/postly/README.md'):
             if (ROOT/name).is_file():
                 copy_project_path(ROOT/name,root)
         if (niche_dir/'BIBLIOTHEQUE.yaml').is_file():
             copy_project_path(niche_dir/'BIBLIOTHEQUE.yaml',root)
+        for name in ('catalogue.json','README.md'):
+            if (niche_dir/'references'/name).is_file():
+                copy_project_path(niche_dir/'references'/name,root)
         for item in dependencies:
             dep=niche_dir/'episodes'/item
             if dep.parent!=niche_dir/'episodes' or not dep.is_dir():

@@ -17,3 +17,5 @@ Le serveur vérifie chaque fichier, sonde et décode le MP4 et relit les copies 
 Chaque dossier d’épisode reçoit `recu-postly.json` : lien, UUID, SHA-256 et nombre de fichiers relus. L’inventaire et le reçu du lot sont dans `integrations/postly/out/`, ignoré par Git. Ne pas déclarer la livraison en ligne avant vérification du reçu et des téléchargements authentifiés.
 
 Cette bibliothèque est exclue de la purge automatique après publication. Le compte est créé pour le téléchargement et la publication manuelle. Relier Buffer ou activer une programmation relève d’une demande distincte. Les autres comptes restent inchangés.
+
+Les inspirations ont une bibliothèque séparée **Références**, filtrable par date. Voir `docs/REFERENCES.md` et lancer `python -m toonstudio.references sauvegarder` après un ajout au corpus. La restauration et la préparation des images utilisent le même catalogue pour Codex, Claude et Gemini. Ces originaux ne sont pas présentés comme nos propres productions.

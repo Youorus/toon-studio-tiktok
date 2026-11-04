@@ -1,0 +1,9 @@
+{
+  "verified": true,
+  "id": "r-e168e1c306e8673677287d6f",
+  "folder": "2026-11-01",
+  "sha256": "21bcc38e0a272c002dca701674d1e5f2b66ac9fad0a11cb81812a99c6dd11788",
+  "size_bytes": 1754634,
+  "original_local_preserved": true,
+  "test": "Restauration depuis le bucket vers un dossier temporaire distinct"
+}

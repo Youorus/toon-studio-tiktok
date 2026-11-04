@@ -1,6 +1,6 @@
 # Produire et livrer un épisode Toon Studio
 
-## Le Corps Parle.fr · lcp-1.1.0
+## Le Corps Parle.fr · lcp-1.2.0
 
 Le [profil verrouillé](../niches/corps-humain/profil-verrou.json) identifie la charte, le casting, les décors récurrents, le moteur d’habillage, les mouvements de l’épisode étalon et le code de la musique. Il fixe le rendu approuvé de l’[épisode 006](../niches/corps-humain/episodes/006-antibioresistance-v3/). Un nouveau sujet vit dans son propre dossier et fournit ses personnages secondaires, ses accessoires, ses animations et son conseil du cabinet.
 
@@ -14,7 +14,7 @@ Une modification approuvée du socle doit recevoir un nouvel identifiant de vers
 
 ## Boucle de production
 
-1. Relever les actions, les réactions, les rôles des répliques et les transitions de la référence. Consigner le lien et les choix de réécriture dans `provenance.md`. Renseigner ensuite `preuves.yaml` avec les calques du projet, trois temps du master et le résumé de fabrication.
+1. Résoudre le dossier daté dans le catalogue et suivre [le parcours des références](REFERENCES.md). Examiner la chronologie, les images successives et l’audio. Relever les actions, les réactions, les répliques et les transitions. Consigner la date, l’ID, le SHA-256, les repères source et les choix de réécriture dans `provenance.md`. Renseigner ensuite `preuves.yaml` avec les calques du projet, trois temps du master et le résumé de fabrication.
 2. Écrire le texte français, vérifier l’idée médicale et le conseil mural. Réutiliser les voix, les calques récurrents et le décor du cabinet. Créer les actifs propres au sujet.
 3. Enregistrer les prises, caler les gestes et les sons sur leurs attaques, puis rendre. Contrôler la version verticale à taille téléphone, l’intelligibilité, la présence des badges, les deux cadres et le filigrane. Exporter le MP4, le SRT, le plan de montage et les contrôles.
 4. Écrire `publication-tiktok.txt` dans le dossier de l’épisode : description courte prête à copier, avec une question et des hashtags pertinents. Voir [les consignes de publication](PUBLICATION-TIKTOK.md). Le contrôle d’archivage exige ce fichier pour Le Corps Parle.fr.

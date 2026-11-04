@@ -14,10 +14,10 @@ format:
     - retour au cabinet vers 45 s, une idée médicale principale et la chute avec l’abonnement
   voix: Timbres récurrents, répliques courtes, intentions contrastées, changements de débit et silences comiques.
   bruitages: Sons courts calés sur l’action, transitions discrètes, dialogue prioritaire dans le mix.
-filigrane: Le Corps Parle.fr
+filigrane: "@lecorps.parle.fr"
 direction_artistique:
   statut: definitive
-  version: lcp-1.1.0
+  version: lcp-1.2.0
   episode_reference: episodes/006-antibioresistance-v3
   cabinet: decors/cabinet-abonne-toi.png
   casting:
@@ -25,6 +25,7 @@ direction_artistique:
     lea: {rig: lea-aplats, voix: patiente}
   badge_organe_xy: [132, 305]
   signature:
+    texte: "@lecorps.parle.fr"
     positions: [[70, 799], [505, 739], [156, 449], [484, 772], [88, 876], [370, 533]]
     intervalle_s: 6.5
     trajet_s: 1.25

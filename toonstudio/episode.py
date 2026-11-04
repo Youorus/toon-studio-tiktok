@@ -475,10 +475,10 @@ class Episode:
             x += d.textlength(wtxt + ' ', font=f)
 
     def _watermark(self, frame, t):
-        txt = self.cfg.get('filigrane', self.niche.get('filigrane'))
+        signature = self.niche.get('direction_artistique', {}).get('signature')
+        txt = (signature or {}).get('texte') or self.cfg.get('filigrane', self.niche.get('filigrane'))
         if not txt:
             return
-        signature = self.niche.get('direction_artistique', {}).get('signature')
         if signature:
             if spots := signature.get('positions'):
                 duration = signature['intervalle_s']
