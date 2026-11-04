@@ -1,0 +1,26 @@
+{
+  "source": "capture-resultats.png fournie par Marc",
+  "snapshot_date": "2026-11-04",
+  "screen_time": "13:31",
+  "published_at": "2026-11-04T11:15:00+01:00",
+  "provisional": true,
+  "duration_seconds": 101.5,
+  "views": 1982,
+  "likes": 201,
+  "comments": 0,
+  "shares": 0,
+  "saves": 12,
+  "average_watch_seconds": 21.4,
+  "completion_percent": 2.92,
+  "new_followers": 3,
+  "retention_3s": null,
+  "profile_visits": null,
+  "account_followers": null,
+  "calculated": {
+    "likes_percent": 10.141271442986882,
+    "saves_percent": 0.6054490413723511,
+    "average_watched_percent": 21.08374384236453,
+    "followers_per_1000_views": 1.5136226034308777
+  },
+  "note": "Les tuiles 2K et 1982 peuvent être actualisées à des instants différents. Ne pas déduire une courbe de rétention absente."
+}

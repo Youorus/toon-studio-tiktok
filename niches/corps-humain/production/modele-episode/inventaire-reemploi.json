@@ -1,0 +1,10 @@
+{
+  "schema": "toonstudio-reemploi-v1",
+  "episode": "A_COMPLETER",
+  "profil": "lcp-1.2.0",
+  "actifs_reemployes": [],
+  "variantes_locales": [],
+  "nouveaux_calques": [],
+  "recraft": {"generations": null, "cout_usd_reel": null},
+  "verification": "Renseigner les sources, les variantes et les appels réels avant livraison. Ne pas laisser le compteur inconnu."
+}

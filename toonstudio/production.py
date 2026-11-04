@@ -150,7 +150,7 @@ def archive(folder,master,dry,dependencies):
                      niche_dir/PROFILE,niche_dir/'personnages',niche_dir/'decors',ROOT/'docs'/'DIRECTION-ARTISTIQUE.md'):
             copy_project_path(path,root)
         for name in ('README.md','README-PASSATION.md','AGENTS.md','CLAUDE.md','GEMINI.md','docs/PRODUCTION.md','docs/PUBLICATION-TIKTOK.md',
-                     'docs/REFERENCES.md','docs/MASTER-PROMPT-TIKTOK.md','docs/SCENARIOS-RETENTION.md',
+                     'docs/REFERENCES.md','docs/WORKFLOWS-ET-SKILLS.md','docs/PLANNING-EDITORIAL.md','docs/MASTER-PROMPT-TIKTOK.md','docs/SCENARIOS-RETENTION.md',
                      'integrations/postly/config.json','integrations/postly/README.md'):
             if (ROOT/name).is_file():
                 copy_project_path(ROOT/name,root)

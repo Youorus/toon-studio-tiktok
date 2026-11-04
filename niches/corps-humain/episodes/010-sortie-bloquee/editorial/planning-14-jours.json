@@ -1,0 +1,429 @@
+{
+  "created_at": "2026-11-04",
+  "cadence_per_day": 3,
+  "slots": [
+    {
+      "date": "2026-11-05",
+      "heure": "12:15",
+      "timezone": "Europe/Paris",
+      "theme": "La sortie est bloquée — référence du 23/09/2025",
+      "format": "court",
+      "duree_cible": "25–50 s",
+      "status": "episode_010_en_production",
+      "reference_folder": "2025-09-23",
+      "episode": "010-sortie-bloquee",
+      "duree_reelle_secondes": 46.3
+    },
+    {
+      "date": "2026-11-05",
+      "heure": "18:15",
+      "timezone": "Europe/Paris",
+      "theme": "La vessie ne prend pas de rendez-vous",
+      "format": "court",
+      "duree_cible": "35–55 s",
+      "status": "proposition_non_programmee",
+      "reference_folder": null
+    },
+    {
+      "date": "2026-11-05",
+      "heure": "21:15",
+      "timezone": "Europe/Paris",
+      "theme": "Antibiotiques : la mauvaise mission",
+      "format": "developpe",
+      "duree_cible": "65–85 s",
+      "status": "proposition_non_programmee",
+      "reference_folder": null
+    },
+    {
+      "date": "2026-11-06",
+      "heure": "12:15",
+      "timezone": "Europe/Paris",
+      "theme": "La langue a ouvert un buffet",
+      "format": "court",
+      "duree_cible": "25–50 s",
+      "status": "proposition_non_programmee",
+      "reference_folder": null
+    },
+    {
+      "date": "2026-11-06",
+      "heure": "18:15",
+      "timezone": "Europe/Paris",
+      "theme": "Le diaphragme a le hoquet",
+      "format": "court",
+      "duree_cible": "35–55 s",
+      "status": "proposition_non_programmee",
+      "reference_folder": null
+    },
+    {
+      "date": "2026-11-06",
+      "heure": "21:15",
+      "timezone": "Europe/Paris",
+      "theme": "Le côlon a besoin de fibres",
+      "format": "developpe",
+      "duree_cible": "65–85 s",
+      "status": "proposition_non_programmee",
+      "reference_folder": null
+    },
+    {
+      "date": "2026-11-07",
+      "heure": "12:15",
+      "timezone": "Europe/Paris",
+      "theme": "Le cerveau réclame son sommeil",
+      "format": "court",
+      "duree_cible": "25–50 s",
+      "status": "proposition_non_programmee",
+      "reference_folder": null
+    },
+    {
+      "date": "2026-11-07",
+      "heure": "18:15",
+      "timezone": "Europe/Paris",
+      "theme": "Le cérumen n’est pas un chantier",
+      "format": "court",
+      "duree_cible": "35–55 s",
+      "status": "proposition_non_programmee",
+      "reference_folder": null
+    },
+    {
+      "date": "2026-11-07",
+      "heure": "21:15",
+      "timezone": "Europe/Paris",
+      "theme": "L’estomac face au repas de trop",
+      "format": "developpe",
+      "duree_cible": "65–85 s",
+      "status": "proposition_non_programmee",
+      "reference_folder": null
+    },
+    {
+      "date": "2026-11-08",
+      "heure": "12:15",
+      "timezone": "Europe/Paris",
+      "theme": "Les yeux demandent une pause",
+      "format": "court",
+      "duree_cible": "25–50 s",
+      "status": "proposition_non_programmee",
+      "reference_folder": null
+    },
+    {
+      "date": "2026-11-08",
+      "heure": "18:15",
+      "timezone": "Europe/Paris",
+      "theme": "Le bouton qu’on veut percer",
+      "format": "court",
+      "duree_cible": "35–55 s",
+      "status": "proposition_non_programmee",
+      "reference_folder": null
+    },
+    {
+      "date": "2026-11-08",
+      "heure": "21:15",
+      "timezone": "Europe/Paris",
+      "theme": "Les reins et l’hydratation",
+      "format": "developpe",
+      "duree_cible": "65–85 s",
+      "status": "proposition_non_programmee",
+      "reference_folder": null
+    },
+    {
+      "date": "2026-11-09",
+      "heure": "12:15",
+      "timezone": "Europe/Paris",
+      "theme": "Le nez prépare un éternuement",
+      "format": "court",
+      "duree_cible": "25–50 s",
+      "status": "proposition_non_programmee",
+      "reference_folder": null
+    },
+    {
+      "date": "2026-11-09",
+      "heure": "18:15",
+      "timezone": "Europe/Paris",
+      "theme": "Le cœur après les cafés",
+      "format": "court",
+      "duree_cible": "35–55 s",
+      "status": "proposition_non_programmee",
+      "reference_folder": null
+    },
+    {
+      "date": "2026-11-09",
+      "heure": "21:15",
+      "timezone": "Europe/Paris",
+      "theme": "Alcool et grossesse : qui filtre quoi ?",
+      "format": "developpe",
+      "duree_cible": "65–85 s",
+      "status": "proposition_non_programmee",
+      "reference_folder": null
+    },
+    {
+      "date": "2026-11-10",
+      "heure": "12:15",
+      "timezone": "Europe/Paris",
+      "theme": "Les intestins organisent un concert",
+      "format": "court",
+      "duree_cible": "25–50 s",
+      "status": "proposition_non_programmee",
+      "reference_folder": null
+    },
+    {
+      "date": "2026-11-10",
+      "heure": "18:15",
+      "timezone": "Europe/Paris",
+      "theme": "Le reflux remonte sans invitation",
+      "format": "court",
+      "duree_cible": "35–55 s",
+      "status": "proposition_non_programmee",
+      "reference_folder": null
+    },
+    {
+      "date": "2026-11-10",
+      "heure": "21:15",
+      "timezone": "Europe/Paris",
+      "theme": "Le globule blanc et la brèche",
+      "format": "developpe",
+      "duree_cible": "65–85 s",
+      "status": "proposition_non_programmee",
+      "reference_folder": null
+    },
+    {
+      "date": "2026-11-11",
+      "heure": "12:15",
+      "timezone": "Europe/Paris",
+      "theme": "La dent qui n’aime pas le froid",
+      "format": "court",
+      "duree_cible": "25–50 s",
+      "status": "proposition_non_programmee",
+      "reference_folder": null
+    },
+    {
+      "date": "2026-11-11",
+      "heure": "18:15",
+      "timezone": "Europe/Paris",
+      "theme": "Le muscle annonce une crampe",
+      "format": "court",
+      "duree_cible": "35–55 s",
+      "status": "proposition_non_programmee",
+      "reference_folder": null
+    },
+    {
+      "date": "2026-11-11",
+      "heure": "21:15",
+      "timezone": "Europe/Paris",
+      "theme": "Résistance bactérienne : les survivantes",
+      "format": "developpe",
+      "duree_cible": "65–85 s",
+      "status": "proposition_non_programmee",
+      "reference_folder": null
+    },
+    {
+      "date": "2026-11-12",
+      "heure": "12:15",
+      "timezone": "Europe/Paris",
+      "theme": "Le côlon et les toilettes publiques",
+      "format": "developpe",
+      "duree_cible": "65–85 s",
+      "status": "proposition_non_programmee",
+      "reference_folder": null
+    },
+    {
+      "date": "2026-11-12",
+      "heure": "18:15",
+      "timezone": "Europe/Paris",
+      "theme": "Le cerveau en mode snooze",
+      "format": "court",
+      "duree_cible": "35–55 s",
+      "status": "proposition_non_programmee",
+      "reference_folder": null
+    },
+    {
+      "date": "2026-11-12",
+      "heure": "21:15",
+      "timezone": "Europe/Paris",
+      "theme": "Le microbiote réclame de la variété",
+      "format": "court",
+      "duree_cible": "35–55 s",
+      "status": "proposition_non_programmee",
+      "reference_folder": null
+    },
+    {
+      "date": "2026-11-13",
+      "heure": "12:15",
+      "timezone": "Europe/Paris",
+      "theme": "La bouche sèche au réveil",
+      "format": "court",
+      "duree_cible": "25–50 s",
+      "status": "proposition_non_programmee",
+      "reference_folder": null
+    },
+    {
+      "date": "2026-11-13",
+      "heure": "18:15",
+      "timezone": "Europe/Paris",
+      "theme": "La peau réclame sa protection solaire",
+      "format": "developpe",
+      "duree_cible": "65–85 s",
+      "status": "proposition_non_programmee",
+      "reference_folder": null
+    },
+    {
+      "date": "2026-11-13",
+      "heure": "21:15",
+      "timezone": "Europe/Paris",
+      "theme": "Le poumon et la fumée",
+      "format": "court",
+      "duree_cible": "35–55 s",
+      "status": "proposition_non_programmee",
+      "reference_folder": null
+    },
+    {
+      "date": "2026-11-14",
+      "heure": "12:15",
+      "timezone": "Europe/Paris",
+      "theme": "La vessie et le café",
+      "format": "court",
+      "duree_cible": "25–50 s",
+      "status": "proposition_non_programmee",
+      "reference_folder": null
+    },
+    {
+      "date": "2026-11-14",
+      "heure": "18:15",
+      "timezone": "Europe/Paris",
+      "theme": "Le bâillement contagieux",
+      "format": "court",
+      "duree_cible": "35–55 s",
+      "status": "proposition_non_programmee",
+      "reference_folder": null
+    },
+    {
+      "date": "2026-11-14",
+      "heure": "21:15",
+      "timezone": "Europe/Paris",
+      "theme": "Les plaquettes réparent la brèche",
+      "format": "developpe",
+      "duree_cible": "65–85 s",
+      "status": "proposition_non_programmee",
+      "reference_folder": null
+    },
+    {
+      "date": "2026-11-15",
+      "heure": "12:15",
+      "timezone": "Europe/Paris",
+      "theme": "La langue après un repas épicé",
+      "format": "developpe",
+      "duree_cible": "65–85 s",
+      "status": "proposition_non_programmee",
+      "reference_folder": null
+    },
+    {
+      "date": "2026-11-15",
+      "heure": "18:15",
+      "timezone": "Europe/Paris",
+      "theme": "Les muscles après une reprise sportive",
+      "format": "court",
+      "duree_cible": "35–55 s",
+      "status": "proposition_non_programmee",
+      "reference_folder": null
+    },
+    {
+      "date": "2026-11-15",
+      "heure": "21:15",
+      "timezone": "Europe/Paris",
+      "theme": "La digestion et le trajet du repas",
+      "format": "court",
+      "duree_cible": "35–55 s",
+      "status": "proposition_non_programmee",
+      "reference_folder": null
+    },
+    {
+      "date": "2026-11-16",
+      "heure": "12:15",
+      "timezone": "Europe/Paris",
+      "theme": "Le nez bouché en réunion",
+      "format": "court",
+      "duree_cible": "25–50 s",
+      "status": "proposition_non_programmee",
+      "reference_folder": null
+    },
+    {
+      "date": "2026-11-16",
+      "heure": "18:15",
+      "timezone": "Europe/Paris",
+      "theme": "Le cerveau sous pression",
+      "format": "developpe",
+      "duree_cible": "65–85 s",
+      "status": "proposition_non_programmee",
+      "reference_folder": null
+    },
+    {
+      "date": "2026-11-16",
+      "heure": "21:15",
+      "timezone": "Europe/Paris",
+      "theme": "Le foie traite les médicaments",
+      "format": "court",
+      "duree_cible": "35–55 s",
+      "status": "proposition_non_programmee",
+      "reference_folder": null
+    },
+    {
+      "date": "2026-11-17",
+      "heure": "12:15",
+      "timezone": "Europe/Paris",
+      "theme": "Le pied et l’ampoule",
+      "format": "court",
+      "duree_cible": "25–50 s",
+      "status": "proposition_non_programmee",
+      "reference_folder": null
+    },
+    {
+      "date": "2026-11-17",
+      "heure": "18:15",
+      "timezone": "Europe/Paris",
+      "theme": "La salive revient à la rescousse",
+      "format": "court",
+      "duree_cible": "35–55 s",
+      "status": "proposition_non_programmee",
+      "reference_folder": null
+    },
+    {
+      "date": "2026-11-17",
+      "heure": "21:15",
+      "timezone": "Europe/Paris",
+      "theme": "Pourquoi une plaie s’infecte",
+      "format": "developpe",
+      "duree_cible": "65–85 s",
+      "status": "proposition_non_programmee",
+      "reference_folder": null
+    },
+    {
+      "date": "2026-11-18",
+      "heure": "12:15",
+      "timezone": "Europe/Paris",
+      "theme": "Le ventre avant un examen",
+      "format": "developpe",
+      "duree_cible": "65–85 s",
+      "status": "proposition_non_programmee",
+      "reference_folder": null
+    },
+    {
+      "date": "2026-11-18",
+      "heure": "18:15",
+      "timezone": "Europe/Paris",
+      "theme": "Le hoquet revient sans prévenir",
+      "format": "court",
+      "duree_cible": "35–55 s",
+      "status": "proposition_non_programmee",
+      "reference_folder": null
+    },
+    {
+      "date": "2026-11-18",
+      "heure": "21:15",
+      "timezone": "Europe/Paris",
+      "theme": "Questions du public : le dossier du corps",
+      "format": "court",
+      "duree_cible": "35–55 s",
+      "status": "proposition_non_programmee",
+      "reference_folder": null
+    }
+  ],
+  "auto_publish": false
+}

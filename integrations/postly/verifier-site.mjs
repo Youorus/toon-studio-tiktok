@@ -51,7 +51,9 @@ async function main() {
     }
   };
   const report={studio_url:base,account_id:account.id,authenticated:true,private_access:true,episodes:[],files_checked:0};
-  for (const summary of videos) {
+  const selected = process.env.POSTLY_VERIFY_VIDEO_ID ? videos.filter((v) => v.id === process.env.POSTLY_VERIFY_VIDEO_ID) : videos;
+  assert(selected.length > 0, "Aucune livraison à vérifier");
+  for (const summary of selected) {
     const v=await read(`/api/postly/videos/${summary.id}`);
     assert(v.production_origin==="local_studio" && v.media_retained && v.archive_available, "Livraison non conservée ou incomplète");
     const s=v.segments[0];

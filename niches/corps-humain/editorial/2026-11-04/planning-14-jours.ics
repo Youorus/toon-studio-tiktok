@@ -1,0 +1,426 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Toon Studio//Le Corps Parle editorial//FR
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:lcp-editorial-20261104-0@lecorps.parle.fr
+DTSTAMP:20261104T120000Z
+DTSTART;TZID=Europe/Paris:20261105T121500
+DTEND;TZID=Europe/Paris:20261105T123000
+SUMMARY:Le Corps Parle — La sortie est bloquée — référence du 23/09/2025
+DESCRIPTION:Créneau proposé. Sujet à vérifier et épisode à produire. Publication manuelle.
+STATUS:TENTATIVE
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:lcp-editorial-20261104-1@lecorps.parle.fr
+DTSTAMP:20261104T120000Z
+DTSTART;TZID=Europe/Paris:20261105T181500
+DTEND;TZID=Europe/Paris:20261105T183000
+SUMMARY:Le Corps Parle — La vessie ne prend pas de rendez-vous
+DESCRIPTION:Créneau proposé. Sujet à vérifier et épisode à produire. Publication manuelle.
+STATUS:TENTATIVE
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:lcp-editorial-20261104-2@lecorps.parle.fr
+DTSTAMP:20261104T120000Z
+DTSTART;TZID=Europe/Paris:20261105T211500
+DTEND;TZID=Europe/Paris:20261105T213000
+SUMMARY:Le Corps Parle — Antibiotiques : la mauvaise mission
+DESCRIPTION:Créneau proposé. Sujet à vérifier et épisode à produire. Publication manuelle.
+STATUS:TENTATIVE
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:lcp-editorial-20261104-3@lecorps.parle.fr
+DTSTAMP:20261104T120000Z
+DTSTART;TZID=Europe/Paris:20261106T121500
+DTEND;TZID=Europe/Paris:20261106T123000
+SUMMARY:Le Corps Parle — La langue a ouvert un buffet
+DESCRIPTION:Créneau proposé. Sujet à vérifier et épisode à produire. Publication manuelle.
+STATUS:TENTATIVE
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:lcp-editorial-20261104-4@lecorps.parle.fr
+DTSTAMP:20261104T120000Z
+DTSTART;TZID=Europe/Paris:20261106T181500
+DTEND;TZID=Europe/Paris:20261106T183000
+SUMMARY:Le Corps Parle — Le diaphragme a le hoquet
+DESCRIPTION:Créneau proposé. Sujet à vérifier et épisode à produire. Publication manuelle.
+STATUS:TENTATIVE
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:lcp-editorial-20261104-5@lecorps.parle.fr
+DTSTAMP:20261104T120000Z
+DTSTART;TZID=Europe/Paris:20261106T211500
+DTEND;TZID=Europe/Paris:20261106T213000
+SUMMARY:Le Corps Parle — Le côlon a besoin de fibres
+DESCRIPTION:Créneau proposé. Sujet à vérifier et épisode à produire. Publication manuelle.
+STATUS:TENTATIVE
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:lcp-editorial-20261104-6@lecorps.parle.fr
+DTSTAMP:20261104T120000Z
+DTSTART;TZID=Europe/Paris:20261107T121500
+DTEND;TZID=Europe/Paris:20261107T123000
+SUMMARY:Le Corps Parle — Le cerveau réclame son sommeil
+DESCRIPTION:Créneau proposé. Sujet à vérifier et épisode à produire. Publication manuelle.
+STATUS:TENTATIVE
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:lcp-editorial-20261104-7@lecorps.parle.fr
+DTSTAMP:20261104T120000Z
+DTSTART;TZID=Europe/Paris:20261107T181500
+DTEND;TZID=Europe/Paris:20261107T183000
+SUMMARY:Le Corps Parle — Le cérumen n’est pas un chantier
+DESCRIPTION:Créneau proposé. Sujet à vérifier et épisode à produire. Publication manuelle.
+STATUS:TENTATIVE
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:lcp-editorial-20261104-8@lecorps.parle.fr
+DTSTAMP:20261104T120000Z
+DTSTART;TZID=Europe/Paris:20261107T211500
+DTEND;TZID=Europe/Paris:20261107T213000
+SUMMARY:Le Corps Parle — L’estomac face au repas de trop
+DESCRIPTION:Créneau proposé. Sujet à vérifier et épisode à produire. Publication manuelle.
+STATUS:TENTATIVE
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:lcp-editorial-20261104-9@lecorps.parle.fr
+DTSTAMP:20261104T120000Z
+DTSTART;TZID=Europe/Paris:20261108T121500
+DTEND;TZID=Europe/Paris:20261108T123000
+SUMMARY:Le Corps Parle — Les yeux demandent une pause
+DESCRIPTION:Créneau proposé. Sujet à vérifier et épisode à produire. Publication manuelle.
+STATUS:TENTATIVE
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:lcp-editorial-20261104-10@lecorps.parle.fr
+DTSTAMP:20261104T120000Z
+DTSTART;TZID=Europe/Paris:20261108T181500
+DTEND;TZID=Europe/Paris:20261108T183000
+SUMMARY:Le Corps Parle — Le bouton qu’on veut percer
+DESCRIPTION:Créneau proposé. Sujet à vérifier et épisode à produire. Publication manuelle.
+STATUS:TENTATIVE
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:lcp-editorial-20261104-11@lecorps.parle.fr
+DTSTAMP:20261104T120000Z
+DTSTART;TZID=Europe/Paris:20261108T211500
+DTEND;TZID=Europe/Paris:20261108T213000
+SUMMARY:Le Corps Parle — Les reins et l’hydratation
+DESCRIPTION:Créneau proposé. Sujet à vérifier et épisode à produire. Publication manuelle.
+STATUS:TENTATIVE
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:lcp-editorial-20261104-12@lecorps.parle.fr
+DTSTAMP:20261104T120000Z
+DTSTART;TZID=Europe/Paris:20261109T121500
+DTEND;TZID=Europe/Paris:20261109T123000
+SUMMARY:Le Corps Parle — Le nez prépare un éternuement
+DESCRIPTION:Créneau proposé. Sujet à vérifier et épisode à produire. Publication manuelle.
+STATUS:TENTATIVE
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:lcp-editorial-20261104-13@lecorps.parle.fr
+DTSTAMP:20261104T120000Z
+DTSTART;TZID=Europe/Paris:20261109T181500
+DTEND;TZID=Europe/Paris:20261109T183000
+SUMMARY:Le Corps Parle — Le cœur après les cafés
+DESCRIPTION:Créneau proposé. Sujet à vérifier et épisode à produire. Publication manuelle.
+STATUS:TENTATIVE
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:lcp-editorial-20261104-14@lecorps.parle.fr
+DTSTAMP:20261104T120000Z
+DTSTART;TZID=Europe/Paris:20261109T211500
+DTEND;TZID=Europe/Paris:20261109T213000
+SUMMARY:Le Corps Parle — Alcool et grossesse : qui filtre quoi ?
+DESCRIPTION:Créneau proposé. Sujet à vérifier et épisode à produire. Publication manuelle.
+STATUS:TENTATIVE
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:lcp-editorial-20261104-15@lecorps.parle.fr
+DTSTAMP:20261104T120000Z
+DTSTART;TZID=Europe/Paris:20261110T121500
+DTEND;TZID=Europe/Paris:20261110T123000
+SUMMARY:Le Corps Parle — Les intestins organisent un concert
+DESCRIPTION:Créneau proposé. Sujet à vérifier et épisode à produire. Publication manuelle.
+STATUS:TENTATIVE
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:lcp-editorial-20261104-16@lecorps.parle.fr
+DTSTAMP:20261104T120000Z
+DTSTART;TZID=Europe/Paris:20261110T181500
+DTEND;TZID=Europe/Paris:20261110T183000
+SUMMARY:Le Corps Parle — Le reflux remonte sans invitation
+DESCRIPTION:Créneau proposé. Sujet à vérifier et épisode à produire. Publication manuelle.
+STATUS:TENTATIVE
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:lcp-editorial-20261104-17@lecorps.parle.fr
+DTSTAMP:20261104T120000Z
+DTSTART;TZID=Europe/Paris:20261110T211500
+DTEND;TZID=Europe/Paris:20261110T213000
+SUMMARY:Le Corps Parle — Le globule blanc et la brèche
+DESCRIPTION:Créneau proposé. Sujet à vérifier et épisode à produire. Publication manuelle.
+STATUS:TENTATIVE
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:lcp-editorial-20261104-18@lecorps.parle.fr
+DTSTAMP:20261104T120000Z
+DTSTART;TZID=Europe/Paris:20261111T121500
+DTEND;TZID=Europe/Paris:20261111T123000
+SUMMARY:Le Corps Parle — La dent qui n’aime pas le froid
+DESCRIPTION:Créneau proposé. Sujet à vérifier et épisode à produire. Publication manuelle.
+STATUS:TENTATIVE
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:lcp-editorial-20261104-19@lecorps.parle.fr
+DTSTAMP:20261104T120000Z
+DTSTART;TZID=Europe/Paris:20261111T181500
+DTEND;TZID=Europe/Paris:20261111T183000
+SUMMARY:Le Corps Parle — Le muscle annonce une crampe
+DESCRIPTION:Créneau proposé. Sujet à vérifier et épisode à produire. Publication manuelle.
+STATUS:TENTATIVE
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:lcp-editorial-20261104-20@lecorps.parle.fr
+DTSTAMP:20261104T120000Z
+DTSTART;TZID=Europe/Paris:20261111T211500
+DTEND;TZID=Europe/Paris:20261111T213000
+SUMMARY:Le Corps Parle — Résistance bactérienne : les survivantes
+DESCRIPTION:Créneau proposé. Sujet à vérifier et épisode à produire. Publication manuelle.
+STATUS:TENTATIVE
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:lcp-editorial-20261104-21@lecorps.parle.fr
+DTSTAMP:20261104T120000Z
+DTSTART;TZID=Europe/Paris:20261112T121500
+DTEND;TZID=Europe/Paris:20261112T123000
+SUMMARY:Le Corps Parle — Le côlon et les toilettes publiques
+DESCRIPTION:Créneau proposé. Sujet à vérifier et épisode à produire. Publication manuelle.
+STATUS:TENTATIVE
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:lcp-editorial-20261104-22@lecorps.parle.fr
+DTSTAMP:20261104T120000Z
+DTSTART;TZID=Europe/Paris:20261112T181500
+DTEND;TZID=Europe/Paris:20261112T183000
+SUMMARY:Le Corps Parle — Le cerveau en mode snooze
+DESCRIPTION:Créneau proposé. Sujet à vérifier et épisode à produire. Publication manuelle.
+STATUS:TENTATIVE
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:lcp-editorial-20261104-23@lecorps.parle.fr
+DTSTAMP:20261104T120000Z
+DTSTART;TZID=Europe/Paris:20261112T211500
+DTEND;TZID=Europe/Paris:20261112T213000
+SUMMARY:Le Corps Parle — Le microbiote réclame de la variété
+DESCRIPTION:Créneau proposé. Sujet à vérifier et épisode à produire. Publication manuelle.
+STATUS:TENTATIVE
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:lcp-editorial-20261104-24@lecorps.parle.fr
+DTSTAMP:20261104T120000Z
+DTSTART;TZID=Europe/Paris:20261113T121500
+DTEND;TZID=Europe/Paris:20261113T123000
+SUMMARY:Le Corps Parle — La bouche sèche au réveil
+DESCRIPTION:Créneau proposé. Sujet à vérifier et épisode à produire. Publication manuelle.
+STATUS:TENTATIVE
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:lcp-editorial-20261104-25@lecorps.parle.fr
+DTSTAMP:20261104T120000Z
+DTSTART;TZID=Europe/Paris:20261113T181500
+DTEND;TZID=Europe/Paris:20261113T183000
+SUMMARY:Le Corps Parle — La peau réclame sa protection solaire
+DESCRIPTION:Créneau proposé. Sujet à vérifier et épisode à produire. Publication manuelle.
+STATUS:TENTATIVE
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:lcp-editorial-20261104-26@lecorps.parle.fr
+DTSTAMP:20261104T120000Z
+DTSTART;TZID=Europe/Paris:20261113T211500
+DTEND;TZID=Europe/Paris:20261113T213000
+SUMMARY:Le Corps Parle — Le poumon et la fumée
+DESCRIPTION:Créneau proposé. Sujet à vérifier et épisode à produire. Publication manuelle.
+STATUS:TENTATIVE
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:lcp-editorial-20261104-27@lecorps.parle.fr
+DTSTAMP:20261104T120000Z
+DTSTART;TZID=Europe/Paris:20261114T121500
+DTEND;TZID=Europe/Paris:20261114T123000
+SUMMARY:Le Corps Parle — La vessie et le café
+DESCRIPTION:Créneau proposé. Sujet à vérifier et épisode à produire. Publication manuelle.
+STATUS:TENTATIVE
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:lcp-editorial-20261104-28@lecorps.parle.fr
+DTSTAMP:20261104T120000Z
+DTSTART;TZID=Europe/Paris:20261114T181500
+DTEND;TZID=Europe/Paris:20261114T183000
+SUMMARY:Le Corps Parle — Le bâillement contagieux
+DESCRIPTION:Créneau proposé. Sujet à vérifier et épisode à produire. Publication manuelle.
+STATUS:TENTATIVE
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:lcp-editorial-20261104-29@lecorps.parle.fr
+DTSTAMP:20261104T120000Z
+DTSTART;TZID=Europe/Paris:20261114T211500
+DTEND;TZID=Europe/Paris:20261114T213000
+SUMMARY:Le Corps Parle — Les plaquettes réparent la brèche
+DESCRIPTION:Créneau proposé. Sujet à vérifier et épisode à produire. Publication manuelle.
+STATUS:TENTATIVE
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:lcp-editorial-20261104-30@lecorps.parle.fr
+DTSTAMP:20261104T120000Z
+DTSTART;TZID=Europe/Paris:20261115T121500
+DTEND;TZID=Europe/Paris:20261115T123000
+SUMMARY:Le Corps Parle — La langue après un repas épicé
+DESCRIPTION:Créneau proposé. Sujet à vérifier et épisode à produire. Publication manuelle.
+STATUS:TENTATIVE
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:lcp-editorial-20261104-31@lecorps.parle.fr
+DTSTAMP:20261104T120000Z
+DTSTART;TZID=Europe/Paris:20261115T181500
+DTEND;TZID=Europe/Paris:20261115T183000
+SUMMARY:Le Corps Parle — Les muscles après une reprise sportive
+DESCRIPTION:Créneau proposé. Sujet à vérifier et épisode à produire. Publication manuelle.
+STATUS:TENTATIVE
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:lcp-editorial-20261104-32@lecorps.parle.fr
+DTSTAMP:20261104T120000Z
+DTSTART;TZID=Europe/Paris:20261115T211500
+DTEND;TZID=Europe/Paris:20261115T213000
+SUMMARY:Le Corps Parle — La digestion et le trajet du repas
+DESCRIPTION:Créneau proposé. Sujet à vérifier et épisode à produire. Publication manuelle.
+STATUS:TENTATIVE
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:lcp-editorial-20261104-33@lecorps.parle.fr
+DTSTAMP:20261104T120000Z
+DTSTART;TZID=Europe/Paris:20261116T121500
+DTEND;TZID=Europe/Paris:20261116T123000
+SUMMARY:Le Corps Parle — Le nez bouché en réunion
+DESCRIPTION:Créneau proposé. Sujet à vérifier et épisode à produire. Publication manuelle.
+STATUS:TENTATIVE
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:lcp-editorial-20261104-34@lecorps.parle.fr
+DTSTAMP:20261104T120000Z
+DTSTART;TZID=Europe/Paris:20261116T181500
+DTEND;TZID=Europe/Paris:20261116T183000
+SUMMARY:Le Corps Parle — Le cerveau sous pression
+DESCRIPTION:Créneau proposé. Sujet à vérifier et épisode à produire. Publication manuelle.
+STATUS:TENTATIVE
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:lcp-editorial-20261104-35@lecorps.parle.fr
+DTSTAMP:20261104T120000Z
+DTSTART;TZID=Europe/Paris:20261116T211500
+DTEND;TZID=Europe/Paris:20261116T213000
+SUMMARY:Le Corps Parle — Le foie traite les médicaments
+DESCRIPTION:Créneau proposé. Sujet à vérifier et épisode à produire. Publication manuelle.
+STATUS:TENTATIVE
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:lcp-editorial-20261104-36@lecorps.parle.fr
+DTSTAMP:20261104T120000Z
+DTSTART;TZID=Europe/Paris:20261117T121500
+DTEND;TZID=Europe/Paris:20261117T123000
+SUMMARY:Le Corps Parle — Le pied et l’ampoule
+DESCRIPTION:Créneau proposé. Sujet à vérifier et épisode à produire. Publication manuelle.
+STATUS:TENTATIVE
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:lcp-editorial-20261104-37@lecorps.parle.fr
+DTSTAMP:20261104T120000Z
+DTSTART;TZID=Europe/Paris:20261117T181500
+DTEND;TZID=Europe/Paris:20261117T183000
+SUMMARY:Le Corps Parle — La salive revient à la rescousse
+DESCRIPTION:Créneau proposé. Sujet à vérifier et épisode à produire. Publication manuelle.
+STATUS:TENTATIVE
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:lcp-editorial-20261104-38@lecorps.parle.fr
+DTSTAMP:20261104T120000Z
+DTSTART;TZID=Europe/Paris:20261117T211500
+DTEND;TZID=Europe/Paris:20261117T213000
+SUMMARY:Le Corps Parle — Pourquoi une plaie s’infecte
+DESCRIPTION:Créneau proposé. Sujet à vérifier et épisode à produire. Publication manuelle.
+STATUS:TENTATIVE
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:lcp-editorial-20261104-39@lecorps.parle.fr
+DTSTAMP:20261104T120000Z
+DTSTART;TZID=Europe/Paris:20261118T121500
+DTEND;TZID=Europe/Paris:20261118T123000
+SUMMARY:Le Corps Parle — Le ventre avant un examen
+DESCRIPTION:Créneau proposé. Sujet à vérifier et épisode à produire. Publication manuelle.
+STATUS:TENTATIVE
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:lcp-editorial-20261104-40@lecorps.parle.fr
+DTSTAMP:20261104T120000Z
+DTSTART;TZID=Europe/Paris:20261118T181500
+DTEND;TZID=Europe/Paris:20261118T183000
+SUMMARY:Le Corps Parle — Le hoquet revient sans prévenir
+DESCRIPTION:Créneau proposé. Sujet à vérifier et épisode à produire. Publication manuelle.
+STATUS:TENTATIVE
+TRANSP:TRANSPARENT
+END:VEVENT
+BEGIN:VEVENT
+UID:lcp-editorial-20261104-41@lecorps.parle.fr
+DTSTAMP:20261104T120000Z
+DTSTART;TZID=Europe/Paris:20261118T211500
+DTEND;TZID=Europe/Paris:20261118T213000
+SUMMARY:Le Corps Parle — Questions du public : le dossier du corps
+DESCRIPTION:Créneau proposé. Sujet à vérifier et épisode à produire. Publication manuelle.
+STATUS:TENTATIVE
+TRANSP:TRANSPARENT
+END:VEVENT
+END:VCALENDAR

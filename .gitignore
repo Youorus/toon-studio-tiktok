@@ -19,3 +19,4 @@ archives-production/
 *.zip
 niches/corps-humain/downloads/
 niches/corps-humain/references/analyses/
+**/capture-resultats.png

@@ -6,6 +6,8 @@ Pour chaque nouvelle référence, consigner les actions, les intentions, les rep
 
 Avant toute génération Recraft, lire `niches/corps-humain/BIBLIOTHEQUE.yaml` et examiner les actifs qui conviennent au plan. Réutiliser les silhouettes, rigs, décors et accessoires déjà disponibles. Ajouter à l’inventaire les nouveaux éléments réalisés pour l’épisode.
 
+Lire `docs/WORKFLOWS-ET-SKILLS.md` pour les outils, les guides facultatifs et leurs équivalents pour tout agent. Agrandir le kit par réemploi et variantes de calques avant tout appel Recraft. Livrer `inventaire-reemploi.json` pour distinguer les actifs repris, les variantes et les générations payantes réelles ; ne pas changer le socle approuvé pour changer de sujet.
+
 Pour chaque épisode terminé de Le Corps Parle.fr, livrer `publication-tiktok.txt` dans le dossier de l’épisode, prêt à copier : accroche courte, question engageante et hashtags pertinents. Lire `docs/PUBLICATION-TIKTOK.md`. Vérifier les occultations : les mains au repos restent derrière la table ; une main levée ne traverse pas les assiettes et utilise une silhouette lisible.
 
 Après archivage, sauvegarder chaque livraison dans le bucket CAlabs Studio avec `python -m toonstudio.postly <dossier> --envoyer`. Lire `integrations/postly/README.md`, vérifier le reçu et les téléchargements. Garder `#Santé` parmi les hashtags du compte. Le transfert des médias n’est pas une publication TikTok ou Buffer.

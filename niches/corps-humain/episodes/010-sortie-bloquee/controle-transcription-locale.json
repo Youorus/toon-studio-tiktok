@@ -1,0 +1,923 @@
+{
+  "methode": "faster-whisper base, CPU int8, modèle déjà présent, traitement local sans envoi du MP4",
+  "langue": "fr",
+  "duree": 46.3146875,
+  "segments": [
+    {
+      "debut": 0.0,
+      "fin": 3.58,
+      "texte": " Hé, je dois sortir ! C'est bon, vas-y, la voix est libre.",
+      "mots": [
+        {
+          "texte": " Hé,",
+          "debut": 0.0,
+          "fin": 0.14,
+          "probabilite": 0.12794223427772522
+        },
+        {
+          "texte": " je",
+          "debut": 0.46,
+          "fin": 0.7,
+          "probabilite": 0.9466624855995178
+        },
+        {
+          "texte": " dois",
+          "debut": 0.7,
+          "fin": 0.8,
+          "probabilite": 0.9810456037521362
+        },
+        {
+          "texte": " sortir",
+          "debut": 0.8,
+          "fin": 1.12,
+          "probabilite": 0.9758415222167969
+        },
+        {
+          "texte": " !",
+          "debut": 1.12,
+          "fin": 1.72,
+          "probabilite": 0.4743421971797943
+        },
+        {
+          "texte": " C",
+          "debut": 1.72,
+          "fin": 1.92,
+          "probabilite": 0.9633936882019043
+        },
+        {
+          "texte": "'est",
+          "debut": 1.92,
+          "fin": 1.98,
+          "probabilite": 0.9978111386299133
+        },
+        {
+          "texte": " bon,",
+          "debut": 1.98,
+          "fin": 2.1,
+          "probabilite": 0.990829586982727
+        },
+        {
+          "texte": " vas",
+          "debut": 2.38,
+          "fin": 2.46,
+          "probabilite": 0.9360897541046143
+        },
+        {
+          "texte": "-y,",
+          "debut": 2.46,
+          "fin": 2.6,
+          "probabilite": 0.9130670428276062
+        },
+        {
+          "texte": " la",
+          "debut": 2.88,
+          "fin": 3.12,
+          "probabilite": 0.9431317448616028
+        },
+        {
+          "texte": " voix",
+          "debut": 3.12,
+          "fin": 3.26,
+          "probabilite": 0.6984631419181824
+        },
+        {
+          "texte": " est",
+          "debut": 3.26,
+          "fin": 3.36,
+          "probabilite": 0.966397225856781
+        },
+        {
+          "texte": " libre.",
+          "debut": 3.36,
+          "fin": 3.58,
+          "probabilite": 0.9889175891876221
+        }
+      ]
+    },
+    {
+      "debut": 4.14,
+      "fin": 8.6,
+      "texte": " Je suis coincé ! J'arrive plus à bouger, au secours !",
+      "mots": [
+        {
+          "texte": " Je",
+          "debut": 4.14,
+          "fin": 4.6,
+          "probabilite": 0.8387295603752136
+        },
+        {
+          "texte": " suis",
+          "debut": 4.6,
+          "fin": 4.84,
+          "probabilite": 0.9979967474937439
+        },
+        {
+          "texte": " coincé",
+          "debut": 4.84,
+          "fin": 5.34,
+          "probabilite": 0.39357998967170715
+        },
+        {
+          "texte": " !",
+          "debut": 5.34,
+          "fin": 5.82,
+          "probabilite": 0.4755403697490692
+        },
+        {
+          "texte": " J",
+          "debut": 5.82,
+          "fin": 5.96,
+          "probabilite": 0.9623993635177612
+        },
+        {
+          "texte": "'arrive",
+          "debut": 5.96,
+          "fin": 6.12,
+          "probabilite": 0.9867897629737854
+        },
+        {
+          "texte": " plus",
+          "debut": 6.12,
+          "fin": 6.4,
+          "probabilite": 0.9892423748970032
+        },
+        {
+          "texte": " à",
+          "debut": 6.4,
+          "fin": 6.52,
+          "probabilite": 0.9809027910232544
+        },
+        {
+          "texte": " bouger,",
+          "debut": 6.52,
+          "fin": 6.84,
+          "probabilite": 0.9735537469387054
+        },
+        {
+          "texte": " au",
+          "debut": 7.28,
+          "fin": 7.4,
+          "probabilite": 0.6538455486297607
+        },
+        {
+          "texte": " secours",
+          "debut": 7.4,
+          "fin": 7.78,
+          "probabilite": 0.85011225938797
+        },
+        {
+          "texte": " !",
+          "debut": 7.78,
+          "fin": 8.6,
+          "probabilite": 0.8550528287887573
+        }
+      ]
+    },
+    {
+      "debut": 8.6,
+      "fin": 11.48,
+      "texte": " Ah ouais, t'es dure comme du béton !",
+      "mots": [
+        {
+          "texte": " Ah",
+          "debut": 8.6,
+          "fin": 8.78,
+          "probabilite": 0.6922882199287415
+        },
+        {
+          "texte": " ouais,",
+          "debut": 8.78,
+          "fin": 9.08,
+          "probabilite": 0.8941903710365295
+        },
+        {
+          "texte": " t",
+          "debut": 9.62,
+          "fin": 9.88,
+          "probabilite": 0.9185898900032043
+        },
+        {
+          "texte": "'es",
+          "debut": 9.88,
+          "fin": 9.92,
+          "probabilite": 0.993353396654129
+        },
+        {
+          "texte": " dure",
+          "debut": 9.92,
+          "fin": 10.22,
+          "probabilite": 0.6213721930980682
+        },
+        {
+          "texte": " comme",
+          "debut": 10.22,
+          "fin": 10.44,
+          "probabilite": 0.9905939102172852
+        },
+        {
+          "texte": " du",
+          "debut": 10.44,
+          "fin": 10.58,
+          "probabilite": 0.8220399618148804
+        },
+        {
+          "texte": " béton",
+          "debut": 10.58,
+          "fin": 10.86,
+          "probabilite": 0.9843318462371826
+        },
+        {
+          "texte": " !",
+          "debut": 10.86,
+          "fin": 11.48,
+          "probabilite": 0.4295138716697693
+        }
+      ]
+    },
+    {
+      "debut": 11.48,
+      "fin": 13.36,
+      "texte": " T'as attendu trop longtemps, toi !",
+      "mots": [
+        {
+          "texte": " T",
+          "debut": 11.48,
+          "fin": 11.64,
+          "probabilite": 0.7016057968139648
+        },
+        {
+          "texte": "'as",
+          "debut": 11.64,
+          "fin": 11.64,
+          "probabilite": 0.9434664249420166
+        },
+        {
+          "texte": " attendu",
+          "debut": 11.64,
+          "fin": 11.92,
+          "probabilite": 0.9236301481723785
+        },
+        {
+          "texte": " trop",
+          "debut": 11.92,
+          "fin": 12.1,
+          "probabilite": 0.9956032037734985
+        },
+        {
+          "texte": " longtemps,",
+          "debut": 12.1,
+          "fin": 12.4,
+          "probabilite": 0.99615877866745
+        },
+        {
+          "texte": " toi",
+          "debut": 12.56,
+          "fin": 12.68,
+          "probabilite": 0.9608144760131836
+        },
+        {
+          "texte": " !",
+          "debut": 12.68,
+          "fin": 13.36,
+          "probabilite": 0.5411286950111389
+        }
+      ]
+    },
+    {
+      "debut": 13.36,
+      "fin": 15.0,
+      "texte": " J'ai séché sur place, chef !",
+      "mots": [
+        {
+          "texte": " J",
+          "debut": 13.36,
+          "fin": 13.66,
+          "probabilite": 0.9578931927680969
+        },
+        {
+          "texte": "'ai",
+          "debut": 13.66,
+          "fin": 13.72,
+          "probabilite": 0.9411520957946777
+        },
+        {
+          "texte": " séché",
+          "debut": 13.72,
+          "fin": 13.98,
+          "probabilite": 0.884521096944809
+        },
+        {
+          "texte": " sur",
+          "debut": 13.98,
+          "fin": 14.24,
+          "probabilite": 0.9879183173179626
+        },
+        {
+          "texte": " place,",
+          "debut": 14.24,
+          "fin": 14.52,
+          "probabilite": 0.9596885442733765
+        },
+        {
+          "texte": " chef",
+          "debut": 14.52,
+          "fin": 14.86,
+          "probabilite": 0.6561750173568726
+        },
+        {
+          "texte": " !",
+          "debut": 14.86,
+          "fin": 15.12,
+          "probabilite": 0.8833961486816406
+        }
+      ]
+    },
+    {
+      "debut": 15.58,
+      "fin": 18.86,
+      "texte": " Bon, à l'air de rouge, faut qu'elle voit qu'il y a un souci.",
+      "mots": [
+        {
+          "texte": " Bon,",
+          "debut": 15.58,
+          "fin": 15.74,
+          "probabilite": 0.9710338711738586
+        },
+        {
+          "texte": " à",
+          "debut": 16.34,
+          "fin": 16.42,
+          "probabilite": 0.32347372174263
+        },
+        {
+          "texte": " l",
+          "debut": 16.42,
+          "fin": 16.58,
+          "probabilite": 0.9641479849815369
+        },
+        {
+          "texte": "'air",
+          "debut": 16.58,
+          "fin": 16.64,
+          "probabilite": 0.8947193622589111
+        },
+        {
+          "texte": " de",
+          "debut": 16.64,
+          "fin": 16.8,
+          "probabilite": 0.5144724249839783
+        },
+        {
+          "texte": " rouge,",
+          "debut": 16.8,
+          "fin": 17.08,
+          "probabilite": 0.9505813121795654
+        },
+        {
+          "texte": " faut",
+          "debut": 17.68,
+          "fin": 17.9,
+          "probabilite": 0.7930781245231628
+        },
+        {
+          "texte": " qu",
+          "debut": 17.9,
+          "fin": 18.04,
+          "probabilite": 0.9427961707115173
+        },
+        {
+          "texte": "'elle",
+          "debut": 18.04,
+          "fin": 18.1,
+          "probabilite": 0.9647063612937927
+        },
+        {
+          "texte": " voit",
+          "debut": 18.1,
+          "fin": 18.26,
+          "probabilite": 0.5813801884651184
+        },
+        {
+          "texte": " qu",
+          "debut": 18.26,
+          "fin": 18.42,
+          "probabilite": 0.7733943462371826
+        },
+        {
+          "texte": "'il",
+          "debut": 18.42,
+          "fin": 18.44,
+          "probabilite": 0.9708069860935211
+        },
+        {
+          "texte": " y",
+          "debut": 18.44,
+          "fin": 18.46,
+          "probabilite": 0.9031116962432861
+        },
+        {
+          "texte": " a",
+          "debut": 18.46,
+          "fin": 18.46,
+          "probabilite": 0.7061827778816223
+        },
+        {
+          "texte": " un",
+          "debut": 18.46,
+          "fin": 18.54,
+          "probabilite": 0.9957262277603149
+        },
+        {
+          "texte": " souci.",
+          "debut": 18.54,
+          "fin": 18.86,
+          "probabilite": 0.91721972823143
+        }
+      ]
+    },
+    {
+      "debut": 19.88,
+      "fin": 22.3,
+      "texte": " Allez, une dernière poussée !",
+      "mots": [
+        {
+          "texte": " Allez,",
+          "debut": 19.88,
+          "fin": 20.4,
+          "probabilite": 0.9259750247001648
+        },
+        {
+          "texte": " une",
+          "debut": 20.96,
+          "fin": 21.28,
+          "probabilite": 0.9959734082221985
+        },
+        {
+          "texte": " dernière",
+          "debut": 21.28,
+          "fin": 21.66,
+          "probabilite": 0.9968882203102112
+        },
+        {
+          "texte": " poussée",
+          "debut": 21.66,
+          "fin": 22.12,
+          "probabilite": 0.9286380211512247
+        },
+        {
+          "texte": " !",
+          "debut": 22.12,
+          "fin": 22.380000000000003,
+          "probabilite": 0.8753007054328918
+        }
+      ]
+    },
+    {
+      "debut": 22.86,
+      "fin": 23.96,
+      "texte": " Wouaah !",
+      "mots": [
+        {
+          "texte": " Wouaah",
+          "debut": 22.86,
+          "fin": 23.34,
+          "probabilite": 0.40791745111346245
+        },
+        {
+          "texte": " !",
+          "debut": 23.34,
+          "fin": 23.96,
+          "probabilite": 0.22769777476787567
+        }
+      ]
+    },
+    {
+      "debut": 24.86,
+      "fin": 27.5,
+      "texte": " Du sang ? Et pourquoi c'est aussi dur ?",
+      "mots": [
+        {
+          "texte": " Du",
+          "debut": 24.86,
+          "fin": 25.38,
+          "probabilite": 0.5707749128341675
+        },
+        {
+          "texte": " sang",
+          "debut": 25.38,
+          "fin": 25.64,
+          "probabilite": 0.8591153025627136
+        },
+        {
+          "texte": " ?",
+          "debut": 25.64,
+          "fin": 26.22,
+          "probabilite": 0.6560626029968262
+        },
+        {
+          "texte": " Et",
+          "debut": 26.22,
+          "fin": 26.38,
+          "probabilite": 0.8620738387107849
+        },
+        {
+          "texte": " pourquoi",
+          "debut": 26.38,
+          "fin": 26.68,
+          "probabilite": 0.9802489876747131
+        },
+        {
+          "texte": " c",
+          "debut": 26.68,
+          "fin": 26.82,
+          "probabilite": 0.9719826579093933
+        },
+        {
+          "texte": "'est",
+          "debut": 26.82,
+          "fin": 26.86,
+          "probabilite": 0.9991905391216278
+        },
+        {
+          "texte": " aussi",
+          "debut": 26.86,
+          "fin": 27.06,
+          "probabilite": 0.970273494720459
+        },
+        {
+          "texte": " dur",
+          "debut": 27.06,
+          "fin": 27.28,
+          "probabilite": 0.7825869917869568
+        },
+        {
+          "texte": " ?",
+          "debut": 27.28,
+          "fin": 27.54,
+          "probabilite": 0.9642077088356018
+        }
+      ]
+    },
+    {
+      "debut": 27.54,
+      "fin": 30.24,
+      "texte": " Ça fait mal qu'en s'assort, je vais consulter.",
+      "mots": [
+        {
+          "texte": " Ça",
+          "debut": 27.54,
+          "fin": 27.96,
+          "probabilite": 0.5454360842704773
+        },
+        {
+          "texte": " fait",
+          "debut": 27.96,
+          "fin": 28.1,
+          "probabilite": 0.9977931976318359
+        },
+        {
+          "texte": " mal",
+          "debut": 28.1,
+          "fin": 28.28,
+          "probabilite": 0.9874497652053833
+        },
+        {
+          "texte": " qu",
+          "debut": 28.28,
+          "fin": 28.48,
+          "probabilite": 0.5270804762840271
+        },
+        {
+          "texte": "'en",
+          "debut": 28.48,
+          "fin": 28.54,
+          "probabilite": 0.9482959806919098
+        },
+        {
+          "texte": " s",
+          "debut": 28.54,
+          "fin": 28.68,
+          "probabilite": 0.30635663866996765
+        },
+        {
+          "texte": "'assort,",
+          "debut": 28.68,
+          "fin": 28.88,
+          "probabilite": 0.6841266254583994
+        },
+        {
+          "texte": " je",
+          "debut": 29.44,
+          "fin": 29.68,
+          "probabilite": 0.9858375191688538
+        },
+        {
+          "texte": " vais",
+          "debut": 29.68,
+          "fin": 29.78,
+          "probabilite": 0.997459352016449
+        },
+        {
+          "texte": " consulter.",
+          "debut": 29.78,
+          "fin": 30.24,
+          "probabilite": 0.95622185866038
+        }
+      ]
+    },
+    {
+      "debut": 30.7,
+      "fin": 33.36,
+      "texte": " Des celles dures peuvent tiriter la zone et faire seigner.",
+      "mots": [
+        {
+          "texte": " Des",
+          "debut": 30.7,
+          "fin": 30.8,
+          "probabilite": 0.9578322768211365
+        },
+        {
+          "texte": " celles",
+          "debut": 30.8,
+          "fin": 31.18,
+          "probabilite": 0.6843398809432983
+        },
+        {
+          "texte": " dures",
+          "debut": 31.18,
+          "fin": 31.46,
+          "probabilite": 0.6702752858400345
+        },
+        {
+          "texte": " peuvent",
+          "debut": 31.46,
+          "fin": 31.66,
+          "probabilite": 0.9957180619239807
+        },
+        {
+          "texte": " tiriter",
+          "debut": 31.66,
+          "fin": 32.1,
+          "probabilite": 0.535113975405693
+        },
+        {
+          "texte": " la",
+          "debut": 32.1,
+          "fin": 32.28,
+          "probabilite": 0.9277156591415405
+        },
+        {
+          "texte": " zone",
+          "debut": 32.28,
+          "fin": 32.54,
+          "probabilite": 0.9792912602424622
+        },
+        {
+          "texte": " et",
+          "debut": 32.54,
+          "fin": 32.8,
+          "probabilite": 0.9926521182060242
+        },
+        {
+          "texte": " faire",
+          "debut": 32.8,
+          "fin": 33.02,
+          "probabilite": 0.6302178502082825
+        },
+        {
+          "texte": " seigner.",
+          "debut": 33.02,
+          "fin": 33.36,
+          "probabilite": 0.6222925037145615
+        }
+      ]
+    },
+    {
+      "debut": 33.98,
+      "fin": 36.72,
+      "texte": " Le sang peut avoir plusieurs causes, il faut consulter.",
+      "mots": [
+        {
+          "texte": " Le",
+          "debut": 33.98,
+          "fin": 34.1,
+          "probabilite": 0.9717649221420288
+        },
+        {
+          "texte": " sang",
+          "debut": 34.1,
+          "fin": 34.3,
+          "probabilite": 0.3862878084182739
+        },
+        {
+          "texte": " peut",
+          "debut": 34.3,
+          "fin": 34.48,
+          "probabilite": 0.9990748167037964
+        },
+        {
+          "texte": " avoir",
+          "debut": 34.48,
+          "fin": 34.7,
+          "probabilite": 0.9850403070449829
+        },
+        {
+          "texte": " plusieurs",
+          "debut": 34.7,
+          "fin": 35.04,
+          "probabilite": 0.9992786049842834
+        },
+        {
+          "texte": " causes,",
+          "debut": 35.04,
+          "fin": 35.34,
+          "probabilite": 0.8964998126029968
+        },
+        {
+          "texte": " il",
+          "debut": 35.96,
+          "fin": 36.04,
+          "probabilite": 0.977605938911438
+        },
+        {
+          "texte": " faut",
+          "debut": 36.04,
+          "fin": 36.2,
+          "probabilite": 0.9979740977287292
+        },
+        {
+          "texte": " consulter.",
+          "debut": 36.2,
+          "fin": 36.72,
+          "probabilite": 0.9974477887153625
+        }
+      ]
+    },
+    {
+      "debut": 37.16,
+      "fin": 39.16,
+      "texte": " Donc, on évite de se retenir ?",
+      "mots": [
+        {
+          "texte": " Donc,",
+          "debut": 37.16,
+          "fin": 37.46,
+          "probabilite": 0.9739531874656677
+        },
+        {
+          "texte": " on",
+          "debut": 37.6,
+          "fin": 37.84,
+          "probabilite": 0.9885108470916748
+        },
+        {
+          "texte": " évite",
+          "debut": 37.84,
+          "fin": 38.08,
+          "probabilite": 0.7901511192321777
+        },
+        {
+          "texte": " de",
+          "debut": 38.08,
+          "fin": 38.22,
+          "probabilite": 0.994641900062561
+        },
+        {
+          "texte": " se",
+          "debut": 38.22,
+          "fin": 38.32,
+          "probabilite": 0.9774090051651001
+        },
+        {
+          "texte": " retenir",
+          "debut": 38.32,
+          "fin": 38.72,
+          "probabilite": 0.9565022985140482
+        },
+        {
+          "texte": " ?",
+          "debut": 38.72,
+          "fin": 39.16,
+          "probabilite": 0.6925539970397949
+        }
+      ]
+    },
+    {
+      "debut": 39.16,
+      "fin": 42.52,
+      "texte": " Oui, sans forcer, haut, fibres et mouvements aide.",
+      "mots": [
+        {
+          "texte": " Oui,",
+          "debut": 39.16,
+          "fin": 39.4,
+          "probabilite": 0.9689698219299316
+        },
+        {
+          "texte": " sans",
+          "debut": 39.82,
+          "fin": 40.06,
+          "probabilite": 0.9426696300506592
+        },
+        {
+          "texte": " forcer,",
+          "debut": 40.06,
+          "fin": 40.46,
+          "probabilite": 0.8095158040523529
+        },
+        {
+          "texte": " haut,",
+          "debut": 40.88,
+          "fin": 41.08,
+          "probabilite": 0.790946900844574
+        },
+        {
+          "texte": " fibres",
+          "debut": 41.44,
+          "fin": 41.68,
+          "probabilite": 0.6203818917274475
+        },
+        {
+          "texte": " et",
+          "debut": 41.68,
+          "fin": 41.86,
+          "probabilite": 0.9300104975700378
+        },
+        {
+          "texte": " mouvements",
+          "debut": 41.86,
+          "fin": 42.2,
+          "probabilite": 0.824589729309082
+        },
+        {
+          "texte": " aide.",
+          "debut": 42.2,
+          "fin": 42.52,
+          "probabilite": 0.4169251024723053
+        }
+      ]
+    },
+    {
+      "debut": 43.04,
+      "fin": 45.64,
+      "texte": " Abonne-toi, ton corps à d'autres dossiers !",
+      "mots": [
+        {
+          "texte": " Abonne",
+          "debut": 43.04,
+          "fin": 43.26,
+          "probabilite": 0.939009428024292
+        },
+        {
+          "texte": "-toi,",
+          "debut": 43.26,
+          "fin": 43.5,
+          "probabilite": 0.9575565159320831
+        },
+        {
+          "texte": " ton",
+          "debut": 43.86,
+          "fin": 44.02,
+          "probabilite": 0.9774077534675598
+        },
+        {
+          "texte": " corps",
+          "debut": 44.02,
+          "fin": 44.32,
+          "probabilite": 0.9963623881340027
+        },
+        {
+          "texte": " à",
+          "debut": 44.32,
+          "fin": 44.44,
+          "probabilite": 0.7506362795829773
+        },
+        {
+          "texte": " d",
+          "debut": 44.44,
+          "fin": 44.64,
+          "probabilite": 0.9688038229942322
+        },
+        {
+          "texte": "'autres",
+          "debut": 44.64,
+          "fin": 44.78,
+          "probabilite": 0.9961750209331512
+        },
+        {
+          "texte": " dossiers",
+          "debut": 44.78,
+          "fin": 45.22,
+          "probabilite": 0.978948712348938
+        },
+        {
+          "texte": " !",
+          "debut": 45.22,
+          "fin": 45.64,
+          "probabilite": 0.39708852767944336
+        }
+      ]
+    }
+  ],
+  "limite": "Transcription automatique, à comparer aux prises et au script ; ne prouve pas à elle seule le jeu vocal."
+}

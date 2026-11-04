@@ -1,0 +1,256 @@
+{
+  "model": "gemini-2.5-flash",
+  "requested_fps": 24,
+  "reference_id": "r-1145439917a7702636986ce2",
+  "usage": {
+    "promptTokenCount": 199995,
+    "candidatesTokenCount": 2874,
+    "totalTokenCount": 204550,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 160
+      },
+      {
+        "modality": "VIDEO",
+        "tokenCount": 198828
+      },
+      {
+        "modality": "AUDIO",
+        "tokenCount": 1007
+      }
+    ],
+    "thoughtsTokenCount": 1681,
+    "serviceTier": "standard"
+  },
+  "analyse": {
+    "dialogues": [
+      {
+        "time_start": "00:01",
+        "time_end": "00:02",
+        "role": "Caca",
+        "english_line": "Hey, I need to head out!",
+        "french_translation": "Hé, je dois sortir !",
+        "intonation": "Détressée, urgente"
+      },
+      {
+        "time_start": "00:02",
+        "time_end": "00:04",
+        "role": "Garde",
+        "english_line": "Alright, you're cleared. Go ahead.",
+        "french_translation": "D'accord, vous êtes autorisé. Allez-y.",
+        "intonation": "Calme, autoritaire"
+      },
+      {
+        "time_start": "00:05",
+        "time_end": "00:06",
+        "role": "Caca",
+        "english_line": "I'm stuck! I can't move!",
+        "french_translation": "Je suis coincé ! Je ne peux pas bouger !",
+        "intonation": "Frustrée, en difficulté"
+      },
+      {
+        "time_start": "00:06",
+        "time_end": "00:07",
+        "role": "Caca",
+        "english_line": "Help!",
+        "french_translation": "À l'aide !",
+        "intonation": "Désespérée"
+      },
+      {
+        "time_start": "00:07",
+        "time_end": "00:13",
+        "role": "Garde",
+        "english_line": "Hmm, I can't move you. You're too hard and dry. Why have you been holding yourself in so long? Now you've hardened up.",
+        "french_translation": "Hmm, je ne peux pas vous faire bouger. Vous êtes trop dur et sec. Pourquoi vous êtes-vous retenu si longtemps ? Maintenant, vous avez durci.",
+        "intonation": "Préoccupée, puis sévère"
+      },
+      {
+        "time_start": "00:14",
+        "time_end": "00:17",
+        "role": "Garde",
+        "english_line": "There's nothing else I can do. I'll have to mark you so the owner knows something's wrong.",
+        "french_translation": "Il n'y a rien d'autre que je puisse faire. Je vais devoir vous marquer pour que le propriétaire sache que quelque chose ne va pas.",
+        "intonation": "Résignée, informative"
+      },
+      {
+        "time_start": "00:20",
+        "time_end": "00:21",
+        "role": "Garde",
+        "english_line": "Okay, one more push!",
+        "french_translation": "D'accord, une dernière poussée !",
+        "intonation": "Déterminée"
+      },
+      {
+        "time_start": "00:25",
+        "time_end": "00:26",
+        "role": "Personne",
+        "english_line": "Oh, blood.",
+        "french_translation": "Oh, du sang.",
+        "intonation": "Surprise, inquiète"
+      },
+      {
+        "time_start": "00:26",
+        "time_end": "00:29",
+        "role": "Personne",
+        "english_line": "Why's my poop so hard and red these days? It even hurts when coming out.",
+        "french_translation": "Pourquoi mon caca est-il si dur et rouge ces jours-ci ? Ça fait même mal en sortant.",
+        "intonation": "Inquiète"
+      },
+      {
+        "time_start": "00:29",
+        "time_end": "00:31",
+        "role": "Personne",
+        "english_line": "I need to get this checked.",
+        "french_translation": "Je dois faire vérifier ça.",
+        "intonation": "Résolue"
+      }
+    ],
+    "shots": [
+      {
+        "time": "00:00",
+        "actions_detailed": "Un personnage en forme de caca, l'air constipé, apparaît à droite d'une porte étiquetée 'POOP EXIT'. Un garde, représentant le côlon, se tient devant la porte, l'air sévère."
+      },
+      {
+        "time": "00:02",
+        "actions_detailed": "Le garde ouvre légèrement la porte. Le personnage caca tente de passer mais reste coincé dans l'ouverture."
+      },
+      {
+        "time": "00:06",
+        "actions_detailed": "Le garde essaie de pousser le personnage caca à travers la porte, montrant des signes d'effort."
+      },
+      {
+        "time": "00:13",
+        "actions_detailed": "Le garde sort un marqueur rouge et dessine des lignes rouges sur le personnage caca, symbolisant des blessures ou du sang."
+      },
+      {
+        "time": "00:21",
+        "actions_detailed": "Le garde pousse avec force le personnage caca, qui finit par passer la porte, laissant des traces rouges sur le cadre de la porte."
+      },
+      {
+        "time": "00:22",
+        "actions_detailed": "Vue en coupe de l'anus, montrant le personnage caca, marqué de rouge, s'extirpant avec difficulté, puis tombant dans la cuvette des toilettes."
+      },
+      {
+        "time": "00:24",
+        "actions_detailed": "Un homme en pyjama bleu regarde la cuvette des toilettes, l'air choqué et préoccupé par le caca marqué de rouge."
+      }
+    ],
+    "quick_actions": [
+      {
+        "time": "00:00",
+        "type": "contact",
+        "members": "pieds du caca",
+        "trajectory": "vers le centre",
+        "object": "sol"
+      },
+      {
+        "time": "00:02",
+        "type": "ouverture",
+        "members": "main du garde",
+        "trajectory": "vers l'intérieur",
+        "object": "porte"
+      },
+      {
+        "time": "00:04",
+        "type": "contact",
+        "members": "corps du caca",
+        "trajectory": "vers l'avant",
+        "object": "cadre de la porte"
+      },
+      {
+        "time": "00:06",
+        "type": "poussée",
+        "members": "mains du garde",
+        "trajectory": "vers l'avant",
+        "object": "dos du caca"
+      },
+      {
+        "time": "00:13",
+        "type": "prise",
+        "members": "main du garde",
+        "trajectory": "vers le haut",
+        "object": "marqueur"
+      },
+      {
+        "time": "00:14",
+        "type": "dessin",
+        "members": "main du garde",
+        "trajectory": "sur le caca",
+        "object": "marqueur"
+      },
+      {
+        "time": "00:21",
+        "type": "poussée",
+        "members": "mains du garde",
+        "trajectory": "vers l'avant",
+        "object": "dos du caca"
+      },
+      {
+        "time": "00:22",
+        "type": "recul",
+        "members": "corps du caca",
+        "trajectory": "vers le bas",
+        "object": "anus"
+      }
+    ],
+    "bruitages": [
+      {
+        "time": "00:00",
+        "description": "Bruit de pas du caca"
+      },
+      {
+        "time": "00:00",
+        "description": "Musique de fond légère"
+      },
+      {
+        "time": "00:02",
+        "description": "Bruit de porte qui s'ouvre"
+      },
+      {
+        "time": "00:04",
+        "description": "Bruit de frottement/coincement"
+      },
+      {
+        "time": "00:06",
+        "description": "Gémissements d'effort du garde"
+      },
+      {
+        "time": "00:18",
+        "description": "Bruit de marqueur sur une surface"
+      },
+      {
+        "time": "00:21",
+        "description": "Gémissements d'effort intenses du garde"
+      },
+      {
+        "time": "00:22",
+        "description": "Bruit de 'splat' et de chute dans l'eau"
+      }
+    ],
+    "musique": {
+      "pulsation": "Modérée",
+      "instruments": "Synthétiseur, percussions légères",
+      "niveau": "Faible à moyen, accentuant l'action"
+    },
+    "conclusion": "La vidéo utilise une animation humoristique pour illustrer le problème de la constipation. Un personnage en forme de caca, dur et sec, a du mal à sortir par la 'sortie caca', gardée par un personnage représentant le côlon. Le garde explique que le caca est trop dur et sec car il s'est retenu trop longtemps. Après avoir marqué le caca pour indiquer un problème, le garde le pousse avec force, causant des saignements symboliques. L'homme aux toilettes est choqué de voir du sang et décide de consulter un médecin, soulignant l'importance de ne pas ignorer de tels symptômes.",
+    "faits_medicaux_a_corriger": [
+      {
+        "description": "La représentation du caca 'durci' et 'sec' est une simplification de la constipation. La constipation est caractérisée par des selles rares ou difficiles à évacuer, souvent dures et petites.",
+        "correction": "La constipation est un problème courant où les selles deviennent dures et difficiles à passer, souvent en raison d'un manque de fibres, d'hydratation ou d'activité physique, ou d'une rétention volontaire des selles."
+      },
+      {
+        "description": "Le fait de 'se retenir' est présenté comme la cause unique du durcissement. Bien que la rétention puisse aggraver la constipation, d'autres facteurs contribuent également.",
+        "correction": "Se retenir d'aller à la selle peut effectivement rendre les selles plus dures, car le côlon continue d'absorber l'eau. Cependant, la constipation peut aussi être causée par une alimentation pauvre en fibres, une hydratation insuffisante, un manque d'exercice, certains médicaments ou des conditions médicales sous-jacentes."
+      },
+      {
+        "description": "Le 'saignement' symbolisé par les marques rouges et la réaction de l'homme est une représentation directe et simplifiée d'un symptôme qui peut avoir plusieurs causes.",
+        "correction": "La présence de sang dans les selles, surtout si elles sont dures et douloureuses, peut indiquer des hémorroïdes (gonflement des veines dans le rectum ou l'anus) ou des fissures anales (petites déchirures dans la muqueuse anale), souvent causées par des efforts de défécation. Dans des cas plus rares, cela peut signaler des problèmes plus graves, d'où l'importance de consulter un professionnel de la santé."
+      },
+      {
+        "description": "Le garde 'marquant' le caca pour que le 'propriétaire' sache que 'quelque chose ne va pas' est une métaphore pour l'observation des symptômes par l'individu.",
+        "correction": "Il est crucial de surveiller l'apparence de ses selles (couleur, consistance, présence de sang) et la fréquence des défécations, car ces observations peuvent être des indicateurs importants de la santé digestive et nécessiter une consultation médicale."
+      }
+    ]
+  }
+}

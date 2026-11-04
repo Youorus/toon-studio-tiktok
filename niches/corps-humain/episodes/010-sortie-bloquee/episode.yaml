@@ -1,0 +1,220 @@
+titre: La sortie est bloquée
+niche: corps-humain
+degrade_bas: false
+voix:
+  caca:
+    voix: lascar
+    stabilite: 0.33
+  policier:
+    voix: pere
+    stabilite: 0.33
+  lea:
+    voix: patiente
+    stabilite: 0.43
+  docteure:
+    voix: mere
+    stabilite: 0.46
+bruitages:
+  toc:
+    fichier: episodes/006-antibioresistance-v3/sons/stop.wav
+    volume: 0.28
+  glisse:
+    fichier: episodes/006-antibioresistance-v3/sons/glisse.wav
+    volume: 0.24
+  ploc:
+    fichier: episodes/006-antibioresistance/sons/ploc.wav
+    volume: 0.39
+plans:
+- id: sortie
+  organe: Rectum
+  decor: art/rectum-corail.png
+  transition: coupe
+  zoom:
+  - 1
+  - 1
+  acteurs:
+    policier:
+      perso: personnages/policier
+      x: 262
+      y: 1230
+      echelle: 1.25
+      regard:
+      - 0.8
+      - 0
+    caca:
+      perso: personnages/caca
+      x: 650
+      y: 1336
+      echelle: 1.1
+      regard:
+      - -0.8
+      - 0
+  mini_badges:
+  - acteur: caca
+    texte: Selle
+    delai: 0.1
+    duree: 1.65
+    decalage:
+    - 0
+    - -150
+  - acteur: policier
+    texte: Sphincter
+    replique: 1
+    duree: 1.8
+    decalage:
+    - -18
+    - -138
+  repliques:
+  - qui: caca
+    dit: Hé ! Je dois sortir !
+    sous_titres: Hé ! Je dois sortir !
+    jeu: '[urgent, quick, calling to the guard] Hé ! Je dois sortir !'
+    emotion: inquiet
+    pause: 0.12
+  - qui: policier
+    dit: C’est bon, vas-y. La voie est libre.
+    sous_titres: C’est bon, vas-y. | La voie est libre.
+    jeu: '[brisk, casual authority, conversational] C’est bon, vas-y. La voie est
+      libre.'
+    emotion: content
+    pause: 0.12
+  - qui: caca
+    dit: Je suis coincé ! J’arrive plus à bouger ! Au secours !
+    sous_titres: Je suis coincé ! | J’arrive plus à bouger ! | Au secours !
+    jeu: '[straining, increasingly panicked, comic, articulate] Je suis coincé ! J’arrive
+      plus à bouger ! Au secours !'
+    emotion: choque
+    pause: 0.18
+  - qui: policier
+    dit: Ah ouais… T’es dur comme du béton ! T’as attendu trop longtemps, toi.
+    sous_titres: Ah ouais… | T’es dur comme du béton ! | T’as attendu trop longtemps,
+      toi.
+    jeu: '[effort then incredulous, dry teasing, quick] Ah ouais… T’es dur comme du
+      béton ! T’as attendu trop longtemps, toi.'
+    emotion: fatigue
+    pause: 0.12
+  - qui: caca
+    dit: J’ai séché sur place, chef !
+    sous_titres: J’ai séché sur place, chef !
+    jeu: '[indignant, breathless, a little whiny] J’ai séché sur place, chef !'
+    emotion: fache
+    pause: 0.16
+  - qui: policier
+    dit: Bon. Alerte rouge ! Faut qu’elle voie qu’il y a un souci.
+    sous_titres: Bon. Alerte rouge ! | Faut qu’elle voie | qu’il y a un souci.
+    jeu: '[resigned, matter-of-fact, comic emphasis on rouge] Bon. Alerte rouge !
+      Faut qu’elle voie qu’il y a un souci.'
+    emotion: inquiet
+    pause: 0.34
+  - qui: policier
+    dit: Allez… Une dernière poussée !
+    sous_titres: Allez… | Une dernière poussée !
+    jeu: '[straining, determined, rising energy] Allez… Une dernière poussée !'
+    emotion: fache
+    pause: 0.15
+- id: passage
+  organe: Rectum
+  decor: art/passage-corail.png
+  transition: coupe
+  zoom:
+  - 1
+  - 1
+  acteurs:
+    caca:
+      perso: personnages/caca
+      x: 548
+      y: 1120
+      echelle: 0.65
+      regard:
+      - 0
+      - 0
+  repliques:
+  - qui: caca
+    dit: Hooop là !
+    sous_titres: Hooop là !
+    jeu: '[sudden relieved yelp, sliding down] Hooop là !'
+    emotion: choque
+    pause: 0.6
+- id: toilettes
+  decor: art/toilettes.png
+  transition: coupe
+  zoom:
+  - 1
+  - 1
+  acteurs:
+    lea:
+      perso: personnages/lea-aplats
+      x: 749
+      y: 1660
+      echelle: 1.02
+      regard:
+      - -0.7
+      - 0.7
+  repliques:
+  - qui: lea
+    dit: Du sang ?! Et pourquoi c’est aussi dur ? Ça fait mal quand ça sort… Je vais
+      consulter.
+    sous_titres: Du sang ?! | Et pourquoi c’est aussi dur ? | Ça fait mal quand ça
+      sort… | Je vais consulter.
+    jeu: '[surprised then concerned, natural spoken French, brisk] Du sang ?! Et pourquoi
+      c’est aussi dur ? Ça fait mal quand ça sort… Je vais consulter.'
+    emotion: inquiet
+    pause: 0.18
+- id: cabinet
+  decor: art/cabinet-010.png
+  transition: coupe
+  zoom:
+  - 1
+  - 1
+  acteurs:
+    lea:
+      perso: personnages/lea-aplats
+      x: 703
+      y: 1612
+      echelle: 1.06
+      regard:
+      - -0.85
+      - -0.5
+    docteure:
+      perso: personnages/docteure-aplats
+      x: 309
+      y: 1612
+      echelle: 1.08
+      regard:
+      - 0.8
+      - 0.5
+  repliques:
+  - qui: docteure
+    dit: 'Des selles dures peuvent irriter la zone et faire saigner. Le sang peut
+      avoir plusieurs causes : il faut consulter.'
+    sous_titres: 'Des selles dures peuvent irriter la zone | et faire saigner. | Le
+      sang peut avoir plusieurs causes : | il faut consulter.'
+    jeu: '[clear, caring, concise, conversational, stress consulter] Des selles dures
+      peuvent irriter la zone et faire saigner. Le sang peut avoir plusieurs causes
+      : il faut consulter.'
+    emotion: neutre
+    pause: 0.15
+  - qui: lea
+    dit: Donc, on évite de se retenir ?
+    sous_titres: Donc, on évite de se retenir ?
+    jeu: '[quick, genuinely asking] Donc, on évite de se retenir ?'
+    emotion: inquiet
+    pause: 0.1
+  - qui: docteure
+    dit: 'Oui. Sans forcer. Eau, fibres et mouvement aident. Abonne-toi : ton corps
+      a d’autres dossiers !'
+    sous_titres: 'Oui. Sans forcer. | Eau, fibres et mouvement aident. | Abonne-toi
+      : | ton corps a d’autres dossiers !'
+    jeu: '[warm, brisk, practical, then a knowing smile] Oui. Sans forcer. Eau, fibres
+      et mouvement aident. Abonne-toi : ton corps a d’autres dossiers !'
+    emotion: content
+    pause: 0.4
+    carte:
+      type: bouton
+      texte: ABONNE-TOI
+      couleur: '#24666D'
+      largeur: 610
+    regards:
+      docteure:
+      - 0
+      - 0

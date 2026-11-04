@@ -1,0 +1,46 @@
+nom: La selle coincée
+type: organe
+couches:
+- id: corps
+  pivot:
+  - 155
+  - 410
+  images:
+    defaut: corps.png
+visage:
+  couche: corps
+  yeux:
+  - 173
+  - 175
+  rayon_oeil: 26
+  ecart: 2.2
+  bouche:
+  - 178
+  - 242
+  largeur_bouche: 57
+  peau: '#71392E'
+  pupille: 0.76
+  trait: 0.13
+  paupiere: 0.1
+membres:
+  bras:
+    epaule_g:
+    - 30
+    - 250
+    epaule_d:
+    - 285
+    - 250
+    longueur: 77
+    epaisseur: 9
+  jambes:
+    hanche_g:
+    - 105
+    - 398
+    hanche_d:
+    - 220
+    - 398
+    longueur: 66
+    epaisseur: 10
+mouvement:
+  souplesse: 0.28
+  respiration: 0.003

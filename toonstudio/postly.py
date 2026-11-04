@@ -78,7 +78,9 @@ def prepare(folders=None):
                  (folder/'provenance.md','provenance','Provenance et choix de fabrication','project')]
         sources.extend((ROOT/'docs'/name,ident,label,'project') for name,ident,label in (
             ('SCENARIOS-RETENTION.md','editorial-guide','Scénarios et objectif 10 000 abonnés'),
-            ('MASTER-PROMPT-TIKTOK.md','editorial-master','Master prompt éditorial de Marc')))
+            ('MASTER-PROMPT-TIKTOK.md','editorial-master','Master prompt éditorial de Marc'),
+            ('WORKFLOWS-ET-SKILLS.md','workflows-guide','Workflows, skills et réemploi du kit'),
+            ('PLANNING-EDITORIAL.md','editorial-calendar','Planning éditorial et mesures du compte')))
         # Garder aussi toutes les archives des révisions déjà livrées.
         for prior in sorted(archive.parent.glob(folder.name+'-*.zip')):
             if prior!=archive:

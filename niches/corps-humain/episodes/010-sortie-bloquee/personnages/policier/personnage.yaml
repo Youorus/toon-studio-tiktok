@@ -1,0 +1,43 @@
+nom: Le gardien du sphincter
+type: humain
+couches:
+- id: corps
+  images:
+    defaut: corps.png
+    travail: corps-travail.png
+  pivot:
+  - 138
+  - 225
+- id: bottes
+  parent: corps
+  attache:
+  - 138
+  - 338
+  pivot:
+  - 138
+  - 0
+  z: -1
+  images:
+    defaut: bottes.png
+visage:
+  couche: corps
+  yeux:
+  - 173
+  - 160
+  rayon_oeil: 22
+  ecart: 2.28
+  trait: 0.135
+  bouche:
+  - 179
+  - 220
+  largeur_bouche: 43
+  peau: '#F1A96E'
+  pupille: 0.78
+  paupiere: 0.13
+poses:
+  travail:
+    corps:
+      image: travail
+mouvement:
+  souplesse: 0.1
+  respiration: 0.002

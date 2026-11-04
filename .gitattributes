@@ -1,0 +1,2 @@
+# iCalendar conserve ses fins de ligne CRLF à l'export et reste normalisé dans Git.
+*.ics text eol=crlf
