@@ -78,5 +78,7 @@ data/                journal des dépenses ; cache/ (non versionné)
 - [Profil visuel et sonore lcp-1.1.0](niches/corps-humain/profil-verrou.json)
 - [Épisode étalon 006 · La bactérie qui n’a pas bougé](niches/corps-humain/episodes/006-antibioresistance-v3/)
 - [Épisode 007 · Le colis surprise du placenta](niches/corps-humain/episodes/007-alcool-grossesse/)
+- [Épisode 008 · Estomac en surcharge](niches/corps-humain/episodes/008-estomac-sature/)
+- [Exemple de scénario original · Le tympan a quitté le groupe](niches/corps-humain/scenarios/exemple-le-tympan-a-quitte-le-groupe.md)
 
 Le code et les actifs studio sont versionnés. Les masters, les prises enregistrées et les archives de production sont conservés à part, avec leurs empreintes. Une nouvelle niche peut partir du même moteur avec son propre casting, ses décors et ses réglages.

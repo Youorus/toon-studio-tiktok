@@ -1,0 +1,218 @@
+titre: Estomac en surcharge
+niche: corps-humain
+degrade_bas: false
+voix:
+  estomac:
+    voix: blase
+    stabilite: 0.38
+  cerveau:
+    voix: chef
+    stabilite: 0.4
+  lea:
+    voix: patiente
+    stabilite: 0.45
+  docteure:
+    voix: mere
+    stabilite: 0.48
+bruitages:
+  ploc:
+    fichier: episodes/006-antibioresistance/sons/ploc.wav
+    volume: 0.46
+  plouf:
+    fichier: episodes/006-antibioresistance-v2/sons/plouf.wav
+    volume: 0.48
+  glisse:
+    fichier: episodes/006-antibioresistance-v3/sons/glisse.wav
+    volume: 0.26
+  ring:
+    fichier: episodes/006-antibioresistance-v3/sons/radio.wav
+    volume: 0.45
+plans:
+- id: arrivage
+  decor: decors/estomac-corail.png
+  organe: Estomac
+  transition: coupe
+  zoom:
+  - 1
+  - 1
+  acteurs:
+    estomac:
+      perso: episodes/006-antibioresistance/personnages/estomac
+      x: 803
+      y: 801
+      echelle: 1.28
+      regard:
+      - -0.64
+      - 0.32
+  repliques:
+  - qui: estomac
+    dit: Un burger ? Ça, c’est dans mes cordes. Allez, on attaque !
+    sous_titres: Un burger ? | Ça, c’est dans mes cordes. | Allez, on attaque !
+    jeu: '[delighted, picking up pace, playful] Un burger ? Ça, c’est dans mes cordes.
+      Allez, on attaque !'
+    emotion: content
+    pause: 0.2
+  - qui: estomac
+    dit: Attends… Encore un ? Et les frites qui débarquent derrière ?
+    sous_titres: Attends… | Encore un ? | Et les frites qui débarquent derrière ?
+    jeu: '[surprised, quick, getting suspicious] Attends… Encore un ? Et les frites
+      qui débarquent derrière ?'
+    emotion: choque
+    pause: 0.19
+  - qui: estomac
+    dit: Oh ! Même le poulet ? Léa, t’as commandé pour toute la copro ou quoi ?
+    sous_titres: Oh ! Même le poulet ? | Léa, t’as commandé | pour toute la copro
+      ou quoi ?
+    jeu: '[sharp, exasperated, comic emphasis] Oh ! Même le poulet ? Léa, t’as commandé
+      pour toute la copro ou quoi ?'
+    emotion: fache
+    pause: 0.24
+  - qui: estomac
+    dit: Un soda en plus ? Léa, je suis un estomac, pas la piscine municipale !
+    sous_titres: Un soda en plus ? | Léa, je suis un estomac, | pas la piscine municipale
+      !
+    jeu: '[startled and sarcastic, hit the punchline] Un soda en plus ? Léa, je suis
+      un estomac, pas la piscine municipale !'
+    emotion: choque
+    pause: 0.24
+  - qui: estomac
+    dit: Ça monte, ça monte… Je vois même plus mes couverts. Bon. J’appelle le cerveau.
+    sous_titres: Ça monte, ça monte… | Je vois même plus mes couverts. | Bon. J’appelle
+      le cerveau.
+    jeu: '[strained, breathless, decisive] Ça monte, ça monte… Je vois même plus mes
+      couverts. Bon. J’appelle le cerveau.'
+    emotion: inquiet
+    pause: 0.48
+- id: appel
+  decor: art/appel-corail.png
+  organe: Cerveau
+  transition: coupe
+  zoom:
+  - 1
+  - 1
+  acteurs:
+    cerveau:
+      perso: personnages/cerveau
+      x: 540
+      y: 728
+      echelle: 0.92
+      regard:
+      - 0.0
+      - 0.69
+    estomac:
+      perso: episodes/006-antibioresistance/personnages/estomac
+      x: 752
+      y: 1254
+      echelle: 1.18
+      regard:
+      - 0.0
+      - -0.7
+  repliques:
+  - qui: cerveau
+    dit: Allô, ici le cerveau. Tu peux parler ?
+    sous_titres: Allô, ici le cerveau. | Tu peux parler ?
+    jeu: '[businesslike, dry, then curious] Allô, ici le cerveau. Tu peux parler ?'
+    emotion: neutre
+    pause: 0.13
+  - qui: estomac
+    dit: J’peux encore parler. Par contre, j’ai des frites jusqu’au cou !
+    sous_titres: J’peux encore parler. | Par contre, j’ai des frites jusqu’au cou
+      !
+    jeu: '[frustrated, quick, emphatic] J’peux encore parler. Par contre, j’ai des
+      frites jusqu’au cou !'
+    emotion: fache
+    pause: 0.19
+  - qui: cerveau
+    dit: Elle a déjà mangé tout ça ? Je lui ai envoyé le signal, moi.
+    sous_titres: Elle a déjà mangé tout ça ? | Je lui ai envoyé le signal, moi.
+    jeu: '[incredulous, worried, quick] Elle a déjà mangé tout ça ? Je lui ai envoyé
+      le signal, moi.'
+    emotion: inquiet
+    pause: 0.19
+  - qui: estomac
+    dit: Bah renvoie-le ! Et mets « urgent » en objet.
+    sous_titres: Bah renvoie-le ! | Et mets « urgent » en objet.
+    jeu: '[snappy, with comic timing and a dry finish] Bah renvoie-le ! Et mets «
+      urgent » en objet.'
+    emotion: fache
+    pause: 0.45
+  - qui: cerveau
+    dit: On fait une pause. On l’écoute, ce ventre.
+    sous_titres: On fait une pause. | On l’écoute, ce ventre.
+    jeu: '[firm, settling, reassuring] On fait une pause. On l’écoute, ce ventre.'
+    emotion: neutre
+    pause: 0.38
+  mini_badges:
+  - acteur: estomac
+    texte: Estomac
+    delai: 0.15
+    duree: 1.62
+    decalage:
+    - -260
+    - -136
+- id: cabinet
+  decor: art/cabinet-008.png
+  transition: coupe
+  zoom:
+  - 1
+  - 1
+  acteurs:
+    lea:
+      perso: personnages/lea-corpulence
+      x: 710
+      y: 1612
+      echelle: 1.0
+      regard:
+      - -0.85
+      - -0.5
+    docteure:
+      perso: personnages/docteure-aplats
+      x: 309
+      y: 1612
+      echelle: 1.08
+      regard:
+      - 0.8
+      - 0.5
+  repliques:
+  - qui: lea
+    dit: Docteure, quand je mange vite, j’ai le ventre hyper lourd après. Et j’ai
+      du mal à m’arrêter.
+    sous_titres: Docteure, quand je mange vite, | j’ai le ventre hyper lourd après.
+      | Et j’ai du mal à m’arrêter.
+    jeu: '[natural, concerned, no shame] Docteure, quand je mange vite, j’ai le ventre
+      hyper lourd après. Et j’ai du mal à m’arrêter.'
+    emotion: inquiet
+    pause: 0.19
+  - qui: docteure
+    dit: Un repas très copieux ou très gras peut te laisser cette sensation de trop-plein.
+    sous_titres: Un repas très copieux ou très gras | peut te laisser cette sensation
+      de trop-plein.
+    jeu: '[clear, warm and conversational] Un repas très copieux ou très gras peut
+      te laisser cette sensation de trop-plein.'
+    emotion: neutre
+    pause: 0.21
+  - qui: docteure
+    dit: Essaie de manger plus lentement et de faire une pause en cours de repas.
+      Si ça revient souvent, on en reparle.
+    sous_titres: Essaie de manger plus lentement | et de faire une pause en cours
+      de repas. | Si ça revient souvent, on en reparle.
+    jeu: '[kind, practical, direct] Essaie de manger plus lentement et de faire une
+      pause en cours de repas. Si ça revient souvent, on en reparle.'
+    emotion: neutre
+    pause: 0.23
+  - qui: docteure
+    dit: Abonne-toi, ton corps a encore des trucs à te dire.
+    sous_titres: Abonne-toi, | ton corps a encore des trucs à te dire.
+    jeu: '[warm, smiling, direct to camera] Abonne-toi, ton corps a encore des trucs
+      à te dire.'
+    emotion: content
+    pause: 0.42
+    carte:
+      type: bouton
+      texte: ABONNE-TOI
+      couleur: '#24666D'
+      largeur: 610
+    regards:
+      docteure:
+      - 0
+      - 0

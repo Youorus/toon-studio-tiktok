@@ -1,0 +1,12 @@
+titre: Estomac en surcharge
+calques:
+  - {nom: Cerveau détouré, fichier: personnages/cerveau/corps.png}
+  - {nom: Gabarit de Léa du 008, fichier: personnages/lea-corpulence/corps.png}
+  - {nom: Téléphone en calque, fichier: art/telephone.png}
+captures:
+  - {seconde: 24.70, nom: Appel partagé}
+  - {seconde: 0.68, nom: Burger à la fourchette}
+  - {seconde: 44.20, nom: Consultation}
+fabrication: >
+  Toon Studio a créé les dessins et les calques, animé les gestes et l’appel, enregistré les prises françaises et composé la musique.
+  Une vidéo Dr Healthcare a servi de référence de mise en scène. Les dialogues, les dessins et les sons du master proviennent du projet du studio.

@@ -1,0 +1,35 @@
+nom: Léa · costume et gabarit du 008
+type: humain
+couches:
+- id: corps
+  images:
+    defaut: corps.png
+  pivot:
+  - 205
+  - 740
+visage:
+  mode: dessine
+  couche: corps
+  yeux:
+  - - 158
+    - 79
+    - 184
+    - 104
+  - - 200
+    - 79
+    - 228
+    - 107
+  yeux_precis: true
+  bouche:
+    zone:
+    - 179
+    - 139
+    - 207
+    - 153
+    centre:
+    - 193
+    - 146
+    largeur: 29
+mouvement:
+  souplesse: 0.08
+  respiration: 0.003
