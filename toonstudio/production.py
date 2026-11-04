@@ -138,6 +138,9 @@ def archive(folder,master,dry,dependencies):
         for path in (*[ROOT/item for item in SOURCES],folder,niche_dir/'niche.yaml',niche_dir/'kit.yaml',
                      niche_dir/PROFILE,niche_dir/'personnages',niche_dir/'decors',ROOT/'docs'/'DIRECTION-ARTISTIQUE.md'):
             copy_project_path(path,root)
+        for name in ('README.md','README-PASSATION.md','AGENTS.md','CLAUDE.md','GEMINI.md','docs/PRODUCTION.md'):
+            if (ROOT/name).is_file():
+                copy_project_path(ROOT/name,root)
         for item in dependencies:
             dep=niche_dir/'episodes'/item
             if dep.parent!=niche_dir/'episodes' or not dep.is_dir():

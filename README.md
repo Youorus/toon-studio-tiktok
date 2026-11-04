@@ -64,6 +64,7 @@ data/                journal des dépenses ; cache/ (non versionné)
 
 ## Guides
 
+- [Passation à Codex, Claude ou Gemini](README-PASSATION.md)
 - [Produire, verrouiller et archiver un épisode](docs/PRODUCTION.md)
 - [Architecture et rendu](docs/ARCHITECTURE.md)
 - [Direction artistique et couleurs](docs/DIRECTION-ARTISTIQUE.md)
