@@ -1,0 +1,215 @@
+titre: Le buffet de la langue
+niche: corps-humain
+degrade_bas: false
+voix:
+  cerveau:
+    voix: chef
+    stabilite: 0.4
+  verte:
+    voix: lascar
+    stabilite: 0.36
+  rouge:
+    voix: ado_garcon
+    stabilite: 0.32
+  ami:
+    voix: patient
+    stabilite: 0.4
+  lea:
+    voix: patiente
+    stabilite: 0.45
+  docteure:
+    voix: mere
+    stabilite: 0.48
+bruitages:
+  ploc:
+    fichier: episodes/006-antibioresistance/sons/ploc.wav
+    volume: 0.35
+  glisse:
+    fichier: episodes/006-antibioresistance-v3/sons/glisse.wav
+    volume: 0.27
+  stop:
+    fichier: episodes/006-antibioresistance-v3/sons/stop.wav
+    volume: 0.28
+plans:
+- id: reveil
+  organe: Cerveau
+  decor: art/cerveau-corail.png
+  transition: coupe
+  zoom:
+  - 1
+  - 1
+  acteurs:
+    cerveau:
+      perso: episodes/008-estomac-sature/personnages/cerveau
+      x: 540
+      y: 1114
+      echelle: 1.15
+      regard:
+      - 0
+      - 0
+  repliques:
+  - qui: cerveau
+    dit: Ah ! Enfin réveillés ! Allez, debout là-dedans !
+    sous_titres: Ah ! Enfin réveillés ! | Allez, debout là-dedans !
+    jeu: '[waking up, stretching, then cheerful] Ah ! Enfin réveillés ! Allez, debout
+      là-dedans !'
+    emotion: content
+    pause: 0.2
+- id: buffet
+  organe: Bouche
+  decor: art/bouche-corail.png
+  transition: coupe
+  zoom:
+  - 1
+  - 1
+  acteurs:
+    verte:
+      perso: personnages/verte
+      x: 363
+      y: 1199
+      echelle: 1.46
+      regard:
+      - 0.7
+      - 0
+    rouge:
+      perso: personnages/rouge
+      x: 747
+      y: 1333
+      echelle: 1.06
+      regard:
+      - -0.7
+      - 0
+  mini_badges:
+  - acteur: verte
+    texte: Bactéries
+    delai: 0.13
+    duree: 1.8
+    decalage:
+    - 4
+    - -170
+  repliques:
+  - qui: verte
+    dit: Oh, les restes ! Personne nous a passé la brosse ? Les gars, c’est buffet
+      à volonté !
+    sous_titres: Oh, les restes ! | Personne nous a passé la brosse ? | Les gars,
+      c’est buffet à volonté !
+    jeu: '[gleeful, cheeky, fast but articulate] Oh, les restes ! Personne nous a
+      passé la brosse ? Les gars, c’est buffet à volonté !'
+    emotion: content
+    pause: 0.18
+  - qui: rouge
+    dit: Hé, tu m’en gardes un morceau ?
+    sous_titres: Hé, tu m’en gardes un morceau ?
+    jeu: '[playful, asking quickly] Hé, tu m’en gardes un morceau ?'
+    emotion: inquiet
+    pause: 0.15
+  - qui: verte
+    dit: Sers-toi, mon pote ! Ici, on ferme jamais !
+    sous_titres: Sers-toi, mon pote ! | Ici, on ferme jamais !
+    jeu: '[boastful, amused, with a laugh] Sers-toi, mon pote ! Ici, on ferme jamais
+      !'
+    emotion: malicieux
+    pause: 0.36
+- id: petit-dejeuner
+  decor: art/petit-dejeuner.png
+  transition: coupe
+  zoom:
+  - 1.4
+  - 1.4
+  centre:
+  - 540
+  - 1270
+  acteurs:
+    ami:
+      perso: personnages/ami
+      x: 299
+      y: 1665
+      echelle: 1.03
+      regard:
+      - 0.8
+      - 0
+    lea:
+      perso: personnages/lea-aplats
+      x: 793
+      y: 1665
+      echelle: 0.86
+      regard:
+      - -0.8
+      - -0.1
+  repliques:
+  - qui: ami
+    dit: Ça va ? T’as bien dormi ?
+    sous_titres: Ça va ? | T’as bien dormi ?
+    jeu: '[warm, casual, conversational] Ça va ? T’as bien dormi ?'
+    emotion: content
+    pause: 0.15
+  - qui: lea
+    dit: Oui… mais ton haleine, elle a fait nuit blanche !
+    sous_titres: Oui… mais ton haleine, | elle a fait nuit blanche !
+    jeu: '[first gentle then teasing, holding nose] Oui… mais ton haleine, elle a
+      fait nuit blanche !'
+    emotion: degoute
+    pause: 0.44
+- id: cabinet
+  decor: art/cabinet-009.png
+  transition: coupe
+  zoom:
+  - 1
+  - 1
+  acteurs:
+    lea:
+      perso: personnages/lea-aplats
+      x: 703
+      y: 1612
+      echelle: 1.06
+      regard:
+      - -0.85
+      - -0.5
+    docteure:
+      perso: personnages/docteure-aplats
+      x: 309
+      y: 1612
+      echelle: 1.08
+      regard:
+      - 0.8
+      - 0.5
+  repliques:
+  - qui: lea
+    dit: Docteure, ça vient d’où, cette odeur ?
+    sous_titres: Docteure, ça vient d’où, cette odeur ?
+    jeu: '[genuinely curious and natural] Docteure, ça vient d’où, cette odeur ?'
+    emotion: inquiet
+    pause: 0.18
+  - qui: docteure
+    dit: Souvent, des bactéries dans la bouche. En dégradant des résidus, elles libèrent
+      des composés malodorants.
+    sous_titres: Souvent, des bactéries dans la bouche. | En dégradant des résidus,
+      | elles libèrent des composés malodorants.
+    jeu: '[warm, clear, conversational] Souvent, des bactéries dans la bouche. En
+      dégradant des résidus, elles libèrent des composés malodorants.'
+    emotion: neutre
+    pause: 0.18
+  - qui: docteure
+    dit: On brosse dents et langue en douceur. Si ça persiste, parles-en à ton dentiste.
+    sous_titres: On brosse dents et langue en douceur. | Si ça persiste, | parles-en
+      à ton dentiste.
+    jeu: '[practical, kind and direct] On brosse dents et langue en douceur. Si ça
+      persiste, parles-en à ton dentiste.'
+    emotion: content
+    pause: 0.22
+  - qui: docteure
+    dit: Abonne-toi, ton corps a encore des trucs à te dire.
+    sous_titres: Abonne-toi, | ton corps a encore des trucs à te dire.
+    jeu: '[smiling, warm, direct to camera] Abonne-toi, ton corps a encore des trucs
+      à te dire.'
+    emotion: content
+    pause: 0.42
+    carte:
+      type: bouton
+      texte: ABONNE-TOI
+      couleur: '#24666D'
+      largeur: 610
+    regards:
+      docteure:
+      - 0
+      - 0

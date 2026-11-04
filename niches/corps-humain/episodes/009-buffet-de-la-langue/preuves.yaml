@@ -1,0 +1,12 @@
+titre: Le buffet de la langue
+calques:
+  - {nom: Décor de la bouche, fichier: art/bouche-corail.png}
+  - {nom: Microbe rouge, fichier: personnages/rouge/corps.png}
+  - {nom: Ami du petit-déjeuner, fichier: personnages/ami/corps.png}
+captures:
+  - {seconde: 5.02, nom: Repas des bactéries}
+  - {seconde: 15.31, nom: Réaction au petit-déjeuner}
+  - {seconde: 26.00, nom: Explication au cabinet}
+fabrication: >
+  Toon Studio a produit le décor et les calques, animé les gestes et le partage des morceaux, enregistré les prises françaises et composé la musique.
+  Une vidéo Dr Healthcare a servi de référence de mise en scène. La production reprend des éléments de notre bibliothèque et deux nouveaux personnages.

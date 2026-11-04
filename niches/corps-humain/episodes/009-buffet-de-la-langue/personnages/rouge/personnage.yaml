@@ -1,0 +1,26 @@
+nom: rouge
+type: organe
+couches:
+- id: corps
+  images:
+    defaut: corps.png
+  pivot:
+  - 215
+  - 231
+visage:
+  couche: corps
+  yeux:
+  - 155
+  - 105
+  rayon_oeil: 25
+  ecart: 2.2
+  trait: 0.13
+  bouche:
+  - 155
+  - 152.5
+  peau: '#F86C6A'
+  paupiere: 0.09
+  pupille: 0.76
+mouvement:
+  souplesse: 0.3
+  respiration: 0.004

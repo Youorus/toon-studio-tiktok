@@ -12,6 +12,7 @@ Ce fichier est le point d’entrée pour Codex, Claude, Gemini ou un autre assis
 ## Au démarrage
 
 1. Ouvrir un nouveau dossier dans `niches/corps-humain/episodes/<numero>-<sujet>/`. Le [modèle d’épisode](niches/corps-humain/production/modele-episode/) donne le format de base. Les dossiers 006 et 007 montrent comment ajouter une mise en scène précise en Python.
+   Consulter la [bibliothèque de la série](niches/corps-humain/BIBLIOTHEQUE.yaml) et les épisodes existants avant toute génération. Vérifier les silhouettes et les calques à l’écran. Réutiliser les actifs disponibles et décliner leurs couleurs ou accessoires selon le plan. Réserver Recraft aux éléments qui manquent réellement.
 2. Vérifier le profil. Si un fichier du socle a dérivé, identifier le changement et la version approuvée avant le rendu. Réserver `--figer` aux changements de charte validés par Marc.
 3. Préserver les fichiers et archives des autres épisodes. Garder une nouvelle version du master à chaque révision livrée.
 

@@ -141,6 +141,8 @@ def archive(folder,master,dry,dependencies):
         for name in ('README.md','README-PASSATION.md','AGENTS.md','CLAUDE.md','GEMINI.md','docs/PRODUCTION.md'):
             if (ROOT/name).is_file():
                 copy_project_path(ROOT/name,root)
+        if (niche_dir/'BIBLIOTHEQUE.yaml').is_file():
+            copy_project_path(niche_dir/'BIBLIOTHEQUE.yaml',root)
         for item in dependencies:
             dep=niche_dir/'episodes'/item
             if dep.parent!=niche_dir/'episodes' or not dep.is_dir():

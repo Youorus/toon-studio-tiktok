@@ -1,0 +1,26 @@
+nom: ami
+type: humain
+couches:
+- id: corps
+  images:
+    defaut: corps.png
+  pivot:
+  - 147
+  - 673
+visage:
+  couche: corps
+  yeux:
+  - 118
+  - 125
+  rayon_oeil: 19
+  ecart: 2.2
+  trait: 0.13
+  bouche:
+  - 117
+  - 168
+  peau: '#F9EBDB'
+  paupiere: 0.09
+  pupille: 0.76
+mouvement:
+  souplesse: 0.1
+  respiration: 0.004

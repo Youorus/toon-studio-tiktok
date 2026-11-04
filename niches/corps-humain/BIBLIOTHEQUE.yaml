@@ -1,0 +1,53 @@
+# Lire cet index avant chaque création de dessin.
+# Les chemins sont relatifs au dossier niches/corps-humain.
+# Ouvrir le dessin et son personnage.yaml pour confirmer qu'il convient au plan.
+profil: lcp-1.1.0
+fonds:
+  estomac: decors/estomac-corail.png
+  peau: decors/peau-corail.png
+  cabinet: decors/cabinet-abonne-toi.png
+  uterus: episodes/007-alcool-grossesse/art/uterus-corail.png
+personnages:
+  docteure: personnages/docteure-aplats
+  lea: personnages/lea-aplats
+  lea_corpulence_008: episodes/008-estomac-sature/personnages/lea-corpulence
+  cerveau: episodes/008-estomac-sature/personnages/cerveau
+  estomac: episodes/006-antibioresistance/personnages/estomac
+  peau: episodes/006-antibioresistance/personnages/peau
+  bacterie_verte: episodes/006-antibioresistance/personnages/bacterie
+  bacterie_violette: episodes/006-antibioresistance/personnages/resistante
+  globule_blanc: episodes/006-antibioresistance/personnages/globule
+  antibiotique: episodes/006-antibioresistance/personnages/gelule
+  policier: episodes/006-antibioresistance-v3/personnages/policier-comique
+  foetus: episodes/007-alcool-grossesse/personnages/foetus
+  placenta: episodes/007-alcool-grossesse/personnages/placenta
+accessoires:
+  telephone: episodes/008-estomac-sature/art/telephone.png
+  burger: episodes/008-estomac-sature/art/burger.png
+  frites: episodes/008-estomac-sature/art/frites.png
+  poulet: episodes/008-estomac-sature/art/poulet.png
+  soda: episodes/008-estomac-sature/art/soda.png
+  sac: episodes/008-estomac-sature/art/sac.png
+  verre: episodes/007-alcool-grossesse/art/verre.png
+  bouteille: episodes/007-alcool-grossesse/art/bouteille.png
+  stop: episodes/006-antibioresistance-v3/personnages/policier-comique/stop.png
+  radio: episodes/006-antibioresistance-v3/personnages/policier-comique/radio.png
+autres_sujets:
+  - episodes/004-le-spermogramme/personnages
+  - episodes/005-caca-demission/personnages
+# Les anciens éléments crayon sous personnages/ et recraft/ doivent être examinés
+# avant usage. Les chemins explicites ci-dessus correspondent au rendu actuel.
+ajouts_009:
+  bacterie_verte_palette_vive: episodes/009-buffet-de-la-langue/personnages/verte
+  microbe_rouge: episodes/009-buffet-de-la-langue/personnages/rouge
+  ami: episodes/009-buffet-de-la-langue/personnages/ami
+  bouche: episodes/009-buffet-de-la-langue/art/bouche-corail.png
+couleurs:
+  fond_corail_plein_cadre: '#E75261'
+  repere_tissu_estomac: '#ED7981'
+  langue_vive_009: '#EE6576'
+  langue_lumiere_009: '#EF7D86'
+  microbes_verts: ['#5BDD79', '#31B958']
+  consigne: >
+    Privilégier les grands aplats rouges et roses vifs, les contours nets et
+    des ombres colorées courtes. Vérifier la vivacité dans le MP4 à taille téléphone.
