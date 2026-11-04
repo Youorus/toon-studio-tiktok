@@ -7,7 +7,7 @@ from PIL import Image,ImageDraw
 
 ROOT=Path(__file__).resolve().parent
 OUT=ROOT/'out'
-MOVIE=OUT/'La-sortie-est-bloquee-Le-Corps-Parle.mp4'
+MOVIE=OUT/'La-sortie-est-bloquee-Le-Corps-Parle-V2.mp4'
 
 def main():
     probe=json.loads(subprocess.check_output(['ffprobe','-v','error','-show_format','-show_streams','-of','json',str(MOVIE)]))
@@ -18,8 +18,8 @@ def main():
     assert audio['channels']==2 and audio['sample_rate']=='48000'
     assert abs(float(probe['format']['duration'])-montage['duree'])<1/30
     subprocess.run(['ffmpeg','-nostdin','-v','error','-xerror','-i',str(MOVIE),'-f','null','-'],check=True)
-    times=[0,2.04,4.36,8.78,16.6,22.19,22.76,22.80,23.45,24.9,25.16,30.60,30.63,39.6,45.80,46.23]
-    board=Image.new('RGB',(1080,2024),'#E75261');d=ImageDraw.Draw(board)
+    times=[0,.4,2.35,4.40,8.82,9.35,19.60,20.15,23.23,23.70,24.45,25.75,26.46,27.60,28.47,31.95,32.66,41.94,47.80,48.20]
+    board=Image.new('RGB',(1080,2530),'#E75261');d=ImageDraw.Draw(board)
     for i,t in enumerate(times):
         path=OUT/f'qa-{i:02d}.png'
         subprocess.run(['ffmpeg','-nostdin','-v','error','-y','-ss',str(t),'-i',str(MOVIE),'-frames:v','1','-vf','scale=270:480',str(path)],check=True)
@@ -28,9 +28,9 @@ def main():
     board.save(OUT/'controle-livraison.jpg',quality=93)
     report={'source':'MP4 final réellement décodé','sha256_master':sha256(MOVIE.read_bytes()).hexdigest(),
             'stream_probe':probe,'frames_extracted_seconds':times,'profile':'lcp-1.2.0',
-            'full_decode_passed':True,'new_recraft_generations':0,
+            'full_decode_passed':True,'revision':'V2','new_recraft_generations':6,
             'note':'Ouvrir la planche et revoir les gestes. Les mesures ne remplacent pas une revue du jeu et du son.'}
     (OUT/'controle-livraison.json').write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n')
-    print('Décodage complet réussi · 16 repères du master final · '+report['sha256_master'],flush=True)
+    print('Décodage complet réussi · 20 repères du master V2 · '+report['sha256_master'],flush=True)
 
 if __name__=='__main__':main()

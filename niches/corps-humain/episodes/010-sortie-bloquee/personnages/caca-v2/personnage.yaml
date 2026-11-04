@@ -1,0 +1,150 @@
+nom: CACA
+type: organe
+couches:
+- id: corps
+  pivot:
+  - 180
+  - 460
+  images:
+    defaut: corps.png
+    marque-00: marque-00.png
+    marque-01: marque-01.png
+    marque-02: marque-02.png
+    marque-03: marque-03.png
+    marque-04: marque-04.png
+    marque-05: marque-05.png
+    marque-06: marque-06.png
+    marque-07: marque-07.png
+    marque-08: marque-08.png
+    marque-09: marque-09.png
+    marque-10: marque-10.png
+    marque-11: marque-11.png
+    marque-12: marque-12.png
+    marque-13: marque-13.png
+    marque-14: marque-14.png
+    marque-15: marque-15.png
+    marque-16: marque-16.png
+    marque-17: marque-17.png
+    marque-18: marque-18.png
+    marque-19: marque-19.png
+    marque-20: marque-20.png
+    marque-21: marque-21.png
+    marque-22: marque-22.png
+    marque-23: marque-23.png
+    marque-24: marque-24.png
+visage:
+  couche: corps
+  yeux:
+  - 218
+  - 264
+  rayon_oeil: 26
+  ecart: 2.18
+  bouche:
+  - 218
+  - 330
+  largeur_bouche: 57
+  peau: '#A45B26'
+  pupille: 0.76
+  trait: 0.1
+  paupiere: 0.05
+poses:
+  marque-00:
+    corps:
+      image: marque-00
+  marque-01:
+    corps:
+      image: marque-01
+  marque-02:
+    corps:
+      image: marque-02
+  marque-03:
+    corps:
+      image: marque-03
+  marque-04:
+    corps:
+      image: marque-04
+  marque-05:
+    corps:
+      image: marque-05
+  marque-06:
+    corps:
+      image: marque-06
+  marque-07:
+    corps:
+      image: marque-07
+  marque-08:
+    corps:
+      image: marque-08
+  marque-09:
+    corps:
+      image: marque-09
+  marque-10:
+    corps:
+      image: marque-10
+  marque-11:
+    corps:
+      image: marque-11
+  marque-12:
+    corps:
+      image: marque-12
+  marque-13:
+    corps:
+      image: marque-13
+  marque-14:
+    corps:
+      image: marque-14
+  marque-15:
+    corps:
+      image: marque-15
+  marque-16:
+    corps:
+      image: marque-16
+  marque-17:
+    corps:
+      image: marque-17
+  marque-18:
+    corps:
+      image: marque-18
+  marque-19:
+    corps:
+      image: marque-19
+  marque-20:
+    corps:
+      image: marque-20
+  marque-21:
+    corps:
+      image: marque-21
+  marque-22:
+    corps:
+      image: marque-22
+  marque-23:
+    corps:
+      image: marque-23
+  marque-24:
+    corps:
+      image: marque-24
+membres:
+  bras:
+    epaule_g:
+    - 20
+    - 300
+    epaule_d:
+    - 338
+    - 300
+    longueur: 79
+    epaisseur: 8
+    couleur: '#FFF9ED'
+  jambes:
+    hanche_g:
+    - 108
+    - 443
+    hanche_d:
+    - 250
+    - 443
+    longueur: 65
+    epaisseur: 9
+    couleur: '#FFF9ED'
+    chaussure: '#FFF9ED'
+mouvement:
+  souplesse: 0.11
+  respiration: 0.002

@@ -1,42 +1,54 @@
 {
-  "methode": "contrôles locaux, sans envoi du MP4 inédit à un service externe",
-  "reviewed": {
+  "revision": "V2",
+  "master_sha256": "d745e10322457134069e1acb616bf34aa5ae15ae21259f273551697f1a99f956",
+  "methode": "Contrôles locaux, sans export du MP4 à un service externe",
+  "verified": {
+    "full_decode": true,
+    "profile": "lcp-1.2.0",
     "native_export_frames_seconds": [
       0,
-      2.04,
-      4.36,
-      8.78,
-      16.6,
-      22.19,
-      22.76,
-      22.8,
-      23.45,
-      24.9,
-      25.16,
-      30.6,
-      30.63,
-      39.6,
-      45.8,
-      46.23
+      0.4,
+      2.35,
+      4.4,
+      8.82,
+      9.35,
+      19.6,
+      20.15,
+      23.23,
+      23.7,
+      24.45,
+      25.75,
+      26.46,
+      27.6,
+      28.47,
+      31.95,
+      32.66,
+      41.94,
+      47.8,
+      48.2
     ],
-    "local_asr": "controle-transcription-locale.json",
-    "technical_checks": [
-      "Décodage complet FFmpeg",
-      "1080x1920, 30 images/s, H264 + AAC stéréo 48 kHz",
-      "Contrôle des visages du moteur",
-      "Mesure du mix -14,7 LUFS et -1,9 dBTP",
-      "Profil lcp-1.2.0 : 28 fichiers vérifiés"
-    ]
+    "audio_mix": {
+      "titre": "Petites combines",
+      "tempo_bpm": 125,
+      "source": "composition et synthèse Toon Studio",
+      "mix_lufs": -14.9,
+      "mix_crete_dbtp": -1.9,
+      "master_sha256": "d745e10322457134069e1acb616bf34aa5ae15ae21259f273551697f1a99f956"
+    },
+    "asr": "controle-transcription-locale.json"
   },
-  "corrections": [
-    "Retrait des mains de repos dans la pose de travail",
-    "Retrait des bras après la libération, sans étirement vers la selle qui part",
-    "Conservation des traces rouges dans le plan de chute",
-    "Ploc à la fin de la chute, juste avant le raccord toilettes"
+  "visual_changes": [
+    "CACA monobloc, badge et dialogue CACA",
+    "Décor aux contours et couleurs de l’estomac étalon",
+    "Marche, collision, recul, deux poussées et mains liées au contact",
+    "Trois traits de marqueur progressifs",
+    "Trajet de glissement sur le centre de la coupe courbe, taille conservée",
+    "Gros plan cuvette, traces rouges et remous, puis Léa debout avec sa tête exacte",
+    "Cabinet et docteure conservés"
   ],
-  "limites": [
-    "Transcription automatique avec homophones et approximations ; ne prouve pas seule la qualité du jeu vocal.",
-    "Revue de la chronologie par images et contrôle temporel ; aucune affirmation d’écoute continue directe par l’agent principal.",
-    "L’envoi externe du MP4 inédit à Gemini a été refusé par la revue automatique et n’a pas eu lieu."
+  "limits": [
+    "Planches chronologiques et images d’action examinées ; aucune affirmation d’écoute continue directe par l’agent principal.",
+    "La transcription automatique contient des homophones ; elle complète les alignements, les mesures de mix et la revue des images.",
+    "La V1 est rejetée ; la V2 ne devient pas un nouvel étalon sans validation de Marc."
   ]
 }

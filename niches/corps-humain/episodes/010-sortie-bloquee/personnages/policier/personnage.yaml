@@ -5,6 +5,7 @@ couches:
   images:
     defaut: corps.png
     travail: corps-travail.png
+    marqueur: corps-marqueur.png
   pivot:
   - 138
   - 225
@@ -38,6 +39,9 @@ poses:
   travail:
     corps:
       image: travail
+  marqueur:
+    corps:
+      image: marqueur
 mouvement:
   souplesse: 0.1
   respiration: 0.002

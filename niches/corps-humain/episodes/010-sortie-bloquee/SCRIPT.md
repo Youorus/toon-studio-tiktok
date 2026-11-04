@@ -1,6 +1,6 @@
-# La sortie est bloquée
+# La sortie est bloquée — V2
 
-Adaptation du 23 septembre 2025 · environ 46,3 s · profil lcp-1.2.0.
+Référence du 23 septembre 2025 · environ 48,26 s.
 
 ## Sortie
 
@@ -22,13 +22,17 @@ Adaptation du 23 septembre 2025 · environ 46,3 s · profil lcp-1.2.0.
 
 **Caca** — Hooop là !
 
+## Cuvette
+
+**Lea** — Du sang ?!
+
 ## Toilettes
 
-**Lea** — Du sang ?! Et pourquoi c’est aussi dur ? Ça fait mal quand ça sort… Je vais consulter.
+**Lea** — Et pourquoi c’est aussi dur ? Ça fait mal quand ça sort… Je vais consulter.
 
 ## Cabinet
 
-**Docteure** — Des selles dures peuvent irriter la zone et faire saigner. Le sang peut avoir plusieurs causes : il faut consulter.
+**Docteure** — Un caca trop dur peut irriter et faire saigner. Le sang peut avoir plusieurs causes : il faut consulter.
 
 **Lea** — Donc, on évite de se retenir ?
 

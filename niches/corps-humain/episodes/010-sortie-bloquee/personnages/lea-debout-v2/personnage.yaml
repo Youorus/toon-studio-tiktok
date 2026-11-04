@@ -1,0 +1,75 @@
+nom: Lea
+type: humain
+couches:
+- id: corps
+  images:
+    defaut: corps.png
+  pivot:
+  - 160
+  - 560
+visage:
+  mode: dessine
+  couche: corps
+  yeux:
+  - - 94
+    - 79
+    - 120
+    - 104
+  - - 136
+    - 79
+    - 164
+    - 107
+  yeux_precis: true
+  bouche:
+    zone:
+    - 115
+    - 139
+    - 143
+    - 153
+    centre:
+    - 129
+    - 146
+    largeur: 29
+mouvement:
+  souplesse: 0.08
+  respiration: 0.003
+bras:
+- id: gauche
+  epaule:
+  - 86
+  - 267
+  cote: -1
+  longueur: 178
+  epaisseur: 27
+  peau: '#C19C7D'
+  manche: '#B86F55'
+  trait: 0.075
+- id: droite
+  epaule:
+  - 244
+  - 268
+  cote: 1
+  longueur: 167
+  epaisseur: 27
+  peau: '#C19C7D'
+  manche: '#B86F55'
+  trait: 0.075
+poses:
+  defaut:
+    gauche:
+      epaule: 30
+      coude: 22
+      main: ouvert
+    droite:
+      epaule: 20
+      coude: 18
+      main: ouvert
+  question:
+    gauche:
+      epaule: 68
+      coude: 27
+      main: ouvert
+    droite:
+      epaule: 42
+      coude: 30
+      main: ouvert

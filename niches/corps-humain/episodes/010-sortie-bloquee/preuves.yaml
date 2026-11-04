@@ -1,15 +1,15 @@
-titre: La sortie est bloquée
+titre: La sortie est bloquée — V2
 calques:
-  - {nom: Rectum et porte, fichier: art/rectum-corail.png}
-  - {nom: Selle réemployée et préparée, fichier: personnages/caca/corps.png}
-  - {nom: Pose de travail du gardien, fichier: personnages/policier/corps-travail.png}
+  - {nom: Rectum et porte V2, fichier: art/v2/rectum-final.png}
+  - {nom: Corps CACA et marques, fichier: personnages/caca-v2/marque-24.png}
+  - {nom: "Léa debout, tête originale conservée", fichier: personnages/lea-debout-v2/corps.png}
 captures:
-  - {seconde: 4.44, nom: Blocage à la sortie}
-  - {seconde: 16.50, nom: Marqueur et contact}
-  - {seconde: 32.00, nom: Explication au cabinet}
+  - {seconde: 19.60, nom: Marqueur et contact}
+  - {seconde: 26.46, nom: Gros plan cuvette et sang}
+  - {seconde: 28.47, nom: Léa debout réagit}
 fabrication: >
-  Toon Studio a réemployé les personnages et le décor organique de sa bibliothèque,
-  préparé les calques de la porte et des accessoires, animé les mains et les contacts,
-  enregistré douze prises françaises et utilisé sa composition musicale de série.
+  Toon Studio a conservé le casting approuvé, créé les illustrations manquantes avec Recraft,
+  préparé la pose debout et les calques de la coupe, de la porte et des accessoires,
+  animé les contacts, le glissement et les traces rouges, et utilisé treize prises françaises et sa musique de série.
   La vidéo fournie du 23 septembre 2025 sert de référence de mise en scène ; la consultation
   et les visuels sont réalisés dans notre univers. Les pièces décrivent la fabrication réelle.

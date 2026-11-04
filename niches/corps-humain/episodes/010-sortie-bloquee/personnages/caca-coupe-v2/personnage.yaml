@@ -1,0 +1,27 @@
+nom: CACA
+type: organe
+couches:
+- id: corps
+  pivot:
+  - 196
+  - 476
+  images:
+    defaut: corps.png
+visage:
+  couche: corps
+  yeux:
+  - 234
+  - 280
+  rayon_oeil: 26
+  ecart: 2.18
+  bouche:
+  - 234
+  - 346
+  largeur_bouche: 57
+  peau: '#A45B26'
+  pupille: 0.76
+  trait: 0.1
+  paupiere: 0.05
+mouvement:
+  souplesse: 0.11
+  respiration: 0.002

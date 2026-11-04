@@ -8,6 +8,8 @@ Avant toute génération Recraft, lire `niches/corps-humain/BIBLIOTHEQUE.yaml` e
 
 Lire `docs/WORKFLOWS-ET-SKILLS.md` pour les outils, les guides facultatifs et leurs équivalents pour tout agent. Agrandir le kit par réemploi et variantes de calques avant tout appel Recraft. Livrer `inventaire-reemploi.json` pour distinguer les actifs repris, les variantes et les générations payantes réelles ; ne pas changer le socle approuvé pour changer de sujet.
 
+Le réemploi ne dispense pas de vérifier le style et la pose. Le 005 et la V1 du 010 ne sont pas des étalons approuvés : Marc a rejeté le CACA empilé, la coupe droite et la chaise aux toilettes. Pour ce personnage, écrire « CACA » sur le badge. Ne pas supprimer un plan d’action ou un gros plan de conséquence présent dans la référence pour économiser des calques ; la poussée, la glissade, le sang dans la cuvette et la réaction doivent être réellement mis en scène.
+
 Pour chaque épisode terminé de Le Corps Parle.fr, livrer `publication-tiktok.txt` dans le dossier de l’épisode, prêt à copier : accroche courte, question engageante et hashtags pertinents. Lire `docs/PUBLICATION-TIKTOK.md`. Vérifier les occultations : les mains au repos restent derrière la table ; une main levée ne traverse pas les assiettes et utilise une silhouette lisible.
 
 Après archivage, sauvegarder chaque livraison dans le bucket CAlabs Studio avec `python -m toonstudio.postly <dossier> --envoyer`. Lire `integrations/postly/README.md`, vérifier le reçu et les téléchargements. Garder `#Santé` parmi les hashtags du compte. Le transfert des médias n’est pas une publication TikTok ou Buffer.

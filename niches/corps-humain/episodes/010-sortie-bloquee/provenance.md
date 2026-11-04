@@ -1,44 +1,46 @@
-# Provenance — La sortie est bloquée
+# Provenance — La sortie est bloquée, V2
 
-## Référence fournie par Marc
+Référence fournie par Marc : dossier **2025-09-23**, catalogue `r-1145439917a7702636986ce2`, vidéo `7553267300753870102`. SHA-256 de l’original : `dc7d7df9cf3dcc8c5dcf70f9d8b127baeaaa1c94f2530ad6e0524bad28c15fa2`. Original de 31,3 s, 1072×1920, 30 images/s, 939 images, conservé dans la bibliothèque privée des inspirations.
 
-- Dossier : `2025-09-23`.
-- Identifiant de catalogue : `r-1145439917a7702636986ce2`.
-- ID de vidéo : `7553267300753870102`.
-- Original : `2025-09-23_7553267300753870102_This Is What Happens If You Don’t Poop for Days .mp4`.
-- SHA-256 : `dc7d7df9cf3dcc8c5dcf70f9d8b127baeaaa1c94f2530ad6e0524bad28c15fa2`.
-- Source technique : 31,3 s, 1072×1920, 30 images/s, 939 images. Copie conservée dans la bibliothèque privée des inspirations ; pas dans les pièces présentées comme nos propres dessins.
-- Analyse locale : `niches/corps-humain/references/analyses/r-1145439917a7702636986ce2/`.
+## Révision demandée le 4 novembre 2026
 
-## Examen réellement effectué
+Marc a rejeté le rendu visuel de la V1 : corps empilé trop sombre, coupe droite trop géométrique, mise en scène du glissement et de la cuvette insuffisante, personnage assis dans les toilettes. La V1 reste dans son archive historique et n’est pas un étalon. Son code est identifié par le commit `4faccc0`.
 
-Extraction des 939 images natives et des horodatages, de l’audio WAV et des deux planches d’ensemble, examinées sur toute la chronologie. Revue supplémentaire des images successives à 0,1 s d’intervalle autour de la poussée (6,7–7,6 s), de la sortie du marqueur et de son contact (17,4–18,9 s), puis de la libération (20,6–22,3 s). Gemini 2.5 Flash a reçu la vidéo entière et son audio avec un échantillonnage demandé à 24 images/s, limite de cet appel. Sa transcription et son analyse sont conservées dans `reference-analyse.json`. Elles complètent la revue des images ; elles ne constituent pas une affirmation de lecture humaine de chacune des 939 images ou d’écoute directe par l’agent principal.
+La V2 conserve notre policier comique, la docteure, la tête exacte de Léa, le cabinet, les voix, la musique et le profil `lcp-1.2.0`. Elle remplace le corps par une masse monobloc ; le badge, la porte et la réplique explicative disent **CACA**. Le décor rectal prend notre propre estomac validé comme référence de finition. La pose debout de Léa reprend sa tête et son cou, avec un torse et des bras articulés ; la chaise et les jambes assises ne sont pas utilisées dans les toilettes.
 
-| Temps source | Construction conservée | Mise en scène dans notre univers |
+## Découpage et actions
+
+| Référence | Fonction conservée | Réalisation V2 |
 |---|---|---|
-| 0–4 s | La selle demande à sortir, ouverture de la porte | Corps issu du 005, gardien issu du 006-v3, porte articulée et cartouche « Rectum » |
-| 4–7 s | La selle se coince et appelle à l’aide | Approche, contact avec arrêt et recul ; mains liées aux acteurs, bruit sur le contact |
-| 7–13 s | Poussée infructueuse et constat de dureté | Gardien qui se penche et pousse ; « dur comme du béton », puis « séché sur place » |
-| 14–20 s | Marqueur rouge et signe d’alerte | Marqueur animé au poignet ; traces courtes fixées à la selle. Métaphore comique, aucun mécanisme médical intentionnel attribué au corps |
-| 20–22 s | Dernière poussée et passage | Anticipation, contact, trajectoire commune et sortie dans la porte |
-| 22–24 s | Coupe anatomique puis chute dans la cuvette | Coupe simplifiée corail, descente et son de chute raccordé à la sortie |
-| 25–31,3 s | Le patient voit les traces et décide de consulter | Léa, notre personnage récurrent, réagit dans les toilettes |
-| Ajout propre à la série | Consultation et abonnement | Notre docteure explique la possibilité d’irritation et l’importance de consulter en cas de sang, puis termine avec le CTA |
+| 0–4 s | Demande de sortie, porte qui s’ouvre, approche | Marche depuis la droite, battant articulé, CACA identifié dès l’entrée |
+| 4–7 s | Blocage et appel à l’aide | Arrêt, recul, expression, bruit au contact ; corps conservé à taille constante |
+| 7–13 s | Poussée infructueuse | Gardien devant le CACA ; coudes articulés, paumes liées au contact, effort puis relâchement |
+| 14–20 s | Marqueur et alerte rouge | Main sur le marqueur, trois traits progressifs sur le corps ; autre main au repos |
+| 20–22 s | Nouvelle poussée et départ | Anticipation, contact, relâchement des mains, passage dans l’ouverture et raccord à la coupe |
+| 22–24 s | Glissement dans la coupe et arrivée dans l’eau | Coupe courbe en calques dans la palette de série, trajectoire calculée sur le centre de sa cavité ; pas de réduction arbitraire du CACA pendant la descente |
+| 24–25 s | Gros plan dans la cuvette | CACA bordé de rouge, traces et remous rouges dans l’eau, réaction « Du sang ?! » hors champ |
+| 25–31,3 s | Patient qui voit le problème et décide de consulter | Léa debout, plan rapproché, gestes et regard vers la cuvette ; aucune chaise |
+| Ajout de notre série | Explication et abonnement | Notre docteure et le cabinet validés, conseil mural du sujet, CTA final |
 
-Les paroles françaises sont adaptées de la fonction des échanges de la référence, avec des formulations et une réplique comique propres au studio. La scène de consultation est ajoutée selon notre format récurrent. Ce n’est pas une création sans inspiration extérieure : les dossiers de fabrication doivent conserver cette provenance.
+La durée propre à la V2 est mesurée sur treize prises françaises, environ **48,26 s**. Le scénario demeure une adaptation de cette référence, avec la consultation ajoutée selon notre format. Les pièces de fabrication ne prétendent pas que l’histoire de référence a été inventée sans inspiration extérieure.
 
-## Fabrication et réemploi
+## Analyse et contrôles
 
-Profil `lcp-1.2.0`, casting, visages, voix et cabinet récurrents. Le côlon et le corps « caca-b » existaient dans l’épisode 005. Le policier comique et ses bottes viennent du 006-v3. Les variantes retirent son panneau et ses mains de repos pendant la pose de travail. Les calques, pivots et noms sont indexés dans la bibliothèque. Aucun appel Recraft pour cet épisode.
+La vidéo source a été examinée sur les deux planches chronologiques, complétée par les images successives autour de la poussée, du marqueur et de la libération, et par son analyse audio/vidéo Gemini à 24 images/s. Les 939 images natives restent disponibles. `reference-analyse.json` conserve le relevé. L’extraction seule n’est pas annoncée comme une revue humaine de chaque image.
 
-Porte, marqueur, bras liés aux contacts, coupe anatomique et accessoires de toilettes sont composés dans notre moteur Python/PIL, avec interpolation PCHIP des mouvements à 60 échantillons/s puis rendu à 30 images/s. Les sons courts réutilisent les bibliothèques du 006 et du 006-v3. Les douze prises françaises utilisent les alias ElevenLabs habituels. La musique est notre composition « Petites combines », 125 BPM ; la bande-son du tiers n’est pas réutilisée.
+Le MP4 inédit est contrôlé localement : décodage complet, dimensions, durée, mix, planches aux contacts et aux coupes, et transcription locale. Aucun envoi du livrable inédit à Gemini n’est effectué. Voir les fichiers de contrôle et les limites qu’ils indiquent.
 
-Le second cadre du cabinet porte « Envie d’y aller ? N’attends pas. Ton corps a parlé. ». Le filigrane est exactement `@lecorps.parle.fr`.
+## Illustration, réemploi et coût enregistré
 
-## Vérification médicale — 4 novembre 2026
+Six appels Recraft ciblés ont été enregistrés pour cette révision, environ **0,225 $ selon le journal du studio** ; trois illustrations sont retenues dans le montage : corps CACA, décor rectal propre et toilettes. Les autres essais sont écartés. Le coût est l’estimation du client du studio, pas une facture du fournisseur. Les poses, le masque de sang, le battant, le marqueur, les bras, la coupe jouable, le trajet et la vue de dessus de la cuvette sont composés localement en calques réutilisables. Les références de style envoyées sont nos propres actifs, pas des images de la vidéo du tiers.
 
-- Le côlon absorbe de l’eau ; un séjour prolongé peut durcir les selles. Se retenir est un facteur possible, pas la seule cause de constipation. [Assurance Maladie : définition et causes](https://www.ameli.fr/assure/sante/themes/constipation-adulte/definition-symptomes-facteurs-favorisants).
-- Fibres, hydratation et activité physique peuvent aider ; éviter de forcer. En cas de sang dans les selles, consulter pour en déterminer la cause ; le film ne pose aucun diagnostic. [Assurance Maladie : gestes et consultation](https://www.ameli.fr/assure/sante/themes/constipation-adulte/que-faire-quand-consulter).
-- Le marqueur est un gag visuel et les traces rouges symbolisent une alerte. Le sang n’est pas fabriqué volontairement par un gardien pour envoyer un message, et n’est pas une conséquence systématique de quelques jours sans selle.
+Les trois nouvelles prises remplacent le texte explicatif par « Un caca trop dur… » et séparent la réaction de Léa entre la cuvette et son gros plan. Les autres prises viennent du cache. « Petites combines », 125 BPM, reste notre composition ; la bande-son du tiers n’est pas copiée.
 
-Format court de croissance, durée mesurée environ 46,3 s. Il n’est pas présenté comme éligible à une récompense exigeant plus d’une minute.
+## Information médicale
+
+Un séjour prolongé dans le côlon peut durcir les selles par absorption d’eau. Se retenir est un facteur possible, pas la seule cause de constipation. Un caca dur peut irriter la zone et s’accompagner de sang, mais le sang a plusieurs causes et doit conduire à consulter. Le marqueur est une métaphore comique, pas un mécanisme volontaire du corps. L’explication reste celle vérifiée dans la livraison précédente.
+
+- [Assurance Maladie : définition et causes](https://www.ameli.fr/assure/sante/themes/constipation-adulte/definition-symptomes-facteurs-favorisants).
+- [Assurance Maladie : gestes et consultation](https://www.ameli.fr/assure/sante/themes/constipation-adulte/que-faire-quand-consulter).
+
+Format court de croissance ; aucune éligibilité à une rémunération exigeant plus d’une minute n’est annoncée.

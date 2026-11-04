@@ -37,12 +37,19 @@ autres_sujets:
   - episodes/004-le-spermogramme/personnages
   - episodes/005-caca-demission/personnages
 ajouts_010:
-  selle_caca_b_005_en_rig: episodes/010-sortie-bloquee/personnages/caca
+  statut: V2 en revue ; ne pas employer la V1 rejetée comme étalon
+  caca: episodes/010-sortie-bloquee/personnages/caca-v2
+  caca_coupe_marque: episodes/010-sortie-bloquee/personnages/caca-coupe-v2
+  lea_debout_tete_originale: episodes/010-sortie-bloquee/personnages/lea-debout-v2
   policier_sans_panneau_et_pose_travail: episodes/010-sortie-bloquee/personnages/policier
-  rectum_corail: episodes/010-sortie-bloquee/art/rectum-corail.png
-  coupe_passage_rectum: episodes/010-sortie-bloquee/art/passage-corail.png
-  toilettes: episodes/010-sortie-bloquee/art/toilettes.png
-  porte_articulee_marqueur_bras: episodes/010-sortie-bloquee/produire.py
+  rectum_corail: episodes/010-sortie-bloquee/art/v2/rectum-final.png
+  coupe_passage_rectum: episodes/010-sortie-bloquee/art/v2/coupe-final.png
+  trajet_de_la_coupe: episodes/010-sortie-bloquee/art/v2/trajet-coupe.json
+  cuvette_gros_plan: episodes/010-sortie-bloquee/art/v2/cuvette-vue-dessus.png
+  toilettes: episodes/010-sortie-bloquee/art/v2/toilettes-final.png
+  porte_articulee_marqueur_bras: episodes/010-sortie-bloquee/produire_v2.py
+  glissade_son_long_reemploi: episodes/010-sortie-bloquee/sons/glissade.wav
+  exclusions: Le CACA empilé du 005, la coupe droite et Léa assise sur une chaise aux toilettes ont été rejetés pour ce récit.
 # Les anciens éléments crayon sous personnages/ et recraft/ doivent être examinés
 # avant usage. Les chemins explicites ci-dessus correspondent au rendu actuel.
 ajouts_009:

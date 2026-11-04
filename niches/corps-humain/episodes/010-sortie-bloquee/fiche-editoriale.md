@@ -1,18 +1,13 @@
-# Fiche éditoriale — 010
+# Fiche éditoriale — 010 V2
 
-- Sujet : constipation et selle difficile à évacuer ; référence datée du 23 septembre 2025.
-- Objectif : croissance, compréhension rapide et abonnements. Format court ; pas de remplissage pour dépasser une minute.
-- Durée mesurée sur les prises : 46,3 s.
-- Hook : « Hé ! Je dois sortir ! », sur une selle déjà à la porte ; aucun préambule.
-- Identification : badge Rectum ; mini-badges Selle et Sphincter, liés aux silhouettes.
-- Progression : demande de sortie, blocage, poussée ratée, alerte rouge, passage, réaction de Léa, consultation.
-- Contraste : selle paniquée et râleuse ; gardien blasé qui se donne du mal ; docteure posée et concise.
-- Gag principal : « dur comme du béton », suivi de « J’ai séché sur place, chef ! » ; effort visible, arrêt et recul.
-- Actions : battant sur charnière, mains liées au contact, marqueur tenu, traces attachées au corps ; sortie et chute synchronisées au son.
-- Décrochage possible : le constat du gardien et l’explication médicale. Les répliques avancent la scène, le cabinet commence vers 30,6 s, une seule explication est donnée.
-- Fait central : selles dures et traces de sang ne s’ignorent pas. Voir les deux sources Assurance Maladie dans `provenance.md`.
-- Fin : « Abonne-toi : ton corps a d’autres dossiers ! ». Question dans la description, sans multiplier les appels à l’action.
-- Hypothèse testée : une histoire de moins de 50 s avec réponse visible avant la fin garde davantage de public que le premier exemple de 101,5 s. Comparer avec d’autres courts ; les sujets différents empêchent d’attribuer tout changement à la durée seule.
-- Inventaire : zéro génération Recraft ; nouveaux calques et rig dérivés conservés pour le prochain épisode.
-
-Après publication : relever à 24 h puis à sept jours les mesures disponibles. Les statistiques de la capture du 4 novembre concernent le film estomac déjà publié, pas cet épisode. La date/heure de publication du 010 reste non renseignée jusqu’à confirmation de Marc ou de TikTok.
+- Référence : 2025-09-23, même conflit et mêmes conséquences, avec la consultation de notre série.
+- Objectif : format court de croissance ; environ 48,26 secondes, treize prises.
+- Hook : « Hé ! Je dois sortir ! », CACA arrive en marchant, badge immédiat.
+- Action : blocage, première poussée et recul, marqueur, dernière poussée, glissement dans une coupe courbe, cuvette et sang visibles, réaction de Léa debout.
+- Casting et finition : policier validé, tête de Léa et docteure conservées ; palette corail et traits fins de l’estomac étalon. La V1 est rejetée comme étalon.
+- Identification : Rectum pour le lieu, CACA et SPHINCTER pour les acteurs ; CACA dans la porte et le texte parlé.
+- Gag : dur comme du béton / séché sur place ; les réactions ont des mains, des contacts et des sons visibles.
+- Économie : casting et prises réemployés ; six appels Recraft ciblés pour trois dessins retenus et des calques locaux réutilisables. Aucun avatar ni génération vidéo HeyGen.
+- Médical : le sang peut avoir plusieurs causes, consulter. Voir provenance.md. Le marqueur est une métaphore.
+- Fin : consultation, conseil mural, abonnement. Question dans publication-tiktok.txt.
+- Mesures : à relever après publication ; aucune statistique du film estomac n’est attribuée au 010. Aucune publication automatique.

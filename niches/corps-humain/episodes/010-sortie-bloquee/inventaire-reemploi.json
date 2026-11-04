@@ -1,91 +1,49 @@
 {
   "schema": "toonstudio-reemploi-v1",
   "episode": "010-sortie-bloquee",
+  "revision": "V2",
   "profil": "lcp-1.2.0",
+  "statut": "Révision à comparer au style validé, pas un nouvel étalon automatiquement approuvé",
   "actifs_reemployes": [
-    {
-      "source": "episodes/005-caca-demission/art/colon.png",
-      "usage": "replis du décor rectum"
-    },
-    {
-      "source": "episodes/005-caca-demission/art/caca-b.png",
-      "usage": "corps de la selle"
-    },
-    {
-      "source": "episodes/006-antibioresistance-v3/personnages/policier-comique",
-      "usage": "gardien avec tête et bottes conservées"
-    },
-    {
-      "source": "personnages/lea-aplats",
-      "usage": "Léa"
-    },
-    {
-      "source": "personnages/docteure-aplats",
-      "usage": "docteure"
-    },
-    {
-      "source": "decors/cabinet-abonne-toi.png",
-      "usage": "cabinet et cadre abonnement"
-    },
-    {
-      "source": "episodes/006-antibioresistance/sons/ploc.wav",
-      "usage": "chute"
-    },
-    {
-      "source": "episodes/006-antibioresistance-v3/sons",
-      "usage": "arrêt et glissement"
-    },
-    {
-      "source": "toonstudio/musique_cartoon.py",
-      "usage": "composition Petites combines 125 BPM"
-    }
+    "personnages/docteure-aplats",
+    "personnages/lea-aplats : tête et visage exacts",
+    "episodes/006-antibioresistance-v3/personnages/policier-comique",
+    "decors/cabinet-abonne-toi.png",
+    "voix ElevenLabs existantes",
+    "musique Petites combines et sons de la bibliothèque"
   ],
   "variantes_locales": [
-    {
-      "path": "personnages/caca",
-      "usage": "rig du corps existant : yeux, bouche, bras et jambes"
-    },
-    {
-      "path": "personnages/policier",
-      "usage": "sans panneau, pose travail sans mains de repos"
-    },
-    {
-      "path": "art/rectum-corail.png",
-      "usage": "aplat de série et porte"
-    },
-    {
-      "path": "art/cabinet-010.png",
-      "usage": "conseil mural spécifique"
-    }
+    "personnages/lea-debout-v2",
+    "personnages/policier : repos, travail et marqueur",
+    "personnages/caca-v2 : 25 états de marque progressive",
+    "personnages/caca-coupe-v2 : contour rouge sans membres"
   ],
   "nouveaux_calques": [
-    {
-      "path": "produire.py",
-      "usage": "battant animé, marqueur et bras liés au contact, code réutilisable"
-    },
-    {
-      "path": "art/passage-corail.png",
-      "usage": "coupe anatomique simple"
-    },
-    {
-      "path": "art/toilettes.png",
-      "usage": "décor et cuvette"
-    }
+    "art/v2/rectum-final.png",
+    "art/v2/coupe-final.png",
+    "art/v2/trajet-coupe.json",
+    "art/v2/cuvette-vue-dessus.png",
+    "art/v2/toilettes-final.png",
+    "produire_v2.py : mouvement et contacts"
   ],
   "recraft": {
-    "generations": 0,
-    "cout_usd_reel": 0
+    "generations": 6,
+    "cout_usd_estime_journal": 0.225,
+    "retenus": [
+      "art/v2/caca.png",
+      "art/v2/rectum-propre.png",
+      "art/v2/toilettes.png"
+    ],
+    "essais_ecartes": [
+      "art/v2/rectum.png",
+      "art/v2/coupe.png",
+      "art/v2/coupe-propre.png"
+    ]
   },
   "voix": {
-    "fournisseur": "ElevenLabs",
-    "prises": 12,
-    "archetypes": [
-      "lascar",
-      "pere",
-      "patiente",
-      "mere"
-    ],
-    "cache": true
+    "prises_totales": 13,
+    "nouvelles_prises": 3,
+    "autres_prises": "cache existant"
   },
-  "verification": "Aucun appel au client Recraft effectué pour cet épisode. Les illustrations réemployées gardent leurs sources et les nouveaux calques sont produits par code."
+  "v1": "rejetée, conserver l’archive historique sans l’utiliser comme étalon"
 }

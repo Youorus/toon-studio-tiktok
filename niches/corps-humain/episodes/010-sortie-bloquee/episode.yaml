@@ -1,4 +1,4 @@
-titre: La sortie est bloquée
+titre: La sortie est bloquée — V2
 niche: corps-humain
 degrade_bas: false
 voix:
@@ -16,18 +16,24 @@ voix:
     stabilite: 0.46
 bruitages:
   toc:
-    fichier: episodes/006-antibioresistance-v3/sons/stop.wav
-    volume: 0.28
+    fichier: episodes/006-antibioresistance-v3/sons/clac.wav
+    volume: 0.32
   glisse:
     fichier: episodes/006-antibioresistance-v3/sons/glisse.wav
-    volume: 0.24
+    volume: 0.28
   ploc:
     fichier: episodes/006-antibioresistance/sons/ploc.wav
-    volume: 0.39
+    volume: 0.43
+  glissade:
+    fichier: sons/glissade.wav
+    volume: 0.26
+  boing:
+    fichier: episodes/006-antibioresistance-v3/sons/stop.wav
+    volume: 0.22
 plans:
 - id: sortie
   organe: Rectum
-  decor: art/rectum-corail.png
+  decor: art/v2/rectum-final.png
   transition: coupe
   zoom:
   - 1
@@ -35,35 +41,35 @@ plans:
   acteurs:
     policier:
       perso: personnages/policier
-      x: 262
-      y: 1230
+      x: 230
+      y: 1210
       echelle: 1.25
       regard:
       - 0.8
-      - 0
+      - 0.1
     caca:
-      perso: personnages/caca
-      x: 650
-      y: 1336
+      perso: personnages/caca-v2
+      x: 625
+      y: 1372
       echelle: 1.1
       regard:
       - -0.8
-      - 0
+      - -0.2
   mini_badges:
   - acteur: caca
-    texte: Selle
+    texte: CACA
     delai: 0.1
     duree: 1.65
     decalage:
     - 0
-    - -150
+    - -143
   - acteur: policier
-    texte: Sphincter
+    texte: SPHINCTER
     replique: 1
-    duree: 1.8
+    duree: 1.6
     decalage:
-    - -18
-    - -138
+    - -15
+    - -147
   repliques:
   - qui: caca
     dit: Hé ! Je dois sortir !
@@ -91,7 +97,7 @@ plans:
       toi.
     jeu: '[effort then incredulous, dry teasing, quick] Ah ouais… T’es dur comme du
       béton ! T’as attendu trop longtemps, toi.'
-    emotion: fatigue
+    emotion: inquiet
     pause: 0.12
   - qui: caca
     dit: J’ai séché sur place, chef !
@@ -105,7 +111,7 @@ plans:
     jeu: '[resigned, matter-of-fact, comic emphasis on rouge] Bon. Alerte rouge !
       Faut qu’elle voie qu’il y a un souci.'
     emotion: inquiet
-    pause: 0.34
+    pause: 1.35
   - qui: policier
     dit: Allez… Une dernière poussée !
     sous_titres: Allez… | Une dernière poussée !
@@ -114,20 +120,20 @@ plans:
     pause: 0.15
 - id: passage
   organe: Rectum
-  decor: art/passage-corail.png
+  decor: art/v2/coupe-final.png
   transition: coupe
   zoom:
   - 1
   - 1
   acteurs:
     caca:
-      perso: personnages/caca
-      x: 548
+      perso: personnages/caca-coupe-v2
+      x: 520
       y: 1120
-      echelle: 0.65
+      echelle: 0.66
       regard:
-      - 0
-      - 0
+      - 0.4
+      - 0.5
   repliques:
   - qui: caca
     dit: Hooop là !
@@ -135,29 +141,51 @@ plans:
     jeu: '[sudden relieved yelp, sliding down] Hooop là !'
     emotion: choque
     pause: 0.6
+- id: cuvette
+  decor: art/v2/cuvette-vue-dessus.png
+  transition: coupe
+  zoom:
+  - 1
+  - 1
+  acteurs:
+    caca:
+      perso: personnages/caca-coupe-v2
+      x: 555
+      y: 1290
+      echelle: 1.05
+      regard:
+      - 0.1
+      - -0.3
+  repliques:
+  - qui: lea
+    dit: Du sang ?!
+    sous_titres: Du sang ?!
+    jeu: '[sharply surprised, genuinely concerned, quick] Du sang ?!'
+    emotion: choque
+    pause: 0.55
 - id: toilettes
-  decor: art/toilettes.png
+  decor: art/v2/toilettes-final.png
   transition: coupe
   zoom:
   - 1
   - 1
   acteurs:
     lea:
-      perso: personnages/lea-aplats
-      x: 749
-      y: 1660
-      echelle: 1.02
+      perso: personnages/lea-debout-v2
+      x: 811
+      y: 1830
+      echelle: 1.62
       regard:
-      - -0.7
-      - 0.7
+      - -0.8
+      - 0.6
+      pose: question
   repliques:
   - qui: lea
-    dit: Du sang ?! Et pourquoi c’est aussi dur ? Ça fait mal quand ça sort… Je vais
+    dit: Et pourquoi c’est aussi dur ? Ça fait mal quand ça sort… Je vais consulter.
+    sous_titres: Et pourquoi c’est aussi dur ? | Ça fait mal quand ça sort… | Je vais
       consulter.
-    sous_titres: Du sang ?! | Et pourquoi c’est aussi dur ? | Ça fait mal quand ça
-      sort… | Je vais consulter.
-    jeu: '[surprised then concerned, natural spoken French, brisk] Du sang ?! Et pourquoi
-      c’est aussi dur ? Ça fait mal quand ça sort… Je vais consulter.'
+    jeu: '[concerned, natural spoken French, brisk] Et pourquoi c’est aussi dur ?
+      Ça fait mal quand ça sort… Je vais consulter.'
     emotion: inquiet
     pause: 0.18
 - id: cabinet
@@ -185,13 +213,13 @@ plans:
       - 0.5
   repliques:
   - qui: docteure
-    dit: 'Des selles dures peuvent irriter la zone et faire saigner. Le sang peut
-      avoir plusieurs causes : il faut consulter.'
-    sous_titres: 'Des selles dures peuvent irriter la zone | et faire saigner. | Le
-      sang peut avoir plusieurs causes : | il faut consulter.'
-    jeu: '[clear, caring, concise, conversational, stress consulter] Des selles dures
-      peuvent irriter la zone et faire saigner. Le sang peut avoir plusieurs causes
-      : il faut consulter.'
+    dit: 'Un caca trop dur peut irriter et faire saigner. Le sang peut avoir plusieurs
+      causes : il faut consulter.'
+    sous_titres: 'Un caca trop dur peut irriter | et faire saigner. | Le sang peut
+      avoir plusieurs causes : | il faut consulter.'
+    jeu: '[clear, caring, concise, conversational, stress consulter] Un caca trop
+      dur peut irriter et faire saigner. Le sang peut avoir plusieurs causes : il
+      faut consulter.'
     emotion: neutre
     pause: 0.15
   - qui: lea
